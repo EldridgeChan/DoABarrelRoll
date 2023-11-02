@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4c2be2c6202b04bbd6bc91721dd8bd, type: 3}
+  m_Name: GameScriptableObject
+  m_EditorClassIdentifier: 
+  BarrelRollMultiplier: 30
+  BarrelJumpFullChargeTime: 0.3
+  BarrelFullJumpForce: 600
+  BarrelJumpMaxDistance: 5.5
+  BarrelRollAnimateSpeedDivisor: 3000
+  BarrelPressedMinVelocity: -5
+  BarrelGroundCheckDistance: 1
+  BarrelMaxAngularVelocity: 1200
+  BarrelEmojiMaxOffsetDistance: 0.18
+  BarrelEmojiInertiaEffectivnessAVThreshold: 1000
+  BarrelEmojiInertiaMinEffectivness: 0.1
+  BarrelEmojiCentripetalForce: 0.5
+  BarrelEmojiMaxVelocity: 1
+  BarrelEmojiCounterForceEffectiveness: 0.1
+  BarrelEmojiInertiaEffectiveness: 1
+  BarrelEmojiGravity: 0.5
+  BarrelEmojiCentrifugalMaxAV: 300
+  BarrelEmojiMaxCentrifugalForce: 1
+  BarrelEmojiMinCentrifugalForce: -1
+  BarrelEmojiVelocityThreshold: 2
+  waterFloatingGravityScale: -0.5
+  waterCurrentAcceleration: 5
+  waterFloatingMaxVelocity: 3
+  waterCurrentMaxVelocity: 3
+  waterSinkMaxVelocity: -10
