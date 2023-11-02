@@ -72,7 +72,7 @@ public class BarrelControl : MonoBehaviour
         if (inWater)
         {
             BarrelRig.velocity += Vector2.right * GameManager.instance.GameScriptObj.waterCurrentAcceleration * Time.fixedDeltaTime;
-            barrelRig.velocity = new Vector2(Mathf.Clamp(barrelRig.velocity.x, float.MinValue, GameManager.instance.GameScriptObj.waterCurrentMaxVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.waterSinkMaxVelocity, GameManager.instance.GameScriptObj.waterFloatingMaxVelocity));
+            barrelRig.velocity = new Vector2(Mathf.Clamp(barrelRig.velocity.x, -GameManager.instance.GameScriptObj.waterCurrentMaxVelocity, GameManager.instance.GameScriptObj.waterCurrentMaxVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.waterSinkMaxVelocity, GameManager.instance.GameScriptObj.waterFloatingMaxVelocity));
         }
     }
 
