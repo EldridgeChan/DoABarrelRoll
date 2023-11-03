@@ -22,6 +22,8 @@ public class BarrelControl : MonoBehaviour
     private void Start()
     {
         if (!barrelRig) { barrelRig = GetComponent<Rigidbody2D>(); }
+        if (!barrelAnmt) { barrelAnmt = GetComponent<Animator>(); }
+        BarrelRig.AddForce(Vector2.right * GameManager.instance.GameScriptObj.BarrelKickForce, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

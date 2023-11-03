@@ -41,4 +41,6 @@ public class GameScriptableObject : ScriptableObject
     public float waterCurrentMaxVelocity = 5.0f;
     public float waterSinkMaxVelocity = 10.0f;
 
+    [Header("Animation Setting")]
+    public float BarrelKickForce = 50.0f;
 }

@@ -104,6 +104,24 @@ public class InputManager : MonoBehaviour
                 barrel.BarrelRig.angularVelocity = 0.0f;
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            if (testRespawns.Length > 7)
+            {
+                barrel.transform.position = testRespawns[7].position;
+                barrel.BarrelRig.velocity = Vector2.zero;
+                barrel.BarrelRig.angularVelocity = 0.0f;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            if (testRespawns.Length > 8)
+            {
+                barrel.transform.position = testRespawns[8].position;
+                barrel.BarrelRig.velocity = Vector2.zero;
+                barrel.BarrelRig.angularVelocity = 0.0f;
+            }
+        }
     }
 
     public Vector2 mouseWorldPos()

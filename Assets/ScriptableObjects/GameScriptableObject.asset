@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarrelRollMultiplier: 35
   BarrelJumpFullChargeTime: 0.35
-  BarrelFullJumpForce: 580
+  BarrelFullJumpForce: 600
   BarrelJumpMaxDistance: 5.5
   BarrelRollAnimateSpeedDivisor: 3000
   BarrelPressedMinVelocity: -5
@@ -34,6 +34,7 @@ MonoBehaviour:
   BarrelEmojiVelocityThreshold: 2
   waterFloatingGravityScale: -0.5
   waterCurrentAcceleration: 5
-  waterFloatingMaxVelocity: 3
-  waterCurrentMaxVelocity: 3
-  waterSinkMaxVelocity: -10
+  waterFloatingMaxVelocity: 2
+  waterCurrentMaxVelocity: 4
+  waterSinkMaxVelocity: -8
+  BarrelKickForce: 25
