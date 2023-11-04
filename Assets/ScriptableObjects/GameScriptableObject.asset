@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4c2be2c6202b04bbd6bc91721dd8bd, type: 3}
   m_Name: GameScriptableObject
   m_EditorClassIdentifier: 
-  BarrelRollMultiplier: 35
+  BarrelRollMultiplier: 45
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 600
   BarrelJumpMaxDistance: 5.5
