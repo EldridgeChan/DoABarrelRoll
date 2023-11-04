@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7535336724279874731}
-  - component: {fileID: 5160527943799690971}
   - component: {fileID: 4639703228995702826}
+  - component: {fileID: 5160527943799690971}
+  - component: {fileID: 699142404090707607}
+  - component: {fileID: 6729913280050359075}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,20 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5160527943799690971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4074291148084034441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d54e4a9e9968fe646bf07da5c97f85c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 0}
-  barrel: {fileID: 0}
 --- !u!114 &4639703228995702826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +48,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputMan: {fileID: 5160527943799690971}
+  loadMan: {fileID: 699142404090707607}
+  saveMan: {fileID: 6729913280050359075}
   gameScriptObj: {fileID: 11400000, guid: 6db358195a5af0a4692c91b8d7572ce0, type: 2}
+--- !u!114 &5160527943799690971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074291148084034441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54e4a9e9968fe646bf07da5c97f85c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &699142404090707607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074291148084034441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6eac429cee83d4995f8a6a538c5ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6729913280050359075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074291148084034441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6913728120875de409582f4b4cf70a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlipGame: 0

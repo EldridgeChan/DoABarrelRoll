@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField]
-    private Transform barrelTrans;
 
     void Update()
     {
-        transform.position = barrelTrans.position + Vector3.back * 10.0f;
+        if (GameManager.instance.GameCon)
+        {
+            transform.position = GameManager.instance.GameCon.BarrelControl.transform.position + Vector3.back * 10.0f;
+        }
     }
 }
