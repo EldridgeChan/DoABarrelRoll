@@ -5,17 +5,15 @@ using UnityEngine;
 public class EmojiBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private BarrelControl barrelCon;
-    [SerializeField]
     private Rigidbody2D barrelRig;
     [SerializeField]
     private Animator emojiAnmt;
+    private bool isEmojiDucking = false;
+    private bool isEmojiStanding = false;
     private Vector2 mockVelocity = Vector2.zero;
     private Vector2 barrelPreVelocity = Vector2.zero;
     private float radiusT = 0.0f;
 
-    [SerializeField]
-    private bool lockRotation = false;
     private void Start()
     {
         barrelPreVelocity = barrelRig.velocity;
@@ -23,17 +21,27 @@ public class EmojiBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (lockRotation)
-        {
-            transform.rotation = Quaternion.identity;
-        }
         EmojiBehave();
     }
 
     private void EmojiBehave()
     {
-        InertiaMethod();
-        CentrifugalMethod();
+        if (!GameManager.instance.GameCon.onMenu)
+        {
+            InertiaMethod();
+            CentrifugalMethod();
+        }
+        else if (isEmojiDucking)
+        {
+            EmojiMove();
+            mockVelocity += GameManager.instance.GameScriptObj.BarrelEmojiDuckAcceleration * Time.fixedDeltaTime * Vector2.down;
+        }
+        else if (isEmojiStanding)
+        {
+            Vector2 emojiStandOrigin = barrelRig.position + Vector2.up * GameManager.instance.GameScriptObj.BarrelStandYOffset;
+            Vector2 mouseVector = GameManager.instance.InputMan.MouseWorldPos() - emojiStandOrigin;
+            transform.position = Vector2.Lerp(emojiStandOrigin, emojiStandOrigin + mouseVector.normalized * GameManager.instance.GameScriptObj.BarrelEmojiMaxOffsetDistance, Mathf.Clamp(mouseVector.magnitude, 0.0f, GameManager.instance.GameScriptObj.BarrelJumpMaxDistance) / GameManager.instance.GameScriptObj.BarrelJumpMaxDistance);
+        }
     }
 
     private void InertiaMethod()
@@ -91,6 +99,41 @@ public class EmojiBehaviour : MonoBehaviour
     {
         return vector.magnitude > max ? vector.normalized * max : vector;
     }
+
+    public void BarrelEmojiStand()
+    {
+        isEmojiDucking = true;
+        Invoke(nameof(EmojiStand), GameManager.instance.GameScriptObj.BarrelEmojiStandTimeDelay);
+    }
+
+    private void EmojiStand()
+    {
+        emojiAnmt.enabled = true;
+        emojiAnmt.SetTrigger("EmojiStand");
+        isEmojiDucking = false;
+        Invoke(nameof(EmojiStanding), GameManager.instance.GameScriptObj.BarrelEmojiStandMoveTime);
+    }
+
+    private void EmojiStanding()
+    {
+        isEmojiStanding = true;
+        emojiAnmt.enabled = false;
+    }
+    public void BarrelEmojiFall()
+    {
+        CancelInvoke(nameof(EmojiStanding));
+        isEmojiStanding = false;
+        emojiAnmt.enabled = true;
+        emojiAnmt.SetTrigger("EmojiFall");
+        Invoke(nameof(EmojiFall), GameManager.instance.GameScriptObj.BarrelFallGainControlTime);
+    }
+
+    private void EmojiFall()
+    {
+        emojiAnmt.enabled = false;
+        mockVelocity = GameManager.instance.GameScriptObj.BarrelEmojiFallVelocity * Vector2.down;
+    }
+
 
     private void EmojiFacesTree()
     {

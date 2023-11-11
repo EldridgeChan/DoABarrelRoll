@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4c2be2c6202b04bbd6bc91721dd8bd, type: 3}
   m_Name: GameScriptableObject
   m_EditorClassIdentifier: 
-  BarrelRollMultiplier: 45
+  CameraOnMenuMaxLerpT: 0.5
+  CameraMaxLerpTime: 0.5
+  BarrelRollMultiplier: 55
   BarrelJumpFullChargeTime: 0.35
-  BarrelFullJumpForce: 600
-  BarrelJumpMaxDistance: 5.5
-  BarrelRollAnimateSpeedDivisor: 3000
-  BarrelPressedMinVelocity: -5
-  BarrelGroundCheckDistance: 1
+  BarrelFullJumpForce: 800
+  BarrelJumpMaxDistance: 5
   BarrelMaxAngularVelocity: 1200
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 1000
@@ -26,15 +25,32 @@ MonoBehaviour:
   BarrelEmojiCentripetalForce: 0.5
   BarrelEmojiMaxVelocity: 1
   BarrelEmojiCounterForceEffectiveness: 0.1
-  BarrelEmojiInertiaEffectiveness: 1
+  BarrelEmojiInertiaEffectiveness: 2
   BarrelEmojiGravity: 0.5
   BarrelEmojiCentrifugalMaxAV: 300
   BarrelEmojiMaxCentrifugalForce: 1
   BarrelEmojiMinCentrifugalForce: -1
   BarrelEmojiVelocityThreshold: 2
   waterFloatingGravityScale: -0.5
+  waterOffDefaultGravityScale: 1.8
   waterCurrentAcceleration: 5
   waterFloatingMaxVelocity: 2
   waterCurrentMaxVelocity: 4
   waterSinkMaxVelocity: -8
+  BarrelPressedMinVelocity: -5
+  BarrelRollAnimateSpeedDivisor: 3000
+  BarrelGroundCheckDistance: 1
   BarrelKickForce: 25
+  BarrelStandYOffset: 0.5
+  BarrelStandMaxVelocity: 1
+  BarrelStandMaxAVelocity: 50
+  BarrelEmojiDuckAcceleration: 10
+  BarrelEmojiFallVelocity: 3
+  BarrelEmojiTurnDuration: 0.5
+  BarrelEmojiStandTimeDelay: 0.5
+  BarrelEmojiStandMoveTime: 1
+  BarrelFallGainControlTime: 1.005
+  BarrelErrorTexts:
+  - Not On Solid Ground
+  - Move Too Fast
+  - Spin Too Fast

@@ -5,14 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameScriptableObject", menuName = "ScriptableObjects/Game")]
 public class GameScriptableObject : ScriptableObject
 {
+    [Header("Camera Behaviour Setting")]
+    public float CameraOnMenuMaxLerpT = 0.5f;
+    public float CameraMaxLerpTime = 0.5f;
+
     [Header("Barrel Behaviour Setting")]
     public float BarrelRollMultiplier = 1.0f;
     public float BarrelJumpFullChargeTime = 1.0f;
     public float BarrelFullJumpForce = 100.0f;
     public float BarrelJumpMaxDistance = 5.0f;
-    public float BarrelRollAnimateSpeedDivisor = 1000.0f;
-    public float BarrelPressedMinVelocity = -5.0f;
-    public float BarrelGroundCheckDistance = 1.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
 
     [Header("Barrel Emoji Setting")]
@@ -36,11 +37,26 @@ public class GameScriptableObject : ScriptableObject
 
     [Header("Water Tilemap Setting")]
     public float waterFloatingGravityScale = -1.0f;
+    public float waterOffDefaultGravityScale = 2.0f;
     public float waterCurrentAcceleration = 1.0f;
     public float waterFloatingMaxVelocity = 3.0f;
     public float waterCurrentMaxVelocity = 5.0f;
     public float waterSinkMaxVelocity = 10.0f;
 
     [Header("Animation Setting")]
+    public float BarrelPressedMinVelocity = -5.0f;
+    public float BarrelRollAnimateSpeedDivisor = 1000.0f;
+    public float BarrelGroundCheckDistance = 1.0f;
     public float BarrelKickForce = 50.0f;
+    public float BarrelStandYOffset = 0.5f;
+    public float BarrelStandMaxVelocity = 1.0f;
+    public float BarrelStandMaxAVelocity = 2.0f;
+    public float BarrelEmojiDuckAcceleration = 5.0f;
+    public float BarrelEmojiFallVelocity = 3.0f;
+    public float BarrelEmojiTurnDuration = 0.5f;
+    public float BarrelEmojiStandTimeDelay = 0.5f;
+    public float BarrelEmojiStandMoveTime = 0.5f;
+    public float BarrelFallGainControlTime = 1.0f;
+    public float BarrelStandFallCoolDown = 1.0f;
+    public string[] BarrelErrorTexts;
 }

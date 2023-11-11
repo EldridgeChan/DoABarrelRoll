@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class BarrelControl : MonoBehaviour
 {
@@ -13,9 +13,20 @@ public class BarrelControl : MonoBehaviour
     private Animator barrelParentAnmt;
     [SerializeField]
     private SpriteRenderer barrelRend;
+    [SerializeField]
+    private EmojiBehaviour emojiBehave;
+    [SerializeField]
+    private Animator barrelErrorTextAnmt;
+    [SerializeField]
+    private Transform barrelErrorTextCanvasTrans;
+    [SerializeField]
+    private TMP_Text barrelErrorText;
     private bool touchedGround = false;
-    private float jumpChargeT = 0.0f;
+    private bool onGround = false;
     private bool inWater = false;
+    private bool emojiTurning = false;
+    private float jumpChargeT = 0.0f;
+    private Quaternion orgRotation = Quaternion.identity;
 
     public Rigidbody2D BarrelRig { get { return barrelRig; } }
 
@@ -28,11 +39,13 @@ public class BarrelControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Ground") && 
-            barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity &&
-            IsHitGround())
+        if (collision.transform.CompareTag("Ground"))
         {
-            barrelParentAnmt.SetTrigger("BarrelGrounded");
+            onGround = true;
+            if (barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity && IsHitGround())
+            {
+                barrelParentAnmt.SetTrigger("BarrelGrounded");
+            }
         }
         if (collision.transform.CompareTag("Water"))
         {
@@ -46,36 +59,59 @@ public class BarrelControl : MonoBehaviour
         {
             IntoWater(false);
         }
+        if (collision.transform.CompareTag("Ground"))
+        {
+            onGround = false;
+        }
+
     }
 
     private void Update()
     {
         barrelParentAnmt.transform.rotation = Quaternion.identity;
-        jumpChargeT = Mathf.Clamp01(jumpChargeT - Time.deltaTime / GameManager.instance.GameScriptObj.BarrelJumpFullChargeTime);
+        barrelErrorTextCanvasTrans.SetPositionAndRotation(transform.position + Vector3.up * 1.2f, Quaternion.identity);
+        if (!emojiTurning)
+        {
+            jumpChargeT = Mathf.Clamp01(jumpChargeT - Time.deltaTime / GameManager.instance.GameScriptObj.BarrelJumpFullChargeTime);
+        }
+        else
+        {
+            jumpChargeT = Mathf.Clamp01(jumpChargeT + Time.deltaTime / GameManager.instance.GameScriptObj.BarrelEmojiTurnDuration);
+            transform.rotation = Quaternion.Lerp(orgRotation, Quaternion.identity, jumpChargeT);
+            if (jumpChargeT >= 1.0f)
+            {
+                emojiTurning = false;
+            }
+        }
+        
     }
 
     private void FixedUpdate()
     {
+        BarrelUpdate();
+        WaterFloatAndCurrent();
+    }
+
+    private void BarrelUpdate()
+    {
+        if (GameManager.instance.GameCon.onMenu) { return; }
         barrelRend.flipX = barrelRig.velocity.x < 0;
         barrelRig.angularVelocity = (barrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity), -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
         barrelAnmt.speed = Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.BarrelRollAnimateSpeedDivisor;
-
-        WaterFloatAndCurrent();
     }
 
     private void IntoWater(bool tf)
     {
-        BarrelRig.gravityScale = tf ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : 1.0f;
+        BarrelRig.gravityScale = tf ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale;
         inWater = tf;
     }
 
     private void WaterFloatAndCurrent()
     {
-        if (inWater)
-        {
-            BarrelRig.velocity += (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.waterCurrentAcceleration * Time.fixedDeltaTime * Vector2.right;
-            barrelRig.velocity = new Vector2(Mathf.Clamp(barrelRig.velocity.x, -GameManager.instance.GameScriptObj.waterCurrentMaxVelocity, GameManager.instance.GameScriptObj.waterCurrentMaxVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.waterSinkMaxVelocity, GameManager.instance.GameScriptObj.waterFloatingMaxVelocity));
-        }
+        if (!inWater) { return; }
+
+        BarrelRig.velocity += (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.waterCurrentAcceleration * Time.fixedDeltaTime * Vector2.right;
+        barrelRig.velocity = new Vector2(Mathf.Clamp(barrelRig.velocity.x, -GameManager.instance.GameScriptObj.waterCurrentMaxVelocity, GameManager.instance.GameScriptObj.waterCurrentMaxVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.waterSinkMaxVelocity, GameManager.instance.GameScriptObj.waterFloatingMaxVelocity));
     }
 
     private bool IsHitGround()
@@ -106,6 +142,7 @@ public class BarrelControl : MonoBehaviour
         if (jumpChargeT <= 0.0f && touchedGround)
         {
             barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir - (Vector2)transform.position).normalized);
+            //Debug.Log(MousePosMagnitudeMultiplier(dir));
             jumpChargeT = 1.0f;
             barrelParentAnmt.SetTrigger("BarrelJump");
         }
@@ -119,5 +156,66 @@ public class BarrelControl : MonoBehaviour
     public void SetTouchedGround(bool tF)
     {
         touchedGround = tF;
+    }
+
+    public void ControlBarrelStand()
+    {
+        int errorCode = BarrelStandErrorCode();
+        if (errorCode != -1)
+        {
+            barrelErrorText.text = GameManager.instance.GameScriptObj.BarrelErrorTexts[errorCode];
+            barrelErrorTextAnmt.SetTrigger("ShowText");
+            return;
+        }
+        GameManager.instance.GameCon.OnOffLevelCanvas(true);
+        jumpChargeT = 0.0f;
+        orgRotation = transform.rotation;
+        GameManager.instance.GameCon.onMenu = true;
+        BarrelRig.bodyType = RigidbodyType2D.Kinematic;
+        BarrelRig.velocity = Vector2.zero;
+        BarrelRig.angularVelocity = 0.0f;
+        emojiTurning = true;
+        Invoke(nameof(BarrelStand), GameManager.instance.GameScriptObj.BarrelEmojiTurnDuration);
+    }
+
+    public void BarrelStand()
+    {
+        barrelAnmt.speed = 1.0f;
+        emojiBehave.BarrelEmojiStand();
+        barrelAnmt.SetTrigger("BarrelStand");
+    }
+
+    private int BarrelStandErrorCode()
+    {
+        if (!onGround)
+        {
+            return 0;
+        }
+        if (BarrelRig.velocity.magnitude > GameManager.instance.GameScriptObj.BarrelStandMaxVelocity)
+        {
+            return 1;
+        }
+        if (Mathf.Abs(BarrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelStandMaxAVelocity)
+        {
+            return 2;
+        }
+        return -1;
+    }
+
+    public void BarrelFall()
+    {
+        GameManager.instance.GameCon.OnOffLevelCanvas(false);
+        barrelAnmt.SetTrigger("BarrelFall");
+        emojiBehave.BarrelEmojiFall();
+        Invoke(nameof(BarrelGainControl), GameManager.instance.GameScriptObj.BarrelFallGainControlTime);
+    }
+
+    public void BarrelGainControl()
+    {
+        BarrelRig.bodyType = RigidbodyType2D.Dynamic;
+        BarrelRig.velocity = Vector2.zero;
+        BarrelRig.angularVelocity = 0.0f;
+        barrelAnmt.speed = 0.0f;
+        GameManager.instance.GameCon.onMenu = false;
     }
 }

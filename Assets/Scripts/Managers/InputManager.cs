@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         {
             if (GameManager.instance.GameCon)
             {
-                GameManager.instance.GameCon.BarrelControl.BarrelRoll(MainCam.ScreenToWorldPoint(mousePos), MainCam.ScreenToWorldPoint(Input.mousePosition));
+                GameManager.instance.GameCon.BarrelRoll(MainCam.ScreenToWorldPoint(mousePos), MainCam.ScreenToWorldPoint(Input.mousePosition));
             }
         }
         mousePos = Input.mousePosition;
@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour
             //barrel.jumpCharge();
             if (GameManager.instance.GameCon)
             {
-                GameManager.instance.GameCon.BarrelControl.BarrelJump(MouseWorldPos());
+                GameManager.instance.GameCon.BarrelJump(MouseWorldPos());
             }
         }
 
@@ -42,7 +42,8 @@ public class InputManager : MonoBehaviour
         {
             if (GameManager.instance.GameCon)
             {
-                GameManager.instance.LoadMan.LoadScene(0);
+                //GameManager.instance.LoadMan.LoadScene(0);
+                GameManager.instance.GameCon.TryBarrelStand();
             }
         }
 

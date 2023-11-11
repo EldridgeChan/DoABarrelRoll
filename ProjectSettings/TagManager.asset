@@ -55,6 +55,12 @@ TagManager:
   - name: Emoji
     uniqueID: 2967914419
     locked: 0
+  - name: PirateShip
+    uniqueID: 120645553
+    locked: 0
   - name: WaterTilemap
     uniqueID: 3790803337
+    locked: 0
+  - name: UI
+    uniqueID: 2810877125
     locked: 0

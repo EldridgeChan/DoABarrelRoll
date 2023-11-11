@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer arrowRend;
     [SerializeField]
+    private Canvas LevelCanvas;
+    [SerializeField]
     private Transform[] testRespawns;
 
     [SerializeField]
@@ -18,6 +20,10 @@ public class GameController : MonoBehaviour
     private Transform[] flipScaleTrans;
     [SerializeField]
     private Collider2D[] tilemapColids;
+
+    [HideInInspector]
+    public bool onMenu = false;
+    private bool canOnOff = true;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +49,45 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void TryBarrelStand()
+    {
+        if (!canOnOff) { return; }
+        canOnOff = false;
+        Invoke(nameof(EnableStandFall), GameManager.instance.GameScriptObj.BarrelStandFallCoolDown);
+
+        if (!onMenu)
+        {
+            barrelControl.ControlBarrelStand();
+        }
+        else
+        {
+            barrelControl.BarrelFall();
+        }
+    }
+
+    public void EnableStandFall()
+    {
+        canOnOff = true;
+    }
+
+
+    public void BarrelJump(Vector2 dir)
+    {
+        if (onMenu) { return; }
+        barrelControl.BarrelJump(dir);
+    }
+
+    public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
+    {
+        if (onMenu) { return; }
+        barrelControl.BarrelRoll(prePos, nowPos);
+    }
+
+    public Vector3 getBarrelPosition()
+    {
+        return barrelControl.transform.position;
+    }
+
     private void MirrorWorld(bool tf)
     {
         foreach (Transform trans in flipPosTrans)
@@ -63,5 +108,10 @@ public class GameController : MonoBehaviour
         {
             colid.enabled = true;
         }
+    }
+
+    public void OnOffLevelCanvas(bool tf)
+    {
+        LevelCanvas.gameObject.SetActive(tf);
     }
 }

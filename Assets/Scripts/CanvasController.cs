@@ -12,8 +12,8 @@ public class CanvasController : MonoBehaviour
 
     private void Start()
     {
-        mapFilpToggle.isOn = GameManager.instance.SaveMan.mirroredTilemap;
-        arrowShowToggle.isOn = GameManager.instance.SaveMan.showJumpGuide;
+        if (mapFilpToggle) { mapFilpToggle.isOn = GameManager.instance.SaveMan.mirroredTilemap; }
+        if (arrowShowToggle) { arrowShowToggle.isOn = GameManager.instance.SaveMan.showJumpGuide; }
     }
 
     public void GameStart()
@@ -24,6 +24,16 @@ public class CanvasController : MonoBehaviour
     public void GameExit()
     {
         Application.Quit();
+    }
+
+    public void BackMainMenu()
+    {
+        GameManager.instance.LoadMan.LoadScene(0);
+    }
+
+    public void ContinueGame()
+    {
+        GameManager.instance.GameCon.TryBarrelStand();
     }
 
     public void MapFlipToggled(bool tf)
