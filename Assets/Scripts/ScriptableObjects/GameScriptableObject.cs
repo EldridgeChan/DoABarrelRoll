@@ -16,20 +16,19 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelJumpMaxDistance = 5.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
 
-    [Header("Barrel Emoji Setting")]
     [Header("Emoji Basic Setting")]
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
     public float BarrelEmojiInertiaEffectivnessAVThreshold = 100.0f;
     public float BarrelEmojiInertiaMinEffectivness = 0.0f;
 
-    [Header("Barrel Inertia Method Setting")]
+    [Header("Emoji Inertia Method Setting")]
     public float BarrelEmojiCentripetalForce = 100.0f;
     public float BarrelEmojiMaxVelocity = 10.0f;
     public float BarrelEmojiCounterForceEffectiveness = 1.0f;
     public float BarrelEmojiInertiaEffectiveness = 1.0f;
     public float BarrelEmojiGravity = 1.0f;
 
-    [Header("Barrel Centrifugal Method Setting")]
+    [Header("Emoji Centrifugal Method Setting")]
     public float BarrelEmojiCentrifugalMaxAV = 300.0f;
     public float BarrelEmojiMaxCentrifugalForce = 1.0f;
     public float BarrelEmojiMinCentrifugalForce = -1.0f;
@@ -43,7 +42,7 @@ public class GameScriptableObject : ScriptableObject
     public float waterCurrentMaxVelocity = 5.0f;
     public float waterSinkMaxVelocity = 10.0f;
 
-    [Header("Animation Setting")]
+    [Header("Barrel Animation Setting")]
     public float BarrelPressedMinVelocity = -5.0f;
     public float BarrelRollAnimateSpeedDivisor = 1000.0f;
     public float BarrelGroundCheckDistance = 1.0f;
@@ -51,12 +50,20 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelStandYOffset = 0.5f;
     public float BarrelStandMaxVelocity = 1.0f;
     public float BarrelStandMaxAVelocity = 2.0f;
+    public float BarrelFallGainControlTime = 1.0f;
+    public float BarrelStandFallCoolDown = 1.0f;
+    public string[] BarrelErrorTexts;
+
+    [Header("Emoji Animation Setting")]
     public float BarrelEmojiDuckAcceleration = 5.0f;
     public float BarrelEmojiFallVelocity = 3.0f;
     public float BarrelEmojiTurnDuration = 0.5f;
     public float BarrelEmojiStandTimeDelay = 0.5f;
     public float BarrelEmojiStandMoveTime = 0.5f;
-    public float BarrelFallGainControlTime = 1.0f;
-    public float BarrelStandFallCoolDown = 1.0f;
-    public string[] BarrelErrorTexts;
+
+    [Header("Jump Dust Animation Setting")]
+    public float JumpDustYPositionOffset = -1.3f;
+    public float JumpDustDiableTimeDelay = 1.1f;
+    public float JumpDustSmallJumpT = 0.3f;
+    public float JumpDustLargeJumpT = 0.9f;
 }

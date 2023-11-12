@@ -44,13 +44,18 @@ MonoBehaviour:
   BarrelStandYOffset: 0.5
   BarrelStandMaxVelocity: 1
   BarrelStandMaxAVelocity: 50
+  BarrelFallGainControlTime: 1.005
+  BarrelStandFallCoolDown: 1.1
+  BarrelErrorTexts:
+  - Not On Solid Ground
+  - Move Too Fast
+  - Spin Too Fast
   BarrelEmojiDuckAcceleration: 10
   BarrelEmojiFallVelocity: 3
   BarrelEmojiTurnDuration: 0.5
   BarrelEmojiStandTimeDelay: 0.5
   BarrelEmojiStandMoveTime: 1
-  BarrelFallGainControlTime: 1.005
-  BarrelErrorTexts:
-  - Not On Solid Ground
-  - Move Too Fast
-  - Spin Too Fast
+  JumpDustYPositionOffset: 0.13
+  JumpDustDiableTimeDelay: 1.1
+  JumpDustSmallJumpT: 0.3
+  JumpDustLargeJumpT: 0.9

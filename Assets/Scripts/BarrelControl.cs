@@ -145,6 +145,33 @@ public class BarrelControl : MonoBehaviour
             //Debug.Log(MousePosMagnitudeMultiplier(dir));
             jumpChargeT = 1.0f;
             barrelParentAnmt.SetTrigger("BarrelJump");
+            BarrelJumpDust(dir);
+        }
+    }
+
+    private void BarrelJumpDust(Vector2 dir)
+    {
+        if (!GameManager.instance.GameCon) 
+        {
+            Debug.Log("ERROR: Game Controller Null Exception");
+            return; 
+        }
+        GameManager.instance.GameCon.DisplayJumpDust(BarrelJumpLevel(MousePosMagnitudeMultiplier(dir)));
+    }
+
+    private int BarrelJumpLevel(float jumpT)
+    {
+        if (jumpT < GameManager.instance.GameScriptObj.JumpDustSmallJumpT)
+        {
+            return 0;
+        }
+        else if (jumpT < GameManager.instance.GameScriptObj.JumpDustLargeJumpT)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
         }
     }
 

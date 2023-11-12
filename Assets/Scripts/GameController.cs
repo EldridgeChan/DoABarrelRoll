@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Component References")]
     [SerializeField]
     private BarrelControl barrelControl;
-    public BarrelControl BarrelControl { get { return barrelControl; } }
     [SerializeField]
     private SpriteRenderer arrowRend;
     [SerializeField]
     private Canvas LevelCanvas;
-    [SerializeField]
-    private Transform[] testRespawns;
 
+    [Header("Mirror Level References")]
     [SerializeField]
     private Transform[] flipPosTrans;
     [SerializeField]
@@ -21,9 +20,20 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Collider2D[] tilemapColids;
 
+    [Header("Menu Function Fields")]
     [HideInInspector]
     public bool onMenu = false;
     private bool canOnOff = true;
+
+    [Header("Jump Dust Fields")]
+    [SerializeField]
+    private JumpDustBehaviour[] jumpDustBehaves;
+    private int jumpDustIndex = 0;
+
+    [Header("Testing Fields")]
+    [SerializeField]
+    private Transform[] testRespawns;
+
 
     // Start is called before the first frame update
     void Start()
@@ -113,5 +123,11 @@ public class GameController : MonoBehaviour
     public void OnOffLevelCanvas(bool tf)
     {
         LevelCanvas.gameObject.SetActive(tf);
+    }
+
+    public void DisplayJumpDust(int jumpLevel)
+    {
+        jumpDustBehaves[jumpDustIndex].DisplayJumpDust(barrelControl, GameManager.instance.InputMan.MouseWorldPos(), jumpLevel);
+        jumpDustIndex = (jumpDustIndex + 1) % jumpDustBehaves.Length;
     }
 }
