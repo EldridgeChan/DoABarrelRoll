@@ -30,6 +30,11 @@ public class GameController : MonoBehaviour
     private JumpDustBehaviour[] jumpDustBehaves;
     private int jumpDustIndex = 0;
 
+    [Header("Roll Dust Fields")]
+    [SerializeField]
+    private RollDustBehaviour[] rollDustBehaves;
+    private int rollDustIndex = 0;
+
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
@@ -129,5 +134,21 @@ public class GameController : MonoBehaviour
     {
         jumpDustBehaves[jumpDustIndex].DisplayJumpDust(barrelControl, GameManager.instance.InputMan.MouseWorldPos(), jumpLevel);
         jumpDustIndex = (jumpDustIndex + 1) % jumpDustBehaves.Length;
+    }
+
+    public void ActivateRollDust(ContactPoint2D contact, float spinSpeed)
+    {
+        rollDustBehaves[rollDustIndex].ActivateRollDust(contact, spinSpeed);
+    }
+
+    public void RollDustActive(ContactPoint2D contact, float spinSpeed)
+    {
+        rollDustBehaves[rollDustIndex].RollDustActive(contact, spinSpeed);
+    }
+
+    public void DeactivateRollDust()
+    {
+        rollDustBehaves[rollDustIndex].DeactivateRollDust();
+        rollDustIndex = (rollDustIndex + 1) % rollDustBehaves.Length;
     }
 }

@@ -15,7 +15,7 @@ public class BarrelJump : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, barrelCon.ToRoundAngle(GameManager.instance.InputMan.MouseWorldPos() - (Vector2)transform.position));
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, BarrelControl.ToRoundAngle(GameManager.instance.InputMan.MouseWorldPos() - (Vector2)transform.position));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

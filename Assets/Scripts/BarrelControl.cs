@@ -26,6 +26,8 @@ public class BarrelControl : MonoBehaviour
     private bool inWater = false;
     private bool emojiTurning = false;
     private float jumpChargeT = 0.0f;
+    private int groundCount = 0;
+    private float pastAngularVelocity = 0.0f;
     private Quaternion orgRotation = Quaternion.identity;
 
     public Rigidbody2D BarrelRig { get { return barrelRig; } }
@@ -35,6 +37,36 @@ public class BarrelControl : MonoBehaviour
         if (!barrelRig) { barrelRig = GetComponent<Rigidbody2D>(); }
         if (!barrelAnmt) { barrelAnmt = GetComponent<Animator>(); }
         BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.transform.CompareTag("Ground")) { return; }
+        if (groundCount <= 0)
+        {
+            GameManager.instance.GameCon.ActivateRollDust(collision.GetContact(0), barrelRig.angularVelocity);
+        }
+        groundCount++;
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!collision.transform.CompareTag("Ground")) { return; }
+        GameManager.instance.GameCon.RollDustActive(collision.GetContact(0), barrelRig.angularVelocity);
+        if (pastAngularVelocity * barrelRig.angularVelocity < 0.0f)
+        {
+            GameManager.instance.GameCon.DeactivateRollDust();
+            GameManager.instance.GameCon.ActivateRollDust(collision.GetContact(0), barrelRig.angularVelocity);
+        }
+        pastAngularVelocity = barrelRig.angularVelocity;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!collision.transform.CompareTag("Ground")) { return; }
+        GameManager.instance.GameCon.DeactivateRollDust();
+        groundCount--;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -127,7 +159,7 @@ public class BarrelControl : MonoBehaviour
         barrelRig.AddTorque(dir * magnitude * GameManager.instance.GameScriptObj.BarrelRollMultiplier * Mathf.Deg2Rad * barrelRig.inertia);
     }
 
-    public float ToRoundAngle(Vector2 v)
+    static public float ToRoundAngle(Vector2 v)
     {
         return (360.0f + (v.y < 0 ? -1.0f : 1.0f) * Vector2.Angle(Vector2.right, v)) % 360.0f;
     }
