@@ -20,6 +20,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
     public float BarrelEmojiInertiaEffectivnessAVThreshold = 100.0f;
     public float BarrelEmojiInertiaMinEffectivness = 0.0f;
+    public Sprite[] EmojiTypes;
 
     [Header("Emoji Inertia Method Setting")]
     public float BarrelEmojiCentripetalForce = 100.0f;
@@ -60,6 +61,11 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiTurnDuration = 0.5f;
     public float BarrelEmojiStandTimeDelay = 0.5f;
     public float BarrelEmojiStandMoveTime = 0.5f;
+    public float BarrelEmojiFastSpinDizzyTime = 3.0f;
+    public float BarrelEmojiFastSpinDisgustedTime = 5.0f;
+    public float BarrelEmojiFallBackThreshold = 10.0f;
+    public float BarrelEmojiClimbThreshold = 3.0f;
+    public float BarrelEmojiInjuredTime = 1.0f;
 
     [Header("Jump Dust Animation Setting")]
     public float JumpDustYPositionOffset = -1.3f;

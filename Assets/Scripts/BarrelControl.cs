@@ -21,6 +21,8 @@ public class BarrelControl : MonoBehaviour
     private Transform barrelErrorTextCanvasTrans;
     [SerializeField]
     private TMP_Text barrelErrorText;
+    [SerializeField]
+    private EmojiTypeController emojiTypeCon;
     private bool touchedGround = false;
     private bool onGround = false;
     private bool inWater = false;
@@ -36,6 +38,7 @@ public class BarrelControl : MonoBehaviour
     {
         if (!barrelRig) { barrelRig = GetComponent<Rigidbody2D>(); }
         if (!barrelAnmt) { barrelAnmt = GetComponent<Animator>(); }
+        barrelRig.gravityScale = GameManager.instance.GameScriptObj.waterOffDefaultGravityScale;
         BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 
