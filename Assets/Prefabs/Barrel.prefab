@@ -251,6 +251,8 @@ GameObject:
   - component: {fileID: 1118621845606890341}
   - component: {fileID: 5722869736107421788}
   - component: {fileID: 763801508154174345}
+  - component: {fileID: 1329789312137716440}
+  - component: {fileID: 6229781150176956618}
   m_Layer: 0
   m_Name: Emoji
   m_TagString: Untagged
@@ -338,6 +340,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrelRig: {fileID: 1610591480183115621}
+  emojiTypeCon: {fileID: 6229781150176956618}
+  emojiAnmt: {fileID: 1329789312137716440}
+--- !u!95 &1329789312137716440
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546706621950653071}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 310de95df2d25e04f8028070707be067, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6229781150176956618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546706621950653071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85faa9d5b0213d4e85f5957ac6e35d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emojiRend: {fileID: 5722869736107421788}
 --- !u!1 &3184222854031718127
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +450,7 @@ SpriteRenderer:
   m_SortingLayerID: 1612920107
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 88866328, guid: 3f014f4b41b12a942adc16c1a11758be, type: 3}
+  m_Sprite: {fileID: -803258674, guid: 49fd2bb61cf6fb44694130ecdb96bc94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -699,7 +737,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1.8
   m_Material: {fileID: 6200000, guid: d175fb8f840c7a24ba6cc650daf21f60, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -731,6 +769,7 @@ MonoBehaviour:
   barrelErrorTextAnmt: {fileID: 8542101625698441338}
   barrelErrorTextCanvasTrans: {fileID: 423432925125402600}
   barrelErrorText: {fileID: 3617558390162137735}
+  emojiTypeCon: {fileID: 6229781150176956618}
 --- !u!1 &7911646717143450767
 GameObject:
   m_ObjectHideFlags: 0

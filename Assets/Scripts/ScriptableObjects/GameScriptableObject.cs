@@ -61,11 +61,15 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiTurnDuration = 0.5f;
     public float BarrelEmojiStandTimeDelay = 0.5f;
     public float BarrelEmojiStandMoveTime = 0.5f;
+    public float BarrelEmojiFastSpinAVThreshold = 100.0f;
     public float BarrelEmojiFastSpinDizzyTime = 3.0f;
     public float BarrelEmojiFastSpinDisgustedTime = 5.0f;
     public float BarrelEmojiFallBackThreshold = 10.0f;
-    public float BarrelEmojiClimbThreshold = 3.0f;
+    public float BarrelEmojiClimbMinYVelocity = 0.1f;
+    public float BarrelEmojiHitWallVelocityThreshold = 5.0f;
+    public float BarrelEmojiFallVelocityThreshold = -5.0f;
     public float BarrelEmojiInjuredTime = 1.0f;
+    public float BarrelEmojiBackNormalTime = 10.0f;
 
     [Header("Jump Dust Animation Setting")]
     public float JumpDustYPositionOffset = -1.3f;

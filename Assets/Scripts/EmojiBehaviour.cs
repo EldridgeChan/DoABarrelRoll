@@ -7,6 +7,8 @@ public class EmojiBehaviour : MonoBehaviour
     [SerializeField]
     private Rigidbody2D barrelRig;
     [SerializeField]
+    private EmojiTypeController emojiTypeCon;
+    [SerializeField]
     private Animator emojiAnmt;
     private bool isEmojiDucking = false;
     private bool isEmojiStanding = false;
@@ -103,6 +105,7 @@ public class EmojiBehaviour : MonoBehaviour
     public void BarrelEmojiStand()
     {
         isEmojiDucking = true;
+        emojiTypeCon.SetStand();
         Invoke(nameof(EmojiStand), GameManager.instance.GameScriptObj.BarrelEmojiStandTimeDelay);
     }
 
@@ -118,6 +121,7 @@ public class EmojiBehaviour : MonoBehaviour
     {
         isEmojiStanding = true;
         emojiAnmt.enabled = false;
+        emojiTypeCon.SetLook();
     }
     public void BarrelEmojiFall()
     {
@@ -132,11 +136,5 @@ public class EmojiBehaviour : MonoBehaviour
     {
         emojiAnmt.enabled = false;
         mockVelocity = GameManager.instance.GameScriptObj.BarrelEmojiFallVelocity * Vector2.down;
-    }
-
-
-    private void EmojiFacesTree()
-    {
-        //emojiAnmt.SetFloat();
     }
 }

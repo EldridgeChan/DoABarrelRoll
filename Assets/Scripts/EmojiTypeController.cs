@@ -6,9 +6,7 @@ public class EmojiTypeController : MonoBehaviour
 {
     [SerializeField]
     private SpriteRenderer emojiRend;
-    private EmojiType currEmojiType = EmojiType.Happy;
     private bool inFastSpining = false;
-    private bool touchedGround = false;
     private float fastSpinTimer = 0.0f;
     private float highestY = 0.0f;
 
@@ -22,37 +20,34 @@ public class EmojiTypeController : MonoBehaviour
         if (inFastSpining)
         {
             fastSpinTimer += Time.deltaTime;
+            SetFastSpin();
         }
     }
 
     public void SetWaterEmoji(bool intoWater)
     {
-        currEmojiType = intoWater ? EmojiType.Dead : EmojiType.Suprised;
-        SetEmojiSprite();
+        SetEmojiSprite(intoWater ? EmojiType.Dead : EmojiType.Suprised);
     }
 
     public void SetJumpEmoji()
     {
-        currEmojiType = EmojiType.Shocked;
-        SetEmojiSprite();
+        SetEmojiSprite(EmojiType.Shocked);
     }
 
     public void SetFastSpin()
     {
-        if (!inFastSpining) { return; }
         if (fastSpinTimer < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinDizzyTime)
         {
-            currEmojiType = EmojiType.Dizzy;
+            SetEmojiSprite(EmojiType.Dizzy);
         }
         else if (fastSpinTimer < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinDisgustedTime)
         {
-            currEmojiType = EmojiType.Disgusted;
+            SetEmojiSprite(EmojiType.Disgusted);
         }
         else
         {
-            currEmojiType = EmojiType.Puked;
+            SetEmojiSprite(EmojiType.Puked);
         }
-        SetEmojiSprite();
     }
 
     public void StartFastSpining(bool tf)
@@ -60,6 +55,10 @@ public class EmojiTypeController : MonoBehaviour
         if (inFastSpining == tf) { return; }
         inFastSpining = tf;
         fastSpinTimer = 0.0f;
+        if (!tf)
+        {
+            //SetNormal();
+        }
     }
 
     public void FallBackDown()
@@ -70,63 +69,50 @@ public class EmojiTypeController : MonoBehaviour
             switch (typeNum)
             {
                 case 0:
-                    currEmojiType = EmojiType.Cry;
+                    SetEmojiSprite(EmojiType.Cry);
                     break;
                 case 1:
-                    currEmojiType = EmojiType.Angry;
+                    SetEmojiSprite(EmojiType.Angry);
                     break;
                 case 2:
-                    currEmojiType = EmojiType.Hate;
+                    SetEmojiSprite(EmojiType.Hate);
                     break;
                 case 3:
-                    currEmojiType = EmojiType.Unhappy;
+                    SetEmojiSprite(EmojiType.Unhappy);
                     break;
                 default:
                     Debug.Log("ERROR: Undefined Emoji Type For Fall Down");
                     break;
             }
             inFastSpining = false;
-            SetEmojiSprite();
         }
         highestY = transform.position.y;
     }
 
     public void SetClimbing()
     {
-        if (!touchedGround) { return; }
-        currEmojiType = EmojiType.Sorry;
-        SetEmojiSprite();
+        SetEmojiSprite(EmojiType.Sorry);
     }
 
     public void SetSmashWall()
     {
-        currEmojiType = EmojiType.Unsettle;
-        SetEmojiSprite();
+        SetEmojiSprite(EmojiType.Unsettle);
         Invoke(nameof(SetInjured), GameManager.instance.GameScriptObj.BarrelEmojiInjuredTime);
     }
 
     public void SetInjured()
     {
-        currEmojiType = EmojiType.Injured;
-        SetEmojiSprite();
+        SetEmojiSprite(EmojiType.Injured);
     }
 
     public void SetStand()
     {
-        currEmojiType = EmojiType.Force;
-        SetEmojiSprite();
-
+        SetEmojiSprite(EmojiType.Force);
     }
 
     public void SetLook()
     {
-        currEmojiType = EmojiType.OhWhat;
-        SetEmojiSprite();
-    }
-
-    public void SetTouchGround(bool tf)
-    {
-        touchedGround = tf;
+        SetEmojiSprite(EmojiType.OhWhat);
     }
 
     public void SetNormal()
@@ -135,23 +121,24 @@ public class EmojiTypeController : MonoBehaviour
         switch (emojiIndex)
         {
             case 0:
-                currEmojiType = EmojiType.Happy;
+                SetEmojiSprite(EmojiType.Happy);
                 break;
             case 1:
-                currEmojiType = EmojiType.Excited;
+                SetEmojiSprite(EmojiType.Excited);
                 break;
             case 2:
-                currEmojiType = EmojiType.Huh;
+                SetEmojiSprite(EmojiType.Huh);
                 break;
             default:
                 Debug.Log("ERROR: Undefined Emoji Type For Normal");
                 break;
         }
-        SetEmojiSprite();
     }
 
-    private void SetEmojiSprite()
+    private void SetEmojiSprite(EmojiType type)
     {
-        emojiRend.sprite = GameManager.instance.GameScriptObj.EmojiTypes[(int)currEmojiType];
+        CancelInvoke(nameof(SetNormal));
+        Invoke(nameof(SetNormal), GameManager.instance.GameScriptObj.BarrelEmojiBackNormalTime);
+        emojiRend.sprite = GameManager.instance.GameScriptObj.EmojiTypes[(int)type];
     }
 }

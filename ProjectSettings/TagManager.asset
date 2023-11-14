@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Water
+  - FallCheck
   layers:
   - Default
   - TransparentFX

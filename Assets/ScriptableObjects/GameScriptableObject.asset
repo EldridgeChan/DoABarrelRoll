@@ -18,7 +18,7 @@ MonoBehaviour:
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
   BarrelJumpMaxDistance: 5
-  BarrelMaxAngularVelocity: 1200
+  BarrelMaxAngularVelocity: 2000
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 1000
   BarrelEmojiInertiaMinEffectivness: 0.1
@@ -76,6 +76,15 @@ MonoBehaviour:
   BarrelEmojiTurnDuration: 0.5
   BarrelEmojiStandTimeDelay: 0.5
   BarrelEmojiStandMoveTime: 1
+  BarrelEmojiFastSpinAVThreshold: 500
+  BarrelEmojiFastSpinDizzyTime: 3
+  BarrelEmojiFastSpinDisgustedTime: 5
+  BarrelEmojiFallBackThreshold: 10
+  BarrelEmojiClimbMinYVelocity: 0.1
+  BarrelEmojiHitWallVelocityThreshold: 10
+  BarrelEmojiFallVelocityThreshold: -5
+  BarrelEmojiInjuredTime: 1
+  BarrelEmojiBackNormalTime: 10
   JumpDustYPositionOffset: 0.13
   JumpDustDiableTimeDelay: 1.1
   JumpDustSmallJumpT: 0.3
