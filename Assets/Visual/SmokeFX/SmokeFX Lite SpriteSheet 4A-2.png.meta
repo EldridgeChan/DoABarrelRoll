@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -160,7 +160,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 16
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b64b648fc49bea48baaef87d7981685
+      internalID: -2111632209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 14
+        width: 38
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239efa6cfbc063c42ae0bf0e7b3a113a
+      internalID: -223645120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_2
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 12
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b14731b1a87ff4bbe25ea0e53453d1
+      internalID: -1424345805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_3
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 12
+        width: 54
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b414a556657094b85e249c78175179
+      internalID: -558779150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_4
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 10
+        width: 60
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d4e6f6980cd6349bb26c8aeb09c584
+      internalID: 1089801823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_5
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 10
+        width: 64
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb6e2624a78974448b0a940ad68e4cb
+      internalID: -1406201887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_6
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 10
+        width: 68
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f742531d332a1c4e955dac6c81c2c12
+      internalID: 889372957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_7
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 12
+        width: 68
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467545f703b3183499ebaa7edb2d1e96
+      internalID: 1060855764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_8
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 16
+        width: 66
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34cf1d44b1f8ebf4eb124570b1974b82
+      internalID: 2116206289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-2_9
+      rect:
+        serializedVersion: 2
+        x: 2361
+        y: 28
+        width: 68
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ced69cb21762fe468cb7dbcfe2bb65b
+      internalID: -1021084188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -171,7 +381,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SmokeFX Lite SpriteSheet 4A-2_0: -2111632209
+      SmokeFX Lite SpriteSheet 4A-2_1: -223645120
+      SmokeFX Lite SpriteSheet 4A-2_2: -1424345805
+      SmokeFX Lite SpriteSheet 4A-2_3: -558779150
+      SmokeFX Lite SpriteSheet 4A-2_4: 1089801823
+      SmokeFX Lite SpriteSheet 4A-2_5: -1406201887
+      SmokeFX Lite SpriteSheet 4A-2_6: 889372957
+      SmokeFX Lite SpriteSheet 4A-2_7: 1060855764
+      SmokeFX Lite SpriteSheet 4A-2_8: 2116206289
+      SmokeFX Lite SpriteSheet 4A-2_9: -1021084188
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

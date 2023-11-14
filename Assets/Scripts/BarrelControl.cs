@@ -85,6 +85,7 @@ public class BarrelControl : MonoBehaviour
             if (barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity && IsHitGround())
             {
                 barrelParentAnmt.SetTrigger("BarrelGrounded");
+                GameManager.instance.GameCon.GroundPoundDust(transform.position);
             }
         }
         if (collision.transform.CompareTag("Water"))

@@ -71,9 +71,10 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiInjuredTime = 1.0f;
     public float BarrelEmojiBackNormalTime = 10.0f;
 
-    [Header("Jump Dust Animation Setting")]
+    [Header("Dusts Animation Setting")]
     public float JumpDustYPositionOffset = -1.3f;
     public float JumpDustDiableTimeDelay = 1.1f;
     public float JumpDustSmallJumpT = 0.3f;
     public float JumpDustLargeJumpT = 0.9f;
+    public float PoundDustYPositionOffset = 0.5f;
 }

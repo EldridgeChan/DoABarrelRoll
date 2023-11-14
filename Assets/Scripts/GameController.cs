@@ -35,6 +35,10 @@ public class GameController : MonoBehaviour
     private RollDustBehaviour[] rollDustBehaves;
     private int rollDustIndex = 0;
 
+    [Header("Pound Dust Fields")]
+    [SerializeField]
+    private Animator poundDustAnmt;
+
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
@@ -150,5 +154,11 @@ public class GameController : MonoBehaviour
     {
         rollDustBehaves[rollDustIndex].DeactivateRollDust();
         rollDustIndex = (rollDustIndex + 1) % rollDustBehaves.Length;
+    }
+
+    public void GroundPoundDust(Vector2 pos)
+    {
+        poundDustAnmt.transform.position = pos + Vector2.down * GameManager.instance.GameScriptObj.PoundDustYPositionOffset;
+        poundDustAnmt.SetTrigger("PoundDust");
     }
 }
