@@ -65,7 +65,9 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiFastSpinDizzyTime = 3.0f;
     public float BarrelEmojiFastSpinDisgustedTime = 5.0f;
     public float BarrelEmojiFallBackThreshold = 10.0f;
+    public float BarrelEmojiFallBackDelay = 2.0f;
     public float BarrelEmojiClimbMinYVelocity = 0.1f;
+    public float BarrelEmojiClimbMaxXVelocity = 5.0f;
     public float BarrelEmojiHitWallVelocityThreshold = 5.0f;
     public float BarrelEmojiFallVelocityThreshold = -5.0f;
     public float BarrelEmojiInjuredTime = 1.0f;

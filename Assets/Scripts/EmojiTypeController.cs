@@ -63,6 +63,11 @@ public class EmojiTypeController : MonoBehaviour
 
     public void FallBackDown()
     {
+        Invoke(nameof(FallBackEmoji), GameManager.instance.GameScriptObj.BarrelEmojiFallBackDelay);
+    }
+
+    public void FallBackEmoji()
+    {
         if (Mathf.Abs(highestY - transform.position.y) > GameManager.instance.GameScriptObj.BarrelEmojiFallBackThreshold)
         {
             int typeNum = Random.Range(0, 4);
