@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Water
   - FallCheck
+  - Barrel
   layers:
   - Default
   - TransparentFX

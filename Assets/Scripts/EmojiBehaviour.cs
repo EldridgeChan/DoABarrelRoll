@@ -28,7 +28,7 @@ public class EmojiBehaviour : MonoBehaviour
 
     private void EmojiBehave()
     {
-        if (!GameManager.instance.GameCon.onMenu)
+        if (!GameManager.instance.GameCon.isControlLocked)
         {
             InertiaMethod();
             CentrifugalMethod();

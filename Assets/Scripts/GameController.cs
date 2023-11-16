@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     private SpriteRenderer arrowRend;
     [SerializeField]
     private Canvas LevelCanvas;
+    [SerializeField]
+    private CameraMovement camMove;
 
     [Header("Mirror Level References")]
     [SerializeField]
@@ -22,7 +24,7 @@ public class GameController : MonoBehaviour
 
     [Header("Menu Function Fields")]
     [HideInInspector]
-    public bool onMenu = false;
+    public bool isControlLocked = false;
     private bool canOnOff = true;
 
     [Header("Jump Dust Fields")]
@@ -74,7 +76,7 @@ public class GameController : MonoBehaviour
         canOnOff = false;
         Invoke(nameof(EnableStandFall), GameManager.instance.GameScriptObj.BarrelStandFallCoolDown);
 
-        if (!onMenu)
+        if (!isControlLocked)
         {
             barrelControl.ControlBarrelStand();
         }
@@ -92,13 +94,13 @@ public class GameController : MonoBehaviour
 
     public void BarrelJump(Vector2 dir)
     {
-        if (onMenu) { return; }
+        if (isControlLocked) { return; }
         barrelControl.BarrelJump(dir);
     }
 
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
     {
-        if (onMenu) { return; }
+        if (isControlLocked) { return; }
         barrelControl.BarrelRoll(prePos, nowPos);
     }
 
@@ -160,5 +162,11 @@ public class GameController : MonoBehaviour
     {
         poundDustAnmt.transform.position = pos + Vector2.down * GameManager.instance.GameScriptObj.PoundDustYPositionOffset;
         poundDustAnmt.SetTrigger("PoundDust");
+    }
+
+    public void BarrelCameraState(bool dir, CameraState state)
+    {
+        camMove.SetCurretCamState(state);
+        camMove.SetCamLerpDir(dir);
     }
 }

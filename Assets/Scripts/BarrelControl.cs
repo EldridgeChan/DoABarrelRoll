@@ -40,7 +40,7 @@ public class BarrelControl : MonoBehaviour
         if (!barrelRig) { barrelRig = GetComponent<Rigidbody2D>(); }
         if (!barrelAnmt) { barrelAnmt = GetComponent<Animator>(); }
         barrelRig.gravityScale = GameManager.instance.GameScriptObj.waterOffDefaultGravityScale;
-        BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
+        //BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -162,7 +162,7 @@ public class BarrelControl : MonoBehaviour
 
     private void BarrelUpdate()
     {
-        if (GameManager.instance.GameCon.onMenu) { return; }
+        if (GameManager.instance.GameCon.isControlLocked) { return; }
         barrelRend.flipX = barrelRig.velocity.x < 0;
         barrelRig.angularVelocity = (barrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity), -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
         barrelAnmt.speed = Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.BarrelRollAnimateSpeedDivisor;
@@ -266,7 +266,8 @@ public class BarrelControl : MonoBehaviour
         GameManager.instance.GameCon.OnOffLevelCanvas(true);
         jumpChargeT = 0.0f;
         orgRotation = transform.rotation;
-        GameManager.instance.GameCon.onMenu = true;
+        GameManager.instance.GameCon.isControlLocked = true;
+        GameManager.instance.GameCon.BarrelCameraState(true, CameraState.Menu);
         BarrelRig.bodyType = RigidbodyType2D.Kinematic;
         BarrelRig.velocity = Vector2.zero;
         BarrelRig.angularVelocity = 0.0f;
@@ -312,6 +313,7 @@ public class BarrelControl : MonoBehaviour
         BarrelRig.velocity = Vector2.zero;
         BarrelRig.angularVelocity = 0.0f;
         barrelAnmt.speed = 0.0f;
-        GameManager.instance.GameCon.onMenu = false;
+        GameManager.instance.GameCon.isControlLocked = false;
+        GameManager.instance.GameCon.BarrelCameraState(false, CameraState.Menu);
     }
 }

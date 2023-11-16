@@ -6,8 +6,11 @@ using UnityEngine;
 public class GameScriptableObject : ScriptableObject
 {
     [Header("Camera Behaviour Setting")]
-    public float CameraOnMenuMaxLerpT = 0.5f;
     public float CameraMaxLerpTime = 0.5f;
+    public float CameraOnMenuMaxLerpT = 0.5f;
+    public float CameraDefaultSize = 7.0f;
+    public float CameraCutSceneSize = 5.0f;
+    public float CameraCutSceneYPositionOffset = 1.0f;
 
     [Header("Barrel Behaviour Setting")]
     public float BarrelRollMultiplier = 1.0f;

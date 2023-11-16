@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4c2be2c6202b04bbd6bc91721dd8bd, type: 3}
   m_Name: GameScriptableObject
   m_EditorClassIdentifier: 
-  CameraOnMenuMaxLerpT: 0.5
   CameraMaxLerpTime: 0.5
+  CameraOnMenuMaxLerpT: 0.5
+  CameraDefaultSize: 7
+  CameraCutSceneSize: 5
+  CameraCutSceneYPositionOffset: 3
   BarrelRollMultiplier: 55
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
@@ -80,7 +83,9 @@ MonoBehaviour:
   BarrelEmojiFastSpinDizzyTime: 3
   BarrelEmojiFastSpinDisgustedTime: 5
   BarrelEmojiFallBackThreshold: 10
+  BarrelEmojiFallBackDelay: 2
   BarrelEmojiClimbMinYVelocity: 0.1
+  BarrelEmojiClimbMaxXVelocity: 5
   BarrelEmojiHitWallVelocityThreshold: 10
   BarrelEmojiFallVelocityThreshold: -5
   BarrelEmojiInjuredTime: 1
@@ -89,3 +94,4 @@ MonoBehaviour:
   JumpDustDiableTimeDelay: 1.1
   JumpDustSmallJumpT: 0.3
   JumpDustLargeJumpT: 0.9
+  PoundDustYPositionOffset: 0.4

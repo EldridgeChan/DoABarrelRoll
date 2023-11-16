@@ -87,4 +87,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6913728120875de409582f4b4cf70a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipGame: 0
+  mirroredTilemap: 0
+  showJumpGuide: 0

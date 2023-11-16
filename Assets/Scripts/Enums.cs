@@ -1,4 +1,4 @@
-enum EmojiType
+public enum EmojiType
 {
     Happy,
     Excited,
@@ -20,4 +20,10 @@ enum EmojiType
     Dead,
     Puked,
     Force
+}
+
+public enum CameraState
+{
+    Menu,
+    CutScene
 }
