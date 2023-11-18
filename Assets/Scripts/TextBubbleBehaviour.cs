@@ -20,7 +20,7 @@ public class TextBubbleBehaviour : MonoBehaviour
     
     public void ShowAllChar()
     {
-        CancelInvoke(nameof(ShowNextChar));
+        CancelInvoke();
         bubbleTxt.text = currFullText;
         charIndex = currFullText.Length;
         if (isShip)
@@ -35,11 +35,11 @@ public class TextBubbleBehaviour : MonoBehaviour
         if (!isShip) { return; }
         if (charIndex >= currFullText.Length)
         {
-            ShowAllChar();
+            ShowNextText();
         }
         else
         {
-            ShowNextText();
+            ShowAllChar();
         }
     }
 
@@ -60,7 +60,7 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void ShowNextText()
     {
-        CancelInvoke(nameof(ShowNextText));
+        CancelInvoke();
         textIndex++;
         if (textIndex >= speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches.Length)
         {

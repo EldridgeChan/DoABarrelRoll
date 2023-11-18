@@ -35,6 +35,7 @@ public class InputManager : MonoBehaviour
             if (GameManager.instance.GameCon)
             {
                 GameManager.instance.GameCon.BarrelJump(MouseWorldPos());
+                GameManager.instance.GameCon.SkipSpeech();
             }
         }
 

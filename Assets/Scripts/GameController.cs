@@ -180,12 +180,19 @@ public class GameController : MonoBehaviour
 
     public void StartLevelCutScene(SpeechesScripableObject speechScript, Transform parentTrans)
     {
+        currCutSceneIndex = 0;
         textBbBehave.InitBubble(true, speechScript, parentTrans);
     }
 
     public void EndLevelCutScene()
     {
 
+    }
+
+    public void SkipSpeech()
+    {
+        if (currCutSceneIndex < 0) { return; }
+        textBbBehave.SkipSpeech();
     }
 
     public void EndSpeech()
@@ -199,6 +206,7 @@ public class GameController : MonoBehaviour
                 Debug.Log("ERROR: Undefined CutSceneIndex");
                 break;
         }
+        currCutSceneIndex = -1;
     }
 
     private void EndStartCutScene()
