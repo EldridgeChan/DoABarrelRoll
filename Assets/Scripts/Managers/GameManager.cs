@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameScriptableObject gameScriptObj;
     public GameScriptableObject GameScriptObj { get { return gameScriptObj; } }
+    [SerializeField]
+    private SpeechesScripableObject[] shipSpeechScripObj;
+    public SpeechesScripableObject[] SpeechScripObj { get { return shipSpeechScripObj; } }    
 
     //GameController
     private GameController gameCon;

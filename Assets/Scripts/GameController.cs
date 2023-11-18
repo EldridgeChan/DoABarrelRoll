@@ -23,7 +23,6 @@ public class GameController : MonoBehaviour
     private Collider2D[] tilemapColids;
 
     [Header("Menu Function Fields")]
-    [HideInInspector]
     public bool isControlLocked = false;
     private bool canOnOff = true;
 
@@ -41,6 +40,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Animator poundDustAnmt;
 
+    [Header("Cutscene Fields")]
+    [SerializeField]
+    private TextBubbleBehaviour textBbBehave;
+    [SerializeField]
+    private PirateShip startPirateShip;
+    [SerializeField]
+    private PirateShip endPirateShip;
+    private int currCutSceneIndex = 0;
+
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
@@ -52,7 +60,7 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-
+        StartLevelCutScene(GameManager.instance.SpeechScripObj[0], startPirateShip.transform);
     }
 
     public void DisplayGuildingArrow(bool tf)
@@ -104,7 +112,7 @@ public class GameController : MonoBehaviour
         barrelControl.BarrelRoll(prePos, nowPos);
     }
 
-    public Vector3 getBarrelPosition()
+    public Vector3 GetBarrelPosition()
     {
         return barrelControl.transform.position;
     }
@@ -168,5 +176,35 @@ public class GameController : MonoBehaviour
     {
         camMove.SetCurretCamState(state);
         camMove.SetCamLerpDir(dir);
+    }
+
+    public void StartLevelCutScene(SpeechesScripableObject speechScript, Transform parentTrans)
+    {
+        textBbBehave.InitBubble(true, speechScript, parentTrans);
+    }
+
+    public void EndLevelCutScene()
+    {
+
+    }
+
+    public void EndSpeech()
+    {
+        switch (currCutSceneIndex)
+        {
+            case 0:
+                EndStartCutScene();
+                break;
+            default:
+                Debug.Log("ERROR: Undefined CutSceneIndex");
+                break;
+        }
+    }
+
+    private void EndStartCutScene()
+    {
+        BarrelCameraState(false, CameraState.CutScene);
+        isControlLocked = false;
+        barrelControl.BarrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 }

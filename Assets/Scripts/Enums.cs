@@ -27,3 +27,8 @@ public enum CameraState
     Menu,
     CutScene
 }
+
+public enum Language
+{
+    English,
+}

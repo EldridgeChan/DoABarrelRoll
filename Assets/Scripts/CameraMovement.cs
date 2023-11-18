@@ -35,12 +35,12 @@ public class CameraMovement : MonoBehaviour
 
     private void lerpMenu()
     {
-        transform.position = (Vector3)Vector2.Lerp(GameManager.instance.GameCon.getBarrelPosition(), GameManager.instance.InputMan.MouseWorldPos(), GameManager.instance.GameScriptObj.CameraOnMenuMaxLerpT * camLerpT) + Vector3.back * 10.0f;
+        transform.position = (Vector3)Vector2.Lerp(GameManager.instance.GameCon.GetBarrelPosition(), GameManager.instance.InputMan.MouseWorldPos(), GameManager.instance.GameScriptObj.CameraOnMenuMaxLerpT * camLerpT) + Vector3.back * 10.0f;
     }
 
     private void lerpCutscene()
     {
-        transform.position = (Vector3)Vector2.Lerp(Vector2.zero, Vector2.up * GameManager.instance.GameScriptObj.CameraCutSceneYPositionOffset, camLerpT) + GameManager.instance.GameCon.getBarrelPosition() + Vector3.back * 10.0f;
+        transform.position = (Vector3)Vector2.Lerp(Vector2.zero, Vector2.up * GameManager.instance.GameScriptObj.CameraCutSceneYPositionOffset, camLerpT) + GameManager.instance.GameCon.GetBarrelPosition() + Vector3.back * 10.0f;
         mainCam.orthographicSize = Mathf.Lerp(GameManager.instance.GameScriptObj.CameraDefaultSize, GameManager.instance.GameScriptObj.CameraCutSceneSize, camLerpT);
     }
 

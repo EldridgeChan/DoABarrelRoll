@@ -82,4 +82,12 @@ public class GameScriptableObject : ScriptableObject
     public float JumpDustSmallJumpT = 0.3f;
     public float JumpDustLargeJumpT = 0.9f;
     public float PoundDustYPositionOffset = 0.5f;
+
+    [Header("Speech Bubble Setting")]
+    public float SpeechCharacterPerSecond = 2.0f;
+    public float SpeechBubbleHeight = 0.4f;
+    public float SpeechBubbleFinishDelay = 2.0f;
+    public Sprite ShipNormalBubbleSprite;
+    public Sprite ShipFinishBubbleSprite;
+    public Sprite OldManNormalBubbleSprite;
 }

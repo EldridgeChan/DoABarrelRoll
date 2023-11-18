@@ -95,3 +95,9 @@ MonoBehaviour:
   JumpDustSmallJumpT: 0.3
   JumpDustLargeJumpT: 0.9
   PoundDustYPositionOffset: 0.4
+  SpeechCharacterPerSecond: 2
+  SpeechBubbleHeight: 0.4
+  SpeechBubbleFinishDelay: 2
+  ShipNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
+  ShipFinishBubbleSprite: {fileID: 87626950, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
+  OldManNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
