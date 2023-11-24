@@ -83,11 +83,14 @@ public class GameScriptableObject : ScriptableObject
     public float JumpDustLargeJumpT = 0.9f;
     public float PoundDustYPositionOffset = 0.5f;
 
-    [Header("Speech Bubble Setting")]
+    [Header("Cut Scene Setting")]
     public float SpeechCharacterPerSecond = 2.0f;
     public float SpeechBubbleHeight = 0.4f;
     public float SpeechBubbleFinishDelay = 2.0f;
     public Sprite ShipNormalBubbleSprite;
     public Sprite ShipFinishBubbleSprite;
     public Sprite OldManNormalBubbleSprite;
+    public Vector3 ShipBarrelPositionOffset = new Vector2(0.0f, -5.0f);
+    public float BarrelEndTargetAngularVelocity = -100.0f;
+    public float BarrelEndLerpAngularVelocityTime = 1.0f;
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu( fileName = "SpeechesScripableObject", menuName = "ScriptableObjects/Speeches")]
 public class SpeechesScripableObject : ScriptableObject
 {
+    public float StartDelay = 1.0f;
     public SpeechLanguages[] AllSpeech;
 
     [System.Serializable]

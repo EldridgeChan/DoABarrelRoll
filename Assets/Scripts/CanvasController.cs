@@ -45,4 +45,9 @@ public class CanvasController : MonoBehaviour
     {
         GameManager.instance.SaveMan.showJumpGuide = tf;
     }
+
+    public void StartNewGame()
+    {
+        GameManager.instance.GameCon.StartNewGame();
+    }
 }

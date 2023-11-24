@@ -32,3 +32,11 @@ public enum Language
 {
     English,
 }
+
+public enum SpeechScript
+{
+    None = -1,
+    Start0,
+    End0,
+    Old0
+}

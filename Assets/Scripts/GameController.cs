@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [Header("Component References")]
-    [SerializeField]
-    private BarrelControl barrelControl;
-    [SerializeField]
-    private SpriteRenderer arrowRend;
-    [SerializeField]
-    private Canvas LevelCanvas;
+    [Header("Camera Fields")]
     [SerializeField]
     private CameraMovement camMove;
 
-    [Header("Mirror Level References")]
+    [Header("Barrel Fields")]
+    [SerializeField]
+    private BarrelControl barrelControl;
+    [SerializeField]
+    private BarrelCutSceneBehaviour barrelCSBehave;
+    [SerializeField]
+    private SpriteRenderer arrowRend;
+
+    [Header("Mirror Level Fields")]
     [SerializeField]
     private Transform[] flipPosTrans;
     [SerializeField]
@@ -45,29 +47,29 @@ public class GameController : MonoBehaviour
     private TextBubbleBehaviour textBbBehave;
     [SerializeField]
     private PirateShip startPirateShip;
+    public PirateShip StartPirateShip { get { return startPirateShip; } }
     [SerializeField]
     private PirateShip endPirateShip;
-    private int currCutSceneIndex = 0;
+    public PirateShip EndPirateShip { get { return endPirateShip ; } }
+    private SpeechScript currCutScene = SpeechScript.None;
 
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
 
+    [Header("UI Fields")]
+    [SerializeField]
+    private Animator gameCanvasAnmt;
 
-    // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartLevelCutScene(GameManager.instance.SpeechScripObj[0], startPirateShip.transform);
+        StartLevelCutScene(SpeechScript.Start0, startPirateShip.transform);
     }
 
-    public void DisplayGuildingArrow(bool tf)
-    {
-        arrowRend.enabled = tf;
-    }
-
+    // Testing----------------------------------------------------------
     public void TeleportCheckpoint(int num)
     {
         if (num <= testRespawns.Length && num > 0)
@@ -76,6 +78,25 @@ public class GameController : MonoBehaviour
             barrelControl.BarrelRig.velocity = Vector2.zero;
             barrelControl.BarrelRig.angularVelocity = 0;
         }
+    }
+
+
+    // Barrel Behaviour
+    public void BarrelJump(Vector2 dir)
+    {
+        if (isControlLocked) { return; }
+        barrelControl.BarrelJump(dir);
+    }
+
+    public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
+    {
+        if (isControlLocked) { return; }
+        barrelControl.BarrelRoll(prePos, nowPos);
+    }
+
+    public Vector3 GetBarrelPosition()
+    {
+        return barrelControl.transform.position;
     }
 
     public void TryBarrelStand()
@@ -99,49 +120,10 @@ public class GameController : MonoBehaviour
         canOnOff = true;
     }
 
-
-    public void BarrelJump(Vector2 dir)
+    //Barrel Adds on
+    public void DisplayGuildingArrow(bool tf)
     {
-        if (isControlLocked) { return; }
-        barrelControl.BarrelJump(dir);
-    }
-
-    public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
-    {
-        if (isControlLocked) { return; }
-        barrelControl.BarrelRoll(prePos, nowPos);
-    }
-
-    public Vector3 GetBarrelPosition()
-    {
-        return barrelControl.transform.position;
-    }
-
-    private void MirrorWorld(bool tf)
-    {
-        foreach (Transform trans in flipPosTrans)
-        {
-            if (trans)
-            {
-                trans.position = new Vector3(trans.position.x * (tf ? -1.0f : 1.0f), trans.position.y, trans.position.z);
-            }
-        }
-        foreach (Transform trans in flipScaleTrans)
-        {
-            if (trans)
-            {
-                trans.localScale = new Vector3(trans.localScale.x * (tf ? -1.0f : 1.0f) ,trans.localScale.y, trans.localScale.z);
-            }
-        }
-        foreach (Collider2D colid in tilemapColids)
-        {
-            colid.enabled = true;
-        }
-    }
-
-    public void OnOffLevelCanvas(bool tf)
-    {
-        LevelCanvas.gameObject.SetActive(tf);
+        arrowRend.enabled = tf;
     }
 
     public void DisplayJumpDust(int jumpLevel)
@@ -172,47 +154,93 @@ public class GameController : MonoBehaviour
         poundDustAnmt.SetTrigger("PoundDust");
     }
 
+    //CutScene
     public void BarrelCameraState(bool dir, CameraState state)
     {
         camMove.SetCurretCamState(state);
         camMove.SetCamLerpDir(dir);
     }
 
-    public void StartLevelCutScene(SpeechesScripableObject speechScript, Transform parentTrans)
+    public void StartLevelCutScene(SpeechScript script, Transform parentTrans)
     {
-        currCutSceneIndex = 0;
-        textBbBehave.InitBubble(true, speechScript, parentTrans);
+        currCutScene = script;
+        textBbBehave.InitBubble(true, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
     public void EndLevelCutScene()
     {
-
+        barrelCSBehave.enabled = true;
+        StartLevelCutScene(SpeechScript.End0, endPirateShip.transform);
     }
 
     public void SkipSpeech()
     {
-        if (currCutSceneIndex < 0) { return; }
+        if (currCutScene < 0) { return; }
         textBbBehave.SkipSpeech();
     }
 
     public void EndSpeech()
     {
-        switch (currCutSceneIndex)
+        switch (currCutScene)
         {
-            case 0:
+            case SpeechScript.Start0:
                 EndStartCutScene();
+                break;
+            case SpeechScript.End0:
+                OnEndMenu(true);
                 break;
             default:
                 Debug.Log("ERROR: Undefined CutSceneIndex");
                 break;
         }
-        currCutSceneIndex = -1;
+        currCutScene = SpeechScript.None;
     }
 
     private void EndStartCutScene()
     {
         BarrelCameraState(false, CameraState.CutScene);
         isControlLocked = false;
-        barrelControl.BarrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
+        barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
+    }
+
+    public void StartNewGame()
+    {
+        barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+        StartLevelCutScene(0, startPirateShip.transform);
+        OnEndMenu(false);
+    }
+
+    //UI
+    public void OnPauseMenu(bool tf)
+    {
+        gameCanvasAnmt.SetBool("ShowPause", tf);
+    }
+
+    public void OnEndMenu(bool tf)
+    {
+        gameCanvasAnmt.SetBool("ShowEnd", tf);
+    }
+
+    //Setting
+    private void MirrorWorld(bool tf)
+    {
+        foreach (Transform trans in flipPosTrans)
+        {
+            if (trans)
+            {
+                trans.position = new Vector3(trans.position.x * (tf ? -1.0f : 1.0f), trans.position.y, trans.position.z);
+            }
+        }
+        foreach (Transform trans in flipScaleTrans)
+        {
+            if (trans)
+            {
+                trans.localScale = new Vector3(trans.localScale.x * (tf ? -1.0f : 1.0f) ,trans.localScale.y, trans.localScale.z);
+            }
+        }
+        foreach (Collider2D colid in tilemapColids)
+        {
+            colid.enabled = true;
+        }
     }
 }

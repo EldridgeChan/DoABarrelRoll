@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameScriptableObject
   m_EditorClassIdentifier: 
   CameraMaxLerpTime: 0.5
-  CameraOnMenuMaxLerpT: 0.5
+  CameraOnMenuMaxLerpT: 0.4
   CameraDefaultSize: 7
   CameraCutSceneSize: 5
   CameraCutSceneYPositionOffset: 3
@@ -80,8 +80,8 @@ MonoBehaviour:
   BarrelEmojiStandTimeDelay: 0.5
   BarrelEmojiStandMoveTime: 1
   BarrelEmojiFastSpinAVThreshold: 500
-  BarrelEmojiFastSpinDizzyTime: 3
-  BarrelEmojiFastSpinDisgustedTime: 5
+  BarrelEmojiFastSpinDizzyTime: 1
+  BarrelEmojiFastSpinDisgustedTime: 3
   BarrelEmojiFallBackThreshold: 10
   BarrelEmojiFallBackDelay: 2
   BarrelEmojiClimbMinYVelocity: 0.1
@@ -101,3 +101,6 @@ MonoBehaviour:
   ShipNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   ShipFinishBubbleSprite: {fileID: 87626950, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   OldManNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
+  ShipBarrelPositionOffset: {x: 0, y: -5.10501, z: 0}
+  BarrelEndTargetAngularVelocity: -500
+  BarrelEndLerpAngularVelocityTime: 1

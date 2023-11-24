@@ -45,6 +45,8 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void ShowNextChar()
     {
+        bubbleImg.enabled = true;
+        bubbleTxt.enabled = true;
         bubbleTxt.text += currFullText[charIndex];
         charIndex++;
 
@@ -60,6 +62,8 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void ShowNextText()
     {
+        bubbleImg.enabled = true;
+        bubbleTxt.enabled = true;
         CancelInvoke();
         textIndex++;
         if (textIndex >= speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches.Length)
@@ -92,13 +96,12 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void InitBubble(bool isShip, SpeechesScripableObject speechScript, Transform parentTrans)
     {
-        bubbleImg.enabled = true;
-        bubbleTxt.enabled = true;
+        
         transform.SetParent(parentTrans);
         this.speechScript = speechScript;
         this.isShip = isShip;
         textIndex = 0;
         ResetBubbleSpeech();
-        ShowNextChar();
+        Invoke(nameof(ShowNextChar), speechScript.StartDelay);
     }
 }
