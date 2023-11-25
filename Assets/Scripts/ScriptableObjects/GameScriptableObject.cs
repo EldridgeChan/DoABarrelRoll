@@ -93,4 +93,5 @@ public class GameScriptableObject : ScriptableObject
     public Vector3 ShipBarrelPositionOffset = new Vector2(0.0f, -5.0f);
     public float BarrelEndTargetAngularVelocity = -100.0f;
     public float BarrelEndLerpAngularVelocityTime = 1.0f;
+    public float BlackScreenTransitionTime = 1.1f;
 }

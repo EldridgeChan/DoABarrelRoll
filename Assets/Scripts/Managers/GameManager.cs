@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
     public SceneLoadManager LoadMan { get { return loadMan; } }
     [SerializeField]
     private SaveManager saveMan;
-    public SaveManager SaveMan { get { return saveMan; } }  
+    public SaveManager SaveMan { get { return saveMan; } }
+    [SerializeField]
+    private UIManager uiMan;
+    public UIManager UIMan { get { return uiMan; } }
 
     //ScriptObjs
     [SerializeField]
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour
     public GameScriptableObject GameScriptObj { get { return gameScriptObj; } }
     [SerializeField]
     private SpeechesScripableObject[] speechScripObj;
-    public SpeechesScripableObject[] SpeechScripObj { get { return speechScripObj; } }    
+    public SpeechesScripableObject[] SpeechScripObj { get { return speechScripObj; } }
 
     //GameController
     private GameController gameCon;

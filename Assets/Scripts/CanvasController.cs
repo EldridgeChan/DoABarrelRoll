@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
-    [SerializeField]
-    private Toggle mapFilpToggle;
-    [SerializeField]
-    private Toggle arrowShowToggle;
-
     private void Start()
     {
-        if (mapFilpToggle) { mapFilpToggle.isOn = GameManager.instance.SaveMan.mirroredTilemap; }
-        if (arrowShowToggle) { arrowShowToggle.isOn = GameManager.instance.SaveMan.showJumpGuide; }
+        GameManager.instance.UIMan.CanCon = this;
     }
+
+    [SerializeField]
+    private Animator mainMenuAnmt;
+    [SerializeField]
+    private Animator pauseMenuAnmt;
 
     public void GameStart()
     {
-        GameManager.instance.LoadMan.LoadScene(1);
+        mainMenuAnmt.SetTrigger("StartGame");
+        GameManager.instance.UIMan.OnOffBlackScreen(true);
+        GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadPlayScene), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
     public void GameExit()
@@ -28,7 +29,9 @@ public class CanvasController : MonoBehaviour
 
     public void BackMainMenu()
     {
-        GameManager.instance.LoadMan.LoadScene(0);
+        pauseMenuAnmt.SetBool("ShowPause", false);
+        GameManager.instance.UIMan.OnOffBlackScreen(true);
+        GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
     public void ContinueGame()
@@ -36,18 +39,34 @@ public class CanvasController : MonoBehaviour
         GameManager.instance.GameCon.TryBarrelStand();
     }
 
-    public void MapFlipToggled(bool tf)
-    {
-        GameManager.instance.SaveMan.mirroredTilemap = tf;
-    }
-
-    public void ArrowShowToggled(bool tf)
-    {
-        GameManager.instance.SaveMan.showJumpGuide = tf;
-    }
-
     public void StartNewGame()
     {
         GameManager.instance.GameCon.StartNewGame();
+    }
+
+    public void OnSetting()
+    {
+        GameManager.instance.UIMan.OnOffSetting(true);
+        if (mainMenuAnmt) 
+        { 
+            mainMenuAnmt.SetTrigger("StartGame"); 
+        }
+        else if (pauseMenuAnmt)
+        {
+            pauseMenuAnmt.SetBool("ShowPause", false);
+        }
+    }
+
+    public void OffSetting()
+    {
+        if (mainMenuAnmt)
+        {
+            mainMenuAnmt.SetTrigger("StartGame");
+        }
+        else if (pauseMenuAnmt)
+        {
+            pauseMenuAnmt.SetBool("ShowPause", true);
+        }
+
     }
 }

@@ -10,6 +10,16 @@ public class SceneLoadManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    public void LoadPlayScene()
+    {
+        LoadScene(1);
+    }
+
+    public void LoadMainMenu()
+    {
+        LoadScene(0);
+    }
+
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
@@ -17,6 +27,6 @@ public class SceneLoadManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        GameManager.instance.UIMan.OnOffBlackScreen(false);
     }
 }
