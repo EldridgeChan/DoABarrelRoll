@@ -35,4 +35,16 @@ public class UIManager : MonoBehaviour
             //saveManager
         }
     }
+
+    public void SetWindowMode(int index)
+    {
+        GameManager.instance.SaveMan.screenMode = index < 2 ? (FullScreenMode)index : FullScreenMode.Windowed;  
+        SetWindowResolution(GameManager.instance.SaveMan.windowSizeIndex);
+    }
+
+    public void SetWindowResolution(int index)
+    {
+        GameManager.instance.SaveMan.windowSizeIndex = index;
+        Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
+    }
 }
