@@ -1,11 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private Animator inGameCanvasAnmt;
+
+    [SerializeField]
+    private TMP_Dropdown windowModeDD;
+    [SerializeField]
+    private TMP_Dropdown resolutionDD;
+    [SerializeField]
+    private TMP_Dropdown languageDD;
+    [SerializeField]
+    private Slider volumeSlid;
+    [SerializeField]
+    private TMP_Text volumeTxt;
+    [SerializeField]
+    private Toggle flipMapTog;
+    [SerializeField]
+    private Toggle jumpGuideTog;
+    
+
     private CanvasController canCon;
     public CanvasController CanCon 
     { 
@@ -32,13 +51,13 @@ public class UIManager : MonoBehaviour
         if (!tf)
         {
             CanCon.OffSetting();
-            //saveManager
+            GameManager.instance.SaveMan.SaveSetting();
         }
     }
 
     public void SetWindowMode(int index)
     {
-        GameManager.instance.SaveMan.screenMode = index < 2 ? (FullScreenMode)index : FullScreenMode.Windowed;  
+        GameManager.instance.SaveMan.screenMode = (FullScreenMode)index;  
         SetWindowResolution(GameManager.instance.SaveMan.windowSizeIndex);
     }
 
@@ -46,5 +65,42 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SaveMan.windowSizeIndex = index;
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        GameManager.instance.SaveMan.masterVolume = volume;
+        AudioListener.volume = volume;
+        volumeTxt.text = "" + (int)(volume * 100.0f);
+    }
+
+    public void OnFlipMapToggle(bool tf)
+    {
+        GameManager.instance.SaveMan.mirroredTilemap = tf;
+    }
+
+    public void SetFlipMapToggleInteractable(bool tf)
+    {
+        flipMapTog.interactable = tf;
+    }
+
+    public void OnShowGuideToggle(bool tf)
+    {
+        GameManager.instance.SaveMan.showJumpGuide = tf;
+        if (GameManager.instance.GameCon)
+        {
+            GameManager.instance.GameCon.DisplayGuildingArrow(tf);
+        }
+    }
+
+    public void InitSettingOptions()
+    {
+        windowModeDD.value = (int)GameManager.instance.SaveMan.screenMode;
+        resolutionDD.value = GameManager.instance.SaveMan.windowSizeIndex;
+        languageDD.value = (int)GameManager.instance.SaveMan.selectedLanguage;
+        volumeSlid.value = GameManager.instance.SaveMan.masterVolume;
+        volumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
+        flipMapTog.isOn = GameManager.instance.SaveMan.mirroredTilemap;
+        jumpGuideTog.isOn = GameManager.instance.SaveMan.showJumpGuide;
     }
 }

@@ -28,5 +28,6 @@ public class SceneLoadManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameManager.instance.UIMan.OnOffBlackScreen(false);
+        GameManager.instance.UIMan.SetFlipMapToggleInteractable(scene.buildIndex == 0);
     }
 }

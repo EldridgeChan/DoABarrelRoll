@@ -59,5 +59,9 @@ public class GameManager : MonoBehaviour
         if (!loadMan) { loadMan = GetComponent<SceneLoadManager>(); }
         if (!saveMan) { saveMan = GetComponent<SaveManager>(); }
         Cursor.lockState = CursorLockMode.Confined;
+
+        saveMan.LoadSetting();
+        saveMan.InitFromSave();
+        uiMan.InitSettingOptions();
     }
 }

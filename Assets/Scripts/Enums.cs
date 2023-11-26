@@ -31,6 +31,8 @@ public enum CameraState
 public enum Language
 {
     English,
+    Chinese,
+    Japanese
 }
 
 public enum SpeechScript
