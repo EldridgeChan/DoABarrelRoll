@@ -78,12 +78,14 @@ public class CanvasController : MonoBehaviour
     public void UpdateGameTimer(float time)
     {
         if (!gameTimerTxt) { return; }
-        gameTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
+        gameTimerTxt.text = string.Format("{0:D2}:{1:00.000}", (int)(time / 60), (time % 60));
+        //gameTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
     }
 
-    public void SetEndTimer(float time)
-    {
-        if (!endBoardTimerTxt) { return; }
-        endBoardTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
+        public void SetEndTimer(float time) 
+        {
+        if (!endBoardTimerTxt) { return;}
+        gameTimerTxt.text = string.Format("{0:D2}:{1:00.000}", (int)(time / 60), (time % 60));
+        //endBoardTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
     }
 }

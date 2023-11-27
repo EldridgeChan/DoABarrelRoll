@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
   m_Name: EndCutsceneSpeechScripableObject
   m_EditorClassIdentifier: 
+  StartDelay: 1
   AllSpeech:
   - language: 0
     bubbleSpeeches:
@@ -20,4 +21,16 @@ MonoBehaviour:
       bubbleText: Ha !!
     - position: {x: 0, y: 0}
       bubbleWidth: 3
-      bubbleText: Look Who's Back!!
+      bubbleText: Look Who's Back.
+    - position: {x: 0, y: 0}
+      bubbleWidth: 3
+      bubbleText: Traitor!!
+    - position: {x: 0, y: 0}
+      bubbleWidth: 3
+      bubbleText: How dare you come back!!
+    - position: {x: 0, y: 0}
+      bubbleWidth: 3
+      bubbleText: The traitor is back!!
+    - position: {x: 0, y: 0}
+      bubbleWidth: 3
+      bubbleText: The traitor!!

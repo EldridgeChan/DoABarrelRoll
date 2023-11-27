@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 4728706827569694350}
   - component: {fileID: 1610591480183115621}
   - component: {fileID: 4780690525314475911}
+  - component: {fileID: 7180179372183228858}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Barrel
@@ -770,6 +771,19 @@ MonoBehaviour:
   barrelErrorTextCanvasTrans: {fileID: 423432925125402600}
   barrelErrorText: {fileID: 3617558390162137735}
   emojiTypeCon: {fileID: 6229781150176956618}
+--- !u!114 &7180179372183228858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634619514104101560}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c66086b96c632e4aae47bff65ca9584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelRig: {fileID: 1610591480183115621}
 --- !u!1 &7911646717143450767
 GameObject:
   m_ObjectHideFlags: 0

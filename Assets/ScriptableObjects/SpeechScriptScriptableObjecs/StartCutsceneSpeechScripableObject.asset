@@ -12,21 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
   m_Name: StartCutsceneSpeechScripableObject
   m_EditorClassIdentifier: 
+  StartDelay: 1
   AllSpeech:
   - language: 0
     bubbleSpeeches:
     - position: {x: 0, y: 0}
       bubbleWidth: 2
-      bubbleText: Fuck you
+      bubbleText: How dare you!!
     - position: {x: 0.1, y: 0}
       bubbleWidth: 3
-      bubbleText: Get Some Help
+      bubbleText: This is your resposibility!!
     - position: {x: -0.1, y: 0}
       bubbleWidth: 4
-      bubbleText: Fuck Off
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 4
-      bubbleText: You are exiled
+      bubbleText: No one ever complained except you!!
     - position: {x: -0.1, y: 0}
       bubbleWidth: 2
-      bubbleText: Good Bye
+      bubbleText: So selfish!!
+    - position: {x: -0.1, y: 0}
+      bubbleWidth: 2
+      bubbleText: Traitor!!
+    - position: {x: -0.1, y: 0}
+      bubbleWidth: 2
+      bubbleText: We don't need no traitor!!
+    - position: {x: -0.1, y: 0}
+      bubbleWidth: 2
+      bubbleText: Throw him down the sea!!
+    - position: {x: -0.1, y: 0}
+      bubbleWidth: 2
+      bubbleText: Enough!!
+    - position: {x: -0.1, y: 0}
+      bubbleWidth: 2
+      bubbleText: You are not welcomed anymore.

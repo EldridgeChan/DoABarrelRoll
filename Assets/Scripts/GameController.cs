@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     [Header("Menu Function Fields")]
     public bool isControlLocked = false;
     private bool canOnOff = true;
-    private float gameTimer = 0.0f;
+    private float gameTimer = 5940.0f;
 
     [Header("Jump Dust Fields")]
     [SerializeField]
