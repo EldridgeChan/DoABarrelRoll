@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     [Header("Menu Function Fields")]
     public bool isControlLocked = false;
     private bool canOnOff = true;
+    private float gameTimer = 0.0f;
 
     [Header("Jump Dust Fields")]
     [SerializeField]
@@ -61,12 +62,21 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Animator gameCanvasAnmt;
 
-    void Start()
+    private void Start()
     {
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
         StartLevelCutScene(SpeechScript.Start0, startPirateShip.transform);
+    }
+
+    private void Update()
+    {
+        if (!isControlLocked)
+        {
+            gameTimer += Time.deltaTime;
+            GameManager.instance.UIMan.CanCon.UpdateGameTimer(gameTimer);
+        }
     }
 
     // Testing----------------------------------------------------------
@@ -170,6 +180,8 @@ public class GameController : MonoBehaviour
     public void EndLevelCutScene()
     {
         barrelCSBehave.enabled = true;
+        isControlLocked = true;
+        GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
         StartLevelCutScene(SpeechScript.End0, endPirateShip.transform);
     }
 
@@ -199,13 +211,13 @@ public class GameController : MonoBehaviour
     private void EndStartCutScene()
     {
         BarrelCameraState(false, CameraState.CutScene);
-        isControlLocked = false;
         barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 
     public void StartNewGame()
     {
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+        gameTimer = 0.0f;
         StartLevelCutScene(0, startPirateShip.transform);
         OnEndMenu(false);
     }

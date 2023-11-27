@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CanvasController : MonoBehaviour
 {
-    private void Start()
-    {
-        GameManager.instance.UIMan.CanCon = this;
-    }
-
     [SerializeField]
     private Animator mainMenuAnmt;
     [SerializeField]
     private Animator pauseMenuAnmt;
+    [SerializeField]
+    private TMP_Text gameTimerTxt;
+    [SerializeField]
+    private TMP_Text endBoardTimerTxt;
+
+    private void Start()
+    {
+        GameManager.instance.UIMan.CanCon = this;
+    }
 
     public void GameStart()
     {
@@ -68,5 +73,17 @@ public class CanvasController : MonoBehaviour
             pauseMenuAnmt.SetBool("ShowPause", true);
         }
 
+    }
+
+    public void UpdateGameTimer(float time)
+    {
+        if (!gameTimerTxt) { return; }
+        gameTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
+    }
+
+    public void SetEndTimer(float time)
+    {
+        if (!endBoardTimerTxt) { return; }
+        endBoardTimerTxt.text = (int)time / 60 + ":" + (int)time % 60 + "." + (int)((time % 1.0f) * 100.0f);
     }
 }
