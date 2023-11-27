@@ -2617,7 +2617,7 @@ MonoBehaviour:
   selectedLanguage: 0
   masterVolume: 0.5
   mirroredTilemap: 0
-  showJumpGuide: 0
+  showJumpGuide: 1
 --- !u!114 &114838655450692478
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -445,6 +445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuAnmt: {fileID: 282563487}
   pauseMenuAnmt: {fileID: 0}
+  gameTimerTxt: {fileID: 0}
+  endBoardTimerTxt: {fileID: 0}
 --- !u!95 &282563487
 Animator:
   serializedVersion: 5
