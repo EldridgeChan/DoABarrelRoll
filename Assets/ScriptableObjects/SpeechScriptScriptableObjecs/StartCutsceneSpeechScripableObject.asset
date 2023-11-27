@@ -16,30 +16,30 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 2
+    - position: {x: -0.1, y: -0.55}
+      bubbleWidth: 1.8
       bubbleText: How dare you!!
-    - position: {x: 0.1, y: 0}
-      bubbleWidth: 3
+    - position: {x: -0.1, y: -0.55}
+      bubbleWidth: 2.5
       bubbleText: This is your resposibility!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 4
+    - position: {x: -0.1, y: -0.55}
+      bubbleWidth: 3.6
       bubbleText: No one ever complained except you!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
+    - position: {x: 0.6, y: -0.5}
+      bubbleWidth: 1.3
       bubbleText: So selfish!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
+    - position: {x: -0.7, y: -0.6}
+      bubbleWidth: 1.1
       bubbleText: Traitor!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
+    - position: {x: 0.6, y: -0.65}
+      bubbleWidth: 2.7
       bubbleText: We don't need no traitor!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
+    - position: {x: -0.6, y: -0.5}
+      bubbleWidth: 2.8
       bubbleText: Throw him down the sea!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
+    - position: {x: -0.1, y: -0.55}
+      bubbleWidth: 1.1
       bubbleText: Enough!!
-    - position: {x: -0.1, y: 0}
-      bubbleWidth: 2
-      bubbleText: You are not welcomed anymore.
+    - position: {x: -0.1, y: -0.55}
+      bubbleWidth: 3.7
+      bubbleText: You are not welcomed here anymore.
