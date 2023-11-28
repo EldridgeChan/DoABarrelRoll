@@ -66,7 +66,6 @@ public class BarrelControl : MonoBehaviour
             GameManager.instance.GameCon.DeactivateRollDust();
             GameManager.instance.GameCon.ActivateRollDust(collision.GetContact(0), barrelRig.angularVelocity);
         }
-        pastAngularVelocity = barrelRig.angularVelocity;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -157,6 +156,7 @@ public class BarrelControl : MonoBehaviour
             emojiTypeCon.SetSmashWall();
         }
         pastVelocity = barrelRig.velocity;
+        pastAngularVelocity = barrelRig.angularVelocity;
     }
 
     private void BarrelUpdate()
