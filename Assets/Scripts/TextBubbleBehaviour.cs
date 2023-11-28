@@ -49,6 +49,11 @@ public class TextBubbleBehaviour : MonoBehaviour
         bubbleTxt.enabled = true;
         bubbleTxt.text += currFullText[charIndex];
         charIndex++;
+        if (currFullText[charIndex - 1].Equals(" "))
+        {
+            ShowNextChar();
+            return;
+        }
 
         if (charIndex >= currFullText.Length)
         {
@@ -90,7 +95,7 @@ public class TextBubbleBehaviour : MonoBehaviour
         bubbleTxt.text = "";
         bubbleTrans.localPosition = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].position;
         bubbleTrans.sizeDelta = new Vector2(speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleWidth, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
-        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText;
+        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.Trim();
         bubbleImg.sprite = isShip ? GameManager.instance.GameScriptObj.ShipNormalBubbleSprite : GameManager.instance.GameScriptObj.OldManNormalBubbleSprite;
     }
 

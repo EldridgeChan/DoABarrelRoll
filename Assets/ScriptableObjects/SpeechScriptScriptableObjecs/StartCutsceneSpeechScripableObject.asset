@@ -20,8 +20,8 @@ MonoBehaviour:
       bubbleWidth: 1.8
       bubbleText: How dare you!!
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 2.5
-      bubbleText: This is your resposibility!!
+      bubbleWidth: 1.8
+      bubbleText: This is your Job!!
     - position: {x: -0.1, y: -0.55}
       bubbleWidth: 3.6
       bubbleText: No one ever complained except you!!
@@ -35,8 +35,8 @@ MonoBehaviour:
       bubbleWidth: 2.7
       bubbleText: We don't need no traitor!!
     - position: {x: -0.6, y: -0.5}
-      bubbleWidth: 2.8
-      bubbleText: Throw him down the sea!!
+      bubbleWidth: 2.4
+      bubbleText: Throw'em off the ship!!
     - position: {x: -0.1, y: -0.55}
       bubbleWidth: 1.1
       bubbleText: Enough!!
