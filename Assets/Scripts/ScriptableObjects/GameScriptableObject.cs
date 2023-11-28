@@ -48,6 +48,7 @@ public class GameScriptableObject : ScriptableObject
 
     [Header("Barrel Animation Setting")]
     public float BarrelPressedMinVelocity = -5.0f;
+    public float BarrelPressedMaxVelocity = 1.0f;
     public float BarrelRollAnimateSpeedDivisor = 1000.0f;
     public float BarrelGroundCheckDistance = 1.0f;
     public float BarrelKickForce = 50.0f;

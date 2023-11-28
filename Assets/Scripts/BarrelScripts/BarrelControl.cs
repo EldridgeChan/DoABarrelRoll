@@ -28,12 +28,15 @@ public class BarrelControl : MonoBehaviour
     private bool inWater = false;
     private bool emojiTurning = false;
     private float jumpChargeT = 0.0f;
-    private int groundCount = 0;
     private float pastAngularVelocity = 0.0f;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
 
+    [HideInInspector]
+    public int groundCount = 0;
+
     public Rigidbody2D BarrelRig { get { return barrelRig; } }
+    public EmojiTypeController EmojiTypeCon { get { return emojiTypeCon; } }
 
     private void Start()
     {
@@ -42,55 +45,28 @@ public class BarrelControl : MonoBehaviour
         barrelRig.gravityScale = GameManager.instance.GameScriptObj.waterOffDefaultGravityScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.transform.CompareTag("Ground")) { return; }
-        if (groundCount <= 0)
-        {
-            GameManager.instance.GameCon.ActivateRollDust(collision.GetContact(0), barrelRig.angularVelocity);
-            if (!inWater && barrelRig.angularVelocity <= GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
-            {
-                emojiTypeCon.SetNormal();
-            }
-        }
-        groundCount++;
-        
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.transform.CompareTag("Ground")) { return; }
         GameManager.instance.GameCon.RollDustActive(collision.GetContact(0), barrelRig.angularVelocity);
-        if (pastAngularVelocity * barrelRig.angularVelocity < 0.0f)
+        if (GameManager.instance.GameCon.CurrentRollDustFlip() != barrelRig.angularVelocity > 0)
         {
             GameManager.instance.GameCon.DeactivateRollDust();
-            GameManager.instance.GameCon.ActivateRollDust(collision.GetContact(0), barrelRig.angularVelocity);
+            GameManager.instance.GameCon.ActivateRollDust(barrelRig.angularVelocity);
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (!collision.transform.CompareTag("Ground")) { return; }
-        GameManager.instance.GameCon.DeactivateRollDust();
-        groundCount--;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))
         {
             onGround = true;
-            if (barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity && IsHitGround())
-            {
-                barrelParentAnmt.SetTrigger("BarrelGrounded");
-                GameManager.instance.GameCon.GroundPoundDust(transform.position);
-            }
         }
-        if (collision.transform.CompareTag("Water"))
+        if (collision.CompareTag("Water"))
         {
             IntoWater(true);
         }
-        if (collision.transform.CompareTag("FallCheck"))
+        if (collision.CompareTag("FallCheck"))
         {
             emojiTypeCon.FallBackDown();
         }
@@ -98,7 +74,7 @@ public class BarrelControl : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Water"))
+        if (collision.CompareTag("Water"))
         {
             emojiTypeCon.SetWaterEmoji(true);
         }
@@ -106,12 +82,12 @@ public class BarrelControl : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Water"))
+        if (collision.CompareTag("Water"))
         {
             IntoWater(false);
             emojiTypeCon.SetWaterEmoji(false);
         }
-        if (collision.transform.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))
         {
             onGround = false;
         }
@@ -142,6 +118,7 @@ public class BarrelControl : MonoBehaviour
     {
         BarrelUpdate();
         WaterFloatAndCurrent();
+
         emojiTypeCon.StartFastSpining(!inWater && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold);
         if (!inWater && groundCount > 0 && barrelRig.velocity.y > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinYVelocity && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiClimbMaxXVelocity && Mathf.Abs(barrelRig.angularVelocity) < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
         {
@@ -155,6 +132,13 @@ public class BarrelControl : MonoBehaviour
         {
             emojiTypeCon.SetSmashWall();
         }
+
+        if (Mathf.Abs(barrelRig.velocity.y) < GameManager.instance.GameScriptObj.BarrelPressedMaxVelocity && pastVelocity.y - barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity && IsHitGround())
+        {
+            barrelParentAnmt.SetTrigger("BarrelGrounded");
+            GameManager.instance.GameCon.GroundPoundDust(transform.position);
+        }
+
         pastVelocity = barrelRig.velocity;
         pastAngularVelocity = barrelRig.angularVelocity;
     }
@@ -315,5 +299,13 @@ public class BarrelControl : MonoBehaviour
         barrelAnmt.speed = 0.0f;
         GameManager.instance.GameCon.isControlLocked = false;
         GameManager.instance.GameCon.BarrelCameraState(false, CameraState.Menu);
+    }
+
+    public void CheckSetEmojiNormal()
+    {
+        if (!inWater && barrelRig.angularVelocity <= GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
+        {
+            emojiTypeCon.SetNormal();
+        }
     }
 }

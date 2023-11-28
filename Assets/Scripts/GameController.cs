@@ -142,9 +142,9 @@ public class GameController : MonoBehaviour
         jumpDustIndex = (jumpDustIndex + 1) % jumpDustBehaves.Length;
     }
 
-    public void ActivateRollDust(ContactPoint2D contact, float spinSpeed)
+    public void ActivateRollDust(float spinSpeed)
     {
-        rollDustBehaves[rollDustIndex].ActivateRollDust(contact, spinSpeed);
+        rollDustBehaves[rollDustIndex].ActivateRollDust(spinSpeed);
     }
 
     public void RollDustActive(ContactPoint2D contact, float spinSpeed)
@@ -156,6 +156,11 @@ public class GameController : MonoBehaviour
     {
         rollDustBehaves[rollDustIndex].DeactivateRollDust();
         rollDustIndex = (rollDustIndex + 1) % rollDustBehaves.Length;
+    }
+
+    public bool CurrentRollDustFlip()
+    {
+        return rollDustBehaves[rollDustIndex].IsRollDustFlip();
     }
 
     public void GroundPoundDust(Vector2 pos)

@@ -55,10 +55,6 @@ public class EmojiTypeController : MonoBehaviour
         if (inFastSpining == tf) { return; }
         inFastSpining = tf;
         fastSpinTimer = 0.0f;
-        if (!tf)
-        {
-            //SetNormal();
-        }
     }
 
     public void FallBackDown()
@@ -92,6 +88,7 @@ public class EmojiTypeController : MonoBehaviour
             inFastSpining = false;
         }
         highestY = transform.position.y;
+        CancelInvoke();
     }
 
     public void SetClimbing()

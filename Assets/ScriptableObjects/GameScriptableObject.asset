@@ -83,7 +83,7 @@ MonoBehaviour:
   BarrelEmojiFastSpinDizzyTime: 1
   BarrelEmojiFastSpinDisgustedTime: 3
   BarrelEmojiFallBackThreshold: 10
-  BarrelEmojiFallBackDelay: 2
+  BarrelEmojiFallBackDelay: 1
   BarrelEmojiClimbMinYVelocity: 0.1
   BarrelEmojiClimbMaxXVelocity: 5
   BarrelEmojiHitWallVelocityThreshold: 10

@@ -8,12 +8,14 @@ public class RollDustBehaviour : MonoBehaviour
     private Animator rollDustAnmt;
     [SerializeField]
     private SpriteRenderer rollDustRend;
+    private bool dustActive = false;
 
-    public void ActivateRollDust(ContactPoint2D contact, float spinSpeed)
+    public void ActivateRollDust(float spinSpeed)
     {
+        if (dustActive) { return; }
         rollDustAnmt.SetTrigger("ShowDust");
-        RollDustActive(contact,Mathf.Abs(spinSpeed));
         rollDustRend.flipX = spinSpeed > 0;
+        dustActive = true;
     }
 
     public void RollDustActive(ContactPoint2D contact, float spinSpeed)
@@ -25,5 +27,11 @@ public class RollDustBehaviour : MonoBehaviour
     public void DeactivateRollDust()
     {
         rollDustAnmt.SetTrigger("DustEnd");
+        dustActive = false;
+    }
+
+    public bool IsRollDustFlip()
+    {
+        return rollDustRend.flipX;
     }
 }
