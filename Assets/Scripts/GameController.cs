@@ -198,17 +198,17 @@ public class GameController : MonoBehaviour
 
     public void EndSpeech()
     {
-        switch (currCutScene)
+        if (currCutScene < SpeechScript.End0)
         {
-            case SpeechScript.Start0:
-                EndStartCutScene();
-                break;
-            case SpeechScript.End0:
-                OnEndMenu(true);
-                break;
-            default:
-                Debug.Log("ERROR: Undefined CutSceneIndex");
-                break;
+            EndStartCutScene();
+        }
+        else if (currCutScene < SpeechScript.Old0)
+        {
+            OnEndMenu(true);
+        }
+        else
+        {
+            Debug.Log("ERROR: Undefined CutSceneIndex");
         }
         currCutScene = SpeechScript.None;
     }
@@ -223,7 +223,7 @@ public class GameController : MonoBehaviour
     {
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
-        StartLevelCutScene(0, startPirateShip.transform);
+        StartLevelCutScene( SpeechScript.Start1, startPirateShip.transform);
         OnEndMenu(false);
     }
 

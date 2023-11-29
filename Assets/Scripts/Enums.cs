@@ -39,6 +39,7 @@ public enum SpeechScript
 {
     None = -1,
     Start0,
+    Start1,
     End0,
     Old0
 }
