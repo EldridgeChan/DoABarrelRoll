@@ -43,3 +43,13 @@ public enum SpeechScript
     End0,
     Old0
 }
+
+public enum MusicClip
+{
+    None = -1,
+    MainMenu,
+    Beach,
+    Forest,
+    SnowMountain,
+    GlitchLand
+}

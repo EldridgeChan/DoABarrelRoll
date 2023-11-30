@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public FullScreenMode screenMode = FullScreenMode.Windowed;
     public Language selectedLanguage = Language.English;
     public float masterVolume = 1.0f;
+    public float musicVolume = 1.0f;
     public bool mirroredTilemap = false;
     public bool showJumpGuide = false;
 
@@ -17,6 +18,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(nameof(screenMode), (int)screenMode);
         PlayerPrefs.SetInt(nameof(selectedLanguage), (int)selectedLanguage);
         PlayerPrefs.SetFloat(nameof(masterVolume), masterVolume);
+        PlayerPrefs.SetFloat(nameof(musicVolume), musicVolume);
         PlayerPrefs.SetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0);
         PlayerPrefs.SetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0);
         PlayerPrefs.Save();
@@ -28,6 +30,7 @@ public class SaveManager : MonoBehaviour
         screenMode = (FullScreenMode)PlayerPrefs.GetInt(nameof(screenMode), (int)screenMode);
         selectedLanguage = (Language)PlayerPrefs.GetInt(nameof(selectedLanguage), (int)selectedLanguage);
         masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), masterVolume);
+        musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), musicVolume);
         mirroredTilemap = PlayerPrefs.GetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0) > 0;
         showJumpGuide = PlayerPrefs.GetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0) > 0;
     }
@@ -37,5 +40,6 @@ public class SaveManager : MonoBehaviour
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].y, screenMode);
         //set language
         AudioListener.volume = masterVolume;
+        GameManager.instance.AudioMan.SetBGMVolume(musicVolume);
     }
 }

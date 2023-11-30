@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private UIManager uiMan;
     public UIManager UIMan { get { return uiMan; } }
+    [SerializeField]
+    private AudioManager audioMan;
+    public AudioManager AudioMan { get { return audioMan; } }
 
     //ScriptObjs
     [SerializeField]
@@ -58,6 +61,8 @@ public class GameManager : MonoBehaviour
         if (!inputMan) { inputMan = GetComponent<InputManager>(); }
         if (!loadMan) { loadMan = GetComponent<SceneLoadManager>(); }
         if (!saveMan) { saveMan = GetComponent<SaveManager>(); }
+        if (!uiMan) { uiMan = GetComponent<UIManager>(); }
+        if (!audioMan) { audioMan = GetComponent<AudioManager>(); }
         Cursor.lockState = CursorLockMode.Confined;
 
         saveMan.LoadSetting();

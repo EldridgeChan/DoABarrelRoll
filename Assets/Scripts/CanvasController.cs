@@ -24,6 +24,7 @@ public class CanvasController : MonoBehaviour
     {
         mainMenuAnmt.SetTrigger("StartGame");
         GameManager.instance.UIMan.OnOffBlackScreen(true);
+        GameManager.instance.AudioMan.StartLerpMusicVolume(false);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadPlayScene), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 

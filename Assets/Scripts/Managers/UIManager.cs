@@ -16,9 +16,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Dropdown languageDD;
     [SerializeField]
-    private Slider volumeSlid;
+    private Slider masterVolumeSlid;
     [SerializeField]
-    private TMP_Text volumeTxt;
+    private TMP_Text masterVolumeTxt;
+    [SerializeField]
+    private Slider musicVolumeSlid;
+    [SerializeField]
+    private TMP_Text musicVolumeTxt;
     [SerializeField]
     private Toggle flipMapTog;
     [SerializeField]
@@ -71,7 +75,14 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SaveMan.masterVolume = volume;
         AudioListener.volume = volume;
-        volumeTxt.text = "" + (int)(volume * 100.0f);
+        masterVolumeTxt.text = "" + (int)(volume * 100.0f);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        GameManager.instance.SaveMan.musicVolume = volume;
+        GameManager.instance.AudioMan.SetBGMVolume(volume);
+        musicVolumeTxt.text = "" + (int)(volume * 100.0f);
     }
 
     public void OnFlipMapToggle(bool tf)
@@ -98,8 +109,10 @@ public class UIManager : MonoBehaviour
         windowModeDD.value = (int)GameManager.instance.SaveMan.screenMode;
         resolutionDD.value = GameManager.instance.SaveMan.windowSizeIndex;
         languageDD.value = (int)GameManager.instance.SaveMan.selectedLanguage;
-        volumeSlid.value = GameManager.instance.SaveMan.masterVolume;
-        volumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
+        masterVolumeSlid.value = GameManager.instance.SaveMan.masterVolume;
+        masterVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
+        musicVolumeSlid.value = GameManager.instance.SaveMan.musicVolume;
+        musicVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.musicVolume * 100.0f);
         flipMapTog.isOn = GameManager.instance.SaveMan.mirroredTilemap;
         jumpGuideTog.isOn = GameManager.instance.SaveMan.showJumpGuide;
     }

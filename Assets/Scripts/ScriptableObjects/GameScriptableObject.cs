@@ -98,4 +98,8 @@ public class GameScriptableObject : ScriptableObject
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
+
+    [Header("Audio Setting")]
+    public float MusicLerpTime = 1.0f;
+    public AudioClip[] MusicClips;
 }

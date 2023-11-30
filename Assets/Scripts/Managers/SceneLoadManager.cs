@@ -29,5 +29,9 @@ public class SceneLoadManager : MonoBehaviour
     {
         GameManager.instance.UIMan.OnOffBlackScreen(false);
         GameManager.instance.UIMan.SetFlipMapToggleInteractable(scene.buildIndex == 0);
+        if (scene.buildIndex == 0)
+        {
+            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)MusicClip.MainMenu]);
+        }
     }
 }
