@@ -41,6 +41,7 @@ public enum SpeechScript
     Start0,
     Start1,
     End0,
+    End1,
     Old0
 }
 

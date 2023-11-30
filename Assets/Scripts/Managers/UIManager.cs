@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     private Toggle flipMapTog;
     [SerializeField]
     private Toggle jumpGuideTog;
+
+    private bool isSettingOpened = false;
+    public bool IsSettingOpened { get { return isSettingOpened; } }
     
 
     private CanvasController canCon;
@@ -52,6 +55,7 @@ public class UIManager : MonoBehaviour
     public void OnOffSetting(bool tf)
     {
         inGameCanvasAnmt.SetBool("Setting", tf);
+        isSettingOpened = tf;
         if (!tf)
         {
             CanCon.OffSetting();

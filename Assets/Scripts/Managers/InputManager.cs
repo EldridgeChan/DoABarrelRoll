@@ -43,7 +43,6 @@ public class InputManager : MonoBehaviour
         {
             if (GameManager.instance.GameCon)
             {
-                //GameManager.instance.LoadMan.LoadScene(0);
                 GameManager.instance.GameCon.TryBarrelStand();
             }
         }

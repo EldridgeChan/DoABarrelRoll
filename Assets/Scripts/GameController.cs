@@ -119,6 +119,10 @@ public class GameController : MonoBehaviour
         {
             barrelControl.ControlBarrelStand();
         }
+        else if (GameManager.instance.UIMan.IsSettingOpened)
+        {
+            GameManager.instance.UIMan.OnOffSetting(false);
+        }
         else
         {
             barrelControl.BarrelFall();
@@ -182,12 +186,12 @@ public class GameController : MonoBehaviour
         textBbBehave.InitBubble(true, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
-    public void EndLevelCutScene()
+    public void EndLevelCutScene(int endCounter)
     {
         barrelCSBehave.enabled = true;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartLevelCutScene(SpeechScript.End0, endPirateShip.transform);
+        StartLevelCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, endPirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -230,11 +234,13 @@ public class GameController : MonoBehaviour
     //UI
     public void OnPauseMenu(bool tf)
     {
+        GameManager.instance.UIMan.CanCon.PlayMenuOnOff();
         gameCanvasAnmt.SetBool("ShowPause", tf);
     }
 
     public void OnEndMenu(bool tf)
     {
+        GameManager.instance.UIMan.CanCon.PlayMenuOnOff();
         gameCanvasAnmt.SetBool("ShowEnd", tf);
     }
 

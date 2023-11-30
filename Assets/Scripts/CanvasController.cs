@@ -9,20 +9,23 @@ public class CanvasController : MonoBehaviour
     [SerializeField]
     private Animator mainMenuAnmt;
     [SerializeField]
-    private Animator pauseMenuAnmt;
-    [SerializeField]
     private TMP_Text gameTimerTxt;
     [SerializeField]
     private TMP_Text endBoardTimerTxt;
+    [SerializeField]
+    private AudioSource mainMenuAdoSrc;
 
     private void Start()
     {
         GameManager.instance.UIMan.CanCon = this;
+
+        if (!mainMenuAdoSrc) { mainMenuAdoSrc = GetComponent<AudioSource>(); }
     }
 
     public void GameStart()
     {
         mainMenuAnmt.SetTrigger("StartGame");
+        PlayMenuOnOff();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.AudioMan.StartLerpMusicVolume(false);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadPlayScene), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
@@ -30,12 +33,28 @@ public class CanvasController : MonoBehaviour
 
     public void GameExit()
     {
+        mainMenuAnmt.SetTrigger("StartGame");
+        PlayMenuOnOff();
+        GameManager.instance.UIMan.OnOffBlackScreen(true);
+        GameManager.instance.AudioMan.StartLerpMusicVolume(false);
+        Invoke(nameof(DummyQuit), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
+    }
+
+    public void DummyQuit()
+    {
         Application.Quit();
     }
 
-    public void BackMainMenu()
+    public void BackMainMenu(bool isEnd)
     {
-        pauseMenuAnmt.SetBool("ShowPause", false);
+        if (isEnd)
+        {
+            GameManager.instance.GameCon.OnEndMenu(false);
+        }
+        else
+        {
+            GameManager.instance.GameCon.OnPauseMenu(false);
+        }
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
@@ -43,6 +62,7 @@ public class CanvasController : MonoBehaviour
     public void ContinueGame()
     {
         GameManager.instance.GameCon.TryBarrelStand();
+        PlayMenuOnOff();
     }
 
     public void StartNewGame()
@@ -53,25 +73,27 @@ public class CanvasController : MonoBehaviour
     public void OnSetting()
     {
         GameManager.instance.UIMan.OnOffSetting(true);
+        PlayMenuOnOff();
         if (mainMenuAnmt) 
         { 
-            mainMenuAnmt.SetTrigger("StartGame"); 
+            mainMenuAnmt.SetTrigger("StartGame");
         }
-        else if (pauseMenuAnmt)
+        else if (GameManager.instance.GameCon)
         {
-            pauseMenuAnmt.SetBool("ShowPause", false);
+            GameManager.instance.GameCon.OnPauseMenu(false);
         }
     }
 
     public void OffSetting()
     {
+        PlayMenuOnOff();
         if (mainMenuAnmt)
         {
             mainMenuAnmt.SetTrigger("StartGame");
         }
-        else if (pauseMenuAnmt)
+        else if (GameManager.instance.GameCon)
         {
-            pauseMenuAnmt.SetBool("ShowPause", true);
+            GameManager.instance.GameCon.OnPauseMenu(true);
         }
 
     }
@@ -86,5 +108,10 @@ public class CanvasController : MonoBehaviour
     {
         if (!endBoardTimerTxt) { return; }
         endBoardTimerTxt.text = string.Format("{0:D2}:{1:00.000}", (int)(time / 60), (time % 60));
+    }
+
+    public void PlayMenuOnOff()
+    {
+        mainMenuAdoSrc.Play();
     }
 }

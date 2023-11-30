@@ -26,7 +26,10 @@ public class RollDustBehaviour : MonoBehaviour
 
     public void DeactivateRollDust()
     {
-        rollDustAnmt.SetTrigger("DustEnd");
+        if (rollDustAnmt)
+        {
+            rollDustAnmt.SetTrigger("DustEnd");
+        }
         dustActive = false;
     }
 

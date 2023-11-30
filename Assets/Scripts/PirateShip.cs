@@ -6,6 +6,7 @@ public class PirateShip : MonoBehaviour
 {
     [SerializeField]
     private bool isStart = true;
+    private int endCounter = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,7 @@ public class PirateShip : MonoBehaviour
             else
             {
                 EndTheLevel();
+                endCounter++;
             }
         }
     }
@@ -32,7 +34,7 @@ public class PirateShip : MonoBehaviour
     {
         GameManager.instance.GameCon.isControlLocked = true;
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.CutScene);
-        GameManager.instance.GameCon.EndLevelCutScene();
+        GameManager.instance.GameCon.EndLevelCutScene(endCounter);
         GameManager.instance.AudioMan.StartLerpMusicVolume(false);
     }
 }

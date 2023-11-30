@@ -2863,7 +2863,7 @@ MonoBehaviour:
   loadMan: {fileID: 699142404090707607}
   saveMan: {fileID: 6729913280050359075}
   uiMan: {fileID: 114838655450692478}
-  audioMan: {fileID: 0}
+  audioMan: {fileID: 3146133709997472839}
   gameScriptObj: {fileID: 11400000, guid: 6db358195a5af0a4692c91b8d7572ce0, type: 2}
   speechScripObj:
   - {fileID: 11400000, guid: 040b2286b3c34144384aa7bd21bd4a09, type: 2}
@@ -2947,7 +2947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c72a82b56bda0f4195010c3c153a10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSource: {fileID: 5654356183779846882}
+  bgmAdoSrc: {fileID: 5654356183779846882}
 --- !u!82 &5654356183779846882
 AudioSource:
   m_ObjectHideFlags: 0
