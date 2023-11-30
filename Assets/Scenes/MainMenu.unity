@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuAnmt: {fileID: 282563487}
-  pauseMenuAnmt: {fileID: 0}
   gameTimerTxt: {fileID: 0}
   endBoardTimerTxt: {fileID: 0}
   mainMenuAdoSrc: {fileID: 282563488}

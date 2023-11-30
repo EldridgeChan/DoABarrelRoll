@@ -65,18 +65,21 @@ public class UIManager : MonoBehaviour
 
     public void SetWindowMode(int index)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.screenMode = (FullScreenMode)index;  
         SetWindowResolution(GameManager.instance.SaveMan.windowSizeIndex);
     }
 
     public void SetWindowResolution(int index)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.windowSizeIndex = index;
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
     }
 
     public void SetMasterVolume(float volume)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.masterVolume = volume;
         AudioListener.volume = volume;
         masterVolumeTxt.text = "" + (int)(volume * 100.0f);
@@ -84,6 +87,7 @@ public class UIManager : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.musicVolume = volume;
         GameManager.instance.AudioMan.SetBGMVolume(volume);
         musicVolumeTxt.text = "" + (int)(volume * 100.0f);
@@ -91,6 +95,7 @@ public class UIManager : MonoBehaviour
 
     public void OnFlipMapToggle(bool tf)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.mirroredTilemap = tf;
     }
 
@@ -101,6 +106,7 @@ public class UIManager : MonoBehaviour
 
     public void OnShowGuideToggle(bool tf)
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.SaveMan.showJumpGuide = tf;
         if (GameManager.instance.GameCon)
         {

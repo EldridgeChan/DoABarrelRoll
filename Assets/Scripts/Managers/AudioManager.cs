@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField]
     private AudioSource bgmAdoSrc;
+    [SerializeField]
+    private AudioSource clickAdoSrc;
 
     private bool musicLerping = false;
     private bool musicLerpDir = false;
@@ -38,6 +40,7 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicClip(AudioClip clip)
     {
+        if (!bgmAdoSrc.enabled) { return; }
         bgmAdoSrc.clip = clip;
         bgmAdoSrc.Play();
         StartLerpMusicVolume(true);
@@ -52,5 +55,16 @@ public class AudioManager : MonoBehaviour
     public AudioClip GetCurrentMusic()
     {
         return bgmAdoSrc.clip;
+    }
+
+    public void PlayClickSound()
+    {
+        if (!clickAdoSrc.enabled) { return; }
+        clickAdoSrc.Play();
+    }
+
+    public void initClickAucioSource()
+    {
+        clickAdoSrc.enabled = true;
     }
 }

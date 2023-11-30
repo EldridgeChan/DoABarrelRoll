@@ -25,6 +25,8 @@ public class CanvasController : MonoBehaviour
     public void GameStart()
     {
         mainMenuAnmt.SetTrigger("StartGame");
+        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.PlayClickSound();
         PlayMenuOnOff();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.AudioMan.StartLerpMusicVolume(false);
@@ -34,6 +36,8 @@ public class CanvasController : MonoBehaviour
     public void GameExit()
     {
         mainMenuAnmt.SetTrigger("StartGame");
+        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.PlayClickSound();
         PlayMenuOnOff();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.AudioMan.StartLerpMusicVolume(false);
@@ -55,6 +59,7 @@ public class CanvasController : MonoBehaviour
         {
             GameManager.instance.GameCon.OnPauseMenu(false);
         }
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
@@ -62,11 +67,13 @@ public class CanvasController : MonoBehaviour
     public void ContinueGame()
     {
         GameManager.instance.GameCon.TryBarrelStand();
+        GameManager.instance.AudioMan.PlayClickSound();
         PlayMenuOnOff();
     }
 
     public void StartNewGame()
     {
+        GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.GameCon.StartNewGame();
     }
 
@@ -74,6 +81,8 @@ public class CanvasController : MonoBehaviour
     {
         GameManager.instance.UIMan.OnOffSetting(true);
         PlayMenuOnOff();
+        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.PlayClickSound();
         if (mainMenuAnmt) 
         { 
             mainMenuAnmt.SetTrigger("StartGame");
@@ -87,6 +96,7 @@ public class CanvasController : MonoBehaviour
     public void OffSetting()
     {
         PlayMenuOnOff();
+        GameManager.instance.AudioMan.PlayClickSound();
         if (mainMenuAnmt)
         {
             mainMenuAnmt.SetTrigger("StartGame");
@@ -112,6 +122,7 @@ public class CanvasController : MonoBehaviour
 
     public void PlayMenuOnOff()
     {
+        if (!mainMenuAdoSrc.enabled) { return; }
         mainMenuAdoSrc.Play();
     }
 }
