@@ -65,7 +65,7 @@ MonoBehaviour:
   BarrelPressedMaxVelocity: 1
   BarrelRollAnimateSpeedDivisor: 3000
   BarrelGroundCheckDistance: 1
-  BarrelKickForce: 25
+  BarrelKickForce: 40
   BarrelStandYOffset: 0.5
   BarrelStandMaxVelocity: 1
   BarrelStandMaxAVelocity: 50
@@ -116,3 +116,7 @@ MonoBehaviour:
   MusicClips:
   - {fileID: 8300000, guid: f9302dc0a1532c9498de152c92a4b676, type: 3}
   - {fileID: 8300000, guid: f83b35457a00bb44c98d29d09f3b2aa6, type: 3}
+  RollSoundMinAngularVelocity: 200
+  RollSoundMaxAngularVelocity: 1000
+  RollSoundMinDelay: 0.1
+  RollSoundMaxDelay: 0.4

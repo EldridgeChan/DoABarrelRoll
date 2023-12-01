@@ -11,6 +11,8 @@ public class TextBubbleBehaviour : MonoBehaviour
     private Image bubbleImg;
     [SerializeField]
     private TMP_Text bubbleTxt;
+    [SerializeField]
+    private AudioSource bubbleAdoScr;
 
     private SpeechesScripableObject speechScript = null;
     private int textIndex = 0;
@@ -33,6 +35,7 @@ public class TextBubbleBehaviour : MonoBehaviour
     public void SkipSpeech()
     {
         if (!isShip) { return; }
+        PlayBubbleSound();
         if (charIndex >= currFullText.Length)
         {
             ShowNextText();
@@ -54,6 +57,8 @@ public class TextBubbleBehaviour : MonoBehaviour
             ShowNextChar();
             return;
         }
+
+        PlayBubbleSound();
 
         if (charIndex >= currFullText.Length)
         {
@@ -108,5 +113,10 @@ public class TextBubbleBehaviour : MonoBehaviour
         textIndex = 0;
         ResetBubbleSpeech();
         Invoke(nameof(ShowNextChar), speechScript.StartDelay);
+    }
+
+    public void PlayBubbleSound()
+    {
+        bubbleAdoScr.Play();
     }
 }

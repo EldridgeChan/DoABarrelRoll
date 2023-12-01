@@ -102,4 +102,8 @@ public class GameScriptableObject : ScriptableObject
     [Header("Audio Setting")]
     public float MusicLerpTime = 1.0f;
     public AudioClip[] MusicClips;
+    public float RollSoundMinAngularVelocity = 100.0f;
+    public float RollSoundMaxAngularVelocity = 1000.0f;
+    public float RollSoundMinDelay = 0.1f;
+    public float RollSoundMaxDelay = 1.0f;
 }

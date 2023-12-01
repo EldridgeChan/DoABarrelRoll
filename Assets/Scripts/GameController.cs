@@ -47,6 +47,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TextBubbleBehaviour textBbBehave;
     [SerializeField]
+    private AudioSource kickAdoScr;
+    [SerializeField]
     private PirateShip startPirateShip;
     public PirateShip StartPirateShip { get { return startPirateShip; } }
     [SerializeField]
@@ -220,6 +222,7 @@ public class GameController : MonoBehaviour
     private void EndStartCutScene()
     {
         BarrelCameraState(false, CameraState.CutScene);
+        kickAdoScr.Play();
         barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 
