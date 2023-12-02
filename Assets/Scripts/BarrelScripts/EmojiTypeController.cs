@@ -71,6 +71,10 @@ public class EmojiTypeController : MonoBehaviour
         }
         else if (fastSpinTimer < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinDisgustedTime)
         {
+            emojiPlayer.StopRepeat();
+            emojiPlayer.ChangeClips(audioClipsCollection[6].audioClips);
+            emojiPlayer.SetRandom(false);
+            emojiPlayer.PlaySoundManual();
             SetEmojiSprite(EmojiType.Disgusted);
         }
         else
