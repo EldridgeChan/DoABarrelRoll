@@ -166,17 +166,19 @@ public class BarrelControl : MonoBehaviour
     private void BarrelEmojiTypeUpdate()
     {
         emojiTypeCon.StartFastSpining(!inWater && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold);
-        if (!inWater && groundCount > 0 && barrelRig.velocity.y > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinYVelocity && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiClimbMaxXVelocity && Mathf.Abs(barrelRig.angularVelocity) < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
-        {
-            emojiTypeCon.SetClimbing();
-        }
         if (!inWater && groundCount <= 0 && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiFallVelocityThreshold && Mathf.Abs(barrelRig.angularVelocity) <= GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
         {
             emojiTypeCon.SetJumpEmoji();
+            return;
         }
         if (!inWater && Mathf.Abs(pastVelocity.magnitude - barrelRig.velocity.magnitude) > GameManager.instance.GameScriptObj.BarrelEmojiHitWallVelocityThreshold && pastVelocity.magnitude > barrelRig.velocity.magnitude)
         {
             emojiTypeCon.SetSmashWall();
+            return;
+        }
+        if (!inWater && groundCount > 0 && barrelRig.velocity.y > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinYVelocity && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiClimbMaxYVelocity && Mathf.Abs(barrelRig.velocity.x) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinXVelocity && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinAngularVelocity && Mathf.Abs(barrelRig.angularVelocity) < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold && IsHitGround())
+        {
+            emojiTypeCon.SetClimbing();
         }
     }
 
@@ -203,7 +205,7 @@ public class BarrelControl : MonoBehaviour
 
     private void BarrelHitGround()
     {
-        if (Mathf.Abs(barrelRig.velocity.y) < GameManager.instance.GameScriptObj.BarrelPressedMaxVelocity && pastVelocity.y - barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocity && IsHitGround())
+        if (pastVelocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinPastVelocity && pastVelocity.y - barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelPressedMinVelocityDifferent && IsHitGround())
         {
             barrelParentAnmt.SetTrigger("BarrelGrounded");
             smashSoundPlayer.PlaySoundManual();
@@ -214,7 +216,14 @@ public class BarrelControl : MonoBehaviour
     private bool IsHitGround()
     {
         RaycastHit2D[] hit = Physics2D.RaycastAll(barrelRig.position, Vector2.down, GameManager.instance.GameScriptObj.BarrelGroundCheckDistance);
-        return hit.Length > 3 && hit[3].transform.CompareTag("Ground");
+        for (int i = 0; i < hit.Length; i++)
+        {
+            if (hit[i].transform.CompareTag("Ground"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)

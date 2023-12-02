@@ -6,9 +6,22 @@ public class EmojiTypeController : MonoBehaviour
 {
     [SerializeField]
     private SpriteRenderer emojiRend;
+    [SerializeField]
+    private SoundsPlayer emojiPlayer;
     private bool inFastSpining = false;
+    private bool inWater = false;
+    private bool isClimbing = false;
     private float fastSpinTimer = 0.0f;
     private float highestY = 0.0f;
+
+    [SerializeField]
+    private ClipsCollection[] audioClipsCollection;
+
+    [System.Serializable]
+    public class ClipsCollection
+    {
+        public AudioClip[] audioClips;
+    }
 
     private void Update()
     {
@@ -26,11 +39,27 @@ public class EmojiTypeController : MonoBehaviour
 
     public void SetWaterEmoji(bool intoWater)
     {
+        if (inWater == intoWater) { return; }
+        inWater = intoWater;
         SetEmojiSprite(intoWater ? EmojiType.Dead : EmojiType.Suprised);
+        emojiPlayer.StopRepeat();
+        if (intoWater)
+        {
+            emojiPlayer.ChangeClips(audioClipsCollection[0].audioClips);
+            emojiPlayer.SetRandom(false);
+            emojiPlayer.PlaySoundAuto();
+        }
+        else
+        {
+            emojiPlayer.ChangeClips(audioClipsCollection[5].audioClips);
+            emojiPlayer.SetRandom(false);
+            emojiPlayer.PlaySoundManual();
+        }
     }
 
     public void SetJumpEmoji()
     {
+        emojiPlayer.StopRepeat();
         SetEmojiSprite(EmojiType.Shocked);
     }
 
@@ -46,6 +75,10 @@ public class EmojiTypeController : MonoBehaviour
         }
         else
         {
+            emojiPlayer.StopRepeat();
+            emojiPlayer.ChangeClips(audioClipsCollection[4].audioClips);
+            emojiPlayer.SetRandom(false);
+            emojiPlayer.PlaySoundManual();
             SetEmojiSprite(EmojiType.Puked);
         }
     }
@@ -85,6 +118,10 @@ public class EmojiTypeController : MonoBehaviour
                     Debug.Log("ERROR: Undefined Emoji Type For Fall Down");
                     break;
             }
+            emojiPlayer.StopRepeat();
+            emojiPlayer.ChangeClips(audioClipsCollection[2].audioClips);
+            emojiPlayer.SetRandom(false);
+            emojiPlayer.PlaySoundManual();
             inFastSpining = false;
         }
         highestY = transform.position.y;
@@ -93,32 +130,46 @@ public class EmojiTypeController : MonoBehaviour
 
     public void SetClimbing()
     {
+        if (isClimbing) { return;}
+        emojiPlayer.StopRepeat();
+        emojiPlayer.ChangeClips(audioClipsCollection[3].audioClips);
+        emojiPlayer.SetRandom(false);
+        emojiPlayer.PlaySoundAuto();
+        isClimbing = true;
         SetEmojiSprite(EmojiType.Sorry);
     }
 
     public void SetSmashWall()
     {
         SetEmojiSprite(EmojiType.Unsettle);
+        emojiPlayer.StopRepeat();
+        emojiPlayer.ChangeClips(audioClipsCollection[1].audioClips);
+        emojiPlayer.SetRandom(true);
+        emojiPlayer.PlaySoundManual();
         Invoke(nameof(SetInjured), GameManager.instance.GameScriptObj.BarrelEmojiInjuredTime);
     }
 
     public void SetInjured()
     {
+        emojiPlayer.StopRepeat();
         SetEmojiSprite(EmojiType.Injured);
     }
 
     public void SetStand()
     {
+        emojiPlayer.StopRepeat();
         SetEmojiSprite(EmojiType.Force);
     }
 
     public void SetLook()
     {
+        emojiPlayer.StopRepeat();
         SetEmojiSprite(EmojiType.OhWhat);
     }
 
     public void SetNormal()
     {
+        emojiPlayer.StopRepeat();
         int emojiIndex = Random.Range(0, 3);
         switch (emojiIndex)
         {
@@ -139,6 +190,10 @@ public class EmojiTypeController : MonoBehaviour
 
     private void SetEmojiSprite(EmojiType type)
     {
+        if (type != EmojiType.Sorry)
+        {
+            isClimbing = false;
+        }
         CancelInvoke(nameof(SetNormal));
         Invoke(nameof(SetNormal), GameManager.instance.GameScriptObj.BarrelEmojiBackNormalTime);
         emojiRend.sprite = GameManager.instance.GameScriptObj.EmojiTypes[(int)type];

@@ -47,8 +47,8 @@ public class GameScriptableObject : ScriptableObject
     public float waterSinkMaxVelocity = 10.0f;
 
     [Header("Barrel Animation Setting")]
-    public float BarrelPressedMinVelocity = -5.0f;
-    public float BarrelPressedMaxVelocity = 1.0f;
+    public float BarrelPressedMinVelocityDifferent = -5.0f;
+    public float BarrelPressedMinPastVelocity = 1.0f;
     public float BarrelRollAnimateSpeedDivisor = 1000.0f;
     public float BarrelGroundCheckDistance = 1.0f;
     public float BarrelKickForce = 50.0f;
@@ -71,7 +71,9 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiFallBackThreshold = 10.0f;
     public float BarrelEmojiFallBackDelay = 2.0f;
     public float BarrelEmojiClimbMinYVelocity = 0.1f;
-    public float BarrelEmojiClimbMaxXVelocity = 5.0f;
+    public float BarrelEmojiClimbMaxYVelocity = 5.0f;
+    public float BarrelEmojiClimbMinXVelocity = 1.0f;
+    public float BarrelEmojiClimbMinAngularVelocity = 100.0f;
     public float BarrelEmojiHitWallVelocityThreshold = 5.0f;
     public float BarrelEmojiFallVelocityThreshold = -5.0f;
     public float BarrelEmojiInjuredTime = 1.0f;
@@ -95,6 +97,8 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEndTargetAngularVelocity = -100.0f;
     public float BarrelEndLerpAngularVelocityTime = 1.0f;
     public float BlackScreenTransitionTime = 1.1f;
+    public Vector2 PirateShipStartPosition = Vector2.zero;
+    public Vector2 PirateShipEndPosition = Vector2.zero;
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;

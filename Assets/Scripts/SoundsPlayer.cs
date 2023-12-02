@@ -11,11 +11,14 @@ public class SoundsPlayer : MonoBehaviour
     [SerializeField]
     private bool onStartRepeat = false;
     [SerializeField]
+    private bool notRandom = false;
+    [SerializeField]
     private float minReplayTime = 1.0f;
     [SerializeField]
     private float maxReplayTime = 3.0f;
 
     private bool isPlayCoolDown = false;
+    private int clipIndex = 0;
 
     private void Start()
     {
@@ -38,7 +41,7 @@ public class SoundsPlayer : MonoBehaviour
     public void PlaySoundManual()
     {
         if (isPlayCoolDown) { return; }
-        SetRandomClip();
+        SetClip();
         adoSrc.Play();
         isPlayCoolDown = true;
         Invoke(nameof(OffPlayCoolDown), minReplayTime);
@@ -54,14 +57,33 @@ public class SoundsPlayer : MonoBehaviour
         CancelInvoke(nameof(PlaySoundAuto));
     }
 
+    public void ChangeClips(AudioClip[] clips)
+    {
+        adoClips = clips;
+        clipIndex = 0;
+    }
+
     public void SetRepeatTime(float time)
     {
         minReplayTime = time;
         maxReplayTime = time;
     }
 
-    private void SetRandomClip()
+    public void SetRandom(bool tf)
     {
-        adoSrc.clip = adoClips[Random.Range(0, adoClips.Length)];
+        notRandom = !tf;
+    }
+
+    private void SetClip()
+    {
+        if (notRandom)
+        {
+            adoSrc.clip = adoClips[clipIndex];
+            clipIndex = (clipIndex + 1) % adoClips.Length;
+        }
+        else
+        {
+            adoSrc.clip = adoClips[Random.Range(0, adoClips.Length)];
+        }
     }
 }

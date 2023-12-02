@@ -61,8 +61,8 @@ MonoBehaviour:
   waterFloatingMaxVelocity: 2
   waterCurrentMaxVelocity: 4
   waterSinkMaxVelocity: -8
-  BarrelPressedMinVelocity: -5
-  BarrelPressedMaxVelocity: 1
+  BarrelPressedMinVelocityDifferent: -5
+  BarrelPressedMinPastVelocity: -1
   BarrelRollAnimateSpeedDivisor: 3000
   BarrelGroundCheckDistance: 1
   BarrelKickForce: 40
@@ -86,7 +86,9 @@ MonoBehaviour:
   BarrelEmojiFallBackThreshold: 10
   BarrelEmojiFallBackDelay: 1
   BarrelEmojiClimbMinYVelocity: 0.1
-  BarrelEmojiClimbMaxXVelocity: 5
+  BarrelEmojiClimbMaxYVelocity: 5
+  BarrelEmojiClimbMinXVelocity: 0.1
+  BarrelEmojiClimbMinAngularVelocity: 100
   BarrelEmojiHitWallVelocityThreshold: 10
   BarrelEmojiFallVelocityThreshold: -5
   BarrelEmojiInjuredTime: 1
@@ -106,6 +108,8 @@ MonoBehaviour:
   BarrelEndTargetAngularVelocity: -500
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
+  PirateShipStartPosition: {x: -145, y: -6}
+  PirateShipEndPosition: {x: 143, y: 180}
   WindowResolution:
   - {x: 640, y: 360}
   - {x: 960, y: 540}

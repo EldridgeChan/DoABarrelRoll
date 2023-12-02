@@ -49,11 +49,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private AudioSource kickAdoScr;
     [SerializeField]
-    private PirateShip startPirateShip;
-    public PirateShip StartPirateShip { get { return startPirateShip; } }
-    [SerializeField]
-    private PirateShip endPirateShip;
-    public PirateShip EndPirateShip { get { return endPirateShip ; } }
+    private PirateShip pirateShip;
+    public PirateShip PirateShip { get { return pirateShip; } }
     private SpeechScript currCutScene = SpeechScript.None;
 
     [Header("Testing Fields")]
@@ -69,7 +66,7 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartLevelCutScene(SpeechScript.Start0, startPirateShip.transform);
+        StartLevelCutScene(SpeechScript.Start0, pirateShip.transform);
     }
 
     private void Update()
@@ -193,7 +190,7 @@ public class GameController : MonoBehaviour
         barrelCSBehave.enabled = true;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartLevelCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, endPirateShip.transform);
+        StartLevelCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, pirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -228,10 +225,16 @@ public class GameController : MonoBehaviour
 
     public void StartNewGame()
     {
-        barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+        pirateShip.ToPostion(true);
+        barrelControl.transform.position = pirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
-        StartLevelCutScene( SpeechScript.Start1, startPirateShip.transform);
+        StartLevelCutScene( SpeechScript.Start1, pirateShip.transform);
         OnEndMenu(false);
+    }
+
+    public void MovePirateShipToEnd()
+    {
+        pirateShip.ToPostion(false);
     }
 
     //UI
