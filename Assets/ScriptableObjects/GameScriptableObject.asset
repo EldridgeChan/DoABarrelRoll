@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameScriptableObject
   m_EditorClassIdentifier: 
   CameraMaxLerpTime: 0.5
-  CameraOnMenuMaxLerpT: 0.4
+  CameraOnMenuMaxLerpT: 0.5
   CameraDefaultSize: 7
   CameraCutSceneSize: 5
   CameraCutSceneYPositionOffset: 3
@@ -68,7 +68,7 @@ MonoBehaviour:
   BarrelKickForce: 40
   BarrelStandYOffset: 0.5
   BarrelStandMaxVelocity: 1
-  BarrelStandMaxAVelocity: 50
+  BarrelStandMaxAVelocity: 100
   BarrelFallGainControlTime: 1.005
   BarrelStandFallCoolDown: 1.1
   BarrelErrorTexts:
