@@ -11,6 +11,7 @@ public class EmojiTypeController : MonoBehaviour
     private bool inFastSpining = false;
     private bool inWater = false;
     private bool isClimbing = false;
+    private bool isEmojiTypeCoolDowned = true;
     private float fastSpinTimer = 0.0f;
     private float highestY = 0.0f;
 
@@ -127,9 +128,15 @@ public class EmojiTypeController : MonoBehaviour
             emojiPlayer.SetRandom(false);
             emojiPlayer.PlaySoundManual();
             inFastSpining = false;
+            isEmojiTypeCoolDowned = false;
+            Invoke(nameof(EmojiChangeOffCoolDown), GameManager.instance.GameScriptObj.BarrelEmojiOffFallCoolDownTime);
         }
         highestY = transform.position.y;
-        CancelInvoke();
+    }
+
+    public void EmojiChangeOffCoolDown()
+    {
+        isEmojiTypeCoolDowned = true;
     }
 
     public void SetClimbing()
@@ -194,6 +201,7 @@ public class EmojiTypeController : MonoBehaviour
 
     private void SetEmojiSprite(EmojiType type)
     {
+        if (!isEmojiTypeCoolDowned) { return; }
         if (type != EmojiType.Sorry)
         {
             isClimbing = false;

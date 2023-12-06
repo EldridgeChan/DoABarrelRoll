@@ -78,6 +78,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiFallVelocityThreshold = -5.0f;
     public float BarrelEmojiInjuredTime = 1.0f;
     public float BarrelEmojiBackNormalTime = 10.0f;
+    public float BarrelEmojiOffFallCoolDownTime = 2.0f;
 
     [Header("Dusts Animation Setting")]
     public float JumpDustYPositionOffset = -1.3f;
@@ -110,4 +111,5 @@ public class GameScriptableObject : ScriptableObject
     public float RollSoundMaxAngularVelocity = 1000.0f;
     public float RollSoundMinDelay = 0.1f;
     public float RollSoundMaxDelay = 1.0f;
+    public float BarrelSplashWaterMaxYVelocity = -1.0f;
 }

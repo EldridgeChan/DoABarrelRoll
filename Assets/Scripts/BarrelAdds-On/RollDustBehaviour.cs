@@ -13,7 +13,7 @@ public class RollDustBehaviour : MonoBehaviour
     public void ActivateRollDust(float spinSpeed)
     {
         if (dustActive) { return; }
-        rollDustAnmt.SetTrigger("ShowDust");
+        rollDustAnmt.SetBool("ShowDust", true);
         rollDustRend.flipX = spinSpeed > 0;
         dustActive = true;
     }
@@ -26,10 +26,9 @@ public class RollDustBehaviour : MonoBehaviour
 
     public void DeactivateRollDust()
     {
-        if (rollDustAnmt)
-        {
-            rollDustAnmt.SetTrigger("DustEnd");
-        }
+        if (!rollDustAnmt) { return; }
+
+        rollDustAnmt.SetBool("ShowDust", false);
         dustActive = false;
     }
 

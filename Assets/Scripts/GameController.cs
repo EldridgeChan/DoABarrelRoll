@@ -81,11 +81,17 @@ public class GameController : MonoBehaviour
     // Testing----------------------------------------------------------
     public void TeleportCheckpoint(int num)
     {
-        if (num <= testRespawns.Length && num > 0)
+        if (num <= testRespawns.Length)
         {
-            barrelControl.transform.position = testRespawns[num - 1].position;
+            isControlLocked = false;
+            BarrelCameraState(false, CameraState.CutScene);
+
+            barrelControl.transform.position = testRespawns[num].position;
             barrelControl.BarrelRig.velocity = Vector2.zero;
             barrelControl.BarrelRig.angularVelocity = 0;
+            textBbBehave.ExitSpeechBubble();
+            MovePirateShipToEnd();
+            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)MusicClip.Beach]);
         }
     }
 
@@ -201,6 +207,8 @@ public class GameController : MonoBehaviour
 
     public void EndSpeech()
     {
+        if (currCutScene == SpeechScript.None) { return; }
+
         if (currCutScene < SpeechScript.End0)
         {
             EndStartCutScene();

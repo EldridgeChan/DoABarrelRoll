@@ -32,8 +32,6 @@ public class SoundsPlayer : MonoBehaviour
 
     public void PlaySoundAuto()
     {
-        CancelInvoke(nameof(OffPlayCoolDown));
-        isPlayCoolDown = false;
         PlaySoundManual();
         Invoke(nameof(PlaySoundAuto), Random.Range(minReplayTime, maxReplayTime));
     }

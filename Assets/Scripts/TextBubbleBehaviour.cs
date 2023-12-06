@@ -89,6 +89,7 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void ExitSpeechBubble()
     {
+        CancelInvoke();
         GameManager.instance.GameCon.EndSpeech();
         bubbleImg.enabled = false;
         bubbleTxt.enabled = false;

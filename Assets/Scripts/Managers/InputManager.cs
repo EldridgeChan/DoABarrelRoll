@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (Input.inputString.Length > 0)
+        if (GameManager.instance.OnTestFeatures && Input.inputString.Length > 0)
         {
             if (int.TryParse(Input.inputString, out int num) && GameManager.instance.GameCon)
             {

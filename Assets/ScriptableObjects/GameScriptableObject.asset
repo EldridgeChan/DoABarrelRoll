@@ -124,3 +124,4 @@ MonoBehaviour:
   RollSoundMaxAngularVelocity: 1000
   RollSoundMinDelay: 0.1
   RollSoundMaxDelay: 0.4
+  BarrelSplashWaterMaxYVelocity: -1

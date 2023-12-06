@@ -147,7 +147,7 @@ public class BarrelControl : MonoBehaviour
 
     private void IntoWater(bool tf)
     {
-        if (tf)
+        if (tf && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelSplashWaterMaxYVelocity)
         {
             waterSplashSoundPlayer.PlaySoundManual();
         }

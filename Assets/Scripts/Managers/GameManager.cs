@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private bool onTestFeatures = true;
+    public bool OnTestFeatures { get { return onTestFeatures; } }
+
     private void Awake()
     {
         if (instance)
