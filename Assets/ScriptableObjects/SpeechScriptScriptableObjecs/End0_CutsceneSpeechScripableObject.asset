@@ -23,29 +23,29 @@ MonoBehaviour:
       bubbleWidth: 2
       bubbleText: Look Who's Back.
     - position: {x: 0.5, y: -0.59}
-      bubbleWidth: 1.1
+      bubbleWidth: 1.2
       bubbleText: Traitor!!
     - position: {x: -0.6, y: -0.54}
-      bubbleWidth: 2.8
+      bubbleWidth: 2.9
       bubbleText: How dare you come back!!
     - position: {x: 0.6, y: -0.5}
-      bubbleWidth: 2
+      bubbleWidth: 2.3
       bubbleText: The traitor is back!!
     - position: {x: -0.5, y: -0.57}
-      bubbleWidth: 1.4
+      bubbleWidth: 1.5
       bubbleText: The traitor!!
     - position: {x: 0.4, y: -0.55}
       bubbleWidth: 1
       bubbleText: Lame~
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 3.2
+      bubbleWidth: 3.6
       bubbleText: You went out like a ambitious lion.
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 3.3
+      bubbleWidth: 3.6
       bubbleText: Yet you come back like a chicken.
     - position: {x: 0.5, y: -0.59}
-      bubbleWidth: 1.1
+      bubbleWidth: 1.2
       bubbleText: Coward!!
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 3.6
+      bubbleWidth: 3.7
       bubbleText: Let's never forget your cowardness.

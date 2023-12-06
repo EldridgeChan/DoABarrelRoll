@@ -17,13 +17,13 @@ MonoBehaviour:
   - language: 0
     bubbleSpeeches:
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 2.2
+      bubbleWidth: 2.4
       bubbleText: Appreciate your effort
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 3
+      bubbleWidth: 3.2
       bubbleText: For making yourself back here.
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 3.7
+      bubbleWidth: 3.9
       bubbleText: However, You have not been forgiven.
     - position: {x: -0.1, y: -0.55}
       bubbleWidth: 1.9
@@ -32,14 +32,14 @@ MonoBehaviour:
       bubbleWidth: 0.9
       bubbleText: Yeah!!
     - position: {x: -0.63, y: -0.53}
-      bubbleWidth: 2.2
+      bubbleWidth: 2.4
       bubbleText: Never forgive traitor!!
     - position: {x: 0.56, y: -0.5}
       bubbleWidth: 2.6
       bubbleText: No one needs you here!!
     - position: {x: -0.6, y: -0.57}
-      bubbleWidth: 3.5
+      bubbleWidth: 3.8
       bubbleText: You  are too weak to be part of us!!
     - position: {x: -0.1, y: -0.55}
-      bubbleWidth: 2.7
+      bubbleWidth: 2.8
       bubbleText: HA!! Better luck next time.
