@@ -45,6 +45,12 @@ public class InputManager : MonoBehaviour
             {
                 GameManager.instance.GameCon.TryBarrelStand();
             }
+            if (GameManager.instance.LoadMan.CurrentSceneIndex == 2)
+            {
+                GameManager.instance.AudioMan.PlayClickSound();
+                GameManager.instance.UIMan.OnOffBlackScreen(true);
+                GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
+            }
         }
 
         if (Input.inputString.Length > 0)

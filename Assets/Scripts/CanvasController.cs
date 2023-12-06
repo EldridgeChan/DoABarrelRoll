@@ -18,8 +18,6 @@ public class CanvasController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.UIMan.CanCon = this;
-
-        if (!mainMenuAdoSrc) { mainMenuAdoSrc = GetComponent<AudioSource>(); }
     }
 
     public void GameStart()
@@ -59,6 +57,11 @@ public class CanvasController : MonoBehaviour
         {
             GameManager.instance.GameCon.OnPauseMenu(false);
         }
+        BackMainMenu();
+    }
+
+    public void BackMainMenu()
+    {
         GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
@@ -106,6 +109,13 @@ public class CanvasController : MonoBehaviour
             GameManager.instance.GameCon.OnPauseMenu(true);
         }
 
+    }
+
+    public void CreditScene()
+    {
+        GameManager.instance.AudioMan.PlayClickSound();
+        GameManager.instance.UIMan.OnOffBlackScreen(true);
+        GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadCredit), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
     public void UpdateGameTimer(float time)
