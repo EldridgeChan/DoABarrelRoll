@@ -13,7 +13,6 @@ public class EmojiTypeController : MonoBehaviour
     private bool isClimbing = false;
     private bool isEmojiTypeCoolDowned = true;
     private float fastSpinTimer = 0.0f;
-    private float highestY = 0.0f;
 
     [SerializeField]
     private ClipsCollection[] audioClipsCollection;
@@ -26,9 +25,9 @@ public class EmojiTypeController : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y > highestY)
+        if (transform.position.y > GameManager.instance.GameCon.barrelHighestY)
         {
-            highestY = transform.position.y;
+            GameManager.instance.GameCon.barrelHighestY = transform.position.y;
         }
 
         if (inFastSpining)
@@ -102,7 +101,7 @@ public class EmojiTypeController : MonoBehaviour
 
     public void FallBackEmoji()
     {
-        if (Mathf.Abs(highestY - transform.position.y) > GameManager.instance.GameScriptObj.BarrelEmojiFallBackThreshold)
+        if (Mathf.Abs(GameManager.instance.GameCon.barrelHighestY - transform.position.y) > GameManager.instance.GameScriptObj.BarrelEmojiFallBackThreshold)
         {
             int typeNum = Random.Range(0, 4);
             switch (typeNum)
@@ -131,7 +130,7 @@ public class EmojiTypeController : MonoBehaviour
             isEmojiTypeCoolDowned = false;
             Invoke(nameof(EmojiChangeOffCoolDown), GameManager.instance.GameScriptObj.BarrelEmojiOffFallCoolDownTime);
         }
-        highestY = transform.position.y;
+        GameManager.instance.GameCon.barrelHighestY = transform.position.y;
     }
 
     public void EmojiChangeOffCoolDown()

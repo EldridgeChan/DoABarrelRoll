@@ -61,12 +61,18 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Animator gameCanvasAnmt;
 
+    [Header("Old Man")]
+    [SerializeField]
+    private OldManBehaviour oldManBehave;
+    [HideInInspector]
+    public float barrelHighestY = -100.0f;
+
     private void Start()
     {
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartLevelCutScene(SpeechScript.Start0, pirateShip.transform);
+        StartLevelCutScene(GameManager.instance.SaveMan.endCounter > 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
     }
 
     private void Update()
@@ -191,6 +197,12 @@ public class GameController : MonoBehaviour
         textBbBehave.InitBubble(true, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
+    public void StartOldManCutScene(SpeechScript script, Transform parentTrans)
+    {
+        currCutScene = script;
+        textBbBehave.InitBubble(false, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
+    }
+
     public void EndLevelCutScene(int endCounter)
     {
         barrelCSBehave.enabled = true;
@@ -219,7 +231,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            Debug.Log("ERROR: Undefined CutSceneIndex");
+            oldManBehave.EndOfSpeech();
         }
         currCutScene = SpeechScript.None;
     }

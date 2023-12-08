@@ -23,7 +23,7 @@ MonoBehaviour:
   BarrelJumpMaxDistance: 4
   BarrelMaxAngularVelocity: 2000
   BarrelEmojiMaxOffsetDistance: 0.18
-  BarrelEmojiInertiaEffectivnessAVThreshold: 1000
+  BarrelEmojiInertiaEffectivnessAVThreshold: 1500
   BarrelEmojiInertiaMinEffectivness: 0.1
   EmojiTypes:
   - {fileID: 21300000, guid: cb65e712872a40543b420ad2b31ce2b5, type: 3}
@@ -109,7 +109,7 @@ MonoBehaviour:
   BarrelEndTargetAngularVelocity: -500
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
-  PirateShipStartPosition: {x: -145, y: -6}
+  PirateShipStartPosition: {x: -143, y: -6}
   PirateShipEndPosition: {x: 143, y: 180}
   WindowResolution:
   - {x: 640, y: 360}
@@ -126,3 +126,7 @@ MonoBehaviour:
   RollSoundMinDelay: 0.1
   RollSoundMaxDelay: 0.4
   BarrelSplashWaterMaxYVelocity: -1
+  OldManEmojiOriginalPositionOffset: {x: 0, y: 0.5}
+  OldManEmojiMaxPositionOffset: 0.2
+  OldManLookLerpTime: 1
+  OldManCentripetalForce: 1

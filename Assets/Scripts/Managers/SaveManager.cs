@@ -11,6 +11,7 @@ public class SaveManager : MonoBehaviour
     public float musicVolume = 1.0f;
     public bool mirroredTilemap = false;
     public bool showJumpGuide = false;
+    public int endCounter = 0;
 
     public void SaveSetting()
     {
@@ -33,6 +34,7 @@ public class SaveManager : MonoBehaviour
         musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), musicVolume);
         mirroredTilemap = PlayerPrefs.GetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0) > 0;
         showJumpGuide = PlayerPrefs.GetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0) > 0;
+        endCounter = PlayerPrefs.GetInt(nameof(endCounter), endCounter);
     }
 
     public void InitFromSave()

@@ -108,6 +108,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameCanvasAnmt: {fileID: 0}
+  oldManBehave: {fileID: 0}
+  barrelHighestY: 0
 --- !u!82 &6129329151362866355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -444,6 +446,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8440482644754258320, guid: 3763adda723b9784ca6eac446597104a, type: 3}
+      propertyPath: m_fontSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440482644754258320, guid: 3763adda723b9784ca6eac446597104a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e4e340064b1af5b4f861f880a0d2ab72, type: 2}
+    - target: {fileID: 8440482644754258320, guid: 3763adda723b9784ca6eac446597104a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440482644754258320, guid: 3763adda723b9784ca6eac446597104a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5520216946385734660, guid: e4e340064b1af5b4f861f880a0d2ab72, type: 2}
     - target: {fileID: 9173939698751392755, guid: 3763adda723b9784ca6eac446597104a, type: 3}
       propertyPath: m_Enabled
       value: 0

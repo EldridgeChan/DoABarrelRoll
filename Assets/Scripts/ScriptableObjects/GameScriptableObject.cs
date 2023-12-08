@@ -112,4 +112,11 @@ public class GameScriptableObject : ScriptableObject
     public float RollSoundMinDelay = 0.1f;
     public float RollSoundMaxDelay = 1.0f;
     public float BarrelSplashWaterMaxYVelocity = -1.0f;
+
+    [Header("OldMan Setting")]
+    public Vector2 OldManEmojiOriginalPositionOffset = Vector2.zero;
+    public float OldManEmojiMaxPositionOffset = 1.8f;
+    public float OldManLookLerpTime = 1.0f;
+    public float OldManCentripetalForce = 10.0f;
+    public float OldManTauntHightThershold = 10.0f;
 }

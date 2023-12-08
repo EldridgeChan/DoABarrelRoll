@@ -42,7 +42,11 @@ public enum SpeechScript
     Start1,
     End0,
     End1,
-    Old0
+    Old0,
+    Old1,
+    Old2,
+    Taunt0,
+    End
 }
 
 public enum MusicClip

@@ -2870,7 +2870,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f9cf175a4c73984d84d51d197a25d68, type: 2}
   - {fileID: 11400000, guid: 5563b21dca8cbb145a1c1dc5075e0454, type: 2}
   - {fileID: 11400000, guid: 5563b21dca8cbb145a1c1dc5075e0454, type: 2}
-  onTestFeatures: 0
+  - {fileID: 11400000, guid: 5baebf7f2b3d30041ba01e6cb7940ecc, type: 2}
+  - {fileID: 11400000, guid: 817f1942e4c89344b9f65e0baa68fc3e, type: 2}
+  - {fileID: 11400000, guid: 271fd6c8ef9e01740bad8e97da40be3b, type: 2}
+  - {fileID: 11400000, guid: 6124afa5eda0af8489b813538c403865, type: 2}
+  onTestFeatures: 1
 --- !u!114 &5160527943799690971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2914,6 +2918,7 @@ MonoBehaviour:
   musicVolume: 0.5
   mirroredTilemap: 0
   showJumpGuide: 1
+  endCounter: 0
 --- !u!114 &114838655450692478
 MonoBehaviour:
   m_ObjectHideFlags: 0

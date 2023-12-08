@@ -6,7 +6,6 @@ public class PirateShip : MonoBehaviour
 {
     [HideInInspector]
     public bool isStart = true;
-    private int endCounter = 0;
 
     [SerializeField]
     private Transform pirateShipTrans;
@@ -24,7 +23,7 @@ public class PirateShip : MonoBehaviour
             else
             {
                 EndTheLevel();
-                endCounter++;
+                GameManager.instance.SaveMan.endCounter++;
             }
         }
     }
@@ -39,7 +38,7 @@ public class PirateShip : MonoBehaviour
     {
         GameManager.instance.GameCon.isControlLocked = true;
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.CutScene);
-        GameManager.instance.GameCon.EndLevelCutScene(endCounter);
+        GameManager.instance.GameCon.EndLevelCutScene(GameManager.instance.SaveMan.endCounter);
         GameManager.instance.AudioMan.StartLerpMusicVolume(false);
     }
 
