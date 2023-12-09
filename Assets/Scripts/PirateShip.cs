@@ -23,7 +23,7 @@ public class PirateShip : MonoBehaviour
             else
             {
                 EndTheLevel();
-                GameManager.instance.SaveMan.endCounter++;
+                GameManager.instance.SaveMan.FinishGame();
             }
         }
     }

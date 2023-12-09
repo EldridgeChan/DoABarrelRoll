@@ -51,6 +51,9 @@ TagManager:
   - name: Instuction
     uniqueID: 1187823829
     locked: 0
+  - name: OldMan
+    uniqueID: 819666455
+    locked: 0
   - name: Barrel
     uniqueID: 1612920107
     locked: 0

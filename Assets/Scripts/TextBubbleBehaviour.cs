@@ -101,7 +101,7 @@ public class TextBubbleBehaviour : MonoBehaviour
         bubbleTxt.text = "";
         bubbleTrans.localPosition = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].position;
         bubbleTrans.sizeDelta = new Vector2(speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleWidth, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
-        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.Trim();
+        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.TrimEnd();
         bubbleImg.sprite = isShip ? GameManager.instance.GameScriptObj.ShipNormalBubbleSprite : GameManager.instance.GameScriptObj.OldManNormalBubbleSprite;
     }
 

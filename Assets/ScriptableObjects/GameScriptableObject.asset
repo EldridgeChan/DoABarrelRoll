@@ -104,7 +104,7 @@ MonoBehaviour:
   SpeechBubbleFinishDelay: 1.5
   ShipNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   ShipFinishBubbleSprite: {fileID: 87626950, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
-  OldManNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
+  OldManNormalBubbleSprite: {fileID: -746975283, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   ShipBarrelPositionOffset: {x: 0, y: -5.10501, z: 0}
   BarrelEndTargetAngularVelocity: -500
   BarrelEndLerpAngularVelocityTime: 1
@@ -130,3 +130,4 @@ MonoBehaviour:
   OldManEmojiMaxPositionOffset: 0.2
   OldManLookLerpTime: 1
   OldManCentripetalForce: 1
+  OldManTauntHightThershold: 10

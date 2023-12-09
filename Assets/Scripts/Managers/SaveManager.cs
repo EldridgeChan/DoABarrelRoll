@@ -37,6 +37,13 @@ public class SaveManager : MonoBehaviour
         endCounter = PlayerPrefs.GetInt(nameof(endCounter), endCounter);
     }
 
+    public void FinishGame()
+    {
+        endCounter++;
+        PlayerPrefs.SetInt(nameof(endCounter), endCounter);
+        PlayerPrefs.Save();
+    }
+
     public void InitFromSave()
     {
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].y, screenMode);

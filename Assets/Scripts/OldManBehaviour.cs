@@ -63,11 +63,16 @@ public class OldManBehaviour : MonoBehaviour
         lerpFromPos = oldManEmojiTrans.position;
         if (talkCounter <= 0)
         {
-            GameManager.instance.GameCon.StartOldManCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Old0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Old0, (int)SpeechScript.Taunt0 - 1), transform);
+            //testing code
+            //GameManager.instance.SaveMan.endCounter = 3;
+            //GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Taunt0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Taunt0, (int)SpeechScript.EndOfEnum - 1), transform, false);
+
+            GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Old0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Old0, (int)SpeechScript.Taunt0 - 1), transform, false);
+            talkCounter++;
         }
         else if (GameManager.instance.GameCon.barrelHighestY - transform.position.y > GameManager.instance.GameScriptObj.OldManTauntHightThershold)
         {
-            GameManager.instance.GameCon.StartOldManCutScene((SpeechScript)Random.Range((int)SpeechScript.Taunt0, (int)SpeechScript.End), transform);
+            GameManager.instance.GameCon.StartCutScene((SpeechScript)Random.Range((int)SpeechScript.Taunt0, (int)SpeechScript.EndOfEnum), transform, false);
         }
     }
 
@@ -76,5 +81,10 @@ public class OldManBehaviour : MonoBehaviour
         isTalking = false;
         mockPosition = oldManEmojiTrans.position;
         mockVelocity = Vector2.zero;
+    }
+
+    public void resetOldMan()
+    {
+        talkCounter = 0;
     }
 }

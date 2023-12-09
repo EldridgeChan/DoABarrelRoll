@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
+  m_Name: Taunt1_SpeechesScripableObject
+  m_EditorClassIdentifier: 
+  StartDelay: 1
+  AllSpeech:
+  - language: 0
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleWidth: 4.6
+      bubbleText: Ha!! It didn't take too long to bring you back.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 2.5
+      bubbleText: Come now. You're tired.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 1.7
+      bubbleText: Get some rest.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 2.8
+      bubbleText: You can rest until eternity.

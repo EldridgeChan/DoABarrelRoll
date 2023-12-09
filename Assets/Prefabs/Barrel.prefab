@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emojiRend: {fileID: 5722869736107421788}
-  emojiPlayer: {fileID: 0}
+  emojiPlayer: {fileID: 2327123679804578680}
   audioClipsCollection:
   - audioClips:
     - {fileID: 8300000, guid: 1abed08760410924391d72b88ab714a1, type: 3}
@@ -393,10 +393,13 @@ MonoBehaviour:
   - audioClips:
     - {fileID: 8300000, guid: 815a78f98e573bc45bd50b02bb008136, type: 3}
   - audioClips:
-    - {fileID: 8300000, guid: 924892ba2b8d6734485f4e491dfc776c, type: 3}
     - {fileID: 8300000, guid: 7d4931c96a4216547a3de0bbe3d26d3a, type: 3}
   - audioClips:
     - {fileID: 8300000, guid: d314bf2f55fdcc945a2fdf60cace0a7d, type: 3}
+  - audioClips:
+    - {fileID: 8300000, guid: 924892ba2b8d6734485f4e491dfc776c, type: 3}
+  - audioClips:
+    - {fileID: 8300000, guid: 4c47a7757610a1542984a714d2777a12, type: 3}
 --- !u!114 &2327123679804578680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,8 +429,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

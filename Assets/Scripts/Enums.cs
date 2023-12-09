@@ -32,6 +32,7 @@ public enum Language
 {
     English,
     Chinese,
+    Cantonese,
     Japanese
 }
 
@@ -46,7 +47,10 @@ public enum SpeechScript
     Old1,
     Old2,
     Taunt0,
-    End
+    Taunt1,
+    Taunt2,
+    Taunt3,
+    EndOfEnum
 }
 
 public enum MusicClip

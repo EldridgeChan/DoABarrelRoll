@@ -15,4 +15,28 @@ MonoBehaviour:
   StartDelay: 1
   AllSpeech:
   - language: 0
-    bubbleSpeeches: []
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.8
+      bubbleText: Ah... A newcomer, welcome welcome.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.1
+      bubbleText: Unfortunately, you're trapped.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 4.9
+      bubbleText: Don't worry. You'll be starving, but you won't die.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.7
+      bubbleText: You can try climbing the mountain.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.8
+      bubbleText: But I don't see any point of doing it.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.2
+      bubbleText: Or you can stay here with me.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 4.6
+      bubbleText: Waiting till the end of the world, or your life.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 4
+      bubbleText: I can always use a company you know.

@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartLevelCutScene(GameManager.instance.SaveMan.endCounter > 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
+        StartCutScene(GameManager.instance.SaveMan.endCounter > 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
     }
 
     private void Update()
@@ -191,16 +191,10 @@ public class GameController : MonoBehaviour
         camMove.SetCamLerpDir(dir);
     }
 
-    public void StartLevelCutScene(SpeechScript script, Transform parentTrans)
+    public void StartCutScene(SpeechScript script, Transform parentTrans, bool isShip = true)
     {
         currCutScene = script;
-        textBbBehave.InitBubble(true, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
-    }
-
-    public void StartOldManCutScene(SpeechScript script, Transform parentTrans)
-    {
-        currCutScene = script;
-        textBbBehave.InitBubble(false, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
+        textBbBehave.InitBubble(isShip, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
     public void EndLevelCutScene(int endCounter)
@@ -208,7 +202,7 @@ public class GameController : MonoBehaviour
         barrelCSBehave.enabled = true;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartLevelCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, pirateShip.transform);
+        StartCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, pirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -248,7 +242,9 @@ public class GameController : MonoBehaviour
         pirateShip.ToPostion(true);
         barrelControl.transform.position = pirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
-        StartLevelCutScene( SpeechScript.Start1, pirateShip.transform);
+        oldManBehave.resetOldMan();
+        barrelHighestY = -100.0f;
+        StartCutScene( SpeechScript.Start1, pirateShip.transform);
         OnEndMenu(false);
     }
 
