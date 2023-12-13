@@ -17,8 +17,8 @@ MonoBehaviour:
   - language: 0
     bubbleSpeeches:
     - position: {x: 0, y: 5}
-      bubbleWidth: 1.5
-      bubbleText: What? you...
+      bubbleWidth: 2.6
+      bubbleText: What? Newcomer you...
     - position: {x: 0, y: 5}
       bubbleWidth: 2.8
       bubbleText: You knew it is meaningless.

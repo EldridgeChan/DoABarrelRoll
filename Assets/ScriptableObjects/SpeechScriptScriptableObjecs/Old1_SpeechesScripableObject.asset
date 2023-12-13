@@ -17,8 +17,8 @@ MonoBehaviour:
   - language: 0
     bubbleSpeeches:
     - position: {x: 0, y: 5}
-      bubbleWidth: 2.7
-      bubbleText: Ha!! I imagine you happy.
+      bubbleWidth: 3.7
+      bubbleText: Ha!! I imagine you happy. Newcomer
     - position: {x: 0, y: 5}
       bubbleWidth: 2.3
       bubbleText: I've told you already.

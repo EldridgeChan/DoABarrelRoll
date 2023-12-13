@@ -44,6 +44,13 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void ResetProgress()
+    {
+        endCounter = 0;
+        PlayerPrefs.SetInt(nameof(endCounter), endCounter);
+        PlayerPrefs.Save();
+    }
+
     public void InitFromSave()
     {
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].y, screenMode);

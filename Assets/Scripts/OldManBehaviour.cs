@@ -64,7 +64,7 @@ public class OldManBehaviour : MonoBehaviour
         if (talkCounter <= 0)
         {
             //testing code
-            //GameManager.instance.SaveMan.endCounter = 3;
+            //GameManager.instance.SaveMan.endCounter = 2;
             //GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Taunt0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Taunt0, (int)SpeechScript.EndOfEnum - 1), transform, false);
 
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Old0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Old0, (int)SpeechScript.Taunt0 - 1), transform, false);

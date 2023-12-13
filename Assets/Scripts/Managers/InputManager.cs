@@ -53,12 +53,20 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (GameManager.instance.OnTestFeatures && Input.inputString.Length > 0)
+        //Testing Code
+        TestingFeatureInput();
+    }
+
+    private void TestingFeatureInput()
+    {
+        if (!GameManager.instance.OnTestFeatures) { return; }
+        if (Input.inputString.Length > 0 && int.TryParse(Input.inputString, out int num) && GameManager.instance.GameCon)
         {
-            if (int.TryParse(Input.inputString, out int num) && GameManager.instance.GameCon)
-            {
-                GameManager.instance.GameCon.TeleportCheckpoint(num);
-            }
+            GameManager.instance.GameCon.TeleportCheckpoint(num);
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            GameManager.instance.SaveMan.ResetProgress();
         }
     }
 

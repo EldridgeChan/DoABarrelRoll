@@ -23,20 +23,26 @@ MonoBehaviour:
       bubbleWidth: 3.1
       bubbleText: Unfortunately, you're trapped.
     - position: {x: 0, y: 5}
-      bubbleWidth: 4.9
-      bubbleText: Don't worry. You'll be starving, but you won't die.
+      bubbleWidth: 4.5
+      bubbleText: Don't worry. You'll starve, but not to death.
     - position: {x: 0, y: 5}
-      bubbleWidth: 3.7
-      bubbleText: You can try climbing the mountain.
+      bubbleWidth: 3.3
+      bubbleText: I've tried everything to escape.
     - position: {x: 0, y: 5}
-      bubbleWidth: 3.8
-      bubbleText: But I don't see any point of doing it.
+      bubbleWidth: 4.3
+      bubbleText: Except climbing to the top of the mountain.
     - position: {x: 0, y: 5}
-      bubbleWidth: 3.2
-      bubbleText: Or you can stay here with me.
+      bubbleWidth: 2.8
+      bubbleText: It's just imposible to climb.
     - position: {x: 0, y: 5}
       bubbleWidth: 4.6
-      bubbleText: Waiting till the end of the world, or your life.
+      bubbleText: Plus it's not guaranteed to be the exit anyway.
     - position: {x: 0, y: 5}
-      bubbleWidth: 4
-      bubbleText: I can always use a company you know.
+      bubbleWidth: 4.1
+      bubbleText: So, why don't you just sit here with me?
+    - position: {x: 0, y: 5}
+      bubbleWidth: 3.8
+      bubbleText: Till the end of the world, or your life.
+    - position: {x: 0, y: 5}
+      bubbleWidth: 4.3
+      bubbleText: I can always use some company you know.

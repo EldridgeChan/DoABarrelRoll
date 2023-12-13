@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartCutScene(GameManager.instance.SaveMan.endCounter > 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
+        StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
     }
 
     private void Update()
@@ -244,7 +244,7 @@ public class GameController : MonoBehaviour
         gameTimer = 0.0f;
         oldManBehave.resetOldMan();
         barrelHighestY = -100.0f;
-        StartCutScene( SpeechScript.Start1, pirateShip.transform);
+        StartCutScene(SpeechScript.Start1, pirateShip.transform);
         OnEndMenu(false);
     }
 
