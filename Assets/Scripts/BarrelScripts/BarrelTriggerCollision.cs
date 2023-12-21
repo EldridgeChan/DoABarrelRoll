@@ -18,6 +18,10 @@ public class BarrelTriggerCollision : MonoBehaviour
             }
             barrelCon.groundCount++;
         }
+        if (collision.CompareTag("Swamp"))
+        {
+            barrelCon.swampCount++;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,6 +33,11 @@ public class BarrelTriggerCollision : MonoBehaviour
             {
                 GameManager.instance.GameCon.DeactivateRollDust();
             }
+        }
+        if (collision.CompareTag("Swamp"))
+        {
+            barrelCon.gravityDirection = Vector2.down;
+            barrelCon.swampCount--;
         }
     }
 }

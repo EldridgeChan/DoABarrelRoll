@@ -1,0 +1,2117 @@
+fileFormatVersion: 2
+guid: 625d745ce1b1ff5458c0610707910c3a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a631151ecea3404cacca76ac353eaaf
+      internalID: -1431178162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83edfd851405c3047a1caf6fdb42fece
+      internalID: 1230070471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710a82ad1c026cf4d9a2e1cf304df7ac
+      internalID: -784413584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_14
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9161c0079e6221f4eb0b8f5139ead2c4
+      internalID: -189443831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24629768ed2adf340b0d5b836fd71ea7
+      internalID: -1356225086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_16
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212d03f2d5b502c45b32b1a11c8bc091
+      internalID: -631020121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_18
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f292d89850c854d8c259d014c55fe9
+      internalID: -1298668902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2efb8ae1082f5646be2aeb50772ab3a
+      internalID: 338620716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_20
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 416
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93ad7000c3cea1458eda161a76f1e45
+      internalID: 513876383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_23
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c8797962adc1044b628975cb5f6be5
+      internalID: 1700856417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e8ba0c93f624c4bb954da477a6d556
+      internalID: 1430423115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_26
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6699af04ac44d44b983507250c0679
+      internalID: -862986926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc5bd5a40babb048bb6a0041d101ae3
+      internalID: 2116753779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_29
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55527dd92a61a0a4b85b502e1cd32647
+      internalID: 1366865901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_30
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 384
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aed87296bc7f4446b3a2d00b2a6e33f
+      internalID: -1903279837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_33
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: be700af5b70d4d741bd9813f32063827
+      internalID: 1956897682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 349
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ae5d352a92e544fab10ac0478925f3
+      internalID: 1700583433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_35
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526f0e427fedea84cbd0d5b01b940d40
+      internalID: 1440509195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_37
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3242fdd3ae17c244bf46c7ca494c794
+      internalID: -1551200162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_38
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 349
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35f74748254dfb4ab3b8c2d236689f6
+      internalID: 169264047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_39
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f642592f2ebf543abd3982c39e523e
+      internalID: -733126317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_41
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f585381b2906214428e41c26be686354
+      internalID: 1712653288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_42
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 349
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fda34d74510df4797b460843a31154
+      internalID: 1246288113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_43
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 349
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4f52d47dc24324983ff23a9e113286
+      internalID: -1604824540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_55
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d30ca6e1a12f83438d781c8c367ca7b
+      internalID: -593687156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_56
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df8d02445744d5459615a4fc92b1a62
+      internalID: 1862827634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_57
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75f075a92a524f46989847da9d16a55
+      internalID: -1466609199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_59
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a9da98d4282bd47828377c9f34f77d
+      internalID: 2028505853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b3825c62827384f8aa9474384c3eb0
+      internalID: 981050203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_61
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668753da80013264692f2bba6e13508e
+      internalID: -403800578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_63
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91a7ff1b25a124428afb0c0c24f8ec0
+      internalID: -816916265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_64
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a430d5262906e824783840d55f6e4361
+      internalID: 263242462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_65
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056b866bea830504cbb1850454a53d0c
+      internalID: -1455645417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_68
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a533606959e974ba3cfe301f2c53bb
+      internalID: -1562935396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_69
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8051c864d290c2419c005a1681434f3
+      internalID: -687963858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_71
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280dde3508d0b454fb6a59ac57de4e0b
+      internalID: 1292262652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_72
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546e3551f7b67bf41aea22728656927e
+      internalID: 1882726131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_74
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180abc7788bee184f870c496683624b5
+      internalID: -1920832784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_75
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4927ea31bea2047b8b2fe4e4b854f2
+      internalID: -705590190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_78
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9851f957dfae9774fa8026c427f648ac
+      internalID: -1605334935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_79
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 221
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a6275fa5de9d742981619c44c9ab3d
+      internalID: 1661327523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_80
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070f60c1a2d11014c971533be2438e69
+      internalID: 580610520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_82
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66937293080ed514ca1c0445d69b6f17
+      internalID: 656389983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_83
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 221
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ac37e57ca50ec4bbe72eaa1841c546
+      internalID: -832871435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_84
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a2cd386edb2414f846cfb06f732bb0
+      internalID: -388704487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_86
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4195191842e9f5a408026f0841b54b28
+      internalID: 1194656692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_87
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 221
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ccfe282b013ff4b95d6e51d5edb5ab
+      internalID: 658278158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_88
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 221
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4beb9796f13044188ab6b33d9ba1b5
+      internalID: -1331029754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_100
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 160
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232f2e818bc583c4ca5700baacf62d00
+      internalID: -1073651676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_101
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fcb4f3cdaf89b428bbe9edf8708bb1
+      internalID: 241182436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_102
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a398220c0ad0d914795118b8310920b5
+      internalID: -1253086198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_104
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 160
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.5, y: 14.5}
+        - {x: -14.5, y: 10.5}
+        - {x: -14.5, y: -17.5}
+        - {x: 17.5, y: -17.5}
+        - {x: 17.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8518bf9de08a9ee4688b86676ad30e5e
+      internalID: -2020017986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_105
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14.5}
+        - {x: -16, y: -17.5}
+        - {x: 16, y: -17.5}
+        - {x: 16, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7b9d984484c784aba8b46d132c053d
+      internalID: -1405440237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_106
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.4571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -17.5}
+        - {x: 14.5, y: -17.5}
+        - {x: 14.5, y: 10.5}
+        - {x: 10.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc3eb6cf57e4d84c820c8b63a61361b
+      internalID: 1650014489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_109
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 128
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef283aea688283f45a4dafdcbfb13eb7
+      internalID: -334565894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_110
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee068c3ad7229147b8df95559e67ae1
+      internalID: 686625044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_112
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 128
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 16}
+        - {x: -14.5, y: -16}
+        - {x: 17.5, y: -16}
+        - {x: 17.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a6bed5d3088694d83d07f7ab2cde46
+      internalID: 1507604944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_113
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 35
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 16}
+        - {x: -17.5, y: -16}
+        - {x: 14.5, y: -16}
+        - {x: 14.5, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb2806015e4298439050b8a8b353ccf
+      internalID: -1638601604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_116
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 93
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b26bb84d46e76438a42d52881f2296
+      internalID: -701128607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_117
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 93
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f51d8c4612cef448ab4ae54a1909e2b
+      internalID: 228158510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_118
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 93
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218244d42645a074ab7121173ee258a3
+      internalID: -241209399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_120
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 93
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5428, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.5, y: 17.5}
+        - {x: -14.5, y: -10.5}
+        - {x: -10.5, y: -14.5}
+        - {x: 17.5, y: -14.5}
+        - {x: 17.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff26becd49a0054189fc470e5ff9e04
+      internalID: 211806530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_121
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 93
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -14.5}
+        - {x: 16, y: -14.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978a05b438cf1b64cba96f33f52584d4
+      internalID: 751425653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_122
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 93
+        width: 35
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4571, y: 0.5428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -17.5, y: 17.5}
+        - {x: -17.5, y: -14.5}
+        - {x: 10.5, y: -14.5}
+        - {x: 14.5, y: -10.5}
+        - {x: 14.5, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dddcaca7b3da594ea29f64a57869204
+      internalID: -997177183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_130
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a37e18e3a7b129419ef5b53d599e75a
+      internalID: -54833009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_131
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c99a0097e7fb541a8291573921a10b
+      internalID: 538095322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_132
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2004f5f39862f0444af42a9920361d4e
+      internalID: -1240847179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_133
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc2baee2b262fa4a86ed9eb6b9978f9
+      internalID: 185957736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_134
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c79d259a022cbf46b9d2959f83e2926
+      internalID: -850679602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_135
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2219e1d5e92128340b807a25cbba9261
+      internalID: 483381928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_136
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7d766663582d240b0c98eeac5f1f6d
+      internalID: -1294142520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Swamp_137
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b2c09c1221712489edc7bf204eb61f
+      internalID: -666345804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DoABarrelRollTileMap_Swamp_0: 851692767
+      DoABarrelRollTileMap_Swamp_1: 925121627
+      DoABarrelRollTileMap_Swamp_10: -1431178162
+      DoABarrelRollTileMap_Swamp_100: -1073651676
+      DoABarrelRollTileMap_Swamp_101: 241182436
+      DoABarrelRollTileMap_Swamp_102: -1253086198
+      DoABarrelRollTileMap_Swamp_103: -458105302
+      DoABarrelRollTileMap_Swamp_104: -2020017986
+      DoABarrelRollTileMap_Swamp_105: -1405440237
+      DoABarrelRollTileMap_Swamp_106: 1650014489
+      DoABarrelRollTileMap_Swamp_107: -902891327
+      DoABarrelRollTileMap_Swamp_108: 1186233736
+      DoABarrelRollTileMap_Swamp_109: -334565894
+      DoABarrelRollTileMap_Swamp_11: 1230070471
+      DoABarrelRollTileMap_Swamp_110: 686625044
+      DoABarrelRollTileMap_Swamp_111: -742380096
+      DoABarrelRollTileMap_Swamp_112: 1507604944
+      DoABarrelRollTileMap_Swamp_113: -1638601604
+      DoABarrelRollTileMap_Swamp_114: 1050976881
+      DoABarrelRollTileMap_Swamp_115: -1726743907
+      DoABarrelRollTileMap_Swamp_116: -701128607
+      DoABarrelRollTileMap_Swamp_117: 228158510
+      DoABarrelRollTileMap_Swamp_118: -241209399
+      DoABarrelRollTileMap_Swamp_119: -1713972476
+      DoABarrelRollTileMap_Swamp_12: -784413584
+      DoABarrelRollTileMap_Swamp_120: 211806530
+      DoABarrelRollTileMap_Swamp_121: 751425653
+      DoABarrelRollTileMap_Swamp_122: -997177183
+      DoABarrelRollTileMap_Swamp_123: -466556991
+      DoABarrelRollTileMap_Swamp_124: -638560900
+      DoABarrelRollTileMap_Swamp_125: -150948185
+      DoABarrelRollTileMap_Swamp_126: 499665523
+      DoABarrelRollTileMap_Swamp_127: -643747896
+      DoABarrelRollTileMap_Swamp_128: 1496245630
+      DoABarrelRollTileMap_Swamp_129: -1299650004
+      DoABarrelRollTileMap_Swamp_13: 756318761
+      DoABarrelRollTileMap_Swamp_130: -54833009
+      DoABarrelRollTileMap_Swamp_131: 538095322
+      DoABarrelRollTileMap_Swamp_132: -1240847179
+      DoABarrelRollTileMap_Swamp_133: 185957736
+      DoABarrelRollTileMap_Swamp_134: -850679602
+      DoABarrelRollTileMap_Swamp_135: 483381928
+      DoABarrelRollTileMap_Swamp_136: -1294142520
+      DoABarrelRollTileMap_Swamp_137: -666345804
+      DoABarrelRollTileMap_Swamp_14: -189443831
+      DoABarrelRollTileMap_Swamp_15: -1356225086
+      DoABarrelRollTileMap_Swamp_16: -631020121
+      DoABarrelRollTileMap_Swamp_17: 1192636270
+      DoABarrelRollTileMap_Swamp_18: -1298668902
+      DoABarrelRollTileMap_Swamp_19: 338620716
+      DoABarrelRollTileMap_Swamp_2: 1111585541
+      DoABarrelRollTileMap_Swamp_20: 513876383
+      DoABarrelRollTileMap_Swamp_21: 851196502
+      DoABarrelRollTileMap_Swamp_22: -697535358
+      DoABarrelRollTileMap_Swamp_23: 1700856417
+      DoABarrelRollTileMap_Swamp_24: 1430423115
+      DoABarrelRollTileMap_Swamp_25: -1800394226
+      DoABarrelRollTileMap_Swamp_26: -862986926
+      DoABarrelRollTileMap_Swamp_27: 2116753779
+      DoABarrelRollTileMap_Swamp_28: 737290592
+      DoABarrelRollTileMap_Swamp_29: 1366865901
+      DoABarrelRollTileMap_Swamp_3: 75283338
+      DoABarrelRollTileMap_Swamp_30: -1903279837
+      DoABarrelRollTileMap_Swamp_31: -304605797
+      DoABarrelRollTileMap_Swamp_32: -1483626066
+      DoABarrelRollTileMap_Swamp_33: 1956897682
+      DoABarrelRollTileMap_Swamp_34: 1700583433
+      DoABarrelRollTileMap_Swamp_35: 1440509195
+      DoABarrelRollTileMap_Swamp_36: -2076568595
+      DoABarrelRollTileMap_Swamp_37: -1551200162
+      DoABarrelRollTileMap_Swamp_38: 169264047
+      DoABarrelRollTileMap_Swamp_39: -733126317
+      DoABarrelRollTileMap_Swamp_4: -655262046
+      DoABarrelRollTileMap_Swamp_40: 1924942761
+      DoABarrelRollTileMap_Swamp_41: 1712653288
+      DoABarrelRollTileMap_Swamp_42: 1246288113
+      DoABarrelRollTileMap_Swamp_43: -1604824540
+      DoABarrelRollTileMap_Swamp_44: -2051995383
+      DoABarrelRollTileMap_Swamp_45: -1390807441
+      DoABarrelRollTileMap_Swamp_46: -2072150736
+      DoABarrelRollTileMap_Swamp_47: -734270745
+      DoABarrelRollTileMap_Swamp_48: -632016364
+      DoABarrelRollTileMap_Swamp_49: 1793898292
+      DoABarrelRollTileMap_Swamp_5: 303078520
+      DoABarrelRollTileMap_Swamp_50: 1629666188
+      DoABarrelRollTileMap_Swamp_51: -1567152434
+      DoABarrelRollTileMap_Swamp_52: -1998883929
+      DoABarrelRollTileMap_Swamp_53: 2033106590
+      DoABarrelRollTileMap_Swamp_54: 793614317
+      DoABarrelRollTileMap_Swamp_55: -593687156
+      DoABarrelRollTileMap_Swamp_56: 1862827634
+      DoABarrelRollTileMap_Swamp_57: -1466609199
+      DoABarrelRollTileMap_Swamp_58: -15980102
+      DoABarrelRollTileMap_Swamp_59: 2028505853
+      DoABarrelRollTileMap_Swamp_6: 1594976784
+      DoABarrelRollTileMap_Swamp_60: 981050203
+      DoABarrelRollTileMap_Swamp_61: -403800578
+      DoABarrelRollTileMap_Swamp_62: -1677685488
+      DoABarrelRollTileMap_Swamp_63: -816916265
+      DoABarrelRollTileMap_Swamp_64: 263242462
+      DoABarrelRollTileMap_Swamp_65: -1455645417
+      DoABarrelRollTileMap_Swamp_66: 1759251912
+      DoABarrelRollTileMap_Swamp_67: -9653406
+      DoABarrelRollTileMap_Swamp_68: -1562935396
+      DoABarrelRollTileMap_Swamp_69: -687963858
+      DoABarrelRollTileMap_Swamp_7: -1344758615
+      DoABarrelRollTileMap_Swamp_70: 1122077563
+      DoABarrelRollTileMap_Swamp_71: 1292262652
+      DoABarrelRollTileMap_Swamp_72: 1882726131
+      DoABarrelRollTileMap_Swamp_73: -1235812343
+      DoABarrelRollTileMap_Swamp_74: -1920832784
+      DoABarrelRollTileMap_Swamp_75: -705590190
+      DoABarrelRollTileMap_Swamp_76: -1933449450
+      DoABarrelRollTileMap_Swamp_77: -1252529187
+      DoABarrelRollTileMap_Swamp_78: -1605334935
+      DoABarrelRollTileMap_Swamp_79: 1661327523
+      DoABarrelRollTileMap_Swamp_8: 1037571767
+      DoABarrelRollTileMap_Swamp_80: 580610520
+      DoABarrelRollTileMap_Swamp_81: 1455816859
+      DoABarrelRollTileMap_Swamp_82: 656389983
+      DoABarrelRollTileMap_Swamp_83: -832871435
+      DoABarrelRollTileMap_Swamp_84: -388704487
+      DoABarrelRollTileMap_Swamp_85: -785659818
+      DoABarrelRollTileMap_Swamp_86: 1194656692
+      DoABarrelRollTileMap_Swamp_87: 658278158
+      DoABarrelRollTileMap_Swamp_88: -1331029754
+      DoABarrelRollTileMap_Swamp_89: -1538278824
+      DoABarrelRollTileMap_Swamp_9: -74835035
+      DoABarrelRollTileMap_Swamp_90: 656141661
+      DoABarrelRollTileMap_Swamp_91: -1749356991
+      DoABarrelRollTileMap_Swamp_92: -454694358
+      DoABarrelRollTileMap_Swamp_93: -1558925066
+      DoABarrelRollTileMap_Swamp_94: -2135905080
+      DoABarrelRollTileMap_Swamp_95: -1571708393
+      DoABarrelRollTileMap_Swamp_96: 1556043225
+      DoABarrelRollTileMap_Swamp_97: 1627846477
+      DoABarrelRollTileMap_Swamp_98: -983577662
+      DoABarrelRollTileMap_Swamp_99: -655783674
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,6 +8,7 @@ TagManager:
   - Water
   - FallCheck
   - Barrel
+  - Swamp
   layers:
   - Default
   - TransparentFX

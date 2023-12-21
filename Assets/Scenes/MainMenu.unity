@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4639703228995702826, guid: b5944a2c767d8d34ca4a41f7c4ff55f1, type: 3}
+      propertyPath: onTestFeatures
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6792711706716826484, guid: b5944a2c767d8d34ca4a41f7c4ff55f1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

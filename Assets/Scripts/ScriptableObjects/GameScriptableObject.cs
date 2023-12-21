@@ -19,6 +19,9 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelJumpMaxDistance = 5.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
 
+    [Header("Barrel Swamp Behaviour Setting")]
+    public float BarrelSwampAVDeceleration = 100.0f;
+
     [Header("Emoji Basic Setting")]
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
     public float BarrelEmojiInertiaEffectivnessAVThreshold = 100.0f;
