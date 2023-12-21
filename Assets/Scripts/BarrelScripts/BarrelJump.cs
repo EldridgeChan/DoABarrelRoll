@@ -20,7 +20,7 @@ public class BarrelJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground") || collision.CompareTag("Swamp"))
+        if (collision.CompareTag("Ground") || (!collision.isTrigger && collision.CompareTag("Swamp")))
         {
             touchingGroundNum++;
             barrelCon.SetTouchedGround(true);

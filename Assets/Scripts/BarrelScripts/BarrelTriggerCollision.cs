@@ -18,8 +18,12 @@ public class BarrelTriggerCollision : MonoBehaviour
             }
             barrelCon.groundCount++;
         }
-        if (collision.CompareTag("Swamp"))
+        if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
+            if (barrelCon.swampCount <= 0)
+            {
+                barrelCon.gravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
+            }
             barrelCon.swampCount++;
         }
     }
@@ -34,7 +38,7 @@ public class BarrelTriggerCollision : MonoBehaviour
                 GameManager.instance.GameCon.DeactivateRollDust();
             }
         }
-        if (collision.CompareTag("Swamp"))
+        if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
             barrelCon.gravityDirection = Vector2.down;
             barrelCon.swampCount--;

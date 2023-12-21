@@ -22,7 +22,8 @@ MonoBehaviour:
   BarrelFullJumpForce: 800
   BarrelJumpMaxDistance: 4
   BarrelMaxAngularVelocity: 2000
-  BarrelSwampAVDeceleration: 400
+  BarrelSwampAVDeceleration: 700
+  BarrelSwampMaxAngularVelocity: 300
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 1500
   BarrelEmojiInertiaMinEffectivness: 0.1
