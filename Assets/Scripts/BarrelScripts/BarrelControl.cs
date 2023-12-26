@@ -282,7 +282,7 @@ public class BarrelControl : MonoBehaviour
         }
     }
 
-    private float MousePosMagnitudeMultiplier(Vector2 mousePos)
+    public float MousePosMagnitudeMultiplier(Vector2 mousePos)
     {
         return Mathf.Clamp01((mousePos - barrelRig.position).magnitude / GameManager.instance.GameScriptObj.BarrelJumpMaxDistance);
     }
