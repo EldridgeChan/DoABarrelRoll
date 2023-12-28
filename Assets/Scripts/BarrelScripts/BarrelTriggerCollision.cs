@@ -22,6 +22,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         {
             if (barrelCon.swampCount <= 0)
             {
+                barrelCon.BarrelRig.velocity = Vector2.ClampMagnitude(barrelCon.BarrelRig.velocity, GameManager.instance.GameScriptObj.BarrelSwampMaxVeclocityMagnitude);
                 barrelCon.gravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
             }
             barrelCon.swampCount++;
