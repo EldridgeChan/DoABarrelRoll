@@ -22,8 +22,10 @@ MonoBehaviour:
   BarrelFullJumpForce: 800
   BarrelJumpMaxDistance: 4
   BarrelMaxAngularVelocity: 2000
-  BarrelSwampAVDeceleration: 700
-  BarrelSwampMaxAngularVelocity: 300
+  BarrelMinYVelocity: -45
+  BarrelSwampAVDeceleration: 600
+  BarrelSwampMaxAngularVelocity: 250
+  BarrelSwampMaxVeclocityMagnitude: 3
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 1500
   BarrelEmojiInertiaMinEffectivness: 0.1
@@ -112,7 +114,7 @@ MonoBehaviour:
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
   PirateShipStartPosition: {x: -143, y: -6}
-  PirateShipEndPosition: {x: 143, y: 180}
+  PirateShipEndPosition: {x: 209, y: 343}
   WindowResolution:
   - {x: 640, y: 360}
   - {x: 960, y: 540}

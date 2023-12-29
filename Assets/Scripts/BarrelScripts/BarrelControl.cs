@@ -144,6 +144,7 @@ public class BarrelControl : MonoBehaviour
         barrelRend.flipX = barrelRig.velocity.x < 0;
         barrelRig.angularVelocity = (barrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity), -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
         barrelAnmt.speed = Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.BarrelRollAnimateSpeedDivisor;
+        barrelRig.velocity = new Vector2(barrelRig.velocity.x, Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
     }
 
     private void IntoWater(bool tf)
@@ -378,7 +379,8 @@ public class BarrelControl : MonoBehaviour
     private void SwampCollisionStay(Collision2D collision)
     {
         if (!collision.transform.CompareTag("Swamp")) { return; }
-        gravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
+        gravityDirection = (collision.GetContact(collision.contactCount - 1).point - BarrelRig.position).normalized;
+        //gravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
     }
 
     private void BarrelSwampUpdate()

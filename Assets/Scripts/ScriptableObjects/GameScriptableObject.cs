@@ -18,6 +18,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelFullJumpForce = 100.0f;
     public float BarrelJumpMaxDistance = 5.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
+    public float BarrelMinYVelocity = 50.0f;
 
     [Header("Barrel Swamp Behaviour Setting")]
     public float BarrelSwampAVDeceleration = 100.0f;
