@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     private bool musicLerping = false;
     private bool musicLerpDir = false;
     private float musicLerpT = 0.0f;
+    private AudioClip toClip = null;
 
     private void Start()
     {
@@ -28,14 +29,29 @@ public class AudioManager : MonoBehaviour
             if (musicLerpT <= 0.0f)
             {
                 bgmAdoSrc.Stop();
-                bgmAdoSrc.clip = null;
+                SetMusicClip();
             }
         }
+    }
+
+    public void BGMTransition(AudioClip toClip)
+    {
+        if (toClip == bgmAdoSrc.clip) { return; }
+        this.toClip = toClip;
+        StartLerpMusicVolume(false);
     }
 
     public void SetBGMVolume(float volume)
     {
         bgmAdoSrc.volume = volume;
+    }
+
+    private void SetMusicClip()
+    {
+        if (!bgmAdoSrc.enabled) { return; }
+        bgmAdoSrc.clip = toClip;
+        bgmAdoSrc.Play();
+        StartLerpMusicVolume(true);
     }
 
     public void SetMusicClip(AudioClip clip)
@@ -50,11 +66,6 @@ public class AudioManager : MonoBehaviour
     {
         musicLerping = true;
         musicLerpDir = dir;
-    }
-
-    public AudioClip GetCurrentMusic()
-    {
-        return bgmAdoSrc.clip;
     }
 
     public void PlayClickSound()

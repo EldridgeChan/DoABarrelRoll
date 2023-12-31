@@ -17,6 +17,7 @@ MonoBehaviour:
   CameraDefaultSize: 7
   CameraCutSceneSize: 5
   CameraCutSceneYPositionOffset: 3
+  CameraMaxOffsetBoundary: {x: 25, y: 14}
   BarrelRollMultiplier: 55
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
@@ -121,10 +122,14 @@ MonoBehaviour:
   - {x: 1280, y: 720}
   - {x: 1600, y: 900}
   - {x: 1920, y: 1080}
+  BackgroundImages:
+  - {fileID: 21300000, guid: 0c5f908dd7483cb42b76e2c11a0547b2, type: 3}
+  - {fileID: 21300000, guid: 1db0c912db5d89246be4704f581690a6, type: 3}
   MusicLerpTime: 1
   MusicClips:
   - {fileID: 8300000, guid: f9302dc0a1532c9498de152c92a4b676, type: 3}
   - {fileID: 8300000, guid: f83b35457a00bb44c98d29d09f3b2aa6, type: 3}
+  - {fileID: 8300000, guid: 1e0a7de03f6da8c499bd361b1294c3d0, type: 3}
   RollSoundMinAngularVelocity: 200
   RollSoundMaxAngularVelocity: 1000
   RollSoundMinDelay: 0.1

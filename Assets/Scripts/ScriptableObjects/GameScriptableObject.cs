@@ -11,6 +11,7 @@ public class GameScriptableObject : ScriptableObject
     public float CameraDefaultSize = 7.0f;
     public float CameraCutSceneSize = 5.0f;
     public float CameraCutSceneYPositionOffset = 1.0f;
+    public Vector2 CameraMaxOffsetBoundary = Vector2.zero;
 
     [Header("Barrel Behaviour Setting")]
     public float BarrelRollMultiplier = 1.0f;
@@ -109,6 +110,7 @@ public class GameScriptableObject : ScriptableObject
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
+    public Sprite[] BackgroundImages;
 
     [Header("Audio Setting")]
     public float MusicLerpTime = 1.0f;

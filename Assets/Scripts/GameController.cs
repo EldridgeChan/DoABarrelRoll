@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     [Header("Camera Fields")]
     [SerializeField]
     private CameraMovement camMove;
+    [SerializeField]
+    private Animator backgroundAnmt;
 
     [Header("Barrel Fields")]
     [SerializeField]
@@ -16,13 +18,16 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer arrowRend;
 
-    [Header("Mirror Level Fields")]
+    [Header("Level Fields")]
     [SerializeField]
     private Transform[] flipPosTrans;
     [SerializeField]
     private Transform[] flipScaleTrans;
     [SerializeField]
     private Collider2D[] tilemapColids;
+    [SerializeField]
+    private GameObject[] tilemapParents;
+    public GameObject[] TilemapParents { get { return tilemapParents; } }
 
     [Header("Menu Function Fields")]
     public bool isControlLocked = false;
@@ -97,7 +102,7 @@ public class GameController : MonoBehaviour
             barrelControl.BarrelRig.angularVelocity = 0;
             textBbBehave.ExitSpeechBubble();
             MovePirateShipToEnd();
-            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)MusicClip.Beach]);
+            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
         }
     }
 
@@ -264,6 +269,11 @@ public class GameController : MonoBehaviour
     {
         GameManager.instance.UIMan.CanCon.PlayMenuOnOff();
         gameCanvasAnmt.SetBool("ShowEnd", tf);
+    }
+
+    public void BackgroundTransition(int level)
+    {
+        backgroundAnmt.SetInteger("LevelArea", level);
     }
 
     //Setting

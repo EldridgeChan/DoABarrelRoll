@@ -5,18 +5,12 @@ using UnityEngine;
 public class ZoneCheck : MonoBehaviour
 {
     [SerializeField]
-    MusicClip toMusic = MusicClip.None;
+    private LevelArea upZone = LevelArea.None;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Barrel") || toMusic == MusicClip.None) { return; }
-        if (toMusic == MusicClip.Beach)
-        {
-            GameManager.instance.GameCon.MovePirateShipToEnd();
-        }
-        if (GameManager.instance.AudioMan.GetCurrentMusic() != GameManager.instance.GameScriptObj.MusicClips[(int)toMusic])
-        {
-            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)toMusic]);
-        }
+        if (!collision.CompareTag("Barrel") || upZone < LevelArea.Beach) { return; }
+        //setmusicclip
+        GameManager.instance.GameCon.BackgroundTransition(collision.transform.position.y > transform.position.y ? (int)upZone - 1 : Mathf.Clamp((int)upZone - 2, 0, (int)LevelArea.GlitchLand));
     }
 }

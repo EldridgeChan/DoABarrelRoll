@@ -53,7 +53,7 @@ public enum SpeechScript
     EndOfEnum
 }
 
-public enum MusicClip
+public enum LevelArea
 {
     None = -1,
     MainMenu,
