@@ -20,7 +20,7 @@ public class SoundsPlayer : MonoBehaviour
     private bool isPlayCoolDown = false;
     private int clipIndex = 0;
 
-    private void Start()
+    private void OnEnable()
     {
         if (!adoSrc) { adoSrc = GetComponent<AudioSource>(); }
 
@@ -28,6 +28,13 @@ public class SoundsPlayer : MonoBehaviour
         {
             PlaySoundAuto();
         }
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+        adoSrc.Stop();
+        adoSrc.clip = null;
     }
 
     public void PlaySoundAuto()

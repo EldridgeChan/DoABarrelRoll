@@ -10,7 +10,7 @@ public class ZoneCheck : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Barrel") || upZone < LevelArea.Beach) { return; }
-        //setmusicclip
-        GameManager.instance.GameCon.BackgroundTransition(collision.transform.position.y > transform.position.y ? (int)upZone - 1 : Mathf.Clamp((int)upZone - 2, 0, (int)LevelArea.GlitchLand));
+        GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[collision.transform.position.y > transform.position.y ? (int)upZone : Mathf.Clamp((int)upZone - 1, (int)LevelArea.Beach, (int)LevelArea.GlitchLand)]);
+        GameManager.instance.GameCon.BackgroundTransition(collision.transform.position.y > transform.position.y ? (int)upZone: Mathf.Clamp((int)upZone - 1, 0, (int)LevelArea.GlitchLand));
     }
 }

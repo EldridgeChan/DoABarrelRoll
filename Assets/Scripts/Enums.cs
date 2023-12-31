@@ -58,7 +58,7 @@ public enum LevelArea
     None = -1,
     MainMenu,
     Beach,
-    Forest,
+    Jungle,
     SnowMountain,
     GlitchLand
 }

@@ -56,10 +56,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camMove: {fileID: 0}
+  backgroundAnmt: {fileID: 0}
   barrelControl: {fileID: 0}
   barrelCSBehave: {fileID: 0}
   arrowRend: {fileID: 0}
   flipPosTrans:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -84,6 +86,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tilemapParents: []
   isControlLocked: 1
   jumpDustBehaves:
   - {fileID: 3799410059346219913}

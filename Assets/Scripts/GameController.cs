@@ -61,6 +61,10 @@ public class GameController : MonoBehaviour
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
+    [SerializeField]
+    private int distinctiveNum = 1;
+    [SerializeField]
+    private LevelArea formerArea = LevelArea.None;
 
     [Header("UI Fields")]
     [SerializeField]
@@ -78,6 +82,7 @@ public class GameController : MonoBehaviour
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
         StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
+        backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
     }
 
     private void Update()
@@ -102,7 +107,10 @@ public class GameController : MonoBehaviour
             barrelControl.BarrelRig.angularVelocity = 0;
             textBbBehave.ExitSpeechBubble();
             MovePirateShipToEnd();
-            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
+            GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[num < distinctiveNum ? (int)formerArea : (int)formerArea + 1]);
+            BackgroundTransition(num < distinctiveNum ? (int)formerArea : (int)formerArea + 1);
+            TilemapParents[0].SetActive(num < distinctiveNum);
+            TilemapParents[1].SetActive(num >= distinctiveNum);
         }
     }
 

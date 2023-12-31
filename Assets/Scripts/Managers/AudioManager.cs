@@ -41,31 +41,24 @@ public class AudioManager : MonoBehaviour
         StartLerpMusicVolume(false);
     }
 
-    public void SetBGMVolume(float volume)
-    {
-        bgmAdoSrc.volume = volume;
-    }
-
     private void SetMusicClip()
     {
         if (!bgmAdoSrc.enabled) { return; }
         bgmAdoSrc.clip = toClip;
+        if (!toClip) { return; }
         bgmAdoSrc.Play();
         StartLerpMusicVolume(true);
     }
 
-    public void SetMusicClip(AudioClip clip)
-    {
-        if (!bgmAdoSrc.enabled) { return; }
-        bgmAdoSrc.clip = clip;
-        bgmAdoSrc.Play();
-        StartLerpMusicVolume(true);
-    }
-
-    public void StartLerpMusicVolume(bool dir)
+    private void StartLerpMusicVolume(bool dir)
     {
         musicLerping = true;
         musicLerpDir = dir;
+    }
+
+    public void SetBGMVolume(float volume)
+    {
+        bgmAdoSrc.volume = volume;
     }
 
     public void PlayClickSound()
@@ -74,7 +67,7 @@ public class AudioManager : MonoBehaviour
         clickAdoSrc.Play();
     }
 
-    public void initClickAucioSource()
+    public void InitClickAucioSource()
     {
         clickAdoSrc.enabled = true;
     }

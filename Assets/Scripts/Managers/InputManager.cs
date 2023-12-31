@@ -62,7 +62,7 @@ public class InputManager : MonoBehaviour
         if (!GameManager.instance.OnTestFeatures) { return; }
         if (Input.inputString.Length > 0 && int.TryParse(Input.inputString, out int num) && GameManager.instance.GameCon)
         {
-            GameManager.instance.GameCon.TeleportCheckpoint(num);
+            GameManager.instance.GameCon.TeleportCheckpoint((num + 9) % 10);
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {

@@ -23,22 +23,22 @@ public class CanvasController : MonoBehaviour
     public void GameStart()
     {
         mainMenuAnmt.SetTrigger("StartGame");
-        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.InitClickAucioSource();
         GameManager.instance.AudioMan.PlayClickSound();
         PlayMenuOnOff();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
-        GameManager.instance.AudioMan.StartLerpMusicVolume(false);
+        GameManager.instance.AudioMan.BGMTransition(null);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadPlayScene), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
     public void GameExit()
     {
         mainMenuAnmt.SetTrigger("StartGame");
-        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.InitClickAucioSource();
         GameManager.instance.AudioMan.PlayClickSound();
         PlayMenuOnOff();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
-        GameManager.instance.AudioMan.StartLerpMusicVolume(false);
+        GameManager.instance.AudioMan.BGMTransition(null);
         Invoke(nameof(DummyQuit), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
@@ -84,7 +84,7 @@ public class CanvasController : MonoBehaviour
     {
         GameManager.instance.UIMan.OnOffSetting(true);
         PlayMenuOnOff();
-        GameManager.instance.AudioMan.initClickAucioSource();
+        GameManager.instance.AudioMan.InitClickAucioSource();
         GameManager.instance.AudioMan.PlayClickSound();
         if (mainMenuAnmt) 
         { 

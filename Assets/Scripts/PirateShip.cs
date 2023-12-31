@@ -39,7 +39,7 @@ public class PirateShip : MonoBehaviour
         GameManager.instance.GameCon.isControlLocked = true;
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.CutScene);
         GameManager.instance.GameCon.EndLevelCutScene(GameManager.instance.SaveMan.endCounter);
-        GameManager.instance.AudioMan.StartLerpMusicVolume(false);
+        GameManager.instance.AudioMan.BGMTransition(null);
     }
 
     public void ToPostion(bool isStart)

@@ -111,6 +111,7 @@ public class GameScriptableObject : ScriptableObject
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
     public Sprite[] BackgroundImages;
+    public float BackgroundTransitionPeriod = 0.8f;
 
     [Header("Audio Setting")]
     public float MusicLerpTime = 1.0f;

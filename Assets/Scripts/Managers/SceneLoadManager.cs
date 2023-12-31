@@ -40,7 +40,7 @@ public class SceneLoadManager : MonoBehaviour
         currentSceneIndex = scene.buildIndex;
         if (scene.buildIndex == 0)
         {
-            GameManager.instance.AudioMan.SetMusicClip(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.MainMenu]);
+            GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.MainMenu]);
         }
     }
 }
