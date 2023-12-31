@@ -32,6 +32,8 @@ public class BarrelControl : MonoBehaviour
     private SoundsPlayer jumpSoundPlayer;
     [SerializeField]
     private SoundsPlayer smashSoundPlayer;
+    [SerializeField]
+    private SoundsPlayer MudSplashSoundPlayer;
 
     private bool touchedGround = false;
     private bool onGround = false;
@@ -44,11 +46,11 @@ public class BarrelControl : MonoBehaviour
     private Quaternion orgRotation = Quaternion.identity;
 
     [HideInInspector]
-    public int groundCount = 0;
+    public int GroundCount = 0;
     [HideInInspector]
-    public int swampCount = 0;
+    public int SwampCount = 0;
     [HideInInspector]
-    public Vector2 gravityDirection = Vector2.down;
+    public Vector2 GravityDirection = Vector2.down;
 
     public Rigidbody2D BarrelRig { get { return barrelRig; } }
     public EmojiTypeController EmojiTypeCon { get { return emojiTypeCon; } }
@@ -135,7 +137,7 @@ public class BarrelControl : MonoBehaviour
         pastVelocity = barrelRig.velocity;
         pastAngularVelocity = barrelRig.angularVelocity;
         if (BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
-        BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * Time.fixedDeltaTime * gravityDirection;
+        BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * Time.fixedDeltaTime * GravityDirection;
     }
 
     private void BarrelUpdate()
@@ -156,6 +158,11 @@ public class BarrelControl : MonoBehaviour
         inWater = tf;
     }
 
+    public void IntoMud()
+    {
+        MudSplashSoundPlayer.PlaySoundManual();
+    }
+
     private void WaterFloatAndCurrent()
     {
         if (!inWater) { return; }
@@ -167,7 +174,7 @@ public class BarrelControl : MonoBehaviour
     private void BarrelEmojiTypeUpdate()
     {
         emojiTypeCon.StartFastSpining(!inWater && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold);
-        if (!inWater && groundCount <= 0 && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiFallVelocityThreshold && Mathf.Abs(barrelRig.angularVelocity) <= GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
+        if (!inWater && GroundCount <= 0 && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiFallVelocityThreshold && Mathf.Abs(barrelRig.angularVelocity) <= GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold)
         {
             emojiTypeCon.SetJumpEmoji();
             return;
@@ -177,7 +184,7 @@ public class BarrelControl : MonoBehaviour
             emojiTypeCon.SetSmashWall();
             return;
         }
-        if (!inWater && groundCount > 0 && barrelRig.velocity.y > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinYVelocity && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiClimbMaxYVelocity && Mathf.Abs(barrelRig.velocity.x) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinXVelocity && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinAngularVelocity && Mathf.Abs(barrelRig.angularVelocity) < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold && IsHitGround())
+        if (!inWater && GroundCount > 0 && barrelRig.velocity.y > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinYVelocity && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelEmojiClimbMaxYVelocity && Mathf.Abs(barrelRig.velocity.x) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinXVelocity && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.BarrelEmojiClimbMinAngularVelocity && Mathf.Abs(barrelRig.angularVelocity) < GameManager.instance.GameScriptObj.BarrelEmojiFastSpinAVThreshold && IsHitGround())
         {
             emojiTypeCon.SetClimbing();
         }
@@ -186,7 +193,7 @@ public class BarrelControl : MonoBehaviour
     private void BarrelRollSound()
     {
         rollSoundPlayer.SetRepeatTime(Mathf.Lerp(GameManager.instance.GameScriptObj.RollSoundMaxDelay, GameManager.instance.GameScriptObj.RollSoundMinDelay, Mathf.Clamp01(Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.RollSoundMaxAngularVelocity)));
-        if (groundCount > 0 && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.RollSoundMinAngularVelocity)
+        if (GroundCount > 0 && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.RollSoundMinAngularVelocity)
         {            
             if (!isRollSoundPlaying)
             {
@@ -379,13 +386,12 @@ public class BarrelControl : MonoBehaviour
     private void SwampCollisionStay(Collision2D collision)
     {
         if (!collision.transform.CompareTag("Swamp")) { return; }
-        gravityDirection = (collision.GetContact(collision.contactCount - 1).point - BarrelRig.position).normalized;
-        //gravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
+        GravityDirection = (collision.GetContact(collision.contactCount - 1).point - BarrelRig.position).normalized;
     }
 
     private void BarrelSwampUpdate()
     {
-        if (swampCount <= 0) { return; }
+        if (SwampCount <= 0) { return; }
         barrelRig.angularVelocity = (BarrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity) - GameManager.instance.GameScriptObj.BarrelSwampAVDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue);
         BarrelRig.angularVelocity = Mathf.Clamp(BarrelRig.angularVelocity, -GameManager.instance.GameScriptObj.BarrelSwampMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelSwampMaxAngularVelocity);
     }

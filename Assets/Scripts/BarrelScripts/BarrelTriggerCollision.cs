@@ -11,21 +11,22 @@ public class BarrelTriggerCollision : MonoBehaviour
     {
         if (!collision.isTrigger && collision.CompareTag("Ground"))
         {
-            if (barrelCon.groundCount <= 0)
+            if (barrelCon.GroundCount <= 0)
             {
                 GameManager.instance.GameCon.ActivateRollDust(barrelCon.BarrelRig.angularVelocity);
                 barrelCon.CheckSetEmojiNormal();
             }
-            barrelCon.groundCount++;
+            barrelCon.GroundCount++;
         }
         if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
-            if (barrelCon.swampCount <= 0)
+            if (barrelCon.SwampCount <= 0)
             {
+                barrelCon.IntoMud();
                 barrelCon.BarrelRig.velocity = Vector2.ClampMagnitude(barrelCon.BarrelRig.velocity, GameManager.instance.GameScriptObj.BarrelSwampMaxVeclocityMagnitude);
-                barrelCon.gravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
+                barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
             }
-            barrelCon.swampCount++;
+            barrelCon.SwampCount++;
         }
     }
 
@@ -33,16 +34,16 @@ public class BarrelTriggerCollision : MonoBehaviour
     {
         if (!collision.isTrigger && collision.CompareTag("Ground"))
         {
-            barrelCon.groundCount--;
-            if (barrelCon.groundCount <= 0)
+            barrelCon.GroundCount--;
+            if (barrelCon.GroundCount <= 0)
             {
                 GameManager.instance.GameCon.DeactivateRollDust();
             }
         }
         if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
-            barrelCon.gravityDirection = Vector2.down;
-            barrelCon.swampCount--;
+            barrelCon.GravityDirection = Vector2.down;
+            barrelCon.SwampCount--;
         }
     }
 }

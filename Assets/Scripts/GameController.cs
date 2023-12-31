@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
             barrelControl.BarrelRig.angularVelocity = 0;
             textBbBehave.ExitSpeechBubble();
             MovePirateShipToEnd();
+            barrelControl.GravityDirection = Vector2.down;
             GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[num < distinctiveNum ? (int)formerArea : (int)formerArea + 1]);
             BackgroundTransition(num < distinctiveNum ? (int)formerArea : (int)formerArea + 1);
             TilemapParents[0].SetActive(num < distinctiveNum);
@@ -259,6 +260,12 @@ public class GameController : MonoBehaviour
         barrelHighestY = -100.0f;
         StartCutScene(SpeechScript.Start1, pirateShip.transform);
         OnEndMenu(false);
+
+        backgroundAnmt.SetInteger("LevelArea", 1);
+        for (int i = 0; i < TilemapParents.Length; i++)
+        {
+            TilemapParents[i].SetActive(i == 0);
+        }
     }
 
     public void MovePirateShipToEnd()
