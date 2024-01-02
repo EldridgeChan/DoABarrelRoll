@@ -6,7 +6,6 @@ public class BarrelJump : MonoBehaviour
 {
     [SerializeField]
     private BarrelControl barrelCon;
-    private int touchingGroundNum = 0;
 
     [SerializeField]
     private SpriteRenderer arrowRend;
@@ -25,7 +24,7 @@ public class BarrelJump : MonoBehaviour
     {
         if (collision.CompareTag("Ground") || (!collision.isTrigger && collision.CompareTag("Swamp")))
         {
-            touchingGroundNum++;
+            barrelCon.touchingGroundNum++;
             barrelCon.SetTouchedGround(true);
             arrowRend.sprite = arrowSprites[0];
         }
@@ -35,8 +34,8 @@ public class BarrelJump : MonoBehaviour
     {
         if (collision.CompareTag("Ground") || (!collision.isTrigger && collision.CompareTag("Swamp")))
         {
-            touchingGroundNum--;
-            if (touchingGroundNum <= 0)
+            barrelCon.touchingGroundNum--;
+            if (barrelCon.touchingGroundNum <= 0)
             {
                 barrelCon.SetTouchedGround(false);
                 arrowRend.sprite = arrowSprites[1];

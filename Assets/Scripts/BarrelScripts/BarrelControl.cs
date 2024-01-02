@@ -46,6 +46,8 @@ public class BarrelControl : MonoBehaviour
     private Quaternion orgRotation = Quaternion.identity;
 
     [HideInInspector]
+    public int touchingGroundNum = 0;
+    [HideInInspector]
     public int GroundCount = 0;
     [HideInInspector]
     public int SwampCount = 0;

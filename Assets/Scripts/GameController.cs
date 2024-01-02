@@ -108,6 +108,7 @@ public class GameController : MonoBehaviour
             barrelControl.IntoWater(false);
             barrelControl.SwampCount = 0;
             barrelControl.GroundCount = 0;
+            barrelControl.touchingGroundNum = 0;
             textBbBehave.ExitSpeechBubble();
             MovePirateShipToEnd();
             barrelControl.GravityDirection = Vector2.down;
