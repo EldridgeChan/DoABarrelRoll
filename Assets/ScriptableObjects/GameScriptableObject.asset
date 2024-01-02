@@ -18,15 +18,15 @@ MonoBehaviour:
   CameraCutSceneSize: 5
   CameraCutSceneYPositionOffset: 3
   CameraMaxOffsetBoundary: {x: 25, y: 14}
-  BarrelRollMultiplier: 55
+  BarrelRollAcceleration: 60
+  BarrelRollDeceleration: 65
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
-  BarrelJumpMaxDistance: 4
   BarrelMaxAngularVelocity: 2000
   BarrelMinYVelocity: -45
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
-  BarrelSwampMaxVeclocityMagnitude: 3
+  BarrelSwampMaxVeclocityMagnitude: 2
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 1500
   BarrelEmojiInertiaMinEffectivness: 0.1
@@ -125,6 +125,7 @@ MonoBehaviour:
   BackgroundImages:
   - {fileID: 21300000, guid: 0c5f908dd7483cb42b76e2c11a0547b2, type: 3}
   - {fileID: 21300000, guid: 1db0c912db5d89246be4704f581690a6, type: 3}
+  BackgroundTransitionPeriod: 0.8
   MusicLerpTime: 1
   MusicClips:
   - {fileID: 8300000, guid: f9302dc0a1532c9498de152c92a4b676, type: 3}

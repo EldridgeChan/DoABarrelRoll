@@ -14,5 +14,9 @@ public class MapCheck : MonoBehaviour
         if (!collision.CompareTag("Barrel") || areaLoading < LevelArea.Beach) { return; }
 
         GameManager.instance.GameCon.TilemapParents[(int)areaLoading - 1].SetActive(collision.transform.position.y > transform.position.y == isUpLoad);
+        if (areaLoading == LevelArea.Jungle && collision.transform.position.y > transform.position.y)
+        {
+            GameManager.instance.GameCon.MovePirateShipToEnd();
+        }
     }
 }

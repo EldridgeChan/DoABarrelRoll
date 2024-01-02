@@ -105,6 +105,9 @@ public class GameController : MonoBehaviour
             barrelControl.transform.position = testRespawns[num].position;
             barrelControl.BarrelRig.velocity = Vector2.zero;
             barrelControl.BarrelRig.angularVelocity = 0;
+            barrelControl.IntoWater(false);
+            barrelControl.SwampCount = 0;
+            barrelControl.GroundCount = 0;
             textBbBehave.ExitSpeechBubble();
             MovePirateShipToEnd();
             barrelControl.GravityDirection = Vector2.down;

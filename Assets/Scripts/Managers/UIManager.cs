@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Dropdown languageDD;
     [SerializeField]
+    private Slider jumpSensibilitySlid;
+    [SerializeField]
+    private TMP_Text jumpSensibilityTxt;
+    [SerializeField]
     private Slider masterVolumeSlid;
     [SerializeField]
     private TMP_Text masterVolumeTxt;
@@ -77,6 +81,13 @@ public class UIManager : MonoBehaviour
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
     }
 
+    public void SetJumpSensibility(float sensibility)
+    {
+        GameManager.instance.AudioMan.PlayClickSound();
+        GameManager.instance.SaveMan.jumpSensibility = sensibility;
+        jumpSensibilityTxt.text = sensibility.ToString("0.00");
+    }
+
     public void SetMasterVolume(float volume)
     {
         GameManager.instance.AudioMan.PlayClickSound();
@@ -119,6 +130,8 @@ public class UIManager : MonoBehaviour
         windowModeDD.value = (int)GameManager.instance.SaveMan.screenMode;
         resolutionDD.value = GameManager.instance.SaveMan.windowSizeIndex;
         languageDD.value = (int)GameManager.instance.SaveMan.selectedLanguage;
+        jumpSensibilitySlid.value = GameManager.instance.SaveMan.jumpSensibility;
+        jumpSensibilityTxt.text = GameManager.instance.SaveMan.jumpSensibility.ToString("0.00");
         masterVolumeSlid.value = GameManager.instance.SaveMan.masterVolume;
         masterVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
         musicVolumeSlid.value = GameManager.instance.SaveMan.musicVolume;

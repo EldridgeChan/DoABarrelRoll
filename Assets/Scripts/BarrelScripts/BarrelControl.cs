@@ -122,7 +122,6 @@ public class BarrelControl : MonoBehaviour
                 emojiTurning = false;
             }
         }
-        
     }
 
     private void FixedUpdate()
@@ -149,7 +148,7 @@ public class BarrelControl : MonoBehaviour
         barrelRig.velocity = new Vector2(barrelRig.velocity.x, Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
     }
 
-    private void IntoWater(bool tf)
+    public void IntoWater(bool tf)
     {
         if (tf && barrelRig.velocity.y < GameManager.instance.GameScriptObj.BarrelSplashWaterMaxYVelocity)
         {
@@ -238,7 +237,7 @@ public class BarrelControl : MonoBehaviour
     {
         float magnitude = Vector2.Angle(prePos - barrelRig.position, nowPos - barrelRig.position);
         int dir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
-        barrelRig.AddTorque(dir * magnitude * GameManager.instance.GameScriptObj.BarrelRollMultiplier * Mathf.Deg2Rad * barrelRig.inertia);
+        barrelRig.AddTorque(dir * magnitude * (BarrelRig.angularVelocity * dir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * Mathf.Deg2Rad * barrelRig.inertia);
     }
 
     static public float ToRoundAngle(Vector2 v)
@@ -292,7 +291,7 @@ public class BarrelControl : MonoBehaviour
 
     public float MousePosMagnitudeMultiplier(Vector2 mousePos)
     {
-        return Mathf.Clamp01((mousePos - barrelRig.position).magnitude / GameManager.instance.GameScriptObj.BarrelJumpMaxDistance);
+        return Mathf.Clamp01((mousePos - barrelRig.position).magnitude / (1.0f / GameManager.instance.SaveMan.jumpSensibility));
     }
 
     public void SetTouchedGround(bool tF)

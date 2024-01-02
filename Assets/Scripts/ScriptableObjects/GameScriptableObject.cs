@@ -14,10 +14,10 @@ public class GameScriptableObject : ScriptableObject
     public Vector2 CameraMaxOffsetBoundary = Vector2.zero;
 
     [Header("Barrel Behaviour Setting")]
-    public float BarrelRollMultiplier = 1.0f;
+    public float BarrelRollAcceleration = 1.0f;
+    public float BarrelRollDeceleration = 55.0f;
     public float BarrelJumpFullChargeTime = 1.0f;
     public float BarrelFullJumpForce = 100.0f;
-    public float BarrelJumpMaxDistance = 5.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
     public float BarrelMinYVelocity = 50.0f;
 
