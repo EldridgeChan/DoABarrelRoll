@@ -42,6 +42,7 @@ public class BarrelControl : MonoBehaviour
     private bool isRollSoundPlaying = false;
     private float jumpChargeT = 0.0f;
     private float pastAngularVelocity = 0.0f;
+    private int pastRotateDir = 0;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
 
@@ -95,6 +96,7 @@ public class BarrelControl : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!collision) { return; }
         if (collision.CompareTag("Water"))
         {
             IntoWater(false);
@@ -238,8 +240,8 @@ public class BarrelControl : MonoBehaviour
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
     {
         float magnitude = Vector2.Angle(prePos - barrelRig.position, nowPos - barrelRig.position);
-        int dir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
-        barrelRig.AddTorque(dir * magnitude * (BarrelRig.angularVelocity * dir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * Mathf.Deg2Rad * barrelRig.inertia);
+        pastRotateDir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
+        barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * Mathf.Deg2Rad * barrelRig.inertia);
     }
 
     static public float ToRoundAngle(Vector2 v)
@@ -387,7 +389,7 @@ public class BarrelControl : MonoBehaviour
     private void SwampCollisionStay(Collision2D collision)
     {
         if (!collision.transform.CompareTag("Swamp")) { return; }
-        GravityDirection = (collision.GetContact(collision.contactCount - 1).point - BarrelRig.position).normalized;
+        GravityDirection = (collision.GetContact(collision.contactCount <= 1 ? 0 : pastRotateDir * RotateDir(ToRoundAngle(collision.GetContact(0).point - barrelRig.position), ToRoundAngle(collision.GetContact(1).point - barrelRig.position)) < 0 ? 1 : 0).point - BarrelRig.position).normalized;
     }
 
     private void BarrelSwampUpdate()
