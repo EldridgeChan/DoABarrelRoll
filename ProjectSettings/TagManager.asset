@@ -9,6 +9,7 @@ TagManager:
   - FallCheck
   - Barrel
   - Swamp
+  - Snow
   layers:
   - Default
   - TransparentFX
@@ -49,14 +50,17 @@ TagManager:
   - name: Instuction
     uniqueID: 1187823829
     locked: 0
+  - name: LevelTilemap
+    uniqueID: 3204379495
+    locked: 0
   - name: OldMan
     uniqueID: 819666455
     locked: 0
   - name: Barrel
     uniqueID: 1612920107
     locked: 0
-  - name: LevelTilemap
-    uniqueID: 3204379495
+  - name: SwampTilemap
+    uniqueID: 3370666559
     locked: 0
   - name: Emoji
     uniqueID: 2967914419

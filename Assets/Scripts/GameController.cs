@@ -163,6 +163,16 @@ public class GameController : MonoBehaviour
         canOnOff = true;
     }
 
+    public void BarrelBlizzard(int dir)
+    {
+        barrelControl.BarrelBlizzard(dir);
+    }
+
+    public void SetBarrelInWaterCurrent(bool tf)
+    {
+        barrelControl.SetInWaterCurrent(tf);
+    }
+
     //Barrel Adds on
     public void DisplayGuildingArrow(bool tf)
     {

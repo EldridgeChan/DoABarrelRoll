@@ -28,6 +28,14 @@ public class BarrelTriggerCollision : MonoBehaviour
             }
             barrelCon.SwampCount++;
         }
+        if (collision.CompareTag("Snow"))
+        {
+            if (barrelCon.SnowCount <= 0)
+            {
+                barrelCon.InSnowLock = true;
+            }
+            barrelCon.SnowCount++;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,6 +52,15 @@ public class BarrelTriggerCollision : MonoBehaviour
         {
             barrelCon.GravityDirection = Vector2.down;
             barrelCon.SwampCount--;
+        }
+        if (collision.CompareTag("Snow"))
+        {
+            barrelCon.SnowCount--;
+            if (barrelCon.SnowCount <= 0)
+            {
+                barrelCon.InSnowLock = false;
+                barrelCon.GravityDirection = Vector2.down;
+            }
         }
     }
 }

@@ -1,0 +1,710 @@
+fileFormatVersion: 2
+guid: b1a1554920180ee4fa29b890499c76f7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_2
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 416
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.555555, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: 16}
+        - {x: -14, y: -16}
+        - {x: -4, y: -16}
+        - {x: -4, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61af7df237602442abd99052d65c67c
+      internalID: -1119645546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.444444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14}
+        - {x: -16, y: 4}
+        - {x: 16, y: 4}
+        - {x: 16, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f48e1ace0371754cb1263def606fbee
+      internalID: 345923827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 412
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -14}
+        - {x: 16, y: -14}
+        - {x: 16, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3147fd5b21fe7d41809c56bdceafd28
+      internalID: -1227492788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.444444, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 16}
+        - {x: 4, y: -16}
+        - {x: 14, y: -16}
+        - {x: 14, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c072a18d71962694c830857d3669bf0f
+      internalID: -267068732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50192eb393bccbe4896bdee200daadba
+      internalID: 1476525056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -6}
+        - {x: -16, y: -16}
+        - {x: -6, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c8caba454e5b048b99d38d48858924
+      internalID: 313917587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: 16}
+        - {x: 16, y: 6}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45a045db1152554183f4098e37367dc
+      internalID: -1636247722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: 16}
+        - {x: -16, y: 16}
+        - {x: -16, y: 6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6967beb518e7f449dcd5ce6173d322
+      internalID: -430209281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_16
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 352
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.555555, y: 0.444444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: 14}
+        - {x: -14, y: -18}
+        - {x: -4, y: -18}
+        - {x: 18, y: 4}
+        - {x: 18, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202ba9fef02ce28439374c589b29bc08
+      internalID: -401702493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.444444, y: 0.444444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -18, y: 14}
+        - {x: -18, y: 4}
+        - {x: 4, y: -18}
+        - {x: 14, y: -18}
+        - {x: 14, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce22c27c3585e3a4bae9e0d41df3c977
+      internalID: 976428537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_20
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 316
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.555555, y: 0.555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: 18}
+        - {x: -14, y: -14}
+        - {x: 18, y: -14}
+        - {x: 18, y: -4}
+        - {x: -4, y: 18}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc58cb252bcc3c47bff8af8e3f43493
+      internalID: -272844596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 316
+        width: 36
+        height: 36
+      alignment: 9
+      pivot: {x: 0.444444, y: 0.555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: 18}
+        - {x: 4, y: 18}
+        - {x: -18, y: -4}
+        - {x: -18, y: -14}
+        - {x: 14, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2cf11aee52ef9942a41ca2dd3b2535e
+      internalID: 1312479615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.444444, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -4}
+        - {x: 4, y: -16}
+        - {x: 14, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2b4024c71548948b16825edc399f3a
+      internalID: -2011377364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_29
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 256
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.555555, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: -4}
+        - {x: -14, y: -16}
+        - {x: -4, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf268469fe57fa48ace7e45e310982f
+      internalID: -863397686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 252
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -14}
+        - {x: 16, y: -14}
+        - {x: 16, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ecae8753b6c174eb1e973ee7c9a0ce
+      internalID: 1549521376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 252
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -14}
+        - {x: -4, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe49aefaf2d787478f27cc58405faba
+      internalID: -53932354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.444444, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 16}
+        - {x: 14, y: 4}
+        - {x: 14, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff416a4db43c6ce48b9764dba93c62c1
+      internalID: -20307846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_34
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 224
+        width: 36
+        height: 32
+      alignment: 9
+      pivot: {x: 0.555555, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 16}
+        - {x: -14, y: 16}
+        - {x: -14, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a9cb189a5c9b1419c73dc483938ec0
+      internalID: -1055345475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_37
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.444444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: 14}
+        - {x: 16, y: 4}
+        - {x: 16, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8719f381bf929a45a4e3eb06912d02f
+      internalID: 352699825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoABarrelRollTileMap_Snow_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.444444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 14}
+        - {x: -16, y: 4}
+        - {x: -4, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114cc7a5bb09ae3428ba2ed1b6ccf939
+      internalID: -1615438505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DoABarrelRollTileMap_Snow_0: 1505674797
+      DoABarrelRollTileMap_Snow_1: -1146948314
+      DoABarrelRollTileMap_Snow_10: -2043625515
+      DoABarrelRollTileMap_Snow_11: -545911148
+      DoABarrelRollTileMap_Snow_12: 1030959226
+      DoABarrelRollTileMap_Snow_13: -1636247722
+      DoABarrelRollTileMap_Snow_14: -430209281
+      DoABarrelRollTileMap_Snow_15: 457160944
+      DoABarrelRollTileMap_Snow_16: -401702493
+      DoABarrelRollTileMap_Snow_17: 976428537
+      DoABarrelRollTileMap_Snow_18: -811263686
+      DoABarrelRollTileMap_Snow_19: 1711039452
+      DoABarrelRollTileMap_Snow_2: -1119645546
+      DoABarrelRollTileMap_Snow_20: -272844596
+      DoABarrelRollTileMap_Snow_21: 1312479615
+      DoABarrelRollTileMap_Snow_22: 1387351144
+      DoABarrelRollTileMap_Snow_23: -37050981
+      DoABarrelRollTileMap_Snow_24: 528982488
+      DoABarrelRollTileMap_Snow_25: 788661011
+      DoABarrelRollTileMap_Snow_26: 1120548890
+      DoABarrelRollTileMap_Snow_27: -2011377364
+      DoABarrelRollTileMap_Snow_28: -1236504691
+      DoABarrelRollTileMap_Snow_29: -863397686
+      DoABarrelRollTileMap_Snow_3: 345923827
+      DoABarrelRollTileMap_Snow_30: 1549521376
+      DoABarrelRollTileMap_Snow_31: -53932354
+      DoABarrelRollTileMap_Snow_32: -20307846
+      DoABarrelRollTileMap_Snow_33: 1408081266
+      DoABarrelRollTileMap_Snow_34: -1055345475
+      DoABarrelRollTileMap_Snow_35: 178938123
+      DoABarrelRollTileMap_Snow_36: -1474985603
+      DoABarrelRollTileMap_Snow_37: 352699825
+      DoABarrelRollTileMap_Snow_38: -1615438505
+      DoABarrelRollTileMap_Snow_4: -1227492788
+      DoABarrelRollTileMap_Snow_5: -267068732
+      DoABarrelRollTileMap_Snow_6: -1984960710
+      DoABarrelRollTileMap_Snow_7: 1476525056
+      DoABarrelRollTileMap_Snow_8: 313917587
+      DoABarrelRollTileMap_Snow_9: -1508785075
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

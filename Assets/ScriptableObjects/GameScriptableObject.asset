@@ -18,8 +18,8 @@ MonoBehaviour:
   CameraCutSceneSize: 5
   CameraCutSceneYPositionOffset: 3
   CameraMaxOffsetBoundary: {x: 25, y: 14}
-  BarrelRollAcceleration: 60
-  BarrelRollDeceleration: 65
+  BarrelRollAcceleration: 65
+  BarrelRollDeceleration: 80
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
   BarrelMaxAngularVelocity: 2000
@@ -27,8 +27,14 @@ MonoBehaviour:
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
   BarrelSwampMaxVeclocityMagnitude: 2
+  BarrelSnowAVDeceleration: 1500
+  BarrelSnowVelocityDeceleration: 15
+  BarrelInSnowLockCoolDown: 0.05
+  BarrelBlizzardAcceleration: 20
+  BarrelBlizzardSwampHorizontalOffset: 0.4
+  BarrelBlizzardSwampAngleBuffer: 10
   BarrelEmojiMaxOffsetDistance: 0.18
-  BarrelEmojiInertiaEffectivnessAVThreshold: 1500
+  BarrelEmojiInertiaEffectivnessAVThreshold: 3000
   BarrelEmojiInertiaMinEffectivness: 0.1
   EmojiTypes:
   - {fileID: 21300000, guid: cb65e712872a40543b420ad2b31ce2b5, type: 3}

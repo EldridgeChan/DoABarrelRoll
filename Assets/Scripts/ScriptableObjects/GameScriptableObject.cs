@@ -26,6 +26,14 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelSwampMaxAngularVelocity = 500.0f;
     public float BarrelSwampMaxVeclocityMagnitude = 3.0f;
 
+    [Header("Barrel Snow Behaviour Setting")]
+    public float BarrelSnowAVDeceleration = 100.0f;
+    public float BarrelSnowVelocityDeceleration = 2.0f;
+    public float BarrelInSnowLockCoolDown = 0.05f;
+    public float BarrelBlizzardAcceleration = 10.0f;
+    public float BarrelBlizzardSwampHorizontalOffset = 0.5f;
+    public float BarrelBlizzardSwampAngleBuffer = 10.0f;
+
     [Header("Emoji Basic Setting")]
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
     public float BarrelEmojiInertiaEffectivnessAVThreshold = 100.0f;
