@@ -68,6 +68,9 @@ TagManager:
   - name: PirateShip
     uniqueID: 120645553
     locked: 0
+  - name: SnowFlake
+    uniqueID: 404427779
+    locked: 0
   - name: WaterTilemap
     uniqueID: 3790803337
     locked: 0

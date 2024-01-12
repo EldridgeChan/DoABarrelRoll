@@ -453,6 +453,6 @@ public class BarrelControl : MonoBehaviour
     public void BarrelBlizzard(int dir)
     {
         if (InSnowLock || BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
-        BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BarrelBlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BarrelBlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BarrelBlizzardSwampHorizontalOffset : 1.0f) * Time.fixedDeltaTime * Vector2.right;
+        BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BarrelBlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BarrelBlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BarrelBlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BarrelBlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
     }
 }

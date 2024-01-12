@@ -19,6 +19,7 @@ public class MountainBlizzard : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Barrel")) { return; }
+        GameManager.instance.GameCon.StartSnowing();
         blizzardActive = true;
         PauseBlizzard();
     }
@@ -28,6 +29,10 @@ public class MountainBlizzard : MonoBehaviour
         if (!collision.CompareTag("Barrel")) { return; }
         blizzardActive = false;
         CancelInvoke();
+        if (GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
+        {
+            GameManager.instance.GameCon.StopSnowing();
+        }
     }
 
     private void FixedUpdate()
@@ -44,13 +49,22 @@ public class MountainBlizzard : MonoBehaviour
         Invoke(nameof(PauseBlizzard), blizzardActiveTime);
     }
 
+    private void ShowBlizzard()
+    {
+        if (!GameManager.instance.GameCon) { return; }
+        GameManager.instance.GameCon.SetBlizzardDirection(blizzardDirRight ? 1 : -1);
+    }
+
     private void PauseBlizzard()
     {
+        if (!GameManager.instance.GameCon) { return; }
         inBlizzard = false;
+        GameManager.instance.GameCon.SetBlizzardDirection(0);
         if (doubleDirection)
         {
             blizzardDirRight = !blizzardDirRight;
         }
+        Invoke(nameof(ShowBlizzard), blizzardInacticeTime - GameManager.instance.GameScriptObj.SnowBlizzardShowBuffer);
         Invoke(nameof(StartBlizzard), blizzardInacticeTime);
     }
 }

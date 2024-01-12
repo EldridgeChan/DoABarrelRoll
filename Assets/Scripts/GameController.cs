@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject[] tilemapParents;
     public GameObject[] TilemapParents { get { return tilemapParents; } }
+    [HideInInspector]
+    public LevelArea CurrentArea = LevelArea.Beach;
 
     [Header("Menu Function Fields")]
     public bool isControlLocked = false;
@@ -76,6 +78,10 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public float barrelHighestY = -100.0f;
 
+    [Header ("Particle System")]
+    [SerializeField]
+    private Animator SnowFlakeParentAnmt;
+
     private void Start()
     {
         GameManager.instance.GameCon = this;
@@ -116,6 +122,7 @@ public class GameController : MonoBehaviour
             BackgroundTransition(num < distinctiveNum ? (int)formerArea : (int)formerArea + 1);
             TilemapParents[0].SetActive(num < distinctiveNum);
             TilemapParents[1].SetActive(num >= distinctiveNum);
+            TilemapParents[2].SetActive(false);
         }
     }
 
@@ -302,7 +309,45 @@ public class GameController : MonoBehaviour
 
     public void BackgroundTransition(int level)
     {
+        if (!backgroundAnmt) { return; }
         backgroundAnmt.SetInteger("LevelArea", level);
+        CurrentArea = (LevelArea)level;
+
+        if (level == (int)LevelArea.SnowMountain)
+        {
+            StartSnowing();
+        }
+        else
+        {
+            StopSnowing();
+        }
+    }
+
+    //Snowing
+    public void StartSnowing()
+    {
+        if (!SnowFlakeParentAnmt) { return; }
+        SnowFlakeParentAnmt.gameObject.SetActive(true);
+        SnowFlakeParentAnmt.SetBool("IsSnowing", true);
+    }
+
+    public void StopSnowing()
+    {
+        if (!SnowFlakeParentAnmt) { return; }
+        SnowFlakeParentAnmt.SetBool("IsSnowing", false);
+        Invoke(nameof(DeactivateSnowParent), GameManager.instance.GameScriptObj.SnowDeactivateDelay);
+    }
+
+    private void DeactivateSnowParent()
+    {
+        if (!SnowFlakeParentAnmt) { return; }
+        SnowFlakeParentAnmt.gameObject.SetActive(false);
+    }
+
+    public void SetBlizzardDirection(int dir)
+    {
+        if (!SnowFlakeParentAnmt) { return; }
+        SnowFlakeParentAnmt.SetInteger("BlizzardDir", dir);
     }
 
     //Setting
