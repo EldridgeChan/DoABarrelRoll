@@ -64,7 +64,7 @@ public class MountainBlizzard : MonoBehaviour
         {
             blizzardDirRight = !blizzardDirRight;
         }
-        Invoke(nameof(ShowBlizzard), blizzardInacticeTime - GameManager.instance.GameScriptObj.SnowBlizzardShowBuffer);
+        Invoke(nameof(ShowBlizzard), blizzardInacticeTime - GameManager.instance.GameScriptObj.BlizzardShowBuffer);
         Invoke(nameof(StartBlizzard), blizzardInacticeTime);
     }
 }

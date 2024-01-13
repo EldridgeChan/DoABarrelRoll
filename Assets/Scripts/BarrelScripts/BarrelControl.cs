@@ -43,6 +43,7 @@ public class BarrelControl : MonoBehaviour
     private bool isRollSoundPlaying = false;
     private float jumpChargeT = 0.0f;
     private float pastAngularVelocity = 0.0f;
+    private float mockAngularVelocity = 0.0f;
     private int pastRotateDir = 0;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
@@ -255,15 +256,15 @@ public class BarrelControl : MonoBehaviour
 
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
     {
+        float magnitude = Vector2.Angle(prePos - barrelRig.position, nowPos - barrelRig.position);
+        pastRotateDir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
         if (!InSnowLock)
         {
-            float magnitude = Vector2.Angle(prePos - barrelRig.position, nowPos - barrelRig.position);
-            pastRotateDir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
             barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * Mathf.Deg2Rad * barrelRig.inertia);
         }
         else
         {
-
+            mockAngularVelocity += pastRotateDir * magnitude * GameManager.instance.GameScriptObj.BarrelSnowMockAVMultiplier;
         }
     }
 
@@ -274,7 +275,7 @@ public class BarrelControl : MonoBehaviour
 
     private int RotateDir(float preAngle, float nowAngle)
     {
-        return Mathf.Abs(nowAngle - preAngle) > 180.0f ? -1 : 1 * nowAngle > preAngle ? 1 : -1;
+        return (Mathf.Abs(nowAngle - preAngle) > 180.0f ? -1 : 1) * (nowAngle > preAngle ? 1 : -1);
     }
 
     public void BarrelJump(Vector2 dir)
@@ -441,18 +442,24 @@ public class BarrelControl : MonoBehaviour
         if (!InSnowLock) { return; }
         GravityDirection = Vector2.down;
         InSnowLock = false;
+        BarrelRig.angularVelocity = mockAngularVelocity;
+        mockAngularVelocity = 0.0f;
         Invoke(nameof(IntoSnowLock), GameManager.instance.GameScriptObj.BarrelInSnowLockCoolDown);
     }
 
     private void BarrelSnowUpdate()
     {
-        if (!InSnowLock) { return; }  
-        barrelRig.angularVelocity = barrelRig.angularVelocity > 0.0f ? 1.0f : -1.0f * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity - GameManager.instance.GameScriptObj.BarrelSnowVelocityDeceleration * Time.fixedDeltaTime), 0.0f, float.MaxValue);
+        if (!InSnowLock || GameManager.instance.GameCon.isControlLocked) { return; }  
+        barrelRend.flipX = mockAngularVelocity < 0;
+        transform.Rotate(0.0f, 0.0f, mockAngularVelocity * GameManager.instance.GameScriptObj.BarrelSnowMockAVRotationMultiplier * Time.fixedDeltaTime);
+        mockAngularVelocity = Mathf.Clamp(mockAngularVelocity, -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
+        barrelAnmt.speed = Mathf.Abs(mockAngularVelocity) * GameManager.instance.GameScriptObj.BarrelSnowMockAVAnmtSpeedMultiplier;
+        mockAngularVelocity = (mockAngularVelocity < 0 ? -1.0f : 1.0f) *  Mathf.Clamp(Mathf.Abs(mockAngularVelocity) - GameManager.instance.GameScriptObj.BarrelSnowMockAVDeleration * Time.fixedDeltaTime, 0.0f, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
     }
 
     public void BarrelBlizzard(int dir)
     {
         if (InSnowLock || BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
-        BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BarrelBlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BarrelBlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BarrelBlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BarrelBlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
+        BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
     }
 }

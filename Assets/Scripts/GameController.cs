@@ -335,7 +335,7 @@ public class GameController : MonoBehaviour
     {
         if (!SnowFlakeParentAnmt) { return; }
         SnowFlakeParentAnmt.SetBool("IsSnowing", false);
-        Invoke(nameof(DeactivateSnowParent), GameManager.instance.GameScriptObj.SnowDeactivateDelay);
+        Invoke(nameof(DeactivateSnowParent), GameManager.instance.GameScriptObj.BlizzardDeactivateDelay);
     }
 
     private void DeactivateSnowParent()

@@ -30,10 +30,10 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelSnowAVDeceleration = 100.0f;
     public float BarrelSnowVelocityDeceleration = 2.0f;
     public float BarrelInSnowLockCoolDown = 0.05f;
-    public float BarrelBlizzardAcceleration = 10.0f;
-    public float BarrelBlizzardSwampAccelerationOffset = 0.5f;
-    public float BarrelBlizzardSwampAngleBuffer = 10.0f;
-    public float BarrelBlizzardWaterAccelerationOffset = 0.5f;
+    public float BarrelSnowMockAVMultiplier = 0.5f;
+    public float BarrelSnowMockAVAnmtSpeedMultiplier = 0.5f;
+    public float BarrelSnowMockAVRotationMultiplier = 1.0f;
+    public float BarrelSnowMockAVDeleration = 1000.0f;
 
     [Header("Emoji Basic Setting")]
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
@@ -138,7 +138,11 @@ public class GameScriptableObject : ScriptableObject
     public float OldManCentripetalForce = 10.0f;
     public float OldManTauntHightThershold = 10.0f;
 
-    [Header("Snow Setting")]
-    public float SnowDeactivateDelay = 1.0f;
-    public float SnowBlizzardShowBuffer = 0.5f;
+    [Header("Blizzard Setting")]
+    public float BlizzardDeactivateDelay = 1.0f;
+    public float BlizzardShowBuffer = 0.5f;
+    public float BlizzardAcceleration = 10.0f;
+    public float BlizzardSwampAccelerationOffset = 0.5f;
+    public float BlizzardSwampAngleBuffer = 10.0f;
+    public float BlizzardWaterAccelerationOffset = 0.5f;
 }

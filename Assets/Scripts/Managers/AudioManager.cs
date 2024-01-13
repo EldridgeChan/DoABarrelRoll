@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
 
     public void BGMTransition(AudioClip toClip)
     {
-        if (toClip == bgmAdoSrc.clip) { return; }
+        if (!bgmAdoSrc || toClip == bgmAdoSrc.clip) { return; }
         this.toClip = toClip;
         StartLerpMusicVolume(false);
     }

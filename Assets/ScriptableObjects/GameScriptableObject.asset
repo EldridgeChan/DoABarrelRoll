@@ -30,10 +30,10 @@ MonoBehaviour:
   BarrelSnowAVDeceleration: 1500
   BarrelSnowVelocityDeceleration: 15
   BarrelInSnowLockCoolDown: 0.05
-  BarrelBlizzardAcceleration: 28
-  BarrelBlizzardSwampAccelerationOffset: 0.35
-  BarrelBlizzardSwampAngleBuffer: 10
-  BarrelBlizzardWaterAccelerationOffset: 0.5
+  BarrelSnowMockAVMultiplier: 1
+  BarrelSnowMockAVAnmtSpeedMultiplier: 0.0001
+  BarrelSnowMockAVRotationMultiplier: 0.1
+  BarrelSnowMockAVDeleration: 500
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 3000
   BarrelEmojiInertiaMinEffectivness: 0.1
@@ -148,5 +148,9 @@ MonoBehaviour:
   OldManLookLerpTime: 1
   OldManCentripetalForce: 1
   OldManTauntHightThershold: 10
-  SnowDeactivateDelay: 1
-  SnowBlizzardShowBuffer: 0.9
+  BlizzardDeactivateDelay: 1
+  BlizzardShowBuffer: 0.9
+  BlizzardAcceleration: 28
+  BlizzardSwampAccelerationOffset: 0.35
+  BlizzardSwampAngleBuffer: 10
+  BlizzardWaterAccelerationOffset: 0.5
