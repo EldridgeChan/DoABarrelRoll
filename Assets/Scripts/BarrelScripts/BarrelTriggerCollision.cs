@@ -42,7 +42,7 @@ public class BarrelTriggerCollision : MonoBehaviour
     {
         if (!collision.isTrigger && collision.CompareTag("Ground"))
         {
-            barrelCon.GroundCount--;
+            barrelCon.GroundCount = Mathf.Clamp(barrelCon.GroundCount - 1, 0, int.MaxValue);
             if (barrelCon.GroundCount <= 0)
             {
                 GameManager.instance.GameCon.DeactivateRollDust();
@@ -51,11 +51,11 @@ public class BarrelTriggerCollision : MonoBehaviour
         if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
             barrelCon.GravityDirection = Vector2.down;
-            barrelCon.SwampCount--;
+            barrelCon.SwampCount = Mathf.Clamp(barrelCon.SwampCount - 1, 0, int.MaxValue);
         }
         if (collision.CompareTag("Snow"))
         {
-            barrelCon.SnowCount--;
+            barrelCon.SnowCount = Mathf.Clamp(barrelCon.SnowCount - 1, 0, int.MaxValue);
             if (barrelCon.SnowCount <= 0)
             {
                 barrelCon.InSnowLock = false;
