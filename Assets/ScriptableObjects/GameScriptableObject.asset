@@ -117,12 +117,10 @@ MonoBehaviour:
   ShipNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   ShipFinishBubbleSprite: {fileID: 87626950, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   OldManNormalBubbleSprite: {fileID: -746975283, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
-  ShipBarrelPositionOffset: {x: 0, y: -5.10501, z: 0}
+  ShipBarrelPositionOffset: {x: 0, y: -5.15, z: 0}
   BarrelEndTargetAngularVelocity: -500
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
-  PirateShipStartPosition: {x: -143, y: -6}
-  PirateShipEndPosition: {x: 209, y: 343}
   WindowResolution:
   - {x: 640, y: 360}
   - {x: 960, y: 540}

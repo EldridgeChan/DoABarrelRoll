@@ -25,7 +25,7 @@ public class BarrelCutSceneBehaviour : MonoBehaviour
         {
             barrelRig.angularVelocity = 0.0f;
             barrelRig.velocity = Vector2.zero;
-            transform.position = GameManager.instance.GameCon.PirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+            transform.position = GameManager.instance.GameCon.EndPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
             enabled = false;
         }
     }
@@ -34,11 +34,11 @@ public class BarrelCutSceneBehaviour : MonoBehaviour
     {
         if (GameManager.instance.SaveMan.mirroredTilemap)
         {
-            return transform.position.x <= GameManager.instance.GameCon.PirateShip.transform.position.x;
+            return transform.position.x <= GameManager.instance.GameCon.EndPirateShip.transform.position.x;
         }
         else
         {
-            return transform.position.x >= GameManager.instance.GameCon.PirateShip.transform.position.x;
+            return transform.position.x >= GameManager.instance.GameCon.EndPirateShip.transform.position.x;
         }
     }
 }

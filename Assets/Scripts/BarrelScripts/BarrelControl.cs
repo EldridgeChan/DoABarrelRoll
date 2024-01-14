@@ -462,4 +462,16 @@ public class BarrelControl : MonoBehaviour
         if (InSnowLock || BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
         BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
     }
+
+    public void teleportReset()
+    {
+        BarrelRig.velocity = Vector2.zero;
+        BarrelRig.angularVelocity = 0;
+        IntoWater(false);
+        SwampCount = 0;
+        GroundCount = 0;
+        touchingGroundNum = 0;
+        inWaterFlow = false;
+        GravityDirection = Vector2.down;
+    }
 }

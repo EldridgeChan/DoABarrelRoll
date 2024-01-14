@@ -64,18 +64,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   flipScaleTrans:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -91,7 +82,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  tilemapParents: []
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tilemapParents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CurrentArea: 1
   isControlLocked: 1
   jumpDustBehaves:
   - {fileID: 3799410059346219913}
@@ -103,7 +102,8 @@ MonoBehaviour:
   poundDustAnmt: {fileID: 8937186150745335698}
   textBbBehave: {fileID: 3538800393849492721}
   kickAdoScr: {fileID: 6129329151362866355}
-  pirateShip: {fileID: 0}
+  startPirateShip: {fileID: 0}
+  endPirateShip: {fileID: 0}
   testRespawns:
   - {fileID: 0}
   - {fileID: 0}
@@ -115,9 +115,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  distinctiveNum: 3
+  formerArea: 1
   gameCanvasAnmt: {fileID: 0}
   oldManBehave: {fileID: 0}
   barrelHighestY: 0
+  SnowFlakeParentAnmt: {fileID: 0}
 --- !u!82 &6129329151362866355
 AudioSource:
   m_ObjectHideFlags: 0

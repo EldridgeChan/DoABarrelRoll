@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PirateShip : MonoBehaviour
 {
-    [HideInInspector]
     public bool isStart = true;
 
     [SerializeField]
@@ -36,20 +35,9 @@ public class PirateShip : MonoBehaviour
 
     private void EndTheLevel()
     {
-        GameManager.instance.GameCon.isControlLocked = true;
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.CutScene);
         GameManager.instance.GameCon.EndLevelCutScene(GameManager.instance.SaveMan.endCounter);
         GameManager.instance.AudioMan.BGMTransition(null);
-    }
-
-    public void ToPostion(bool isStart)
-    {
-        pirateShipTrans.position = isStart ? GameManager.instance.GameScriptObj.PirateShipStartPosition : GameManager.instance.GameScriptObj.PirateShipEndPosition;
-        if (GameManager.instance.SaveMan.mirroredTilemap)
-        {
-            pirateShipTrans.position = new Vector3(-transform.position.x, transform.position.y, 0.0f);
-        }
-        this.isStart = isStart;
     }
 
     public void StopAudio()

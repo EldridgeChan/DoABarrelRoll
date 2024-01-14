@@ -56,8 +56,11 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private AudioSource kickAdoScr;
     [SerializeField]
-    private PirateShip pirateShip;
-    public PirateShip PirateShip { get { return pirateShip; } }
+    private PirateShip startPirateShip;
+    public PirateShip StartPirateShip { get { return startPirateShip; } }
+    [SerializeField]
+    private PirateShip endPirateShip;
+    public PirateShip EndPirateShip { get { return endPirateShip; } }
     private SpeechScript currCutScene = SpeechScript.None;
 
     [Header("Testing Fields")]
@@ -87,7 +90,7 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, pirateShip.transform);
+        StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, startPirateShip.transform);
         backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
     }
 
@@ -105,19 +108,11 @@ public class GameController : MonoBehaviour
     {
         if (num <= testRespawns.Length)
         {
+            barrelControl.teleportReset();
             isControlLocked = false;
             BarrelCameraState(false, CameraState.CutScene);
-
             barrelControl.transform.position = testRespawns[num].position;
-            barrelControl.BarrelRig.velocity = Vector2.zero;
-            barrelControl.BarrelRig.angularVelocity = 0;
-            barrelControl.IntoWater(false);
-            barrelControl.SwampCount = 0;
-            barrelControl.GroundCount = 0;
-            barrelControl.touchingGroundNum = 0;
             textBbBehave.ExitSpeechBubble();
-            MovePirateShipToEnd();
-            barrelControl.GravityDirection = Vector2.down;
             GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[num < distinctiveNum ? (int)formerArea : (int)formerArea + 1]);
             BackgroundTransition(num < distinctiveNum ? (int)formerArea : (int)formerArea + 1);
             TilemapParents[0].SetActive(num < distinctiveNum);
@@ -235,9 +230,10 @@ public class GameController : MonoBehaviour
     public void EndLevelCutScene(int endCounter)
     {
         barrelCSBehave.enabled = true;
+        barrelControl.GravityDirection = Vector2.down;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, pirateShip.transform);
+        StartCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, endPirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -274,12 +270,14 @@ public class GameController : MonoBehaviour
 
     public void StartNewGame()
     {
-        pirateShip.ToPostion(true);
-        barrelControl.transform.position = pirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+        OnlyActivateBeach();
+        BackgroundTransition((int)LevelArea.Beach);
+        GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
+        barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
         oldManBehave.resetOldMan();
         barrelHighestY = -100.0f;
-        StartCutScene(SpeechScript.Start1, pirateShip.transform);
+        StartCutScene(SpeechScript.Start1, startPirateShip.transform);
         OnEndMenu(false);
 
         backgroundAnmt.SetInteger("LevelArea", 1);
@@ -289,9 +287,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void MovePirateShipToEnd()
+    private void OnlyActivateBeach()
     {
-        pirateShip.ToPostion(false);
+        for (int i = 0; i < TilemapParents.Length; i++)
+        {
+            TilemapParents[i].SetActive(i == 0);
+        }
     }
 
     //UI

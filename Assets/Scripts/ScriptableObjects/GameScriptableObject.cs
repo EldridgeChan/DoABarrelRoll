@@ -114,8 +114,6 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEndTargetAngularVelocity = -100.0f;
     public float BarrelEndLerpAngularVelocityTime = 1.0f;
     public float BlackScreenTransitionTime = 1.1f;
-    public Vector2 PirateShipStartPosition = Vector2.zero;
-    public Vector2 PirateShipEndPosition = Vector2.zero;
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
