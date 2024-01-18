@@ -38,6 +38,14 @@ public class BarrelTriggerCollision : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (barrelCon.InSnowLock && !collision.isTrigger && collision.CompareTag("Ground"))
+        {
+            barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.transform.position) - (Vector2)barrelCon.transform.position).normalized;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.isTrigger && collision.CompareTag("Ground"))

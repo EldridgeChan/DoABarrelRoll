@@ -427,7 +427,7 @@ public class BarrelControl : MonoBehaviour
     private void SnowCollisionStay(Collision2D collision)
     {
         if (SnowCount <= 0 || !InSnowLock || !collision.transform.CompareTag("Ground")) { return; }
-        GravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
+        //GravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
         BarrelRig.velocity = Mathf.Clamp(BarrelRig.velocity.magnitude - GameManager.instance.GameScriptObj.BarrelSnowVelocityDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue) * BarrelRig.velocity.normalized;
     }
 
@@ -471,6 +471,8 @@ public class BarrelControl : MonoBehaviour
         SwampCount = 0;
         GroundCount = 0;
         touchingGroundNum = 0;
+        SnowCount = 0;
+        InSnowLock = false;
         inWaterFlow = false;
         GravityDirection = Vector2.down;
     }

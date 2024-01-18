@@ -27,7 +27,6 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelSwampMaxVeclocityMagnitude = 3.0f;
 
     [Header("Barrel Snow Behaviour Setting")]
-    public float BarrelSnowAVDeceleration = 100.0f;
     public float BarrelSnowVelocityDeceleration = 2.0f;
     public float BarrelInSnowLockCoolDown = 0.05f;
     public float BarrelSnowMockAVMultiplier = 0.5f;

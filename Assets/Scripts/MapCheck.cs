@@ -11,7 +11,7 @@ public class MapCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision || !collision.CompareTag("Barrel") || areaLoading < LevelArea.Beach) { return; }
+        if (!collision || !collision.CompareTag("Barrel") || areaLoading < LevelArea.Beach || !GameManager.instance.GameCon) { return; }
 
         GameManager.instance.GameCon.TilemapParents[(int)areaLoading - 1].SetActive(collision.transform.position.y > transform.position.y == isUpLoad);
     }

@@ -9,25 +9,35 @@ public class MountainBlizzard : MonoBehaviour
     [SerializeField]
     private bool blizzardDirRight = true;
     [SerializeField]
+    private float blizzardStartDelay = 1.0f;
+    [SerializeField]
     private float blizzardActiveTime = 1.0f;
     [SerializeField]
     private float blizzardInacticeTime = 1.0f;
 
     private bool blizzardActive = false;
     private bool inBlizzard = false;
+    private int barrelCount = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Barrel")) { return; }
+        if (collision.isTrigger || !collision.CompareTag("Barrel")) { return; }
+        barrelCount++;
+        if (barrelCount > 1) { return; }
         GameManager.instance.GameCon.StartSnowing();
         blizzardActive = true;
-        PauseBlizzard();
+        Invoke(nameof(ShowBlizzard), blizzardStartDelay - GameManager.instance.GameScriptObj.BlizzardShowBuffer);
+        Invoke(nameof(StartBlizzard), blizzardStartDelay);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Barrel")) { return; }
+        if (collision.isTrigger || !collision.CompareTag("Barrel")) { return; }
+        barrelCount = Mathf.Clamp(barrelCount - 1, 0, int.MaxValue);
+        if (barrelCount > 0) { return; }
         blizzardActive = false;
+        PauseBlizzard();
         CancelInvoke();
         if (GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
         {
@@ -46,6 +56,7 @@ public class MountainBlizzard : MonoBehaviour
     private void StartBlizzard()
     {
         inBlizzard = true;
+        CancelInvoke();
         Invoke(nameof(PauseBlizzard), blizzardActiveTime);
     }
 
@@ -64,6 +75,7 @@ public class MountainBlizzard : MonoBehaviour
         {
             blizzardDirRight = !blizzardDirRight;
         }
+        CancelInvoke();
         Invoke(nameof(ShowBlizzard), blizzardInacticeTime - GameManager.instance.GameScriptObj.BlizzardShowBuffer);
         Invoke(nameof(StartBlizzard), blizzardInacticeTime);
     }

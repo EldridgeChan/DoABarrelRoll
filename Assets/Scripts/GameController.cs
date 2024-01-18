@@ -66,10 +66,6 @@ public class GameController : MonoBehaviour
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
-    [SerializeField]
-    private int distinctiveNum = 1;
-    [SerializeField]
-    private LevelArea formerArea = LevelArea.None;
 
     [Header("UI Fields")]
     [SerializeField]
@@ -111,13 +107,36 @@ public class GameController : MonoBehaviour
             barrelControl.teleportReset();
             isControlLocked = false;
             BarrelCameraState(false, CameraState.CutScene);
-            barrelControl.transform.position = testRespawns[num].position;
+            barrelControl.BarrelRig.position = testRespawns[num].position;
             textBbBehave.ExitSpeechBubble();
-            GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[num < distinctiveNum ? (int)formerArea : (int)formerArea + 1]);
-            BackgroundTransition(num < distinctiveNum ? (int)formerArea : (int)formerArea + 1);
-            TilemapParents[0].SetActive(num < distinctiveNum);
-            TilemapParents[1].SetActive(num >= distinctiveNum);
-            TilemapParents[2].SetActive(false);
+            TeleportLevelArea(num);
+            GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)CurrentArea]);
+            CancelInvoke(nameof(DeactivateSnowParent));
+            BackgroundTransition((int)CurrentArea);
+            TilemapParents[0].SetActive(num < 3);
+            TilemapParents[1].SetActive(num >= 3 && num <= 6);
+            TilemapParents[2].SetActive(num >= 5 && num <= 9);
+            TilemapParents[3].SetActive(num > 9);
+        }
+    }
+
+    private void TeleportLevelArea(int num)
+    {
+        if (num < 3)
+        {
+            CurrentArea = LevelArea.Beach;
+        }
+        else if (num < 6)
+        {
+            CurrentArea = LevelArea.Jungle;
+        }
+        else if (num <= 9)
+        {
+            CurrentArea = LevelArea.SnowMountain;
+        }
+        else
+        {
+            CurrentArea = LevelArea.GlitchLand;
         }
     }
 

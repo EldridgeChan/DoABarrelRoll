@@ -59,7 +59,7 @@ TagManager:
   - name: Barrel
     uniqueID: 1612920107
     locked: 0
-  - name: SwampTilemap
+  - name: TriggerTilemap
     uniqueID: 3370666559
     locked: 0
   - name: Emoji
