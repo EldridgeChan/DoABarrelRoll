@@ -116,7 +116,6 @@ public class GameScriptableObject : ScriptableObject
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
-    public Sprite[] BackgroundImages;
     public float BackgroundTransitionPeriod = 0.8f;
 
     [Header("Audio Setting")]
@@ -142,4 +141,19 @@ public class GameScriptableObject : ScriptableObject
     public float BlizzardSwampAccelerationOffset = 0.5f;
     public float BlizzardSwampAngleBuffer = 10.0f;
     public float BlizzardWaterAccelerationOffset = 0.5f;
+
+    [Header("Particle Setting")]
+    public float WaterParticleMinSpeed = 5.0f;
+    public float WaterParticleMaxSpeed = 20.0f;
+    public float SwampParticleMinSpeed = 5.0f;
+    public float SwampParticleMaxSpeed = 10.0f;
+    public float ParticleTriggerMinSpeed = 1.0f;
+    public float ParticleTriggerMaxSpeed = 5.0f;
+    public float SnowParticleMinSpeed = 10.0f;
+    public float SnowParticleMaxSpeed = 30.0f;
+    public float SnowParticleMinEmissionRate = 10.0f;
+    public float SnowParticleMaxEmissionRate = 50.0f;
+    public float SnowTriggerMinAV = 100.0f;
+    public float SnowTriggerMaxAV = 1800.0f;
+    public float SnowParticleAngleOffset = 45.0f;
 }

@@ -80,6 +80,12 @@ public class GameController : MonoBehaviour
     [Header ("Particle System")]
     [SerializeField]
     private Animator SnowFlakeParentAnmt;
+    [SerializeField]
+    private ParticlesController waterParticle;
+    [SerializeField]
+    private ParticlesController swampParticle;
+    [SerializeField]
+    private ParticlesController snowParticle;
 
     private void Start()
     {
@@ -368,6 +374,51 @@ public class GameController : MonoBehaviour
     {
         if (!SnowFlakeParentAnmt) { return; }
         SnowFlakeParentAnmt.SetInteger("BlizzardDir", dir);
+    }
+
+    //Particles
+    public void ActivateWaterParticle(Vector2 pos)
+    {
+        waterParticle.transform.position = pos;
+        waterParticle.SetParticleStartSpeed(Mathf.Lerp(GameManager.instance.GameScriptObj.WaterParticleMinSpeed, GameManager.instance.GameScriptObj.WaterParticleMaxSpeed, BarrelParticleTriggerT()));
+        waterParticle.SetParticleAngle(ParticleRotation(pos));
+        waterParticle.StartParticle();
+    }
+
+    public void ActivateSwampParticle(Vector2 pos)
+    {
+        swampParticle.transform.position = pos;
+        swampParticle.SetParticleStartSpeed(Mathf.Lerp(GameManager.instance.GameScriptObj.SwampParticleMinSpeed, GameManager.instance.GameScriptObj.SwampParticleMaxSpeed, BarrelParticleTriggerT()));
+        swampParticle.SetParticleAngle(ParticleRotation(pos));
+        swampParticle.StartParticle();
+    }
+
+    private float BarrelParticleTriggerT()
+    {
+        return (Mathf.Clamp(barrelControl.BarrelRig.velocity.magnitude, GameManager.instance.GameScriptObj.ParticleTriggerMinSpeed, GameManager.instance.GameScriptObj.ParticleTriggerMaxSpeed) - GameManager.instance.GameScriptObj.ParticleTriggerMinSpeed) / (GameManager.instance.GameScriptObj.ParticleTriggerMaxSpeed - GameManager.instance.GameScriptObj.ParticleTriggerMinSpeed);
+    }
+
+    private float ParticleRotation(Vector2 pos)
+    {
+        
+        return (barrelControl.transform.position.x > pos.x ? 1 : -1) * Vector2.Angle(Vector2.up, (Vector2)barrelControl.transform.position - pos);
+    }
+
+    public void ActivateSnowParticle(Vector2 pos)
+    {
+        snowParticle.transform.position = pos;
+        snowParticle.SetParticleEmissionRate(Mathf.Lerp(GameManager.instance.GameScriptObj.SnowParticleMinEmissionRate, GameManager.instance.GameScriptObj.SnowParticleMaxEmissionRate, (Mathf.Clamp(Mathf.Abs(barrelControl.MockAngularVelocity), GameManager.instance.GameScriptObj.SnowTriggerMinAV, GameManager.instance.GameScriptObj.SnowTriggerMaxAV) - GameManager.instance.GameScriptObj.SnowTriggerMinAV) / (GameManager.instance.GameScriptObj.SnowTriggerMaxAV - GameManager.instance.GameScriptObj.SnowTriggerMinAV)));
+        snowParticle.SetParticleStartSpeed(Mathf.Lerp(GameManager.instance.GameScriptObj.SnowParticleMinSpeed, GameManager.instance.GameScriptObj.SnowParticleMaxSpeed, (Mathf.Clamp(Mathf.Abs(barrelControl.MockAngularVelocity), GameManager.instance.GameScriptObj.SnowTriggerMinAV, GameManager.instance.GameScriptObj.SnowTriggerMaxAV) - GameManager.instance.GameScriptObj.SnowTriggerMinAV) / (GameManager.instance.GameScriptObj.SnowTriggerMaxAV - GameManager.instance.GameScriptObj.SnowTriggerMinAV)));
+        snowParticle.SetParticleAngle(ParticleRotation(pos) + (barrelControl.MockAngularVelocity < 0 ? -1 : 1) * GameManager.instance.GameScriptObj.SnowParticleAngleOffset);
+        if (!snowParticle.isPartSysPlaying())
+        {
+            snowParticle.StartParticle();
+        }
+    }
+
+    public void DeactivateSnowParticle()
+    {
+        snowParticle.StopParticle();
     }
 
     //Setting

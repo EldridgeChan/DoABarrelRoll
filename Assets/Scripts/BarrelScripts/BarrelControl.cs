@@ -43,10 +43,11 @@ public class BarrelControl : MonoBehaviour
     private bool isRollSoundPlaying = false;
     private float jumpChargeT = 0.0f;
     private float pastAngularVelocity = 0.0f;
-    private float mockAngularVelocity = 0.0f;
     private int pastRotateDir = 0;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
+    private float mockAngularVelocity = 0.0f;
+    public float MockAngularVelocity { get { return mockAngularVelocity; } }
 
     [HideInInspector]
     public int touchingGroundNum = 0;
@@ -85,6 +86,7 @@ public class BarrelControl : MonoBehaviour
         }
         if (collision.CompareTag("Water"))
         {
+            GameManager.instance.GameCon.ActivateWaterParticle(collision.ClosestPoint(transform.position));
             IntoWater(true);
         }
         if (collision.CompareTag("FallCheck"))
@@ -440,6 +442,7 @@ public class BarrelControl : MonoBehaviour
     private void SnowJump()
     {
         if (!InSnowLock) { return; }
+        GameManager.instance.GameCon.DeactivateSnowParticle();
         GravityDirection = Vector2.down;
         InSnowLock = false;
         BarrelRig.angularVelocity = mockAngularVelocity;

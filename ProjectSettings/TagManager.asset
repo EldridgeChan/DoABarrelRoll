@@ -50,6 +50,9 @@ TagManager:
   - name: Instuction
     uniqueID: 1187823829
     locked: 0
+  - name: Particle
+    uniqueID: 3982573195
+    locked: 0
   - name: LevelTilemap
     uniqueID: 3204379495
     locked: 0

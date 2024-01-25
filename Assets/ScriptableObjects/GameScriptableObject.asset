@@ -126,9 +126,6 @@ MonoBehaviour:
   - {x: 1280, y: 720}
   - {x: 1600, y: 900}
   - {x: 1920, y: 1080}
-  BackgroundImages:
-  - {fileID: 21300000, guid: 0c5f908dd7483cb42b76e2c11a0547b2, type: 3}
-  - {fileID: 21300000, guid: 1db0c912db5d89246be4704f581690a6, type: 3}
   BackgroundTransitionPeriod: 0.8
   MusicLerpTime: 1
   MusicClips:
@@ -152,3 +149,16 @@ MonoBehaviour:
   BlizzardSwampAccelerationOffset: 0.35
   BlizzardSwampAngleBuffer: 10
   BlizzardWaterAccelerationOffset: 0.5
+  WaterParticleMinSpeed: 5
+  WaterParticleMaxSpeed: 20
+  SwampParticleMinSpeed: 7
+  SwampParticleMaxSpeed: 20
+  ParticleTriggerMinSpeed: 1
+  ParticleTriggerMaxSpeed: 10
+  SnowParticleMinSpeed: 10
+  SnowParticleMaxSpeed: 30
+  SnowParticleMinEmissionRate: 0
+  SnowParticleMaxEmissionRate: 50
+  SnowTriggerMinAV: 500
+  SnowTriggerMaxAV: 2000
+  SnowParticleAngleOffset: 45

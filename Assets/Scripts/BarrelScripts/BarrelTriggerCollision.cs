@@ -22,6 +22,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         {
             if (barrelCon.SwampCount <= 0)
             {
+                GameManager.instance.GameCon.ActivateSwampParticle(collision.ClosestPoint(barrelCon.transform.position));
                 barrelCon.IntoMud();
                 barrelCon.BarrelRig.velocity = Vector2.ClampMagnitude(barrelCon.BarrelRig.velocity, GameManager.instance.GameScriptObj.BarrelSwampMaxVeclocityMagnitude);
                 barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
@@ -42,6 +43,7 @@ public class BarrelTriggerCollision : MonoBehaviour
     {
         if (barrelCon.InSnowLock && !collision.isTrigger && collision.CompareTag("Ground"))
         {
+            GameManager.instance.GameCon.ActivateSnowParticle(collision.ClosestPoint(barrelCon.transform.position));
             barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.transform.position) - (Vector2)barrelCon.transform.position).normalized;
         }
     }
@@ -66,6 +68,7 @@ public class BarrelTriggerCollision : MonoBehaviour
             barrelCon.SnowCount = Mathf.Clamp(barrelCon.SnowCount - 1, 0, int.MaxValue);
             if (barrelCon.SnowCount <= 0)
             {
+                GameManager.instance.GameCon.DeactivateSnowParticle();
                 barrelCon.InSnowLock = false;
                 barrelCon.GravityDirection = Vector2.down;
             }
