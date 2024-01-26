@@ -23,7 +23,6 @@ public class SoundsPlayer : MonoBehaviour
     private void OnEnable()
     {
         if (!adoSrc) { adoSrc = GetComponent<AudioSource>(); }
-
         if (onStartRepeat)
         {
             PlaySoundAuto();
@@ -39,6 +38,7 @@ public class SoundsPlayer : MonoBehaviour
 
     public void PlaySoundAuto()
     {
+        OffPlayCoolDown();
         PlaySoundManual();
         Invoke(nameof(PlaySoundAuto), Random.Range(minReplayTime, maxReplayTime));
     }

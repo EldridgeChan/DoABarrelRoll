@@ -33,7 +33,9 @@ public class BarrelControl : MonoBehaviour
     [SerializeField]
     private SoundsPlayer smashSoundPlayer;
     [SerializeField]
-    private SoundsPlayer MudSplashSoundPlayer;
+    private SoundsPlayer mudSplashSoundPlayer;
+    [SerializeField]
+    private SoundsPlayer snowSoundPlayer;
 
     private bool touchedGround = false;
     private bool onGround = false;
@@ -173,7 +175,7 @@ public class BarrelControl : MonoBehaviour
 
     public void IntoMud()
     {
-        MudSplashSoundPlayer.PlaySoundManual();
+        mudSplashSoundPlayer.PlaySoundManual();
     }
 
     private void WaterFloat()
@@ -214,8 +216,8 @@ public class BarrelControl : MonoBehaviour
 
     private void BarrelRollSound()
     {
-        rollSoundPlayer.SetRepeatTime(Mathf.Lerp(GameManager.instance.GameScriptObj.RollSoundMaxDelay, GameManager.instance.GameScriptObj.RollSoundMinDelay, Mathf.Clamp01(Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.RollSoundMaxAngularVelocity)));
-        if (GroundCount > 0 && Mathf.Abs(barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.RollSoundMinAngularVelocity)
+        rollSoundPlayer.SetRepeatTime(Mathf.Lerp(GameManager.instance.GameScriptObj.RollSoundMaxDelay, GameManager.instance.GameScriptObj.RollSoundMinDelay, Mathf.Clamp01(Mathf.Abs(InSnowLock ? mockAngularVelocity : barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.RollSoundMaxAngularVelocity)));
+        if (GroundCount > 0 && Mathf.Abs(InSnowLock ? mockAngularVelocity : barrelRig.angularVelocity) > GameManager.instance.GameScriptObj.RollSoundMinAngularVelocity)
         {            
             if (!isRollSoundPlaying)
             {
@@ -464,6 +466,11 @@ public class BarrelControl : MonoBehaviour
     {
         if (InSnowLock || BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
         BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
+    }
+
+    public void PlaySnowSound()
+    {
+        snowSoundPlayer.PlaySoundManual();
     }
 
     public void teleportReset()

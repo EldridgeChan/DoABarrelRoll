@@ -33,6 +33,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         {
             if (barrelCon.SnowCount <= 0)
             {
+                barrelCon.PlaySnowSound();
                 barrelCon.InSnowLock = true;
             }
             barrelCon.SnowCount++;

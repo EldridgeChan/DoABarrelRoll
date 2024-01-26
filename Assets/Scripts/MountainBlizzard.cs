@@ -26,9 +26,9 @@ public class MountainBlizzard : MonoBehaviour
         if (barrelCount > 1) { return; }
         GameManager.instance.GameCon.StartSnowing();
         blizzardActive = true;
+        GameManager.instance.GameCon.BlizzardImageCon.ShowBlizzardImage(doubleDirection ? 0 : (blizzardDirRight ? 1 : -1));
         Invoke(nameof(ShowBlizzard), blizzardStartDelay - GameManager.instance.GameScriptObj.BlizzardShowBuffer);
         Invoke(nameof(StartBlizzard), blizzardStartDelay);
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -37,6 +37,7 @@ public class MountainBlizzard : MonoBehaviour
         barrelCount = Mathf.Clamp(barrelCount - 1, 0, int.MaxValue);
         if (barrelCount > 0) { return; }
         blizzardActive = false;
+        GameManager.instance.GameCon.BlizzardImageCon.HideBlizzardImage();
         PauseBlizzard();
         CancelInvoke();
         if (GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
@@ -63,6 +64,7 @@ public class MountainBlizzard : MonoBehaviour
     private void ShowBlizzard()
     {
         if (!GameManager.instance.GameCon) { return; }
+        GameManager.instance.GameCon.SetBlizzardSoundActive(true);
         GameManager.instance.GameCon.SetBlizzardDirection(blizzardDirRight ? 1 : -1);
     }
 
@@ -70,6 +72,7 @@ public class MountainBlizzard : MonoBehaviour
     {
         if (!GameManager.instance.GameCon) { return; }
         inBlizzard = false;
+        GameManager.instance.GameCon.SetBlizzardSoundActive(false);
         GameManager.instance.GameCon.SetBlizzardDirection(0);
         if (doubleDirection)
         {

@@ -70,6 +70,9 @@ public class GameController : MonoBehaviour
     [Header("UI Fields")]
     [SerializeField]
     private Animator gameCanvasAnmt;
+    [SerializeField]
+    private BlizzardImageController blizzardImageCon;
+    public BlizzardImageController BlizzardImageCon { get { return blizzardImageCon; } }
 
     [Header("Old Man")]
     [SerializeField]
@@ -86,6 +89,16 @@ public class GameController : MonoBehaviour
     private ParticlesController swampParticle;
     [SerializeField]
     private ParticlesController snowParticle;
+
+    [Header("Sound")]
+    [SerializeField]
+    private GameObject beachSoundParent;
+    [SerializeField]
+    private GameObject jungleSoundParent;
+    [SerializeField]
+    private GameObject snowSoundParent;
+    [SerializeField]
+    private Animator blizzardSoundAnmt;
 
     private void Start()
     {
@@ -119,6 +132,7 @@ public class GameController : MonoBehaviour
             GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)CurrentArea]);
             CancelInvoke(nameof(DeactivateSnowParent));
             BackgroundTransition((int)CurrentArea);
+            LevelSoundTransition(CurrentArea);
             TilemapParents[0].SetActive(num < 3);
             TilemapParents[1].SetActive(num >= 3 && num <= 6);
             TilemapParents[2].SetActive(num >= 5 && num <= 9);
@@ -419,6 +433,19 @@ public class GameController : MonoBehaviour
     public void DeactivateSnowParticle()
     {
         snowParticle.StopParticle();
+    }
+
+    //Sound
+    public void LevelSoundTransition(LevelArea level)
+    {
+        beachSoundParent.SetActive(level == LevelArea.Beach);
+        jungleSoundParent.SetActive(level == LevelArea.Jungle);
+        snowSoundParent.SetActive(level == LevelArea.SnowMountain);
+    }
+
+    public void SetBlizzardSoundActive(bool tf)
+    {
+        blizzardSoundAnmt.SetBool("InBlizzard", tf);
     }
 
     //Setting
