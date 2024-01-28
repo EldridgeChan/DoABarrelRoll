@@ -133,20 +133,20 @@ public class GameController : MonoBehaviour
             CancelInvoke(nameof(DeactivateSnowParent));
             BackgroundTransition((int)CurrentArea);
             LevelSoundTransition(CurrentArea);
-            TilemapParents[0].SetActive(num < 3);
-            TilemapParents[1].SetActive(num >= 3 && num <= 6);
-            TilemapParents[2].SetActive(num >= 5 && num <= 9);
+            TilemapParents[0].SetActive(num < 2);
+            TilemapParents[1].SetActive(num >= 2 && num <= 3);
+            TilemapParents[2].SetActive(num >= 3 && num <= 9);
             TilemapParents[3].SetActive(num > 9);
         }
     }
 
     private void TeleportLevelArea(int num)
     {
-        if (num < 3)
+        if (num < 2)
         {
             CurrentArea = LevelArea.Beach;
         }
-        else if (num < 6)
+        else if (num < 3)
         {
             CurrentArea = LevelArea.Jungle;
         }
