@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            GameManager.instance.SaveMan.ResetProgress();
+            GameManager.instance.SaveMan.ResetEndCounter();
         }
     }
 

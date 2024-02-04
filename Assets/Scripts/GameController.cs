@@ -105,8 +105,17 @@ public class GameController : MonoBehaviour
         GameManager.instance.GameCon = this;
         MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
         DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
-        StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, startPirateShip.transform);
         backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
+        if (GameManager.instance.SaveMan.playerSaveArea == LevelArea.MainMenu)
+        {
+            StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, startPirateShip.transform);
+        }
+        else
+        {
+            LoadingPlayerProgress();
+            barrelControl.Invoke(nameof(barrelControl.BarrelGainControl), GameManager.instance.GameScriptObj.BarrelFallGainControlTime);
+            BarrelCameraState(false, CameraState.CutScene);
+        }
     }
 
     private void Update()
@@ -136,7 +145,7 @@ public class GameController : MonoBehaviour
             TilemapParents[0].SetActive(num < 2);
             TilemapParents[1].SetActive(num >= 2 && num <= 3);
             TilemapParents[2].SetActive(num >= 3 && num <= 9);
-            TilemapParents[3].SetActive(num > 9);
+            TilemapParents[3].SetActive(true);
         }
     }
 
@@ -446,6 +455,29 @@ public class GameController : MonoBehaviour
     public void SetBlizzardSoundActive(bool tf)
     {
         blizzardSoundAnmt.SetBool("InBlizzard", tf);
+    }
+
+    //Player Progress
+    public void SavingPlayerProgress()
+    {
+        GameManager.instance.SaveMan.playerSavePosition = barrelControl.transform.position;
+        GameManager.instance.SaveMan.playerSaveArea = CurrentArea;
+        GameManager.instance.SaveMan.playerSaveAreaActive = new bool[4] { TilemapParents[0].activeSelf, TilemapParents[1].activeSelf, TilemapParents[2].activeSelf, TilemapParents[3].activeSelf };
+        GameManager.instance.SaveMan.playerSaveTimer = gameTimer;
+    }
+
+    public void LoadingPlayerProgress()
+    {
+        barrelControl.transform.position = GameManager.instance.SaveMan.playerSavePosition;
+        CurrentArea = GameManager.instance.SaveMan.playerSaveArea;
+        GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)CurrentArea]);
+        BackgroundTransition((int)CurrentArea);
+        LevelSoundTransition(CurrentArea);
+        TilemapParents[0].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[0]);
+        TilemapParents[1].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[1]);
+        TilemapParents[2].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[2]);
+        TilemapParents[3].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[3]);
+        gameTimer = GameManager.instance.SaveMan.playerSaveTimer;
     }
 
     //Setting

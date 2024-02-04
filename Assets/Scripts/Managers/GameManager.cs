@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
 
         saveMan.LoadSetting();
+        SaveMan.LoadPlayerProgress();
         saveMan.InitFromSave();
         uiMan.InitSettingOptions();
     }

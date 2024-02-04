@@ -26,7 +26,7 @@ public class MountainBlizzard : MonoBehaviour
         if (barrelCount > 1) { return; }
         GameManager.instance.GameCon.StartSnowing();
         blizzardActive = true;
-        GameManager.instance.GameCon.BlizzardImageCon.ShowBlizzardImage(doubleDirection ? 0 : (blizzardDirRight ? 1 : -1));
+        GameManager.instance.GameCon.BlizzardImageCon.ShowBlizzardImage(0);
         Invoke(nameof(ShowBlizzard), blizzardStartDelay - GameManager.instance.GameScriptObj.BlizzardShowBuffer);
         Invoke(nameof(StartBlizzard), blizzardStartDelay);
     }
@@ -37,9 +37,9 @@ public class MountainBlizzard : MonoBehaviour
         barrelCount = Mathf.Clamp(barrelCount - 1, 0, int.MaxValue);
         if (barrelCount > 0) { return; }
         blizzardActive = false;
-        GameManager.instance.GameCon.BlizzardImageCon.HideBlizzardImage();
         PauseBlizzard();
         CancelInvoke();
+        GameManager.instance.GameCon.BlizzardImageCon.HideBlizzardImage();
         if (GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
         {
             GameManager.instance.GameCon.StopSnowing();
@@ -50,7 +50,7 @@ public class MountainBlizzard : MonoBehaviour
     {
         if (blizzardActive && inBlizzard)
         {
-            GameManager.instance.GameCon.BarrelBlizzard(blizzardDirRight ? 1 : -1);
+            GameManager.instance.GameCon.BarrelBlizzard((GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1) * (blizzardDirRight ? 1 : -1));
         }
     }
 
@@ -65,7 +65,8 @@ public class MountainBlizzard : MonoBehaviour
     {
         if (!GameManager.instance.GameCon) { return; }
         GameManager.instance.GameCon.SetBlizzardSoundActive(true);
-        GameManager.instance.GameCon.SetBlizzardDirection(blizzardDirRight ? 1 : -1);
+        GameManager.instance.GameCon.SetBlizzardDirection((GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1) * (blizzardDirRight ? 1 : -1));
+        GameManager.instance.GameCon.BlizzardImageCon.ShowBlizzardImage((GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1) * (blizzardDirRight ? 1 : -1));
     }
 
     private void PauseBlizzard()
@@ -74,6 +75,7 @@ public class MountainBlizzard : MonoBehaviour
         inBlizzard = false;
         GameManager.instance.GameCon.SetBlizzardSoundActive(false);
         GameManager.instance.GameCon.SetBlizzardDirection(0);
+        GameManager.instance.GameCon.BlizzardImageCon.ShowBlizzardImage(0);
         if (doubleDirection)
         {
             blizzardDirRight = !blizzardDirRight;

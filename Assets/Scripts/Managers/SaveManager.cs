@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
+    //Setting Fields
     public int windowSizeIndex = 3;
     public FullScreenMode screenMode = FullScreenMode.Windowed;
     public Language selectedLanguage = Language.English;
@@ -12,7 +13,15 @@ public class SaveManager : MonoBehaviour
     public float musicVolume = 1.0f;
     public bool mirroredTilemap = false;
     public bool showJumpGuide = false;
+
+    //Game Save Fields
+    public Vector2 playerSavePosition = Vector2.zero;
+    public LevelArea playerSaveArea = LevelArea.MainMenu;
+    public bool[] playerSaveAreaActive = new bool[4] {false, false, false, false};
+    public float playerSaveTimer = 0.0f;
     public int endCounter = 0;
+
+
 
     public void SaveSetting()
     {
@@ -25,6 +34,18 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0);
         PlayerPrefs.SetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0);
         PlayerPrefs.Save();
+    }
+
+    public void SavePlayerProgress()
+    {
+        PlayerPrefs.SetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x);
+        PlayerPrefs.SetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y);
+        PlayerPrefs.SetInt(nameof(playerSaveArea), (int)playerSaveArea);
+        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "0", playerSaveAreaActive[0] ? 1 : -1);
+        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "1", playerSaveAreaActive[1] ? 1 : -1);
+        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "2", playerSaveAreaActive[2] ? 1 : -1);
+        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "3", playerSaveAreaActive[3] ? 1 : -1);
+        PlayerPrefs.SetFloat(nameof(playerSaveTimer), playerSaveTimer);
     }
 
     public void LoadSetting()
@@ -40,14 +61,35 @@ public class SaveManager : MonoBehaviour
         endCounter = PlayerPrefs.GetInt(nameof(endCounter), endCounter);
     }
 
+    public void LoadPlayerProgress()
+    {
+        playerSavePosition = new Vector2(PlayerPrefs.GetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x), PlayerPrefs.GetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y));
+        playerSaveArea = (LevelArea)PlayerPrefs.GetInt(nameof(playerSaveArea), (int)playerSaveArea);
+        playerSaveAreaActive[0] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "0", playerSaveAreaActive[0] ? 1 : -1) > 0;
+        playerSaveAreaActive[1] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "1", playerSaveAreaActive[1] ? 1 : -1) > 0;
+        playerSaveAreaActive[2] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "2", playerSaveAreaActive[2] ? 1 : -1) > 0;
+        playerSaveAreaActive[3] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "3", playerSaveAreaActive[3] ? 1 : -1) > 0;
+        playerSaveTimer = PlayerPrefs.GetFloat(nameof(playerSaveTimer), playerSaveTimer);
+    }
+
+    public void ResetPlayerProgress()
+    {
+        playerSavePosition = Vector2.zero;
+        playerSaveArea = LevelArea.MainMenu;
+        playerSaveAreaActive = new bool[4] { false, false, false, false };
+        playerSaveTimer = 0.0f;
+    }
+
     public void FinishGame()
     {
         endCounter++;
+        ResetPlayerProgress();
+        SavePlayerProgress();
         PlayerPrefs.SetInt(nameof(endCounter), endCounter);
         PlayerPrefs.Save();
     }
 
-    public void ResetProgress()
+    public void ResetEndCounter()
     {
         endCounter = 0;
         PlayerPrefs.SetInt(nameof(endCounter), endCounter);
