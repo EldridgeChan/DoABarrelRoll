@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject[] tilemapParents;
     public GameObject[] TilemapParents { get { return tilemapParents; } }
+    [SerializeField]
+    private GameObject[] swampDecorativeTilemaps;
     [HideInInspector]
     public LevelArea CurrentArea = LevelArea.Beach;
 
@@ -132,7 +134,7 @@ public class GameController : MonoBehaviour
     {
         if (num <= testRespawns.Length)
         {
-            barrelControl.teleportReset();
+            barrelControl.TeleportReset();
             isControlLocked = false;
             BarrelCameraState(false, CameraState.CutScene);
             barrelControl.BarrelRig.position = testRespawns[num].position;
@@ -369,6 +371,14 @@ public class GameController : MonoBehaviour
         else
         {
             StopSnowing();
+        }
+    }
+
+    public void SetSwampDecorationActive(bool tf)
+    {
+        for (int i = 0; i < swampDecorativeTilemaps.Length; i++)
+        {
+            swampDecorativeTilemaps[i].SetActive(tf);
         }
     }
 

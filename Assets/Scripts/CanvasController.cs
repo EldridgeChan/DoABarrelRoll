@@ -14,10 +14,16 @@ public class CanvasController : MonoBehaviour
     private TMP_Text endBoardTimerTxt;
     [SerializeField]
     private AudioSource mainMenuAdoSrc;
+    [SerializeField]
+    private GameObject continueButtonGameObj;
 
     private void Start()
     {
         GameManager.instance.UIMan.CanCon = this;
+        if (continueButtonGameObj)
+        {
+            continueButtonGameObj.SetActive(GameManager.instance.SaveMan.playerSaveArea != LevelArea.MainMenu);
+        }
     }
 
     public void GameStart()
@@ -29,6 +35,12 @@ public class CanvasController : MonoBehaviour
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.AudioMan.BGMTransition(null);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadPlayScene), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
+    }
+
+    public void GameStartBeginning()
+    {
+        GameManager.instance.SaveMan.ResetPlayerProgress();
+        GameStart();
     }
 
     public void GameExit()

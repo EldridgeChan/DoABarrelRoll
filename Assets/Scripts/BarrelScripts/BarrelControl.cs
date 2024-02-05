@@ -38,7 +38,6 @@ public class BarrelControl : MonoBehaviour
     private SoundsPlayer snowSoundPlayer;
 
     private bool touchedGround = false;
-    private bool onGround = false;
     private bool inWater = false;
     private bool inWaterFlow = false;
     private bool emojiTurning = false;
@@ -82,10 +81,6 @@ public class BarrelControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
-        {
-            onGround = true;
-        }
         if (collision.CompareTag("Water"))
         {
             GameManager.instance.GameCon.ActivateWaterParticle(collision.ClosestPoint(transform.position));
@@ -112,10 +107,6 @@ public class BarrelControl : MonoBehaviour
         {
             IntoWater(false);
             emojiTypeCon.SetWaterEmoji(false);
-        }
-        if (collision.CompareTag("Ground"))
-        {
-            onGround = false;
         }
 
     }
@@ -341,6 +332,7 @@ public class BarrelControl : MonoBehaviour
             barrelErrorTextAnmt.SetTrigger("ShowText");
             return;
         }
+        GameManager.instance.GameCon.SetSwampDecorationActive(false);
         GameManager.instance.GameCon.OnPauseMenu(true);
         jumpChargeT = 0.0f;
         orgRotation = transform.rotation;
@@ -362,7 +354,7 @@ public class BarrelControl : MonoBehaviour
 
     private int BarrelStandErrorCode()
     {
-        if (!onGround)
+        if (!IsOnSolidGround(Physics2D.RaycastAll(transform.position, Vector2.down, GameManager.instance.GameScriptObj.BarrelGroundCheckDistance)))
         {
             return 0;
         }
@@ -375,6 +367,18 @@ public class BarrelControl : MonoBehaviour
             return 2;
         }
         return -1;
+    }
+
+    private bool IsOnSolidGround(RaycastHit2D[] hits)
+    {
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].collider.isTrigger && hits[i].transform.CompareTag("Ground"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void BarrelFall()
@@ -394,6 +398,7 @@ public class BarrelControl : MonoBehaviour
         barrelAnmt.speed = 0.0f;
         GameManager.instance.GameCon.isControlLocked = false;
         GameManager.instance.GameCon.BarrelCameraState(false, CameraState.Menu);
+        GameManager.instance.GameCon.SetSwampDecorationActive(true);
     }
 
     public void CheckSetEmojiNormal()
@@ -473,7 +478,7 @@ public class BarrelControl : MonoBehaviour
         snowSoundPlayer.PlaySoundManual();
     }
 
-    public void teleportReset()
+    public void TeleportReset()
     {
         BarrelRig.velocity = Vector2.zero;
         BarrelRig.angularVelocity = 0;

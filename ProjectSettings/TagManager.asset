@@ -71,6 +71,9 @@ TagManager:
   - name: PirateShip
     uniqueID: 120645553
     locked: 0
+  - name: Decorative
+    uniqueID: 2191795739
+    locked: 0
   - name: SnowFlake
     uniqueID: 404427779
     locked: 0
