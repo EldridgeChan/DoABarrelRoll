@@ -45,14 +45,24 @@ public class EmojiTypeController : MonoBehaviour
         emojiPlayer.StopRepeat();
         if (intoWater)
         {
-            emojiPlayer.ChangeClips(audioClipsCollection[0].audioClips);
-            emojiPlayer.SetRandom(false);
+            PlayListSound(0, true);
+        }
+        else
+        {
+            PlayListSound(5, false);
+        }
+    }
+
+    public void PlayListSound(int index, bool isAuto)
+    {
+        emojiPlayer.ChangeClips(audioClipsCollection[index].audioClips);
+        emojiPlayer.SetRandom(false);
+        if (isAuto)
+        {
             emojiPlayer.PlaySoundAuto();
         }
         else
         {
-            emojiPlayer.ChangeClips(audioClipsCollection[5].audioClips);
-            emojiPlayer.SetRandom(false);
             emojiPlayer.PlaySoundManual();
         }
     }
@@ -179,12 +189,14 @@ public class EmojiTypeController : MonoBehaviour
 
     public void SetNormal()
     {
-        emojiPlayer.StopRepeat();
         if (inWater)
         {
             SetEmojiSprite(EmojiType.Dead);
+            PlayListSound(0, true);
             return;
         }
+
+        emojiPlayer.StopRepeat();
 
         int emojiIndex = Random.Range(0, 3);
         switch (emojiIndex)
@@ -212,7 +224,7 @@ public class EmojiTypeController : MonoBehaviour
             isClimbing = false;
         }
         CancelInvoke(nameof(SetNormal));
-        Invoke(nameof(SetNormal), GameManager.instance.GameScriptObj.BarrelEmojiBackNormalTime);
+        Invoke(nameof(SetNormal), inWater ? GameManager.instance.GameScriptObj.BarrelEmojiBackNormalInWaterTime : GameManager.instance.GameScriptObj.BarrelEmojiBackNormalTime);
         emojiRend.sprite = GameManager.instance.GameScriptObj.EmojiTypes[(int)type];
     }
 }

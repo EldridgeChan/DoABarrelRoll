@@ -93,6 +93,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEmojiFallVelocityThreshold = -5.0f;
     public float BarrelEmojiInjuredTime = 1.0f;
     public float BarrelEmojiBackNormalTime = 10.0f;
+    public float BarrelEmojiBackNormalInWaterTime = 3.0f;
     public float BarrelEmojiOffFallCoolDownTime = 2.0f;
 
     [Header("Dusts Animation Setting")]
