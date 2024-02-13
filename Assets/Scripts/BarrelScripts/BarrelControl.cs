@@ -473,8 +473,10 @@ public class BarrelControl : MonoBehaviour
         BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
     }
 
-    public void PlaySnowSound()
+    public void BarrelGetInSnow()
     {
+        InSnowLock = true;
+        mockAngularVelocity = BarrelRig.angularVelocity * GameManager.instance.GameScriptObj.BarrelSnowAVTranferRate;
         snowSoundPlayer.PlaySoundManual();
     }
 

@@ -33,6 +33,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelSnowMockAVAnmtSpeedMultiplier = 0.5f;
     public float BarrelSnowMockAVRotationMultiplier = 1.0f;
     public float BarrelSnowMockAVDeleration = 1000.0f;
+    public float BarrelSnowAVTranferRate = 0.5f;
 
     [Header("Emoji Basic Setting")]
     public float BarrelEmojiMaxOffsetDistance = 1.0f;
