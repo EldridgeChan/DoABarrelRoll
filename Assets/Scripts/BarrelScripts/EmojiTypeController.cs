@@ -180,6 +180,12 @@ public class EmojiTypeController : MonoBehaviour
     public void SetNormal()
     {
         emojiPlayer.StopRepeat();
+        if (inWater)
+        {
+            SetEmojiSprite(EmojiType.Dead);
+            return;
+        }
+
         int emojiIndex = Random.Range(0, 3);
         switch (emojiIndex)
         {

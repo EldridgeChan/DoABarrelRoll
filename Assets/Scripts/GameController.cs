@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
     public GameObject[] TilemapParents { get { return tilemapParents; } }
     [SerializeField]
     private GameObject[] swampDecorativeTilemaps;
+    [SerializeField]
+    private Animator glitchTilemapParentAnmt;
     [HideInInspector]
     public LevelArea CurrentArea = LevelArea.Beach;
 
@@ -148,6 +150,7 @@ public class GameController : MonoBehaviour
             TilemapParents[1].SetActive(num >= 2 && num <= 3);
             TilemapParents[2].SetActive(num >= 3 && num <= 9);
             TilemapParents[3].SetActive(true);
+
         }
     }
 
@@ -161,7 +164,7 @@ public class GameController : MonoBehaviour
         {
             CurrentArea = LevelArea.Jungle;
         }
-        else if (num <= 9)
+        else if (num < 6)
         {
             CurrentArea = LevelArea.SnowMountain;
         }
@@ -382,6 +385,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void SetGlitchLandDark(bool tf)
+    {
+        glitchTilemapParentAnmt.SetBool("InGlitch", tf);
+    }
+
     //Snowing
     public void StartSnowing()
     {
@@ -457,6 +465,7 @@ public class GameController : MonoBehaviour
     //Sound
     public void LevelSoundTransition(LevelArea level)
     {
+        if (!beachSoundParent || !jungleSoundParent || !snowSoundParent) { return; }
         beachSoundParent.SetActive(level == LevelArea.Beach);
         jungleSoundParent.SetActive(level == LevelArea.Jungle);
         snowSoundParent.SetActive(level == LevelArea.SnowMountain);

@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f83b35457a00bb44c98d29d09f3b2aa6, type: 3}
   - {fileID: 8300000, guid: 1e0a7de03f6da8c499bd361b1294c3d0, type: 3}
   - {fileID: 8300000, guid: 23344bf2aacb96d4b8e2e577c7dc6db1, type: 3}
+  - {fileID: 8300000, guid: db3605d9218621c46a9ce2f156dd4595, type: 3}
   RollSoundMinAngularVelocity: 200
   RollSoundMaxAngularVelocity: 1000
   RollSoundMinDelay: 0.1

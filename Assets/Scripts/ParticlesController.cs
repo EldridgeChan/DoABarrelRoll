@@ -9,11 +9,13 @@ public class ParticlesController : MonoBehaviour
 
     public void StartParticle()
     {
+        if (!partSys) { return; }
         partSys.Play();
     }
 
     public void StopParticle()
     {
+        if (!partSys) { return; }
         partSys.Stop();
     }
 

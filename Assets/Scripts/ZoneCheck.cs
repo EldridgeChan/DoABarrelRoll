@@ -9,9 +9,14 @@ public class ZoneCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!GameManager.instance.GameCon) { return; }
         if (!collision || !collision.CompareTag("Barrel") || upZone < LevelArea.Beach) { return; }
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[collision.transform.position.y > transform.position.y ? (int)upZone : Mathf.Clamp((int)upZone - 1, (int)LevelArea.Beach, (int)LevelArea.GlitchLand)]);
         GameManager.instance.GameCon.BackgroundTransition(collision.transform.position.y > transform.position.y ? (int)upZone : Mathf.Clamp((int)upZone - 1, 0, (int)LevelArea.GlitchLand));
         GameManager.instance.GameCon.LevelSoundTransition(collision.transform.position.y > transform.position.y ? upZone : upZone - 1);
+        if (upZone == LevelArea.GlitchLand)
+        {
+            GameManager.instance.GameCon.SetGlitchLandDark(collision.transform.position.y > transform.position.y);
+        }
     }
 }

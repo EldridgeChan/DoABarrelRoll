@@ -230,8 +230,6 @@ MonoBehaviour:
   arrowRend: {fileID: 0}
   flipPosTrans:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   flipScaleTrans:
   - {fileID: 0}
   - {fileID: 0}
@@ -254,11 +252,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   tilemapParents:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  swampDecorativeTilemaps:
+  - {fileID: 0}
+  - {fileID: 0}
+  glitchTilemapParentAnmt: {fileID: 0}
   CurrentArea: 1
   isControlLocked: 1
   jumpDustBehaves:
@@ -285,6 +294,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameCanvasAnmt: {fileID: 0}
+  blizzardImageCon: {fileID: 0}
   oldManBehave: {fileID: 0}
   barrelHighestY: 0
   SnowFlakeParentAnmt: {fileID: 0}
@@ -294,7 +304,7 @@ MonoBehaviour:
   beachSoundParent: {fileID: 8060658860673466248}
   jungleSoundParent: {fileID: 1298258950237588948}
   snowSoundParent: {fileID: 1383851601079029420}
-  blizzardSoundParent: {fileID: 4787325290146693787}
+  blizzardSoundAnmt: {fileID: 7586913205299123872}
 --- !u!82 &6129329151362866355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -401,13 +411,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4561997541617410703}
   - component: {fileID: 5434220378104892808}
+  - component: {fileID: 7586913205299123872}
   m_Layer: 0
   m_Name: BlizzardSoundParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4561997541617410703
 Transform:
   m_ObjectHideFlags: 0
@@ -433,9 +444,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bd4012aea9cfb7847b6291238ace28b4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2401ac5b79042e4488aabd9a0b4e52c1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -519,6 +530,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7586913205299123872
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787325290146693787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06474b0a7b2db5b498759d18be44132f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8060658860673466248
 GameObject:
   m_ObjectHideFlags: 0

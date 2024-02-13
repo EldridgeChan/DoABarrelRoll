@@ -40,7 +40,7 @@ public class MountainBlizzard : MonoBehaviour
         PauseBlizzard();
         CancelInvoke();
         GameManager.instance.GameCon.BlizzardImageCon.HideBlizzardImage();
-        if (GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
+        if (GameManager.instance.GameCon && GameManager.instance.GameCon.CurrentArea != LevelArea.SnowMountain)
         {
             GameManager.instance.GameCon.StopSnowing();
         }
