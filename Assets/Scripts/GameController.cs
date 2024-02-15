@@ -479,7 +479,7 @@ public class GameController : MonoBehaviour
     //Player Progress
     public void SavingPlayerProgress()
     {
-        GameManager.instance.SaveMan.playerSavePosition = barrelControl.transform.position;
+        GameManager.instance.SaveMan.playerSavePosition = new Vector2(barrelControl.transform.position.x * (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f), barrelControl.transform.position.y);
         GameManager.instance.SaveMan.playerSaveArea = CurrentArea;
         GameManager.instance.SaveMan.playerSaveAreaActive = new bool[4] { TilemapParents[0].activeSelf, TilemapParents[1].activeSelf, TilemapParents[2].activeSelf, TilemapParents[3].activeSelf };
         GameManager.instance.SaveMan.playerSaveTimer = gameTimer;
@@ -487,7 +487,7 @@ public class GameController : MonoBehaviour
 
     public void LoadingPlayerProgress()
     {
-        barrelControl.transform.position = GameManager.instance.SaveMan.playerSavePosition;
+        barrelControl.transform.position = new Vector2(GameManager.instance.SaveMan.playerSavePosition.x * (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f), GameManager.instance.SaveMan.playerSavePosition.y);
         CurrentArea = GameManager.instance.SaveMan.playerSaveArea;
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)CurrentArea]);
         BackgroundTransition((int)CurrentArea);
