@@ -395,6 +395,7 @@ public class GameController : MonoBehaviour
     {
         if (!SnowFlakeParentAnmt) { return; }
         SnowFlakeParentAnmt.gameObject.SetActive(true);
+        CancelInvoke(nameof(DeactivateSnowParent));
         SnowFlakeParentAnmt.SetBool("IsSnowing", true);
     }
 

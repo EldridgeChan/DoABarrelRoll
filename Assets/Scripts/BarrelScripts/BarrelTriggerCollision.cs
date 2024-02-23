@@ -44,6 +44,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         if (barrelCon.InSnowLock && !collision.isTrigger && collision.CompareTag("Ground"))
         {
             GameManager.instance.GameCon.ActivateSnowParticle(collision.ClosestPoint(barrelCon.transform.position));
+            barrelCon.SnowCollisionStay();
             barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.transform.position) - (Vector2)barrelCon.transform.position).normalized;
         }
     }

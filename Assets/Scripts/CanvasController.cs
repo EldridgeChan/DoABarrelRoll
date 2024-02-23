@@ -68,6 +68,8 @@ public class CanvasController : MonoBehaviour
         else
         {
             GameManager.instance.GameCon.OnPauseMenu(false);
+            GameManager.instance.GameCon.SavingPlayerProgress();
+            GameManager.instance.SaveMan.SavePlayerProgress();
         }
         BackMainMenu();
     }
@@ -75,11 +77,6 @@ public class CanvasController : MonoBehaviour
     public void BackMainMenu()
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        if (GameManager.instance.GameCon)
-        {
-            GameManager.instance.GameCon.SavingPlayerProgress();
-            GameManager.instance.SaveMan.SavePlayerProgress();
-        }
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }

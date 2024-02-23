@@ -133,6 +133,7 @@ public class BarrelControl : MonoBehaviour
     private void FixedUpdate()
     {
         BarrelUpdate();
+        BarrelRestraint();
         WaterFloat();
         WaterCurrent();
         BarrelEmojiTypeUpdate();
@@ -151,8 +152,15 @@ public class BarrelControl : MonoBehaviour
         barrelRend.flipX = barrelRig.velocity.x < 0;
         barrelRig.angularVelocity = (barrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity), -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
         barrelAnmt.speed = Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.BarrelRollAnimateSpeedDivisor;
-        barrelRig.velocity = new Vector2(barrelRig.velocity.x, Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
+        //BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * Time.fixedDeltaTime * GravityDirection;
+        //barrelRig.velocity = new Vector2(Mathf.Clamp(BarrelRig.velocity.x, -GameManager.instance.GameScriptObj.BarrelMaxXVelocity, GameManager.instance.GameScriptObj.BarrelMaxXVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
+    }
+
+    private void BarrelRestraint()
+    {
+        if (BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
         BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * Time.fixedDeltaTime * GravityDirection;
+        barrelRig.velocity = new Vector2(Mathf.Clamp(BarrelRig.velocity.x, -GameManager.instance.GameScriptObj.BarrelMaxXVelocity, GameManager.instance.GameScriptObj.BarrelMaxXVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
     }
 
     public void IntoWater(bool tf)
@@ -437,6 +445,12 @@ public class BarrelControl : MonoBehaviour
     {
         if (SnowCount <= 0 || !InSnowLock || !collision.transform.CompareTag("Ground")) { return; }
         //GravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
+        //BarrelRig.velocity = Mathf.Clamp(BarrelRig.velocity.magnitude - GameManager.instance.GameScriptObj.BarrelSnowVelocityDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue) * BarrelRig.velocity.normalized;
+    }
+
+    public void SnowCollisionStay()
+    {
+        //GravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
         BarrelRig.velocity = Mathf.Clamp(BarrelRig.velocity.magnitude - GameManager.instance.GameScriptObj.BarrelSnowVelocityDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue) * BarrelRig.velocity.normalized;
     }
 
@@ -470,7 +484,16 @@ public class BarrelControl : MonoBehaviour
     public void BarrelBlizzard(int dir)
     {
         if (InSnowLock || BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
-        BarrelRig.velocity += dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : (inWater ? GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset : 1.0f)) * Time.fixedDeltaTime * Vector2.right;
+        Vector2 blizzardAcceleration = dir * GameManager.instance.GameScriptObj.BlizzardAcceleration * Time.fixedDeltaTime * Vector2.right;
+        if (inWater)
+        {
+            blizzardAcceleration *= GameManager.instance.GameScriptObj.BlizzardWaterAccelerationOffset;
+        }
+        else if (SwampCount > 0)
+        {
+            blizzardAcceleration *= (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : GameManager.instance.GameScriptObj.BlizzardSwampWallAccelerationOffset);
+        }
+        BarrelRig.velocity += blizzardAcceleration;
     }
 
     public void BarrelGetInSnow()

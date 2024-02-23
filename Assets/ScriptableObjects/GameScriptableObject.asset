@@ -23,6 +23,7 @@ MonoBehaviour:
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
   BarrelMaxAngularVelocity: 2000
+  BarrelMaxXVelocity: 35
   BarrelMinYVelocity: -45
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
@@ -33,6 +34,7 @@ MonoBehaviour:
   BarrelSnowMockAVAnmtSpeedMultiplier: 0.0001
   BarrelSnowMockAVRotationMultiplier: 0.1
   BarrelSnowMockAVDeleration: 500
+  BarrelSnowAVTranferRate: 0.5
   BarrelEmojiMaxOffsetDistance: 0.18
   BarrelEmojiInertiaEffectivnessAVThreshold: 3000
   BarrelEmojiInertiaMinEffectivness: 0.1
@@ -104,6 +106,7 @@ MonoBehaviour:
   BarrelEmojiFallVelocityThreshold: -5
   BarrelEmojiInjuredTime: 1
   BarrelEmojiBackNormalTime: 10
+  BarrelEmojiBackNormalInWaterTime: 3
   BarrelEmojiOffFallCoolDownTime: 2
   JumpDustYPositionOffset: 0.13
   JumpDustDiableTimeDelay: 1.1
@@ -146,10 +149,11 @@ MonoBehaviour:
   OldManTauntHightThershold: 10
   BlizzardDeactivateDelay: 1
   BlizzardShowBuffer: 0.9
-  BlizzardAcceleration: 38
-  BlizzardSwampAccelerationOffset: 0.35
+  BlizzardAcceleration: 20
+  BlizzardSwampAccelerationOffset: 0.3
+  BlizzardSwampWallAccelerationOffset: 1.1
   BlizzardSwampAngleBuffer: 10
-  BlizzardWaterAccelerationOffset: 0.5
+  BlizzardWaterAccelerationOffset: 0.2
   WaterParticleMinSpeed: 5
   WaterParticleMaxSpeed: 20
   SwampParticleMinSpeed: 7

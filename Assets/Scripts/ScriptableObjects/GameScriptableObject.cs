@@ -19,6 +19,7 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelJumpFullChargeTime = 1.0f;
     public float BarrelFullJumpForce = 100.0f;
     public float BarrelMaxAngularVelocity = 1500.0f;
+    public float BarrelMaxXVelocity = 50.0f;
     public float BarrelMinYVelocity = 50.0f;
 
     [Header("Barrel Swamp Behaviour Setting")]
@@ -141,6 +142,7 @@ public class GameScriptableObject : ScriptableObject
     public float BlizzardShowBuffer = 0.5f;
     public float BlizzardAcceleration = 10.0f;
     public float BlizzardSwampAccelerationOffset = 0.5f;
+    public float BlizzardSwampWallAccelerationOffset = 2.0f;
     public float BlizzardSwampAngleBuffer = 10.0f;
     public float BlizzardWaterAccelerationOffset = 0.5f;
 
