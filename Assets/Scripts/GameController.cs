@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
     private BlizzardImageController blizzardImageCon;
     public BlizzardImageController BlizzardImageCon { get { return blizzardImageCon; } }
 
-    [Header("Old Man")]
+    [Header("NPCs")]
     [SerializeField]
     private OldManBehaviour oldManBehave;
     [HideInInspector]
