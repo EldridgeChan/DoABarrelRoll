@@ -3216,16 +3216,49 @@ MonoBehaviour:
   speechScripObj:
   - {fileID: 11400000, guid: 040b2286b3c34144384aa7bd21bd4a09, type: 2}
   - {fileID: 11400000, guid: 3f9cf175a4c73984d84d51d197a25d68, type: 2}
+  - {fileID: 11400000, guid: ef4aa297851a8bb4b8fbba70ddfbbf6d, type: 2}
+  - {fileID: 11400000, guid: 0ca41683dc1b11c4d9598001f115b67a, type: 2}
+  - {fileID: 11400000, guid: c680225ec7ed58d4c8d17914058bec76, type: 2}
+  - {fileID: 11400000, guid: c8a2e4009bdf5fe478349368b2b6e94f, type: 2}
   - {fileID: 11400000, guid: 5563b21dca8cbb145a1c1dc5075e0454, type: 2}
-  - {fileID: 11400000, guid: 5563b21dca8cbb145a1c1dc5075e0454, type: 2}
+  - {fileID: 11400000, guid: 22e861075738bde438cd7f1145bf9634, type: 2}
+  - {fileID: 11400000, guid: d14e5b2f2a0962146a898e020eda28fd, type: 2}
+  - {fileID: 11400000, guid: 5d44aaeffc11c2b498ea79c1dbc38aff, type: 2}
+  - {fileID: 11400000, guid: cb4901840f66e464eb24565ce763b1ef, type: 2}
   - {fileID: 11400000, guid: 5baebf7f2b3d30041ba01e6cb7940ecc, type: 2}
   - {fileID: 11400000, guid: 817f1942e4c89344b9f65e0baa68fc3e, type: 2}
   - {fileID: 11400000, guid: 271fd6c8ef9e01740bad8e97da40be3b, type: 2}
+  - {fileID: 11400000, guid: 7bd9ce806bb16b84ab759f141d367e7f, type: 2}
+  - {fileID: 11400000, guid: cd32d23aed1e11044959713fc180e597, type: 2}
+  - {fileID: 11400000, guid: 3e3b405fd134ec5449e4b84c6514c2e9, type: 2}
+  - {fileID: 11400000, guid: 05911fee400ad8f47a2ec0bfe49b1777, type: 2}
+  - {fileID: 11400000, guid: d747da16fc5258442b9c90d214fd4f51, type: 2}
   - {fileID: 11400000, guid: 6124afa5eda0af8489b813538c403865, type: 2}
   - {fileID: 11400000, guid: bc5df0e01ecb03c42b29d75f4d213d95, type: 2}
   - {fileID: 11400000, guid: 04ad8b84366dcbb43b93e09ff14b8c09, type: 2}
   - {fileID: 11400000, guid: a28da3838542e404e894eb78f2e063ae, type: 2}
-  onTestFeatures: 1
+  - {fileID: 11400000, guid: d63731135d2c5f04f83a4c1fea3969d2, type: 2}
+  - {fileID: 11400000, guid: ba65ecd1234e3f94f9c8db70ab0dfe73, type: 2}
+  - {fileID: 11400000, guid: e1190d6942cbdc4439ca410b939eb46d, type: 2}
+  - {fileID: 11400000, guid: 05b80758d583b9b48961e920e6946375, type: 2}
+  - {fileID: 11400000, guid: f65ddadd42367474e9c8641cb862fb6e, type: 2}
+  - {fileID: 11400000, guid: c4cb5437b4df7c0409b7bd9a8e862c2a, type: 2}
+  - {fileID: 11400000, guid: 56bba37c766c2bc4ca0840ae80f5d8cd, type: 2}
+  - {fileID: 11400000, guid: 2fcec9d3b7e273a4d849750c402bff6e, type: 2}
+  - {fileID: 11400000, guid: 153605714f28af04b92c055c35dd735c, type: 2}
+  - {fileID: 11400000, guid: 8681cca2bd87a9e479aa6e91bd65cc9c, type: 2}
+  - {fileID: 11400000, guid: ad194dc0709989742830e0f15db8bd6d, type: 2}
+  - {fileID: 11400000, guid: 5e81f702a7bc1914bad5abe455471317, type: 2}
+  - {fileID: 11400000, guid: ee5d8f2737a92c641bbb63f00d33f845, type: 2}
+  - {fileID: 11400000, guid: df15501f3f7aa194badbc81d34c9e2ec, type: 2}
+  - {fileID: 11400000, guid: c2920cf55c34fd64da3ba1d9428bdcd5, type: 2}
+  - {fileID: 11400000, guid: 699f77771bcfa6540b9f64e14e442b48, type: 2}
+  - {fileID: 11400000, guid: 12230e6400332254bbb4e59732064bcf, type: 2}
+  - {fileID: 11400000, guid: 8cbb36a7c6817bb4d8bc67a18a9198b1, type: 2}
+  - {fileID: 11400000, guid: 198ca6bb54250f74faf93df4cc95630f, type: 2}
+  - {fileID: 11400000, guid: 1467dc1868728fc4baa380f8f3dbd591, type: 2}
+  - {fileID: 11400000, guid: 8e4b8ad32b4546f4d827bb24c0ab9ef8, type: 2}
+  onTestFeatures: 0
 --- !u!114 &5160527943799690971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3270,6 +3303,10 @@ MonoBehaviour:
   musicVolume: 0.5
   mirroredTilemap: 0
   showJumpGuide: 1
+  playerSavePosition: {x: 0, y: 0}
+  playerSaveArea: 0
+  playerSaveAreaActive: 00000000
+  playerSaveTimer: 0
   endCounter: 0
 --- !u!114 &114838655450692478
 MonoBehaviour:

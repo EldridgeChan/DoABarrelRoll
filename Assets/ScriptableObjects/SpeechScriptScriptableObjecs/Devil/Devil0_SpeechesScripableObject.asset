@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
+  m_Name: Devil0_SpeechesScripableObject
+  m_EditorClassIdentifier: 
+  StartDelay: 1
+  AllSpeech:
+  - language: 0
+    bubbleSpeeches:
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'The goal is right ahead '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'But let me tell you something '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'After you reach the goal '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'There is only starting over await you '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "It\u2019s doesn\u2019t worth reaching "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'However, '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'If you stay here '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'You will be at a position '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'That higher than anyone '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "Isn\u2019t that great? "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "So let\u2019s just stay here "

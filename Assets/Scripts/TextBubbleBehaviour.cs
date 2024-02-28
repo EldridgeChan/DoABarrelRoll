@@ -24,7 +24,9 @@ public class TextBubbleBehaviour : MonoBehaviour
     {
         CancelInvoke();
         bubbleTxt.text = currFullText;
+        bubbleTxt.ForceMeshUpdate();
         charIndex = currFullText.Length;
+        bubbleTrans.sizeDelta = new Vector2(bubbleTxt.textBounds.size.x + GameManager.instance.GameScriptObj.SpeechBubbleWidthBuffer, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
         if (isShip)
         {
             bubbleImg.sprite = GameManager.instance.GameScriptObj.ShipFinishBubbleSprite;
@@ -43,7 +45,7 @@ public class TextBubbleBehaviour : MonoBehaviour
         else
         {
             ShowAllChar();
-        }
+        }        
     }
 
     public void ShowNextChar()
@@ -51,7 +53,9 @@ public class TextBubbleBehaviour : MonoBehaviour
         bubbleImg.enabled = true;
         bubbleTxt.enabled = true;
         bubbleTxt.text += currFullText[charIndex];
+        bubbleTxt.ForceMeshUpdate();
         charIndex++;
+        bubbleTrans.sizeDelta = new Vector2(bubbleTxt.textBounds.size.x + GameManager.instance.GameScriptObj.SpeechBubbleWidthBuffer, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
         if (currFullText[charIndex - 1].Equals(" "))
         {
             ShowNextChar();
@@ -100,14 +104,14 @@ public class TextBubbleBehaviour : MonoBehaviour
         charIndex = 0;
         bubbleTxt.text = "";
         bubbleTrans.localPosition = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].position;
-        bubbleTrans.sizeDelta = new Vector2(speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleWidth, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
+        bubbleTrans.sizeDelta = new Vector2(GameManager.instance.GameScriptObj.SpeechBubbleWidthBuffer, GameManager.instance.GameScriptObj.SpeechBubbleHeight);
         currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.TrimEnd();
         bubbleImg.sprite = isShip ? GameManager.instance.GameScriptObj.ShipNormalBubbleSprite : GameManager.instance.GameScriptObj.OldManNormalBubbleSprite;
     }
 
     public void InitBubble(bool isShip, SpeechesScripableObject speechScript, Transform parentTrans)
     {
-        
+        bubbleTxt.enableWordWrapping = false;
         transform.SetParent(parentTrans);
         this.speechScript = speechScript;
         this.isShip = isShip;

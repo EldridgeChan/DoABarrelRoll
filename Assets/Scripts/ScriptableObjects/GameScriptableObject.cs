@@ -108,6 +108,7 @@ public class GameScriptableObject : ScriptableObject
     [Header("Cut Scene Setting")]
     public float SpeechCharacterPerSecond = 2.0f;
     public float SpeechBubbleHeight = 0.4f;
+    public float SpeechBubbleWidthBuffer = 0.2f;
     public float SpeechBubbleFinishDelay = 2.0f;
     public Sprite ShipNormalBubbleSprite;
     public Sprite ShipFinishBubbleSprite;
@@ -130,12 +131,13 @@ public class GameScriptableObject : ScriptableObject
     public float RollSoundMaxDelay = 1.0f;
     public float BarrelSplashWaterMaxYVelocity = -1.0f;
 
-    [Header("OldMan Setting")]
-    public Vector2 OldManEmojiOriginalPositionOffset = Vector2.zero;
-    public float OldManEmojiMaxPositionOffset = 1.8f;
-    public float OldManLookLerpTime = 1.0f;
-    public float OldManCentripetalForce = 10.0f;
-    public float OldManTauntHightThershold = 10.0f;
+    [Header("NPCs Setting")]
+    public Vector2 NPCEmojiOriginalPositionOffset = Vector2.zero;
+    public float NPCEmojiMaxPositionOffset = 1.8f;
+    public float NPCLookLerpTime = 1.0f;
+    public float NPCCentripetalForce = 10.0f;
+    public float NPCTauntHightThershold = 10.0f;
+    public float NPCSpeakIdleTime = 20.0f;
 
     [Header("Blizzard Setting")]
     public float BlizzardDeactivateDelay = 1.0f;

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
+  m_Name: Start1_CutsceneSpeechScripableObject
+  m_EditorClassIdentifier: 
+  StartDelay: 1
+  AllSpeech:
+  - language: 0
+    bubbleSpeeches:
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Well good job finding your way back here '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'But we got no mercy to spare on a traitor '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'And what do we do to a traitor? '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "Kick\u2019em off the ship!! "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "Kick\u2019em out!! "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "Well\u2026 "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "Seems like you\u2019ve not been forgiven yet "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Better luck next time '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Perhaps next time '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "You\u2019ll be forgiven "

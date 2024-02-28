@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
+  m_Name: Old4_SpeechesScripableObject
+  m_EditorClassIdentifier: 
+  StartDelay: 1
+  AllSpeech:
+  - language: 0
+    bubbleSpeeches:
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Hello there newcomer!! '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Hear me out!! '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "you won\u2019t believe it "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I did it '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I actually did it '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I reached the summit '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "I don\u2019t know what did I accomplished "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Probably nothing '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "But I don\u2019t care "
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'It was.. Satisfying '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I think I will keep climbing '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'How about you? '

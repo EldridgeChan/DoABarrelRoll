@@ -80,7 +80,9 @@ public class GameController : MonoBehaviour
 
     [Header("NPCs")]
     [SerializeField]
-    private OldManBehaviour oldManBehave;
+    private NPCBehaviour[] NPCBehaves;
+    [HideInInspector]
+    public int SpeakingNPCIndex = -1;
     [HideInInspector]
     public float barrelHighestY = -100.0f;
 
@@ -112,7 +114,7 @@ public class GameController : MonoBehaviour
         backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
         if (GameManager.instance.SaveMan.playerSaveArea == LevelArea.MainMenu)
         {
-            StartCutScene(GameManager.instance.SaveMan.endCounter <= 0 ? SpeechScript.Start0 : SpeechScript.Start1, startPirateShip.transform);
+            startStartGameCutScene();
         }
         else
         {
@@ -280,13 +282,18 @@ public class GameController : MonoBehaviour
         textBbBehave.InitBubble(isShip, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
-    public void EndLevelCutScene(int endCounter)
+    private void startStartGameCutScene()
+    {
+        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
+    }
+
+    public void EndLevelCutScene()
     {
         barrelCSBehave.enabled = true;
         barrelControl.GravityDirection = Vector2.down;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartCutScene(endCounter > 0 ? SpeechScript.End1 : SpeechScript.End0, endPirateShip.transform);
+        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.End0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.End0, (int)SpeechScript.End4), endPirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -309,7 +316,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            oldManBehave.EndOfSpeech();
+            NPCBehaves[SpeakingNPCIndex].EndOfSpeech();
+            SpeakingNPCIndex = -1;
         }
         currCutScene = SpeechScript.None;
     }
@@ -328,15 +336,23 @@ public class GameController : MonoBehaviour
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
-        oldManBehave.resetOldMan();
+        resetAllNPC();
         barrelHighestY = -100.0f;
-        StartCutScene(SpeechScript.Start1, startPirateShip.transform);
+        startStartGameCutScene();
         OnEndMenu(false);
 
         backgroundAnmt.SetInteger("LevelArea", 1);
         for (int i = 0; i < TilemapParents.Length; i++)
         {
             TilemapParents[i].SetActive(i == 0);
+        }
+    }
+
+    private void resetAllNPC()
+    {
+        for (int i = 0; i < NPCBehaves.Length; i++)
+        {
+            NPCBehaves[i].resetNPC();
         }
     }
 

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
+  m_Name: Clown2_SpeechesScripableObject
+  m_EditorClassIdentifier: 
+  StartDelay: 1
+  AllSpeech:
+  - language: 0
+    bubbleSpeeches:
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Wow you did it again!! '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'You are my hero '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I admire you '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'For me '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'I am better to be an audience  '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Watching you climb the mountain '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: 'Is so satisfying '
+    - position: {x: 0, y: 0}
+      bubbleWidth: 0
+      bubbleText: "I don\u2019t think I need to climb it myself "

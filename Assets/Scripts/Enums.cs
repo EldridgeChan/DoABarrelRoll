@@ -82,6 +82,7 @@ public enum SpeechScript
     ClownTaunt1,
     Devil0,
     DevilIdle0,
+    DevilTaunt0,
     EndOfEnum
 }
 

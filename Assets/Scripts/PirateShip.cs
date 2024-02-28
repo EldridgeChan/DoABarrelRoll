@@ -36,7 +36,7 @@ public class PirateShip : MonoBehaviour
     private void EndTheLevel()
     {
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.CutScene);
-        GameManager.instance.GameCon.EndLevelCutScene(GameManager.instance.SaveMan.endCounter);
+        GameManager.instance.GameCon.EndLevelCutScene();
         GameManager.instance.AudioMan.BGMTransition(null);
     }
 
