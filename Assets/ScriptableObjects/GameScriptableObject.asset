@@ -115,7 +115,7 @@ MonoBehaviour:
   PoundDustYPositionOffset: 0.4
   SpeechCharacterPerSecond: 20
   SpeechBubbleHeight: 0.4
-  SpeechBubbleWidthBuffer: 0.3
+  SpeechBubbleWidthBuffer: 0.25
   SpeechBubbleFinishDelay: 1.5
   ShipNormalBubbleSprite: {fileID: -1001225916, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
   ShipFinishBubbleSprite: {fileID: 87626950, guid: 89866f9731b06b842b79bbd3f12e91f4, type: 3}
@@ -148,7 +148,7 @@ MonoBehaviour:
   NPCLookLerpTime: 1
   NPCCentripetalForce: 1
   NPCTauntHightThershold: 10
-  NPCSpeakIdleTime: 20
+  NPCSpeakIdleTime: 15
   BlizzardDeactivateDelay: 1
   BlizzardShowBuffer: 0.9
   BlizzardAcceleration: 20

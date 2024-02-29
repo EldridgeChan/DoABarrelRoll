@@ -16,30 +16,21 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.8, y: -0.54}
       bubbleText: 'Hey, the traitor is back '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.2, y: -0.58}
       bubbleText: 'Ha!! I won the bet '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.4, y: -0.58}
       bubbleText: 'Damn it, I loss '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Ha!! Look at yourself  '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
-      bubbleText: 'You are able to entertain many of us '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: Make yourself a good entertainment
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Be proud of it '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'This position suit you so well '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Thanks to my genius idea '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Hey!! Someone take the record '

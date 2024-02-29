@@ -19,7 +19,6 @@ public class SpeechesScripableObject : ScriptableObject
     public class BubbleSpeech
     {
         public Vector2 position = Vector2.zero;
-        public float bubbleWidth = 0.0f;
         public string bubbleText = "";
     }
 }

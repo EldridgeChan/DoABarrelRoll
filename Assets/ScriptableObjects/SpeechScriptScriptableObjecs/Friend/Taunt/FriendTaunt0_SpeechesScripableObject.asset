@@ -16,15 +16,11 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "Don\u2019t worry "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "It\u2019s just a small mistake "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'You surely can recover from it '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "I\u2019m rooting for you "

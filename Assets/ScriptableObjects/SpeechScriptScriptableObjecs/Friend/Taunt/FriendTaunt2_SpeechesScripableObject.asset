@@ -16,12 +16,9 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'You are not always so lucky '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'You need to practice more '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'And be more skillful '

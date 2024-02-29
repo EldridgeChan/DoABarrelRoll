@@ -40,7 +40,7 @@ public class NPCBehaviour : MonoBehaviour
         {
             barrelInRange = true;
             barrelTrans = collision.transform;
-            StartLooking();
+            StartTalking();
         }
     }
 
@@ -60,21 +60,21 @@ public class NPCBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (isTalking)
+        if (barrelInRange)
         {
             LookingBehaviour();
-        } 
-        else
-        {
-            FreeEmojiBehaviour();
-            if (barrelInRange)
+            if (!isTalking)
             {
                 idleTimer = Mathf.Clamp(idleTimer + Time.deltaTime, 0.0f, GameManager.instance.GameScriptObj.NPCSpeakIdleTime);
                 if (idleTimer >= GameManager.instance.GameScriptObj.NPCSpeakIdleTime)
                 {
-                    StartLooking();
+                    StartTalking();
                 }
             }
+        } 
+        else
+        {
+            FreeEmojiBehaviour();
         }
     }
 
@@ -93,18 +93,21 @@ public class NPCBehaviour : MonoBehaviour
         NPCEmojiTrans.position = mockPosition;
     }
 
-    private void StartLooking()
+    private void StartTalking()
     {
         if (isTalking) { return; }
         isTalking = true;
         lookT = 0.0f;
         lerpFromPos = NPCEmojiTrans.position;
         GameManager.instance.GameCon.SpeakingNPCIndex = (int)npcIndicator - 1;
+
+        //testing code
+        //talkCounter = 1;
+
         if (talkCounter <= 0)
         {
             //testing code
-            //GameManager.instance.SaveMan.endCounter = 2;
-            //GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Taunt0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Taunt0, (int)SpeechScript.EndOfEnum - 1), transform, false);
+            //GameManager.instance.GameCon.StartCutScene(SpeechScript.Old0, transform, false);
 
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter, (int)firstEncounterSpeech, (int)firstIdleSpeech - 1), transform, false);
             talkCounter++;
@@ -124,6 +127,7 @@ public class NPCBehaviour : MonoBehaviour
     public void EndOfSpeech()
     {
         isTalking = false;
+        idleTimer = 0.0f;
         mockPosition = NPCEmojiTrans.position;
         mockVelocity = Vector2.zero;
     }

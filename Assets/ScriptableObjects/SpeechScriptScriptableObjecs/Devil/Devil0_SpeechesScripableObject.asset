@@ -16,36 +16,25 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'The goal is right ahead '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'But let me tell you something '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'After you reach the goal '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'There is only starting over await you '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "It\u2019s doesn\u2019t worth reaching "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'However, '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'If you stay here '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'You will be at a position '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'That higher than anyone '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "Isn\u2019t that great? "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "So let\u2019s just stay here "

@@ -16,15 +16,11 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'Hey are you alright? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'Having a bad feeling? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'Just let you know  '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: "I\u2019m by your side "

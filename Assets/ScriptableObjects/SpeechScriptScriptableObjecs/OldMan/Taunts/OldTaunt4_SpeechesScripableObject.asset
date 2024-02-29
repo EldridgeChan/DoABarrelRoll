@@ -16,12 +16,9 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'Ha!! You drop again? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'Be careful right now '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0, y: 5}
       bubbleText: 'I might overtake you '

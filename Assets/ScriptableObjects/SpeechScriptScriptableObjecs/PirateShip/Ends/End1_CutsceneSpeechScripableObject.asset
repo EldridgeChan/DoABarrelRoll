@@ -16,36 +16,25 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
-      bubbleText: 'The traitor is back again '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.8, y: -0.57}
+      bubbleText: The traitor is back again!!
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Wow.. '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Back already? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'You are good at finding your way back here '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Or is it that you want our forgiveness so bad? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'To be honest, '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: ' is begin to be fun to watch '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'That you come back again and again '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Hey!! you there '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Write down the record '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.2, y: -0.53}
       bubbleText: 'Aye aye captain '

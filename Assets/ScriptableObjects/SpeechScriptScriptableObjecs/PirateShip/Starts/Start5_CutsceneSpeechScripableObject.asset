@@ -16,33 +16,23 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'We have a big announcement today '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Respect has been earned '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'From this moment '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'We accept the traitor as our crewmate '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "Let\u2019s us celebrate this moment "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.6, y: -0.53}
       bubbleText: 'Harray!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Wait, where are you going? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 1.7, y: -0.7}
       bubbleText: 'Do I seem like I give a Damn '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 1.7, y: -0.7}
       bubbleText: 'To all these bull shit? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 1.7, y: -0.7}
       bubbleText: 'Idiotic assholes.. '

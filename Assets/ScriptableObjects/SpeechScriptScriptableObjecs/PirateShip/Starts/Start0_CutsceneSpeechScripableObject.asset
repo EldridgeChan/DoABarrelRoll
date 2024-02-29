@@ -16,33 +16,23 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'How dare you!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'This is your job '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'No one has ever complained '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Fine.. '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: I now announce you a traitor
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.5, y: -0.56}
       bubbleText: 'Traitor!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'You are banished '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "Kick\u2019em off the ship "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
-      bubbleText: 'Aye aye captain '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
-      bubbleText: 'I will see you never '
+    - position: {x: -0.3, y: -0.56}
+      bubbleText: Aye aye captain!!
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: 'I shall see you never '

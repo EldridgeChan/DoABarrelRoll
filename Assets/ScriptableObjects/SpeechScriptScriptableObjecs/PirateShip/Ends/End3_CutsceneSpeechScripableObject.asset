@@ -16,36 +16,25 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Oh hey you are back '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Do you know that news? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'A former worker just returned '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'You two had the same position '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'The former worker escaped  '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "That\u2019s why you took that job "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'But now you are our entertainer  '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "It\u2019s basically a promotion  "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'So be happy '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Anyway, '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Let record your time '

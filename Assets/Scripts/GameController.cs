@@ -70,6 +70,8 @@ public class GameController : MonoBehaviour
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
+    [SerializeField]
+    private SpeechScript testingSpeech = SpeechScript.None;
 
     [Header("UI Fields")]
     [SerializeField]
@@ -284,6 +286,13 @@ public class GameController : MonoBehaviour
 
     private void startStartGameCutScene()
     {
+        //Testing Code
+        if (testingSpeech != SpeechScript.None && testingSpeech < SpeechScript.Old0)
+        {
+            StartCutScene(testingSpeech, startPirateShip.transform);
+            return;
+        }
+
         StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
     }
 

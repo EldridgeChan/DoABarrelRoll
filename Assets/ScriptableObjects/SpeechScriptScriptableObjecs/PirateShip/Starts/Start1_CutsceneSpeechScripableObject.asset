@@ -16,33 +16,23 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Well good job finding your way back here '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'But we got no mercy to spare on a traitor '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'And what do we do to a traitor? '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.6, y: -0.54}
       bubbleText: "Kick\u2019em off the ship!! "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.4, y: -0.56}
       bubbleText: "Kick\u2019em out!! "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "Well\u2026 "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "Seems like you\u2019ve not been forgiven yet "
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Better luck next time '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Perhaps next time '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "You\u2019ll be forgiven "

@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4639703228995702826, guid: b5944a2c767d8d34ca4a41f7c4ff55f1, type: 3}
       propertyPath: onTestFeatures
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785236765996917670, guid: b5944a2c767d8d34ca4a41f7c4ff55f1, type: 3}
       propertyPath: m_SizeDelta.x

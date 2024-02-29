@@ -16,33 +16,23 @@ MonoBehaviour:
   AllSpeech:
   - language: 0
     bubbleSpeeches:
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.8, y: -0.57}
       bubbleText: 'Hey! Look who''s back '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.5, y: -0.52}
       bubbleText: 'The traitor!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.2, y: -0.55}
       bubbleText: 'The traitor is back!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Well.. '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'I thought I will see you never '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'But yet you are back here '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'Begging for forgiveness '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: 0.5, y: -0.55}
       bubbleText: 'like a coward  '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
-      bubbleText: 'Shame on you!! '
-    - position: {x: 0, y: 0}
-      bubbleWidth: 0
+    - position: {x: -0.3, y: -0.55}
+      bubbleText: Shameless!!
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "Let\u2019s never forget your cowardness "
