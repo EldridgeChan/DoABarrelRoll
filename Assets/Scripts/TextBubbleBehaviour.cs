@@ -113,6 +113,7 @@ public class TextBubbleBehaviour : MonoBehaviour
 
     public void InitBubble(bool isShip, SpeechesScripableObject speechScript, Transform parentTrans)
     {
+        CancelInvoke();
         bubbleTxt.enableWordWrapping = false;
         transform.SetParent(parentTrans);
         this.speechScript = speechScript;

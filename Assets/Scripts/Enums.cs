@@ -95,3 +95,11 @@ public enum LevelArea
     SnowMountain,
     GlitchLand
 }
+
+public enum EndingType
+{
+    None,
+    NoFuckGiven,
+    LiveToDie,
+    StrangledByFinishLine
+}

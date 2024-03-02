@@ -287,10 +287,15 @@ public class GameController : MonoBehaviour
     private void startStartGameCutScene()
     {
         //Testing Code
-        if (testingSpeech != SpeechScript.None && testingSpeech < SpeechScript.Old0)
+        if (GameManager.instance.OnTestFeatures && testingSpeech != SpeechScript.None && testingSpeech < SpeechScript.Old0)
         {
             StartCutScene(testingSpeech, startPirateShip.transform);
             return;
+        }
+
+        if (GameManager.instance.SaveMan.endCounter >= 5)
+        {
+            // --> No Fuck Given Animation
         }
 
         StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
@@ -315,15 +320,30 @@ public class GameController : MonoBehaviour
     {
         if (currCutScene == SpeechScript.None) { return; }
 
-        if (currCutScene < SpeechScript.End0)
+        if (currCutScene < SpeechScript.Start5)
         {
             EndStartCutScene();
+        }
+        else if (currCutScene == SpeechScript.Start5)
+        {
+            //End --> No Fuck Given
+            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.NoFuckGiven);
         }
         else if (currCutScene < SpeechScript.Old0)
         {
             OnEndMenu(true);
         }
-        else
+        else if (currCutScene == SpeechScript.OldIdle0)
+        {
+            //End --> Live to Die
+            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.LiveToDie);
+        }
+        else if (currCutScene == SpeechScript.DevilIdle0)
+        {
+            //End --> Strangled By Finish Line
+            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.StrangledByFinishLine);
+        }
+        if (currCutScene >= SpeechScript.Old0)
         {
             NPCBehaves[SpeakingNPCIndex].EndOfSpeech();
             SpeakingNPCIndex = -1;
@@ -355,6 +375,12 @@ public class GameController : MonoBehaviour
         {
             TilemapParents[i].SetActive(i == 0);
         }
+    }
+
+    public void EndingCusSceneStand()
+    {
+        canOnOff = false;
+        barrelControl.BarrelStandReady();
     }
 
     private void resetAllNPC()

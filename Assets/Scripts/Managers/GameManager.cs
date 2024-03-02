@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool onTestFeatures = true;
     public bool OnTestFeatures { get { return onTestFeatures; } }
+    [HideInInspector]
+    public EndingType CurrentEnding = EndingType.None;
 
     private void Awake()
     {

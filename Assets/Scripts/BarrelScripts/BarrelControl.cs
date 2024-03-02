@@ -342,11 +342,16 @@ public class BarrelControl : MonoBehaviour
         }
         GameManager.instance.GameCon.SetSwampDecorationActive(false);
         GameManager.instance.GameCon.OnPauseMenu(true);
+        BarrelStandReady();
+        BarrelRig.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    public void BarrelStandReady()
+    {
         jumpChargeT = 0.0f;
         orgRotation = transform.rotation;
         GameManager.instance.GameCon.isControlLocked = true;
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.Menu);
-        BarrelRig.bodyType = RigidbodyType2D.Kinematic;
         BarrelRig.velocity = Vector2.zero;
         BarrelRig.angularVelocity = 0.0f;
         emojiTurning = true;

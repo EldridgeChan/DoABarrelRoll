@@ -49,12 +49,13 @@ public class NPCBehaviour : MonoBehaviour
         if (collision.CompareTag("Barrel"))
         {
             barrelInRange = false;
-            idleTimer = 0.0f;
+            EndOfSpeech();
         }
     }
 
     private void Start()
     {
+
         EndOfSpeech();
     }
 
@@ -62,8 +63,12 @@ public class NPCBehaviour : MonoBehaviour
     {
         if (barrelInRange)
         {
-            LookingBehaviour();
-            if (!isTalking)
+            
+            if (isTalking)
+            {
+                LookingBehaviour();
+            }
+            else
             {
                 idleTimer = Mathf.Clamp(idleTimer + Time.deltaTime, 0.0f, GameManager.instance.GameScriptObj.NPCSpeakIdleTime);
                 if (idleTimer >= GameManager.instance.GameScriptObj.NPCSpeakIdleTime)
@@ -75,6 +80,22 @@ public class NPCBehaviour : MonoBehaviour
         else
         {
             FreeEmojiBehaviour();
+        }
+    }
+
+    private void NPCsCheckInit()
+    {
+        if (npcIndicator == LevelArea.Beach)
+        {
+            transform.position = GameManager.instance.SaveMan.endCounter != 3 ? GameManager.instance.GameScriptObj.NPCOldManOriginalPosition : GameManager.instance.GameScriptObj.NPCOldManMovedPosition;
+        }
+        else if (npcIndicator == LevelArea.Jungle)
+        {
+            gameObject.SetActive(GameManager.instance.SaveMan.endCounter < 3);
+        }
+        else if (npcIndicator == LevelArea.GlitchLand)
+        {
+            gameObject.SetActive(GameManager.instance.SaveMan.endCounter < 2);
         }
     }
 
@@ -106,6 +127,13 @@ public class NPCBehaviour : MonoBehaviour
 
         if (talkCounter <= 0)
         {
+            if (npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter == 1)
+            {
+                //animation fade away
+                isTalking = true;
+                return;
+            }
+
             //testing code
             //GameManager.instance.GameCon.StartCutScene(SpeechScript.Old0, transform, false);
 
@@ -114,6 +142,12 @@ public class NPCBehaviour : MonoBehaviour
         }
         else if (idleTimer >= GameManager.instance.GameScriptObj.NPCSpeakIdleTime)
         {
+            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.endCounter < 3 || npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter < 1)
+            {
+                //Stand Lock
+                GameManager.instance.GameCon.EndingCusSceneStand();
+            }
+
             bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter >= (int)newEncounterSpeech;
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Random.Range((int)(isNew ? newIdleSpeech : firstIdleSpeech), (int)(isNew ? firstTauntSpeech : newIdleSpeech)), transform, false);
         }

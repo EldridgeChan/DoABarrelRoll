@@ -138,6 +138,8 @@ public class GameScriptableObject : ScriptableObject
     public float NPCCentripetalForce = 10.0f;
     public float NPCTauntHightThershold = 10.0f;
     public float NPCSpeakIdleTime = 20.0f;
+    public Vector2 NPCOldManOriginalPosition = Vector2.zero;
+    public Vector2 NPCOldManMovedPosition = Vector2.zero;
 
     [Header("Blizzard Setting")]
     public float BlizzardDeactivateDelay = 1.0f;

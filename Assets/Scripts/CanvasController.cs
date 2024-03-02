@@ -76,6 +76,7 @@ public class CanvasController : MonoBehaviour
 
     public void BackMainMenu()
     {
+        GameManager.instance.CurrentEnding = EndingType.None;
         GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
@@ -127,6 +128,12 @@ public class CanvasController : MonoBehaviour
 
     public void CreditScene()
     {
+        CreditScene(EndingType.None);
+    }
+
+    public void CreditScene(EndingType ending)
+    {
+        GameManager.instance.CurrentEnding = ending;
         GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
         GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadCredit), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
