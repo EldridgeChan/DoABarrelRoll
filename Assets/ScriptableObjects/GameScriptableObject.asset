@@ -124,6 +124,7 @@ MonoBehaviour:
   BarrelEndTargetAngularVelocity: -500
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
+  EndingBlackScreenTransitionTime: 3
   WindowResolution:
   - {x: 640, y: 360}
   - {x: 960, y: 540}
@@ -149,6 +150,10 @@ MonoBehaviour:
   NPCCentripetalForce: 1
   NPCTauntHightThershold: 10
   NPCSpeakIdleTime: 15
+  NPCOldManOriginalPosition: {x: 2, y: -3.5}
+  NPCOldManMovedPosition: {x: 14, y: 44.5}
+  NPCOldManStandSprite: {fileID: -1839454486, guid: 49fd2bb61cf6fb44694130ecdb96bc94, type: 3}
+  NPCOldManRollSprite: {fileID: -803258674, guid: 49fd2bb61cf6fb44694130ecdb96bc94, type: 3}
   BlizzardDeactivateDelay: 1
   BlizzardShowBuffer: 0.9
   BlizzardAcceleration: 20

@@ -117,6 +117,8 @@ public class GameScriptableObject : ScriptableObject
     public float BarrelEndTargetAngularVelocity = -100.0f;
     public float BarrelEndLerpAngularVelocityTime = 1.0f;
     public float BlackScreenTransitionTime = 1.1f;
+    public float EndingBlackScreenTransitionTime = 2.0f;
+    public float EndingBarrelRollingTime = 2.0f;
 
     [Header("Screen Setting")]
     public Vector2[] WindowResolution;
@@ -140,6 +142,8 @@ public class GameScriptableObject : ScriptableObject
     public float NPCSpeakIdleTime = 20.0f;
     public Vector2 NPCOldManOriginalPosition = Vector2.zero;
     public Vector2 NPCOldManMovedPosition = Vector2.zero;
+    public Sprite NPCOldManStandSprite;
+    public Sprite NPCOldManRollSprite;
 
     [Header("Blizzard Setting")]
     public float BlizzardDeactivateDelay = 1.0f;

@@ -136,7 +136,7 @@ public class CanvasController : MonoBehaviour
         GameManager.instance.CurrentEnding = ending;
         GameManager.instance.AudioMan.PlayClickSound();
         GameManager.instance.UIMan.OnOffBlackScreen(true);
-        GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadCredit), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
+        GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadCredit), ending == EndingType.NoFuckGiven ? GameManager.instance.GameScriptObj.EndingBlackScreenTransitionTime : GameManager.instance.GameScriptObj.BlackScreenTransitionTime);
     }
 
     public void UpdateGameTimer(float time)

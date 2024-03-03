@@ -10,6 +10,8 @@ public class PirateShip : MonoBehaviour
     private Transform pirateShipTrans;
     [SerializeField]
     private AudioSource pirateAdoSrc;
+    [SerializeField]
+    private Collider2D startEndColid;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,5 +50,10 @@ public class PirateShip : MonoBehaviour
     public void PlayAudio()
     {
         pirateAdoSrc.Play();
+    }
+
+    public void disableCollider()
+    {
+        startEndColid.enabled = false;
     }
 }

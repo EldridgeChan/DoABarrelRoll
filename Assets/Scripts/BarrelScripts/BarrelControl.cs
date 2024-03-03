@@ -12,6 +12,9 @@ public class BarrelControl : MonoBehaviour
     [SerializeField]
     private Animator barrelParentAnmt;
     [SerializeField]
+    private Animator barrelCutsceneAnmt;
+    public Animator BarrelCutsceneAnmt { get { return barrelCutsceneAnmt; } }
+    [SerializeField]
     private SpriteRenderer barrelRend;
     [SerializeField]
     private EmojiBehaviour emojiBehave;
@@ -363,6 +366,13 @@ public class BarrelControl : MonoBehaviour
         barrelAnmt.speed = 1.0f;
         emojiBehave.BarrelEmojiStand();
         barrelAnmt.SetTrigger("BarrelStand");
+    }
+
+    public void BarrelCutsceneOrder()
+    {
+        if (barrelRend.sortingLayerID == 120645553) { return; }
+        barrelRend.sortingLayerID = 120645553;
+        emojiBehave.GetComponent<SpriteRenderer>().sortingLayerID = 120645553;
     }
 
     private int BarrelStandErrorCode()

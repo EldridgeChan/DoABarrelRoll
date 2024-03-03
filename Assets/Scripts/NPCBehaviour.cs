@@ -23,11 +23,16 @@ public class NPCBehaviour : MonoBehaviour
 
     [SerializeField]
     private Transform NPCEmojiTrans;
+    [SerializeField]
+    private Animator devilAnmt;
+    [SerializeField]
+    private SpriteRenderer npcBarrelRend;
 
     private bool isTalking = false;
     private bool barrelInRange = false;
     private float lookT = 0.0f;
     private Vector2 lerpFromPos = Vector2.zero;
+    private Vector2 emojiOrigin = Vector2.zero;
     private int talkCounter = 0;
     private Transform barrelTrans;
     private Vector2 mockPosition = Vector2.zero;
@@ -55,8 +60,8 @@ public class NPCBehaviour : MonoBehaviour
 
     private void Start()
     {
-
         EndOfSpeech();
+        NPCsCheckInit();
     }
 
     private void Update()
@@ -85,9 +90,12 @@ public class NPCBehaviour : MonoBehaviour
 
     private void NPCsCheckInit()
     {
+        emojiOrigin = (Vector2)transform.position + GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset;
         if (npcIndicator == LevelArea.Beach)
         {
             transform.position = GameManager.instance.SaveMan.endCounter != 3 ? GameManager.instance.GameScriptObj.NPCOldManOriginalPosition : GameManager.instance.GameScriptObj.NPCOldManMovedPosition;
+            emojiOrigin = (Vector2)transform.position + (GameManager.instance.SaveMan.endCounter == 3 ? Vector2.zero : GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset);
+            npcBarrelRend.sprite = GameManager.instance.SaveMan.endCounter == 3 ? GameManager.instance.GameScriptObj.NPCOldManRollSprite : GameManager.instance.GameScriptObj.NPCOldManStandSprite;
         }
         else if (npcIndicator == LevelArea.Jungle)
         {
@@ -103,14 +111,14 @@ public class NPCBehaviour : MonoBehaviour
     {
         if (barrelTrans == null) { return; }
         lookT = Mathf.Clamp01(lookT + Time.deltaTime / GameManager.instance.GameScriptObj.NPCLookLerpTime);
-        NPCEmojiTrans.position = Vector2.Lerp(lerpFromPos, GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset * (Vector2)(barrelTrans.position - transform.position).normalized + (Vector2)transform.position + GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset, lookT);
+        NPCEmojiTrans.position = Vector2.Lerp(lerpFromPos, GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset * (Vector2)(barrelTrans.position - transform.position).normalized + emojiOrigin, lookT);
     }
 
     private void FreeEmojiBehaviour()
     {
-        mockVelocity = mockVelocity + GameManager.instance.GameScriptObj.NPCCentripetalForce * Time.deltaTime * ((Vector2)(transform.position + (Vector3)GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset - NPCEmojiTrans.position)).normalized;
-        Vector2 localExpectedPos = (mockPosition + mockVelocity * Time.deltaTime) - ((Vector2)transform.position + GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset);
-        mockPosition = (localExpectedPos.magnitude > GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset ? GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset * localExpectedPos.normalized : localExpectedPos) + (Vector2)transform.position + GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset;
+        mockVelocity = mockVelocity + GameManager.instance.GameScriptObj.NPCCentripetalForce * Time.deltaTime * ((Vector2)((Vector3)emojiOrigin - NPCEmojiTrans.position)).normalized;
+        Vector2 localExpectedPos = (mockPosition + mockVelocity * Time.deltaTime) - emojiOrigin;
+        mockPosition = (localExpectedPos.magnitude > GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset ? GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset * localExpectedPos.normalized : localExpectedPos) + emojiOrigin;
         NPCEmojiTrans.position = mockPosition;
     }
 
@@ -127,9 +135,10 @@ public class NPCBehaviour : MonoBehaviour
 
         if (talkCounter <= 0)
         {
-            if (npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter == 1)
+            if (devilAnmt && npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter == 1)
             {
                 //animation fade away
+                devilAnmt.SetTrigger("DevilDisappear");
                 isTalking = true;
                 return;
             }
@@ -145,7 +154,7 @@ public class NPCBehaviour : MonoBehaviour
             if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.endCounter < 3 || npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter < 1)
             {
                 //Stand Lock
-                GameManager.instance.GameCon.EndingCusSceneStand();
+                GameManager.instance.GameCon.EndingCutSceneStand();
             }
 
             bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter >= (int)newEncounterSpeech;
@@ -169,5 +178,6 @@ public class NPCBehaviour : MonoBehaviour
     public void resetNPC()
     {
         talkCounter = 0;
+        NPCsCheckInit();
     }
 }

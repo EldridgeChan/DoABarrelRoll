@@ -70,8 +70,6 @@ public class GameController : MonoBehaviour
     [Header("Testing Fields")]
     [SerializeField]
     private Transform[] testRespawns;
-    [SerializeField]
-    private SpeechScript testingSpeech = SpeechScript.None;
 
     [Header("UI Fields")]
     [SerializeField]
@@ -116,7 +114,7 @@ public class GameController : MonoBehaviour
         backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
         if (GameManager.instance.SaveMan.playerSaveArea == LevelArea.MainMenu)
         {
-            startStartGameCutScene();
+            StartStartGameCutScene();
         }
         else
         {
@@ -151,24 +149,24 @@ public class GameController : MonoBehaviour
             BackgroundTransition((int)CurrentArea);
             LevelSoundTransition(CurrentArea);
             TilemapParents[0].SetActive(num < 2);
-            TilemapParents[1].SetActive(num >= 2 && num <= 3);
-            TilemapParents[2].SetActive(num >= 3 && num <= 9);
-            TilemapParents[3].SetActive(true);
+            TilemapParents[1].SetActive(num >= 1 && num <= 4);
+            TilemapParents[2].SetActive(num >= 4 && num <= 7);
+            TilemapParents[3].SetActive(num >= 7);
 
         }
     }
 
     private void TeleportLevelArea(int num)
     {
-        if (num < 2)
+        if (num <= 1)
         {
             CurrentArea = LevelArea.Beach;
         }
-        else if (num < 3)
+        else if (num <= 4)
         {
             CurrentArea = LevelArea.Jungle;
         }
-        else if (num < 6)
+        else if (num <= 7)
         {
             CurrentArea = LevelArea.SnowMountain;
         }
@@ -284,18 +282,14 @@ public class GameController : MonoBehaviour
         textBbBehave.InitBubble(isShip, GameManager.instance.SpeechScripObj[(int)currCutScene], parentTrans);
     }
 
-    private void startStartGameCutScene()
+    private void StartStartGameCutScene()
     {
-        //Testing Code
-        if (GameManager.instance.OnTestFeatures && testingSpeech != SpeechScript.None && testingSpeech < SpeechScript.Old0)
-        {
-            StartCutScene(testingSpeech, startPirateShip.transform);
-            return;
-        }
-
         if (GameManager.instance.SaveMan.endCounter >= 5)
         {
             // --> No Fuck Given Animation
+            StartPirateShip.disableCollider();
+            barrelControl.BarrelCutsceneAnmt.SetInteger("Direction", GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1);
+            barrelControl.BarrelCutsceneAnmt.enabled = true;
         }
 
         StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
@@ -328,6 +322,7 @@ public class GameController : MonoBehaviour
         {
             //End --> No Fuck Given
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.NoFuckGiven);
+            GameManager.instance.SaveMan.endCounter = 0;
         }
         else if (currCutScene < SpeechScript.Old0)
         {
@@ -343,6 +338,7 @@ public class GameController : MonoBehaviour
             //End --> Strangled By Finish Line
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.StrangledByFinishLine);
         }
+
         if (currCutScene >= SpeechScript.Old0)
         {
             NPCBehaves[SpeakingNPCIndex].EndOfSpeech();
@@ -353,6 +349,7 @@ public class GameController : MonoBehaviour
 
     private void EndStartCutScene()
     {
+
         BarrelCameraState(false, CameraState.CutScene);
         kickAdoScr.Play();
         barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
@@ -365,9 +362,9 @@ public class GameController : MonoBehaviour
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         gameTimer = 0.0f;
-        resetAllNPC();
+        ResetAllNPC();
         barrelHighestY = -100.0f;
-        startStartGameCutScene();
+        StartStartGameCutScene();
         OnEndMenu(false);
 
         backgroundAnmt.SetInteger("LevelArea", 1);
@@ -377,13 +374,37 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void EndingCusSceneStand()
+    public void EndingCutSceneStand()
     {
         canOnOff = false;
         barrelControl.BarrelStandReady();
     }
 
-    private void resetAllNPC()
+    public void EndingCutSceneTrigger(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                barrelControl.BarrelCutsceneAnmt.SetTrigger("StartRolling");
+                barrelControl.Invoke(nameof(barrelControl.BarrelCutsceneOrder), GameManager.instance.GameScriptObj.EndingBarrelRollingTime);
+                BarrelCameraState(false, CameraState.CutScene);
+                break;
+            case 1:
+                barrelControl.BarrelCutsceneAnmt.SetTrigger("StandStill");
+                barrelControl.BarrelCutsceneOrder();
+                break;
+            case 2:
+                barrelControl.BarrelCutsceneAnmt.SetTrigger("Jump");
+                break;
+            default:
+                Debug.Log("ERROR: Undefined Index For ending cutscene trigger!!");
+                break;
+        }
+    }
+
+
+
+    private void ResetAllNPC()
     {
         for (int i = 0; i < NPCBehaves.Length; i++)
         {

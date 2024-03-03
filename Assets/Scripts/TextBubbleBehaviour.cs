@@ -78,9 +78,29 @@ public class TextBubbleBehaviour : MonoBehaviour
         if (textIndex >= speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches.Length)
         {
             ExitSpeechBubble();
+            if (speechScript == GameManager.instance.SpeechScripObj[(int)SpeechScript.Start5])
+            {
+                //Barrel Jump
+                GameManager.instance.GameCon.EndingCutSceneTrigger(2);
+            }
         }
         else
         {
+            if (speechScript == GameManager.instance.SpeechScripObj[(int)SpeechScript.Start5])
+            {
+                if (textIndex == 5)
+                {
+                    //Barrel Start Rolling
+                    GameManager.instance.GameCon.EndingCutSceneTrigger(0);
+                }
+                else if (textIndex == 7)
+                {
+                    //Barrel To End Position
+                    GameManager.instance.GameCon.EndingCutSceneTrigger(1);
+                }
+
+            }
+
             ResetBubbleSpeech();
             ShowNextChar();
         }
