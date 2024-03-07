@@ -266,11 +266,11 @@ public class BarrelControl : MonoBehaviour
         pastRotateDir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
         if (!InSnowLock)
         {
-            barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * Mathf.Deg2Rad * barrelRig.inertia);
+            barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * GameManager.instance.SaveMan.rollSensibility * Mathf.Deg2Rad * barrelRig.inertia);
         }
         else
         {
-            mockAngularVelocity += pastRotateDir * magnitude * GameManager.instance.GameScriptObj.BarrelSnowMockAVMultiplier;
+            mockAngularVelocity += pastRotateDir * magnitude * GameManager.instance.GameScriptObj.BarrelSnowMockAVMultiplier * GameManager.instance.SaveMan.rollSensibility;
         }
     }
 

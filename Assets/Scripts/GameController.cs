@@ -286,10 +286,17 @@ public class GameController : MonoBehaviour
     {
         if (GameManager.instance.SaveMan.endCounter >= 5)
         {
-            // --> No Fuck Given Animation
-            StartPirateShip.disableCollider();
-            barrelControl.BarrelCutsceneAnmt.SetInteger("Direction", GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1);
-            barrelControl.BarrelCutsceneAnmt.enabled = true;
+            if (GameManager.instance.SaveMan.skipEnding)
+            {
+                GameManager.instance.SaveMan.ResetEndCounter();
+            }
+            else
+            {
+                // --> No Fuck Given Animation
+                StartPirateShip.disableCollider();
+                barrelControl.BarrelCutsceneAnmt.SetInteger("Direction", GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1);
+                barrelControl.BarrelCutsceneAnmt.enabled = true;
+            }
         }
 
         StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
@@ -329,9 +336,10 @@ public class GameController : MonoBehaviour
             {
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING1 + "");
             }
+            GameManager.instance.SaveMan.TrueEnding();
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.NoFuckGiven);
-            GameManager.instance.SaveMan.endCounter = 0;
-            
+            GameManager.instance.SaveMan.ResetEndCounter();
+
         }
         else if (currCutScene < SpeechScript.Old0)
         {
@@ -352,7 +360,7 @@ public class GameController : MonoBehaviour
             {
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING2 + "");
             }
-            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.LiveToDie);   
+            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.LiveToDie);
         }
         else if (currCutScene == SpeechScript.DevilIdle0)
         {

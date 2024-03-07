@@ -20,6 +20,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text jumpSensibilityTxt;
     [SerializeField]
+    private Slider rollSensibilitySlid;
+    [SerializeField]
+    private TMP_Text rollSensibilityTxt;
+    [SerializeField]
     private Slider masterVolumeSlid;
     [SerializeField]
     private TMP_Text masterVolumeTxt;
@@ -31,6 +35,10 @@ public class UIManager : MonoBehaviour
     private Toggle flipMapTog;
     [SerializeField]
     private Toggle jumpGuideTog;
+    [SerializeField]
+    private Toggle skipEndTog;
+    [SerializeField]
+    private GameObject skipEndTogObj;
 
     private bool isSettingOpened = false;
     public bool IsSettingOpened { get { return isSettingOpened; } }
@@ -88,6 +96,13 @@ public class UIManager : MonoBehaviour
         jumpSensibilityTxt.text = sensibility.ToString("0.00");
     }
 
+    public void SetRollSensibility(float sensibility)
+    {
+        GameManager.instance.AudioMan.PlayClickSound();
+        GameManager.instance.SaveMan.rollSensibility = sensibility;
+        rollSensibilityTxt.text = sensibility.ToString("0.00");
+    }
+
     public void SetMasterVolume(float volume)
     {
         GameManager.instance.AudioMan.PlayClickSound();
@@ -125,6 +140,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OnSkipEndToggle(bool tf)
+    {
+        GameManager.instance.AudioMan.PlayClickSound();
+        GameManager.instance.SaveMan.skipEnding = tf;
+    }
+
+    public void ActivateSkipEndToggle()
+    {
+        skipEndTogObj.SetActive(true);
+        skipEndTog.isOn = true;
+    }
+
     public void InitSettingOptions()
     {
         windowModeDD.value = (int)GameManager.instance.SaveMan.screenMode;
@@ -132,11 +159,15 @@ public class UIManager : MonoBehaviour
         languageDD.value = (int)GameManager.instance.SaveMan.selectedLanguage;
         jumpSensibilitySlid.value = GameManager.instance.SaveMan.jumpSensibility;
         jumpSensibilityTxt.text = GameManager.instance.SaveMan.jumpSensibility.ToString("0.00");
+        rollSensibilitySlid.value = GameManager.instance.SaveMan.rollSensibility;
+        rollSensibilityTxt.text = GameManager.instance.SaveMan.rollSensibility.ToString("0.00");
         masterVolumeSlid.value = GameManager.instance.SaveMan.masterVolume;
         masterVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
         musicVolumeSlid.value = GameManager.instance.SaveMan.musicVolume;
         musicVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.musicVolume * 100.0f);
         flipMapTog.isOn = GameManager.instance.SaveMan.mirroredTilemap;
         jumpGuideTog.isOn = GameManager.instance.SaveMan.showJumpGuide;
+        skipEndTog.isOn = GameManager.instance.SaveMan.skipEnding;
+        skipEndTogObj.SetActive(GameManager.instance.SaveMan.watchedEnding);
     }
 }
