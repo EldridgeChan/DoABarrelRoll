@@ -68,6 +68,10 @@ public class InputManager : MonoBehaviour
         {
             GameManager.instance.SaveMan.ResetEndCounter();
         }
+        if (Input.GetKeyDown(KeyCode.R) && SteamManager.Initialized)
+        {
+            SteamManager.ResetAllAchievement();
+        }
     }
 
     public Vector2 MouseWorldPos()

@@ -96,7 +96,7 @@ public class SteamManager : MonoBehaviour {
 			// Once you get a Steam AppID assigned by Valve, you need to replace AppId_t.Invalid with it and
 			// remove steam_appid.txt from the game depot. eg: "(AppId_t)480" or "new AppId_t(480)".
 			// See the Valve documentation for more information: https://partner.steamgames.com/doc/sdk/api#initialization_and_shutdown
-			if (SteamAPI.RestartAppIfNecessary(AppId_t.Invalid)) {
+			if (SteamAPI.RestartAppIfNecessary((AppId_t)2766620)) {
 				Debug.Log("[Steamworks.NET] Shutting down because RestartAppIfNecessary returned true. Steam will restart the application.");
 
 				Application.Quit();
@@ -172,8 +172,29 @@ public class SteamManager : MonoBehaviour {
 		// Run Steam client callbacks
 		SteamAPI.RunCallbacks();
 	}
+
+	public static void UnlockAchievement(string id)
+    {
+		SteamUserStats.GetAchievement(id, out bool alreadyUnlocked);
+
+		if (alreadyUnlocked) { return; }
+
+		SteamUserStats.SetAchievement(id);
+		SteamUserStats.StoreStats();
+    }
+
+	public static void ResetAllAchievement()
+    {
+		SteamUserStats.ResetAllStats(true);
+		SteamUserStats.StoreStats();
+    }
 #else
-	public static bool Initialized {
+	private void Awake()
+    {
+		Debug.Log("SteamWorks Disabled");
+    }
+
+    public static bool Initialized {
 		get {
 			return false;
 		}

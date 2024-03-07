@@ -138,13 +138,22 @@ public class NPCBehaviour : MonoBehaviour
             if (devilAnmt && npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter == 1)
             {
                 //animation fade away
+                if (SteamManager.Initialized)
+                {
+                    SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDDEVIL + "");
+                }
                 devilAnmt.SetTrigger("DevilDisappear");
                 isTalking = true;
                 return;
             }
-
-            //testing code
-            //GameManager.instance.GameCon.StartCutScene(SpeechScript.Old0, transform, false);
+            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.endCounter == 4 && SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDOLD + "");
+            }
+            if (npcIndicator == LevelArea.Jungle && GameManager.instance.SaveMan.endCounter == 2 && SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDCLOWN + "");
+            }
 
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter, (int)firstEncounterSpeech, (int)firstIdleSpeech - 1), transform, false);
             talkCounter++;

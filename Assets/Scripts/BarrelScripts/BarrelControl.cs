@@ -518,6 +518,11 @@ public class BarrelControl : MonoBehaviour
         snowSoundPlayer.PlaySoundManual();
     }
 
+    public void BarrelReset()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
     public void TeleportReset()
     {
         BarrelRig.velocity = Vector2.zero;

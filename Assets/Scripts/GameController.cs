@@ -316,26 +316,51 @@ public class GameController : MonoBehaviour
 
         if (currCutScene < SpeechScript.Start5)
         {
+            if (currCutScene == SpeechScript.Start4 && SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDFRIEND + "");
+            }
             EndStartCutScene();
         }
         else if (currCutScene == SpeechScript.Start5)
         {
             //End --> No Fuck Given
+            if (SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING1 + "");
+            }
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.NoFuckGiven);
             GameManager.instance.SaveMan.endCounter = 0;
+            
         }
         else if (currCutScene < SpeechScript.Old0)
         {
+            if (GameManager.instance.SaveMan.endCounter == 1 && SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_FIRSTFINISH + "");
+            }
+            if (gameTimer <= 1400.888f && SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_BEATME + "");
+            }
             OnEndMenu(true);
         }
         else if (currCutScene == SpeechScript.OldIdle0)
         {
             //End --> Live to Die
-            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.LiveToDie);
+            if (SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING2 + "");
+            }
+            GameManager.instance.UIMan.CanCon.CreditScene(EndingType.LiveToDie);   
         }
         else if (currCutScene == SpeechScript.DevilIdle0)
         {
             //End --> Strangled By Finish Line
+            if (SteamManager.Initialized)
+            {
+                SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING3 + "");
+            }
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.StrangledByFinishLine);
         }
 
@@ -361,6 +386,7 @@ public class GameController : MonoBehaviour
         BackgroundTransition((int)LevelArea.Beach);
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
+        barrelControl.BarrelReset();
         gameTimer = 0.0f;
         ResetAllNPC();
         barrelHighestY = -100.0f;
@@ -377,7 +403,16 @@ public class GameController : MonoBehaviour
     public void EndingCutSceneStand()
     {
         canOnOff = false;
-        barrelControl.BarrelStandReady();
+        if (isControlLocked)
+        {
+            OnPauseMenu(false);
+            barrelControl.CancelInvoke(nameof(barrelControl.BarrelGainControl));
+
+        }
+        else
+        {
+            barrelControl.BarrelStandReady();
+        }
     }
 
     public void EndingCutSceneTrigger(int index)
