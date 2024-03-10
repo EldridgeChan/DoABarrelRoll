@@ -20,6 +20,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        GameManager.instance.UIMan.CanCon.InSceneTrasition = false;
         LoadScene(0);
     }
 

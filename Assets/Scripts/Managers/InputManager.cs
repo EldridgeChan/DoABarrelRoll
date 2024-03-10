@@ -47,6 +47,8 @@ public class InputManager : MonoBehaviour
             }
             if (GameManager.instance.LoadMan.CurrentSceneIndex == 2)
             {
+                if (GameManager.instance.UIMan.CanCon.InSceneTrasition) { return; }
+                GameManager.instance.UIMan.CanCon.InSceneTrasition = true;
                 GameManager.instance.AudioMan.PlayClickSound();
                 GameManager.instance.UIMan.OnOffBlackScreen(true);
                 GameManager.instance.LoadMan.Invoke(nameof(SceneLoadManager.LoadMainMenu), GameManager.instance.GameScriptObj.BlackScreenTransitionTime);

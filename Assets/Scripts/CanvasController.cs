@@ -16,6 +16,8 @@ public class CanvasController : MonoBehaviour
     private AudioSource mainMenuAdoSrc;
     [SerializeField]
     private GameObject continueButtonGameObj;
+    [HideInInspector]
+    public bool InSceneTrasition = false;
 
     private void Start()
     {
