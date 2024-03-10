@@ -498,6 +498,7 @@ MonoBehaviour:
   endBoardTimerTxt: {fileID: 0}
   mainMenuAdoSrc: {fileID: 282563488}
   continueButtonGameObj: {fileID: 866276663}
+  InSceneTrasition: 0
 --- !u!95 &282563487
 Animator:
   serializedVersion: 5

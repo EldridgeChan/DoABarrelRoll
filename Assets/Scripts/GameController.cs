@@ -337,6 +337,8 @@ public class GameController : MonoBehaviour
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDING1 + "");
             }
             GameManager.instance.SaveMan.TrueEnding();
+            GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[0]);
+            
             GameManager.instance.UIMan.CanCon.CreditScene(EndingType.NoFuckGiven);
             GameManager.instance.SaveMan.ResetEndCounter();
 
@@ -392,7 +394,7 @@ public class GameController : MonoBehaviour
     {
         OnlyActivateBeach();
         BackgroundTransition((int)LevelArea.Beach);
-        GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)LevelArea.Beach]);
+        GameManager.instance.AudioMan.BGMTransition(null);
         barrelControl.transform.position = startPirateShip.transform.position + GameManager.instance.GameScriptObj.ShipBarrelPositionOffset;
         barrelControl.BarrelReset();
         gameTimer = 0.0f;
