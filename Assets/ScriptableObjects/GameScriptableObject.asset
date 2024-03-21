@@ -125,6 +125,7 @@ MonoBehaviour:
   BarrelEndLerpAngularVelocityTime: 1
   BlackScreenTransitionTime: 1.1
   EndingBlackScreenTransitionTime: 3
+  EndingBarrelRollingTime: 2
   WindowResolution:
   - {x: 640, y: 360}
   - {x: 960, y: 540}
