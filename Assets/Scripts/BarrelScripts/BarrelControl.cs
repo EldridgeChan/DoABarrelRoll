@@ -286,16 +286,29 @@ public class BarrelControl : MonoBehaviour
 
     public void BarrelJump(Vector2 dir)
     {
-        if (jumpChargeT <= 0.0f && touchedGround)
+        if (jumpChargeT > 0.0f || !touchedGround) { return; }
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir, 2.5f);
+        if (!IsJumpHitGround(hit)) { return; }
+
+        jumpSoundPlayer.PlaySoundManual();
+        barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir - (Vector2)transform.position).normalized);
+        jumpChargeT = 1.0f;
+        barrelParentAnmt.SetTrigger("BarrelJump");
+        BarrelJumpDust(dir);
+        emojiTypeCon.SetJumpEmoji();
+        SnowJump();
+    }
+
+    private bool IsJumpHitGround(RaycastHit2D[] hit)
+    {
+        for (int i = 0; i < hit.Length; ++i)
         {
-            jumpSoundPlayer.PlaySoundManual();
-            barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir - (Vector2)transform.position).normalized);
-            jumpChargeT = 1.0f;
-            barrelParentAnmt.SetTrigger("BarrelJump");
-            BarrelJumpDust(dir);
-            emojiTypeCon.SetJumpEmoji();
-            SnowJump();
+            if (hit[i].collider.CompareTag("Ground") && !hit[i].collider.isTrigger)
+            {
+                return true;
+            }
         }
+        return false;
     }
 
     private void BarrelJumpDust(Vector2 dir)
