@@ -151,7 +151,7 @@ MonoBehaviour:
   NPCCentripetalForce: 1
   NPCTauntHightThershold: 10
   NPCSpeakIdleTime: 15
-  NPCOldManOriginalPosition: {x: 2, y: -3.5}
+  NPCOldManOriginalPosition: {x: -0.5, y: -3.5}
   NPCOldManMovedPosition: {x: 14, y: 44.5}
   NPCOldManStandSprite: {fileID: -1839454486, guid: 49fd2bb61cf6fb44694130ecdb96bc94, type: 3}
   NPCOldManRollSprite: {fileID: -803258674, guid: 49fd2bb61cf6fb44694130ecdb96bc94, type: 3}
@@ -175,3 +175,6 @@ MonoBehaviour:
   SnowTriggerMinAV: 500
   SnowTriggerMaxAV: 2000
   SnowParticleAngleOffset: 45
+  BackgroundLayer2Speed: 0.05
+  BackgroundLayer3Speed: 0.1
+  BackgroundLayer4Speed: 0.2

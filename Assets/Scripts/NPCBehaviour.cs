@@ -94,6 +94,7 @@ public class NPCBehaviour : MonoBehaviour
         if (npcIndicator == LevelArea.Beach)
         {
             transform.position = GameManager.instance.SaveMan.endCounter != 3 ? GameManager.instance.GameScriptObj.NPCOldManOriginalPosition : GameManager.instance.GameScriptObj.NPCOldManMovedPosition;
+            transform.position = new Vector2((GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1) * transform.position.x, transform.position.y);
             emojiOrigin = (Vector2)transform.position + (GameManager.instance.SaveMan.endCounter == 3 ? Vector2.zero : GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset);
             npcBarrelRend.sprite = GameManager.instance.SaveMan.endCounter == 3 ? GameManager.instance.GameScriptObj.NPCOldManRollSprite : GameManager.instance.GameScriptObj.NPCOldManStandSprite;
         }

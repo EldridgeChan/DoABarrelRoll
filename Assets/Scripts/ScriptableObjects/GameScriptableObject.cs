@@ -168,4 +168,9 @@ public class GameScriptableObject : ScriptableObject
     public float SnowTriggerMinAV = 100.0f;
     public float SnowTriggerMaxAV = 1800.0f;
     public float SnowParticleAngleOffset = 45.0f;
+
+    [Header("Background Setting")]
+    public float BackgroundLayer2Speed = 1.0f;
+    public float BackgroundLayer3Speed = 1.0f;
+    public float BackgroundLayer4Speed = 1.0f;
 }

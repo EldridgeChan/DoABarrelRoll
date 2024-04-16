@@ -287,7 +287,7 @@ public class BarrelControl : MonoBehaviour
     public void BarrelJump(Vector2 dir)
     {
         if (jumpChargeT > 0.0f || !touchedGround) { return; }
-        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir, 2.5f);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir - (Vector2)transform.position, 1.5f);
         if (!IsJumpHitGround(hit)) { return; }
 
         jumpSoundPlayer.PlaySoundManual();
@@ -303,7 +303,7 @@ public class BarrelControl : MonoBehaviour
     {
         for (int i = 0; i < hit.Length; ++i)
         {
-            if (hit[i].collider.CompareTag("Ground") && !hit[i].collider.isTrigger)
+            if ((hit[i].collider.CompareTag("Ground") || hit[i].collider.CompareTag("Swamp")) && !hit[i].collider.isTrigger)
             {
                 return true;
             }
