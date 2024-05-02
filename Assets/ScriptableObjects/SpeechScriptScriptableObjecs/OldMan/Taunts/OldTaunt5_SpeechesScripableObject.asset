@@ -20,3 +20,19 @@ MonoBehaviour:
       bubbleText: 'Oh.. Come on now '
     - position: {x: 0, y: 5}
       bubbleText: 'You are way better than that '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E0D\u662F\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8A8D\u8B58\u7684\u4F60"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u90A3\u9EBC\u5F31\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582\u4F60\u5514\u649A\u4FC2\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8B58\u5F97\u5605\u4F60"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5187\u5481\u55B3\u35CE\u558E"

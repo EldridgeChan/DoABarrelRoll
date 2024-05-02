@@ -22,3 +22,19 @@ MonoBehaviour:
       bubbleText: "Isn\u2019t it the mighty mountain climber? "
     - position: {x: 0, y: 5}
       bubbleText: 'Good to see you come back to me '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5662!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u4E0D\u662F\u6211\u7684\u5076\u50CF\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5F88\u9AD8\u8208\u80FD\u518D\u898B\u5230\u60A8"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5629!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F9D\u500B\u54AA\u6211\u5076\u50CF?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u597D\u958B\u5FC3\u53EF\u4EE5\u518D\u898B\u5230\u4F60\u5440"

@@ -22,3 +22,23 @@ MonoBehaviour:
       bubbleText: 'Be careful right now '
     - position: {x: 0, y: 5}
       bubbleText: 'I might overtake you '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u53C8\u6389\u4E0B\u4F86\u4E86\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6CE8\u610F\u9EDE\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5728\u4F60\u4E0D\u6CE8\u610F\u7684\u6642\u5019"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0F\u5FC3\u6211\u5C31\u8D85\u8ECA\u4E86"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5413!! \u4F60\u53C8\u8DCC\u8FD4\u843D\u569F\u5440?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u56E0\u4F4F\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E00\u500B\u5514\u89BA\u610F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0F\u5FC3\u6211\u722C\u4F60\u982D\u5440"

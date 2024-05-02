@@ -26,3 +26,33 @@ MonoBehaviour:
       bubbleText: 'Why do you still do it? '
     - position: {x: 0, y: 5}
       bubbleText: "No.. No.. Perhaps\u2026 "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65B0\u4EBA\u4F60.. \u70BA\u751A\u9EBC.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u660E\u660E\u5C31\u5F88\u6E05\u695A"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7E7C\u7E8C\u722C\u4E5F\u6C92\u6709\u610F\u7FA9"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E0D\u5C0D.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u662F\u5982\u679C\u662F\u9019\u6A23\u7684\u8A71.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211.. \u5C31.."
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65B0\u4ED4\u4F60... \u9EDE\u89E3.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u660E\u77E5\u35CE\u558E.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u660E\u77E5\u5187\u610F\u7FA9\u35CE\u558E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9EDE\u89E3\u4F60\u4EF2\u7E7C\u7E8C\u5481\u505A\u5440?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u4FC2.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4FC2\u5982\u679C\u4FC2\u5481\u5605\u8A71.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u901A? \u6211.."

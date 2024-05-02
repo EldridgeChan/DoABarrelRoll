@@ -24,3 +24,27 @@ MonoBehaviour:
       bubbleText: 'Oh sorry, '
     - position: {x: 0, y: 5}
       bubbleText: 'I forgot we are stuck in a barrel '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65E2\u7136\u60A8\u90FD\u5728\u9019\u88F9\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u80FD\u5E6B\u6211\u7C3D\u500B\u540D\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5662\u62B1\u6B49"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5FD8\u8A18\u6211\u5011\u7684\u624B\u52D5\u4E0D\u4E86\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E0D\u597D\u610F\u601D"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65E2\u7136\u4F60\u90FD\u55BA\u5EA6\u561E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u53EF\u5514\u53EF\u4EE5\u5E6B\u6211\u7C3D\u500B\u540D?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5662..."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5514\u8A18\u5F97\u6211\u54CB\u96BB\u624B\u5590\u5514\u5230\u6DFB"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u597D\u610F\u601D"

@@ -22,3 +22,19 @@ MonoBehaviour:
       bubbleText: 'You need to practice more '
     - position: {x: 0, y: 5}
       bubbleText: 'And be more skillful '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8DDF\u4F60\u8AAA\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u4E0D\u80FD\u592A\u4F9D\u9760\u904B\u6C23\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u61C9\u8A72\u591A\u591A\u7DF4\u7FD2\u624D\u5C0D"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5514\u6703\u6210\u4E16\u90FD\u5481\u597D\u5F69\u35CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u597D\u61C9\u8A72\u591A\u5C10\u7DF4\u7FD2"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C11\u5C10\u9760\u904B\u6C23"

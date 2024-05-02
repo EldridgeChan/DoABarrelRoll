@@ -24,3 +24,19 @@ MonoBehaviour:
       bubbleText: 'Are you accompanying me? '
     - position: {x: 0, y: 5}
       bubbleText: 'Ahh.. So warm of you '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u70BA\u751A\u9EBC\u505C\u5728\u9019\u5462? "
+    - position: {x: 0, y: 5}
+      bubbleText: "\u96E3\u9053\u4F60\u662F\u5728\u966A\u6211\u55CE? "
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u4EBA\u771F\u597D"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9EDE\u89E3\u4FC2\u505C\u55BA\u5230\u5481\u8010\u5605?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u901A\u4F60\u55BA\u5230\u966A\u7DCA\u6211?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u771F\u4FC2\u597D\u597D\u4EBA\u5440"

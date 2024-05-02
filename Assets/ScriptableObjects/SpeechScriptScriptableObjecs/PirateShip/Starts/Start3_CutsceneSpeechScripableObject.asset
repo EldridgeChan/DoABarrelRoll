@@ -36,3 +36,37 @@ MonoBehaviour:
       bubbleText: 'Now go for the next record '
     - position: {x: 0.5, y: -0.55}
       bubbleText: 'Throw the traitor off!! '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u597D\u52AA\u529B"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4E0D\u8981\u89BA\u5F97\u4E0D\u7518"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u597D\u611F\u6FC0\u6211\u7D66\u4F60\u7684\u6A5F\u6703"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u518D\u8CE3\u529B\u4E00\u9EDE\u7684\u8A71"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5F88\u5FEB\u5C31\u80FD\u5347\u8077"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u7684\u4ED8\u51FA\u5C31\u80FD\u5F97\u5230\u56DE\u994B\u4E86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u52A0\u6CB9\u628A\u8A18\u9304\u7834\u4E86\u5427"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6254\u4ED6\u4E0B\u6D77\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u7E7C\u7E8C\u52AA\u529B\u5440"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u597D\u611F\u6FC0"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u8CDC\u6BD4\u4F60\u5605\u5B78\u7FD2\u6A5F\u6703"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u7E7C\u7E8C\u52A0\u6CB9"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u5FEB\u5C31\u6703\u5347\u8077\u35CE\u5587"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u5587 \u4ECA\u6B21\u8A66\u4E0B\u7834\u8A18\u9304\u5566"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u53EF\u4EE5\u843D\u6C34\u5587\u800C\u5BB6"

@@ -22,3 +22,19 @@ MonoBehaviour:
       bubbleText: 'Go on '
     - position: {x: 0, y: 5}
       bubbleText: "I don\u2019t need your pity "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5728\u7B49\u751A\u9EBC\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5FEB\u9EDE\u8D70\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u4E0D\u7528\u4F60\u53EF\u6190\u6211"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u7B49\u4E5C\u649A\u91CE\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5FEB\u649A\u5C10\u884C\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5514\u649A\u6D17\u4F60\u53EF\u6190\u5440"

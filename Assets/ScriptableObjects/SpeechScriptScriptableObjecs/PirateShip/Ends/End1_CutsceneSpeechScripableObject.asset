@@ -38,3 +38,41 @@ MonoBehaviour:
       bubbleText: 'Write down the record '
     - position: {x: -0.2, y: -0.53}
       bubbleText: 'Aye aye captain '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.57}
+      bubbleText: "\u90A3\u500B\u53DB\u5F92\u53C8\u56DE\u4F86\u4E86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u9019\u9EBC\u5FEB\u7684\u55CE?"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5F88\u5FEB\u5414"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u770B\u4F86\u4F60\u5F88\u64C5\u9577\u6EFE\u56DE\u8239\u4E0A"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8001\u5BE6\u8AAA"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u770B\u4F60\u4E00\u6B21\u53C8\u4E00\u6B21\u7684\u6EFE\u56DE\u4F86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6EFF\u7CBE\u5F69\u7684"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F86\u8A18\u4E0B\u4F60\u9019\u6B21\u7684\u6642\u9593\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.57}
+      bubbleText: "\u5582.. \u4F62\u53C8\u8FD4\u569F\u5587"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5481\u5FEB!?"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u592A\u5FEB\u5587\u561B"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u7747\u569F\u4F60\u771F\u4FC2\u597D\u64C5\u9577\u788C\u8FD4\u569F\u558E"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5B9A\u4FC2\u4F60\u771F\u4FC2\u597D\u60F3\u6211\u539F\u8AD2\u4F60\u5440"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8001\u5BE6\u8B1B \u671B\u4F4F\u4F60\u4FC2\u5481\u788C\u8FD4\u569F"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u90FD\u54AA\u8A71\u5514\u9802\u766E"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4EBA\u569F!! "
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6435\u4EBA\u5E6B\u6211\u8A18\u4F4E\u500B\u6642\u9593\u4F62"

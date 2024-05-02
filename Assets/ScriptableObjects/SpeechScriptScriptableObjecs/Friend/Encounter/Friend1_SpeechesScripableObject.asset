@@ -30,3 +30,43 @@ MonoBehaviour:
       bubbleText: 'Go on '
     - position: {x: 0, y: 5}
       bubbleText: "I\u2019ll catch to you in no time "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u563F \u4F60!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u9084\u5728\u9019\u4E0D\u4E0A\u4E0D\u4E0B\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6709\u4E00\u9663\u5B50\u6C92\u770B\u5230\u4F60\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u600E\u9EBC\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u751A\u9EBC!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5DF2\u7D93\u767B\u9802\u4E00\u6B21\u4E86?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u770B\u4F86\u4F60\u6709\u88AB\u5E78\u904B\u5973\u795E\u7737\u9867\u5414"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5148\u8D70\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5F88\u5FEB\u6703\u8FFD\u4E0A\u4F60\u7684"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54E6 \u5582!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u4EF2\u5361\u4F4F\u55BA\u5230\u5514\u4E0A\u5514\u843D\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8A71\u8AAA\u90FD\u597D\u8010\u5187\u898B\u904E\u4F60\u5587"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u8FD1\u6392\u9EDE\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54A9\u8A71!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5DF2\u7D93\u767B\u5DE6\u4E00\u6B21\u9802!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7747\u569F\u4F60\u5E7E\u597D\u5F69\u558E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u884C\u5148\u5566\u4F60"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u597D\u5FEB\u5C31\u6703\u8FFD\u4E0A\u569F\u35CE\u5587"

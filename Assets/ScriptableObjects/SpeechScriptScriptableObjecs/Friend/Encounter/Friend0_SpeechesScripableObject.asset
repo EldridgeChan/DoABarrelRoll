@@ -34,3 +34,47 @@ MonoBehaviour:
       bubbleText: 'The climb will go smoothly '
     - position: {x: 0, y: 5}
       bubbleText: "Let\u2019s us support each other "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u563F!! \u90A3\u908A\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u6709\u898B\u904E\u4F60\u5414"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65B0\u4F86\u7684?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8DDF\u4F60\u8AAA\u54E6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u525B\u525B\u901A\u904E\u4E86\u6C99\u7058"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u73FE\u5728\u5F88\u8208\u596E\u5440!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u61C9\u8A72\u4E5F\u662F\u4E00\u6A23\u7684\u5C0D\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u60F3\u4E4B\u5F8C\u7684\u8DEF\u9014"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u61C9\u8A72\u4E5F\u6703\u5F88\u9806\u5229"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5011\u4E00\u9F4A\u52A0\u6CB9\u5427!!"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u672A\u898B\u904E\u4F60\u5605"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65B0\u569F\u35CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5571\u5571\u904E\u5497\u500B\u6C99\u7058"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u4F9D\u5BB6\u597D\u8208\u596E\u5440!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u90FD\u904E\u5497\u500B\u6C99\u7058"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u4F9D\u5BB6\u61C9\u8A72\u4FC2\u4E00\u6A23\u5440\u4FC2\u54AA?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u6709\u4FE1\u5FC3"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E4B\u5F8C\u5605\u8DEF\u90FD\u6703\u904E\u5F97\u597D\u9806\u5229"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u54CB\u4E00\u9F4A\u52A0\u6CB9\u5566!!"

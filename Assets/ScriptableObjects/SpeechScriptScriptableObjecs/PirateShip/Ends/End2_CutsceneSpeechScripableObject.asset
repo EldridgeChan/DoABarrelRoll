@@ -34,3 +34,41 @@ MonoBehaviour:
       bubbleText: 'Thanks to my genius idea '
     - position: {x: 0.5, y: -0.55}
       bubbleText: 'Hey!! Someone take the record '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.54}
+      bubbleText: "\u53DB\u5F92\u56DE\u4F86\u4E86!!"
+    - position: {x: -0.2, y: -0.58}
+      bubbleText: "\u6642\u9593\u5462?"
+    - position: {x: -0.4, y: -0.58}
+      bubbleText: "\u6211\u8D0F\u4E86!!"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5E79 \u6211\u7684\u9322.."
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u5C31\u8AAA\u4E86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u6709\u6210\u70BA\u5A1B\u6A02\u7684\u624D\u80FD"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u80FD\u767C\u6398\u4F60\u624D\u80FD\u7684\u6211"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u771F\u662F\u500B\u5929\u624D!!"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u628A\u9019\u6B21\u7684\u6642\u9593\u8A18\u4E0B\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.54}
+      bubbleText: "\u5582\u4F62\u8FD4\u5230\u569F\u5587 \u54A9\u6642\u9593"
+    - position: {x: -0.2, y: -0.58}
+      bubbleText: "\u54C8 \u8CED\u8D0F\u5C31\u4FC2\u5481\u7C21\u55AE"
+    - position: {x: -0.4, y: -0.58}
+      bubbleText: "\u4EC6\u8857\u6211\u8F38\u649A\u5230\u7529\u8932"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u7747\u5413\u4F60"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u679C\u7136\u6709\u505A\u5A1B\u6A02\u5605\u624D\u80FD"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6BD4\u4F9D\u500B\u4F4D\u4F60\u505A\u5605\u6211"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6839\u672C\u5C31\u4FC2\u5929\u624D"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u53BB\u5BEB\u4F4E\u4F60\u4ECA\u6B21\u5605\u6642\u9593\u5566"

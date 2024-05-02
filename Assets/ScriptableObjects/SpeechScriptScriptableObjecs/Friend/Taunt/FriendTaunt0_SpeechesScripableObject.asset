@@ -24,3 +24,23 @@ MonoBehaviour:
       bubbleText: 'You surely can recover from it '
     - position: {x: 0, y: 5}
       bubbleText: "I\u2019m rooting for you "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u95DC\u4FC2\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u53EA\u662F\u5C0F\u5931\u8AA4\u800C\u5DF2"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u80FD\u88DC\u6551\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u6703\u70BA\u4F60\u52A0\u6CB9\u7684"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u7DCA\u8981\u35CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0F\u5931\u8AA4\u569F\u35CE\u556B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5687\u4F60\u5514\u5230\u5605"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u7747\u597D\u4F60\u35CE"

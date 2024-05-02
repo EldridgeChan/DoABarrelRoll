@@ -22,3 +22,15 @@ MonoBehaviour:
       bubbleText: "You\u2019re back "
     - position: {x: 0, y: 5}
       bubbleText: 'Are you back for me? '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u55E8\u4F60\u597D\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u56DE\u4F86\u627E\u6211\u55CE?"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582\u60A8\u597D\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u8FD4\u569F\u6435\u6211\u5440?"

@@ -22,3 +22,19 @@ MonoBehaviour:
       bubbleText: 'If you give up now '
     - position: {x: 0, y: 5}
       bubbleText: 'All your burden will be lifted  '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8B93\u6211\u8DDF\u4F60\u8AAA\u500B\u79D8\u5BC6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5982\u679C\u4F60\u73FE\u5728\u653E\u68C4\u7684\u8A71"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5C31\u6703\u5F88\u8F15\u9B06\u54E6"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u540C\u4F60\u8B1B\u500B\u79D8\u5BC6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5982\u679C\u4F60\u4F9D\u5BB6\u653E\u68C4\u5605\u8A71"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C31\u6703\u597D\u8F15\u9B06\u35CE\u5587"

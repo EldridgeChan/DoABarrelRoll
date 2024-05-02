@@ -38,3 +38,51 @@ MonoBehaviour:
       bubbleText: "Isn\u2019t that great? "
     - position: {x: 0, y: 5}
       bubbleText: "So let\u2019s just stay here "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7D42\u9EDE\u5C31\u5728\u524D\u9762\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4F60\u807D\u6211\u8AAA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5230\u9054\u7D42\u9EDE\u4E4B\u5F8C"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C31\u53EA\u6703\u5F9E\u65B0\u4F86\u904E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6240\u4EE5\u6839\u672C\u5C31\u6C92\u6709\u610F\u7FA9"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u90A3\u4F60\u5012\u4E0D\u5982\u5C31\u7559\u5728\u9019\u908A"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C31\u7AD9\u5728\u6700\u9AD8\u8655"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4FEF\u8996\u6240\u6709\u6B63\u5728\u6500\u767B\u7684\u4EBA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u6A23\u4E0D\u662F\u5F88\u6709\u6A02\u8DA3\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6240\u4EE5\u8AAA\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7559\u5728\u9019\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7D42\u9EDE\u5C31\u55BA\u9762\u524D"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4FC2\u807D\u6211\u8B1B\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5230\u5DE6\u7D42\u9EDE\u4E4B\u5F8C"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54AA\u53C8\u4FC2\u5F9E\u65B0\u569F\u904E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6839\u672C\u5C31\u5187\u610F\u7FA9"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5481\u4F60\u5012\u4E0D\u5982\u5C31\u7559\u55BA\u5EA6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C31\u4F01\u55BA\u6700\u9AD8\u9EDE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4FEF\u8996\u6240\u6709\u722C\u7DCA\u5605\u4EBA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5481\u6A23\u5514\u958B\u5FC3\u54A9"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6240\u4EE5\u8A71"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u90FD\u4FC2\u7559\u55BA\u5EA6\u5566"

@@ -24,3 +24,23 @@ MonoBehaviour:
       bubbleText: 'Just let you know  '
     - position: {x: 0, y: 5}
       bubbleText: "I\u2019m by your side "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u9084\u597D\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9047\u5230\u4F4E\u6F6E\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u4E8B\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u6703\u70BA\u4F60\u6253\u6C23\u7684"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582\u4F60\u5187\u4E8B\u5440\u561B?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9047\u5230\u4F4E\u6F6E?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5187\u4E8B\u5605"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5BE6\u6490\u4F60\u35CE"

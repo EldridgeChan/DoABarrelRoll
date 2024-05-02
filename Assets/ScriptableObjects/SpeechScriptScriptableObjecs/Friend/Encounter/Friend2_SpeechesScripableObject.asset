@@ -30,3 +30,43 @@ MonoBehaviour:
       bubbleText: 'Go on now '
     - position: {x: 0, y: 5}
       bubbleText: 'Just leave me here '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53C8\u662F\u4F60\u55CE.."
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u53C8\u767B\u4E00\u6B21\u9802\u4E86\u5C0D\u5427?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u4E16\u754C\u771F\u662F\u4E0D\u516C\u5E73"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u6191\u751A\u9EBC\u9019\u9EBC\u5E78\u904B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5169\u6B21!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u958B\u751A\u9EBC\u73A9\u7B11"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5148\u8D70\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8AAA \u4F60\u5148\u8D70\u963F!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u807D\u4E0D\u61C2\u4EBA\u8A71\u662F\u4E0D\u662F\u963F!!"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582 \u53C8\u4FC2\u4F60\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u53C8\u722C\u5B8C\u4E00\u6B21\u5566\u4FC2\u54AA?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u771F\u4FC2\u5514\u516C\u5E73"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u6191\u54A9\u53EF\u4EE5\u5481\u597D\u5F69\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u722C\u5169\u6B21!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u884C\u5148\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u53EB\u4F60\u884C\u5148\u5440!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8AAA \u4F60\u5148\u8D70\u963F!!"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8E9D\u5566!!"

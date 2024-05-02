@@ -24,3 +24,23 @@ MonoBehaviour:
       bubbleText: 'Are you pitying me? '
     - position: {x: 0, y: 5}
       bubbleText: 'Just! Go! '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u53EB\u4F60\u6EFE\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8033\u6735\u6709\u554F\u984C\u662F\u4E0D\u662F\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5728\u53EF\u6190\u6211\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E0D\u7528\u4E86 \u5FEB\u6EFE\u5427!!"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u53EB\u4F60\u884C\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u7559\u55BA\u5230\u505A\u4E5C\u649A\u91CE\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53EF\u6190\u6211\u5440?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u884C\u5566\u5C4C\u4F60"

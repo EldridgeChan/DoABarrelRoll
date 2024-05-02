@@ -34,3 +34,33 @@ MonoBehaviour:
       bubbleText: 'I believe in you '
     - position: {x: 0, y: 5}
       bubbleText: 'Unlike me '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54E6 \u53C8\u6709\u65B0\u4EBA\u4F86\u55CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60.. \u770B\u8D77\u4F86\u5F88\u6709\u6F5B\u529B\u5414"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u76F8\u4FE1\u4F60\u4E00\u5B9A\u80FD\u767B\u9802\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E0D\u50CF\u6211"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53C8\u5F31\u53C8\u61F6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53EA\u80FD\u4E0D\u4E0A\u4E0D\u4E0B\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5361\u5728\u9019\u7A2E\u5730\u65B9"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54E6 \u53C8\u6709\u65B0\u4EBA\u569F\u5230"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u7747\u4F60\u9AA8\u683C\u7CBE\u5947"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u597D\u6709\u6F5B\u529B\u558E"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u4FE1\u4F60\u4E00\u5B9A\u767B\u5230\u9802\u35CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u540C\u6211\u5514\u540C"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8AD7\u6211\u4E00\u4E16\u90FD\u8981\u5361\u55BA\u5EA6\u35CE\u5587"

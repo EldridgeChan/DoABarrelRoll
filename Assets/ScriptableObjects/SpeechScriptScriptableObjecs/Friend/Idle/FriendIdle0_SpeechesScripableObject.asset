@@ -24,3 +24,19 @@ MonoBehaviour:
       bubbleText: 'So that I can observe while you doing it '
     - position: {x: 0, y: 5}
       bubbleText: 'I might learn a thing or two '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5148\u8D70\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5728\u5F8C\u9762\u770B\u4E00\u6703"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5B78\u500B\u5169\u62DB"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u884C\u5148\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u60F3\u55BA\u5F8C\u9762\u7747\u5413"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5077\u5413\u5E2B\u5481"

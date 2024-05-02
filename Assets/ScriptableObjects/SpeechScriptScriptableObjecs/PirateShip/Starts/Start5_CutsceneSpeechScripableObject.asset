@@ -36,3 +36,55 @@ MonoBehaviour:
       bubbleText: 'To all these bull shit? '
     - position: {x: 1.7, y: -0.7}
       bubbleText: Idiots...
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u5011\u4ECA\u5929"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6709\u4E00\u500B\u91CD\u5927\u7684\u516C\u4F48"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8239\u54E1\u5011\u5C07\u8FCE\u4F86\u65B0\u7684\u540C\u4F34"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u5011\u61C9\u8A72\u597D\u597D\u7684\u6176\u795D\u4E00\u4E0B"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "(\u62CD\u624B)"
+    - position: {x: -0.6, y: -0.53}
+      bubbleText: "\u7B49\u7B49 \u4F60\u8981\u53BB\u54EA\u88CF??"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8ACB\u554F\u6211\u770B\u8D77\u4F86"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u6709\u90A3\u9EBC\u60F3\u6210\u70BA\u8239\u54E1\u55CE?"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u5225\u958B\u73A9\u7B11\u4E86"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u9019\u500B\u5783\u573E\u5718\u9AD4"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u6211\u53EA\u662F\u770B\u4E00\u773C\u5C31\u60F3\u4F5C\u5641"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4ECA\u65E5\u6211\u6709\u4E00\u500B"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u91CD\u5927\u5605\u6D88\u606F\u8981\u516C\u4F48"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u7531\u4F9D\u4E00\u523B\u958B\u59CB"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F62\u6B63\u5F0F\u6211\u54CB\u8239\u54E1\u5605\u4E00\u4EFD\u5B50"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u54CB\u597D\u61C9\u8A72\u53BB\u6176\u795D\u4F9D\u4EF6\u4E8B"
+    - position: {x: -0.6, y: -0.53}
+      bubbleText: "(\u62CD\u624B)"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5582 \u4F60\u60F3\u53BB\u908A\u5440"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u4E5C\u6211\u7747\u843D\u4F3C\u4FC2\u60F3\u540C\u4F60\u54CB\u4E00\u6A23"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u505A\u4E00\u73ED\u7540\u8239\u9577\u5974\u5F79\u5605\u97ED\u83DC\u54A9"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u6211\u5BE7\u9858\u53BB\u7E7C\u7E8C\u53BB\u722C\u5C71"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u5C31\u7B97\u55BA\u4F60\u54CB\u773C\u4E2D\u4FC2\u5187\u610F\u7FA9"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u81F3\u5C11\u4F9D\u6A23\u4FC2\u6211\u81EA\u5DF1\u9078\u64C7\u5605"
+    - position: {x: 1.7, y: -0.7}
+      bubbleText: "\u6211\u4ECA\u751F\u60F3\u8981\u53BB\u505A\u5605\u4E8B"

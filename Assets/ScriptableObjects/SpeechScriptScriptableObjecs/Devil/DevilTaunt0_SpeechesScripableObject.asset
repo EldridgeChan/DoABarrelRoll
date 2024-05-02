@@ -32,3 +32,39 @@ MonoBehaviour:
       bubbleText: 'Just stay here alright? '
     - position: {x: 0, y: 5}
       bubbleText: "Don\u2019t be harmful to the world "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u751A\u9EBC!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C31\u6700\u5F8C\u4E00\u4E0B\u7C21\u55AE\u7684\u8DF3\u8E8D"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u9019\u90FD\u80FD\u5931\u6557?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u8AAA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u9084\u662F\u7559\u5728\u9019\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u767B\u9802"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0D\u4E0B\u9762\u7684\u4EBA\u5728\u8AAA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6839\u672C\u5C31\u662F\u4FAE\u8FB1"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54A9\u8A71!?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6700\u5F8C\u4F9D\u5413\u5481\u649A\u7C21\u55AE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u90FD\u53EF\u4EE5\u5931\u6557?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u7A76\u7ADF\u4FC2\u9EDE\u649A\u6A23"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53EF\u4EE5\u722C\u5230\u4E0A\u569F\u4F9D\u5EA6\u35CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u90FD\u4FC2\u7559\u8FD4\u55BA\u5EA6\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6709\u4F60\u5481\u5605\u4EBA\u767B\u9802"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0D\u4E0B\u9762\u5605\u4EBA\u569F\u8B1B\u7C21\u76F4\u4FAE\u8FB1"

@@ -22,3 +22,19 @@ MonoBehaviour:
       bubbleText: 'You tried '
     - position: {x: 0, y: 5}
       bubbleText: "It\u2019s time to give up "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5617\u8A66\u904E\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E5F\u52AA\u529B\u904E\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5DEE\u4E0D\u591A\u53EF\u4EE5\u653E\u68C4\u4E86\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u90FD\u6530\u35CE\u5587"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u90FD\u5DEE\u5514\u591A\u4FC2\u6642\u5019"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u61C9\u8A72\u653E\u68C4\u35CE\u5587"

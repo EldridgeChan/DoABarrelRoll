@@ -20,3 +20,15 @@ MonoBehaviour:
       bubbleText: 'What? '
     - position: {x: 0, y: 5}
       bubbleText: 'You ran out of your luck? '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u600E\u9EBC\u4E86?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u904B\u6C23\u7528\u5B8C\u4E86\u55CE?"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u505A\u54A9\u5440?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5187\u904B\u884C\u55F1\u4F60?"

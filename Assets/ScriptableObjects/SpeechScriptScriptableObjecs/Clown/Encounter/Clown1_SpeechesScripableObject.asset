@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cca5a62050ede41b487d926ff58e87, type: 3}
   m_Name: Clown1_SpeechesScripableObject
   m_EditorClassIdentifier: 
-  StartDelay: 1
+  StartDelay: 0.84
   AllSpeech:
   - language: 0
     bubbleSpeeches:
@@ -30,3 +30,39 @@ MonoBehaviour:
       bubbleText: "I\u2019m lazy and weak "
     - position: {x: 0, y: 5}
       bubbleText: "It\u2019s impossible "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5662 \u4F60\u6210\u529F\u767B\u9802\u4E86\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u597D\u53B2\u5BB3\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u4E00\u5B9A\u5F88\u52AA\u529B\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u70BA\u4F60\u611F\u5230\u9AD8\u8208"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u53EF\u80FD\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53C8\u5F31\u53C8\u61F6\u7684"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6C92\u53EF\u80FD\u5566"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5629\u4F60\u6210\u529F\u767B\u5DE6\u9802\u5440?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u597D\u53B2\u5BB3\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u4E00\u5B9A\u4ED8\u51FA\u5DE6\u597D\u591A"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u4EE5\u4F60\u70BA\u69AE\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5514\u5F97\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53C8\u5F31\u53C8\u61F6"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u908A\u6709\u53EF\u80FD\u5440"

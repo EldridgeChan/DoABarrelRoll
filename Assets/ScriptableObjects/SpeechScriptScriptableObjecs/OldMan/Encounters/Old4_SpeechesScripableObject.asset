@@ -40,3 +40,55 @@ MonoBehaviour:
       bubbleText: 'I think I will keep climbing '
     - position: {x: 0, y: 5}
       bubbleText: 'How about you? '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u662F\u65B0\u4EBA\u4F60\u55CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u904E\u4F86\u4E00\u4E0B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u807D\u6211\u8AAA\u807D\u6211\u8AAA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u6562\u76F8\u4FE1\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u767B\u9802\u4E86 \u6211\u767B\u9802\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u96D6\u7136\u6211\u4E0D\u77E5\u9053"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u767B\u9802\u4E86\u53C8\u600E\u6A23"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u6211\u53EA\u77E5\u9053"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5F88\u4EAB\u53D7\u9019\u8D9F\u65C5\u7A0B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u60F3\u8981\u7E7C\u7E8C\u6500\u767B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5462?"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5582\u65B0\u4ED4 \u65B0\u4ED4"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u65B0\u4ED4\u4F60\u904E\u4E00\u904E\u569F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u807D\u6211\u8B1B\u807D\u6211\u8B1B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u771F\u4FC2\u8B1B\u90FD\u5187\u4EBA\u4FE1"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u505A\u5230\u5587 \u6211\u771F\u4FC2\u505A\u5230\u5587"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u767B\u5DE6\u5EA7\u5C71\u5605\u9802"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u96D6\u7136\u8A71\u767B\u5DE6\u9802\u53EF\u4EE5\u9EDE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u5514\u649A\u77E5"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4FC2\u6211\u5514\u649A\u7406"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u6DE8\u4FC2\u77E5"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F9D\u4E00\u6574\u6BB5\u65C5\u7A0B \u6211\u597D\u4EAB\u53D7"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u6211\u6703\u7E7C\u7E8C\u6311\u6230\u4F9D\u5EA7\u5C71"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5462?"

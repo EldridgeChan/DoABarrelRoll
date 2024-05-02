@@ -36,3 +36,39 @@ MonoBehaviour:
       bubbleText: Shameless!!
     - position: {x: 0.5, y: -0.55}
       bubbleText: "Let\u2019s never forget your cowardness "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.57}
+      bubbleText: "\u4F60\u770B \u4ED6\u56DE\u4F86\u4E86"
+    - position: {x: -0.5, y: -0.52}
+      bubbleText: "\u8AB0?"
+    - position: {x: -0.2, y: -0.55}
+      bubbleText: "\u4E4B\u524D\u6211\u5011\u6254\u4E0B\u8239\u7684\u90A3\u500B"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u60F3\u6211\u8AAA\u904E"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4E0D\u8981\u7D66\u6211\u518D\u898B\u5230\u4F60\u5427"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u600E\u9EBC\u4E86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u56DE\u4F86\u8ACB\u6C42\u6211\u7684\u539F\u8AD2\u55CE?"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8B93\u6211\u5011\u8A18\u4E0B\u4F60\u7684\u61E6\u5F31"
+    - position: {x: -0.3, y: -0.55}
+      bubbleText: "\u597D\u8B93\u6211\u5011\u5632\u7B11\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: -0.8, y: -0.57}
+      bubbleText: "\u5582\u689D\u53CB\u8FD4\u5DE6\u569F\u5440"
+    - position: {x: -0.5, y: -0.52}
+      bubbleText: "\u908A\u689D\u53CB\u8A71?"
+    - position: {x: -0.2, y: -0.55}
+      bubbleText: "\u6BD4\u8239\u9577\u8E22\u843D\u8239\u55F0\u500B\u5440"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u54C8! \u4F60\u5514\u4FC2\u597D\u578B\u5481\u8981\u53BB\u5927\u5192\u96AA\u35CE\u54A9"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4EF2\u54A9\u5481\u6298\u58AE\u8E9D\u8981\u8FD4\u569F\u5440"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u7C21\u76F4\u4FC2\u500B\u7B11\u8A71"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u7B49\u6211\u8A18\u4F4E\u4F62\u5148"

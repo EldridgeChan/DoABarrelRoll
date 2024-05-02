@@ -34,3 +34,39 @@ MonoBehaviour:
       bubbleText: "So let\u2019s us just write it on the board "
     - position: {x: 0.5, y: -0.55}
       bubbleText: 'For the one last time '
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u597D\u963F"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u6709\u500B\u597D\u6D88\u606F\u8981\u8DDF\u4F60\u8AAA"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F60\u88AB\u8239\u54E1\u5011\u63A5\u7D0D\u4E86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u90A3\u662F\u8DDF\u5DE5\u4EBA\u5B8C\u5168\u4E0D\u540C\u7684\u5F85\u9047\u54E6"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u9AD8\u8208\u5427"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8A71\u8AAA\u56DE\u4F86"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u9019\u5C31\u662F\u6700\u5F8C\u4E00\u6B21"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8A18\u9304\u4F60\u7684\u6642\u9593\u4E86"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5582 \u4F60\u904E\u569F"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u540C\u4F60\u8B1B\u500B\u597D\u6D88\u606F"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u6211\u54CB\u6C7A\u5B9A\u63A5\u7D0D\u4F60\u505A\u8239\u54E1"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u5F85\u9047\u540C\u5DE5\u4EBA\u597D\u5514\u540C\u35CE"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u597D\u61C9\u8A72\u958B\u5FC3\u5566\u4F60"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8B1B\u8FD4\u8F49\u982D"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u4F9D\u6B21\u4FC2\u6700\u5F8C\u4E00\u6B21\u5587"
+    - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u8A18\u4F4E\u57CB\u500B\u6642\u9593\u4F62\u5566"

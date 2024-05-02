@@ -24,3 +24,23 @@ MonoBehaviour:
       bubbleText: "That\u2019s alright "
     - position: {x: 0, y: 5}
       bubbleText: "Let\u2019s us sit here together for a while "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54E6 \u662F\u65B0\u4EBA\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u5728\u4F11\u606F\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u597D\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8B93\u6211\u966A\u4F60\u4E00\u6703\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u54E6 \u65B0\u4ED4"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u55BA\u5230\u551E\u7DCA\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u597D\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7B49\u6211\u966A\u5413\u4F60\u5566"

@@ -22,3 +22,23 @@ MonoBehaviour:
       bubbleText: 'Sometime it is important for a person '
     - position: {x: 0, y: 5}
       bubbleText: To know when to give up
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u77E5\u9053\u55CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0D\u4E00\u500B\u4EBA\u4F86\u8AAA"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u61C2\u5F97\u653E\u68C4\u7684\u6642\u6A5F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E5F\u662F\u5F88\u91CD\u8981\u7684"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u77E5\u9053\u55CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5C0D\u4E00\u500B\u4EBA\u569F\u8B1B\u5462"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u77E5\u9053\u5E7E\u6642\u61C9\u8A72\u8981\u653E\u68C4"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u90FD\u4FC2\u597D\u91CD\u8981\u35CE"

@@ -40,3 +40,43 @@ MonoBehaviour:
       bubbleText: 'All under your eyes from the most above '
     - position: {x: 0, y: 5}
       bubbleText: "Doesn\u2019t it feel great? "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5F88\u597D"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u6C7A\u5B9A\u8981\u7559\u5728\u9019\u88F9\u4E86\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u662F\u4E00\u500B\u6B63\u78BA\u7684\u9078\u64C7"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u904E\u4F86\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u770B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4ED6\u5011\u9019\u9EBC\u52AA\u529B\u7684\u5728\u722C"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4E0A\u4E0A\u4E0B\u4E0B\u7684\u6C38\u9060\u5230\u4E0D\u4E86 "
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5F88\u6709\u8DA3 \u5F88\u53EF\u7B11\u5C0D\u5427 "
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u7A2E\u611F\u89BA \u4E0D\u597D\u55CE? "
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u975E\u5E38\u597D"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u6253\u7B97\u7559\u55BA\u5EA6\u5440\u561B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F9D\u500B\u4FC2\u4E00\u500B\u6B63\u78BA\u5605\u9078\u64C7"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u569F\u5566 \u569F\u4F9D\u5EA6\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F60\u7747\u5413"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F62\u54CB\u722C\u5F97\u5E7E\u5481\u52AA\u529B"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F46\u4FC2\u5C31\u6C38\u9060\u722C\u4E00\u6B65\u8DCC\u5169\u6B65\u5481"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5E7E\u597D\u7747 \u5E7E\u597D\u7B11"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4F9D\u7A2E\u611F\u89BA\u5514\u6B63\u54A9?"

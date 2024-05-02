@@ -28,3 +28,33 @@ MonoBehaviour:
       bubbleText: 'Wait for the end of our life '
     - position: {x: 0, y: 5}
       bubbleText: "It\u2019s not like we are making any difference anyway "
+  - language: 1
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u600E\u9EBC\u4E86"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u60F3\u8981\u653E\u68C4\u4E86\u55CE?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u9019\u9EBC\u5FEB\u5C31\u80FD\u4F5C\u51FA\u6B63\u78BA\u7684\u6C7A\u5B9A"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5F88\u597D\u963F"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E00\u9F4A\u5728\u9019\u7B49\u5F85\u6211\u5011\u7684\u6B7B\u4EA1\u5427"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53CD\u6B63\u5C31\u7B97\u4E0D\u662F\u9019\u6A23"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u4E5F\u6C92\u751A\u9EBC\u524D\u5DEE\u5225\u5427"
+  - language: 2
+    bubbleSpeeches:
+    - position: {x: 0, y: 5}
+      bubbleText: "\u505A\u54A9\u5440"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u5DF2\u7D93\u60F3\u653E\u68C4\u5587?"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u597D\u5440 \u597D\u4E8B\u569F\u35CE"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u7559\u55BA\u5EA6\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u8EBA\u5E73\u5566"
+    - position: {x: 0, y: 5}
+      bubbleText: "\u53CD\u6B63\u90FD\u5187\u54A9\u5206\u5225\u35CE\u5566"
