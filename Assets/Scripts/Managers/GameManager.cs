@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public EndingType CurrentEnding = EndingType.None;
 
+    private List<PromptLanguage> languageListeners;
+
     private void Awake()
     {
         if (instance)
@@ -71,9 +73,31 @@ public class GameManager : MonoBehaviour
         if (!audioMan) { audioMan = GetComponent<AudioManager>(); }
         Cursor.lockState = CursorLockMode.Confined;
 
+        languageListeners = new List<PromptLanguage>();
         saveMan.LoadSetting();
         SaveMan.LoadPlayerProgress();
         saveMan.InitFromSave();
         uiMan.InitSettingOptions();
+    }
+
+    public void AddLangListener(PromptLanguage pl)
+    {
+        languageListeners.Add(pl);
+    }
+
+    public void RemoveLangListener(PromptLanguage pl)
+    {
+        languageListeners.Remove(pl);
+    }
+
+    public void UpdateLangListeners()
+    {
+        for (int i = 0; i < languageListeners.Count; i++)
+        {
+            if (languageListeners[i])
+            {
+                languageListeners[i].SetLanguageText();
+            }
+        }
     }
 }

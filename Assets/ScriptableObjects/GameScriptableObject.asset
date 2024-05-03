@@ -178,3 +178,8 @@ MonoBehaviour:
   BackgroundLayer2Speed: 0.05
   BackgroundLayer3Speed: 0.1
   BackgroundLayer4Speed: 0.2
+  LanguageFonts:
+  - {fileID: 11400000, guid: e4e340064b1af5b4f861f880a0d2ab72, type: 2}
+  - {fileID: 11400000, guid: dd8039633a105b8429144ccc6a08aff5, type: 2}
+  - {fileID: 11400000, guid: dd8039633a105b8429144ccc6a08aff5, type: 2}
+  TitleENFont: {fileID: 11400000, guid: 9361bf6de9266974b897d50181174531, type: 2}

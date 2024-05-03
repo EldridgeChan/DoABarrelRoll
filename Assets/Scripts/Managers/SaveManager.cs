@@ -17,6 +17,7 @@ public class SaveManager : MonoBehaviour
     public bool skipEnding = false;
 
     //Game Save Fields
+    public GameVersion gameVersion = GameVersion.None;
     public Vector2 playerSavePosition = Vector2.zero;
     public LevelArea playerSaveArea = LevelArea.MainMenu;
     public bool[] playerSaveAreaActive = new bool[4] {false, false, false, false};
@@ -43,6 +44,8 @@ public class SaveManager : MonoBehaviour
 
     public void SavePlayerProgress()
     {
+        gameVersion = (GameVersion)GameVersionConverter();
+        PlayerPrefs.SetInt(nameof(gameVersion), (int)gameVersion);
         PlayerPrefs.SetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x);
         PlayerPrefs.SetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y);
         PlayerPrefs.SetInt(nameof(playerSaveArea), (int)playerSaveArea);
@@ -52,6 +55,24 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "3", playerSaveAreaActive[3] ? 1 : -1);
         PlayerPrefs.SetFloat(nameof(playerSaveTimer), playerSaveTimer);
         PlayerPrefs.Save();
+    }
+
+    private int GameVersionConverter()
+    {
+        string version = Application.version;
+        if (version.EndsWith('o'))
+        {
+            return 0;
+        }
+        version = version.Replace(".", "_");
+        for (int i = 1; i < (int)GameVersion.EndOfEnum; i++)
+        {
+            if (version.Equals((GameVersion)i + ""))
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void LoadSetting()
@@ -72,6 +93,9 @@ public class SaveManager : MonoBehaviour
 
     public void LoadPlayerProgress()
     {
+        if (GameVersionConverter() < 1) { return; }
+        gameVersion = (GameVersion)PlayerPrefs.GetInt(nameof(gameVersion), -1);
+        if ((int)gameVersion < 1) { return; }
         playerSavePosition = new Vector2(PlayerPrefs.GetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x), PlayerPrefs.GetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y));
         playerSaveArea = (LevelArea)PlayerPrefs.GetInt(nameof(playerSaveArea), (int)playerSaveArea);
         playerSaveAreaActive[0] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "0", playerSaveAreaActive[0] ? 1 : -1) > 0;
@@ -83,6 +107,7 @@ public class SaveManager : MonoBehaviour
 
     public void ResetPlayerProgress()
     {
+        gameVersion = GameVersion.None;
         playerSavePosition = Vector2.zero;
         playerSaveArea = LevelArea.MainMenu;
         playerSaveAreaActive = new bool[4] { false, false, false, false };

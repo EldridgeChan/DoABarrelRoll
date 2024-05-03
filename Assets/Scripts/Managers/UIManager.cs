@@ -89,6 +89,12 @@ public class UIManager : MonoBehaviour
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
     }
 
+    public void SetLanguage(int index)
+    {
+        GameManager.instance.AudioMan.PlayClickSound();
+        GameManager.instance.SaveMan.selectedLanguage = (Language)index;
+        GameManager.instance.UpdateLangListeners();
+    }
     public void SetJumpSensibility(float sensibility)
     {
         GameManager.instance.AudioMan.PlayClickSound();
@@ -125,9 +131,10 @@ public class UIManager : MonoBehaviour
         GameManager.instance.SaveMan.mirroredTilemap = tf;
     }
 
-    public void SetFlipMapToggleInteractable(bool tf)
+    public void SetSettingInteractable(bool tf)
     {
         flipMapTog.interactable = tf;
+        languageDD.interactable = tf;
     }
 
     public void OnShowGuideToggle(bool tf)

@@ -1,3 +1,11 @@
+public enum GameVersion
+{
+    None = -1,
+    Demo,
+    V1_0_2,
+    EndOfEnum
+}
+
 public enum EmojiType
 {
     Happy,

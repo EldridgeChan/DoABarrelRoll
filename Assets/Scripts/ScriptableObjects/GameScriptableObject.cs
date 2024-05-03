@@ -173,4 +173,8 @@ public class GameScriptableObject : ScriptableObject
     public float BackgroundLayer2Speed = 1.0f;
     public float BackgroundLayer3Speed = 1.0f;
     public float BackgroundLayer4Speed = 1.0f;
+
+    [Header("Language Setting")]
+    public TMPro.TMP_FontAsset[] LanguageFonts;
+    public TMPro.TMP_FontAsset TitleENFont;
 }
