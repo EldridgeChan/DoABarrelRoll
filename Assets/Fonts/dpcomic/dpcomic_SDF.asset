@@ -2323,8 +2323,8 @@ Material:
     m_Floats:
     - _GradientScale: 6
     - _OutlineSoftness: 0.5
-    - _OutlineWidth: 0.2
-    - _ScaleRatioA: 0.8333333
+    - _OutlineWidth: 0.4
+    - _ScaleRatioA: 0.7662835
     - _ScaleRatioB: 0.6770833
     - _ScaleRatioC: 0.6770833
     - _WeightBold: 0.75
