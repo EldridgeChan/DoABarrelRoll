@@ -260,10 +260,10 @@ public class BarrelControl : MonoBehaviour
         return false;
     }
 
-    public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
+    public void BarrelRoll(Vector2 preDir, Vector2 nowDir)
     {
-        float magnitude = Vector2.Angle(prePos - barrelRig.position, nowPos - barrelRig.position);
-        pastRotateDir = RotateDir(ToRoundAngle(prePos - barrelRig.position), ToRoundAngle(nowPos - barrelRig.position));
+        float magnitude = Vector2.Angle(preDir, nowDir);
+        pastRotateDir = RotateDir(ToRoundAngle(preDir), ToRoundAngle(nowDir));
         if (!InSnowLock)
         {
             barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * GameManager.instance.SaveMan.rollSensibility * Mathf.Deg2Rad * barrelRig.inertia);
@@ -287,11 +287,11 @@ public class BarrelControl : MonoBehaviour
     public void BarrelJump(Vector2 dir)
     {
         if (jumpChargeT > 0.0f || !touchedGround) { return; }
-        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir - (Vector2)transform.position, 1.5f);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir, 1.5f);
         if (!IsJumpHitGround(hit)) { return; }
 
         jumpSoundPlayer.PlaySoundManual();
-        barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir - (Vector2)transform.position).normalized);
+        barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir).normalized);
         jumpChargeT = 1.0f;
         barrelParentAnmt.SetTrigger("BarrelJump");
         BarrelJumpDust(dir);
@@ -318,7 +318,7 @@ public class BarrelControl : MonoBehaviour
             Debug.Log("ERROR: Game Controller Null Exception");
             return; 
         }
-        GameManager.instance.GameCon.DisplayJumpDust(BarrelJumpLevel(MousePosMagnitudeMultiplier(dir)));
+        GameManager.instance.GameCon.DisplayJumpDust(BarrelJumpLevel(MousePosMagnitudeMultiplier(dir)), dir);
     }
 
     private int BarrelJumpLevel(float jumpT)
@@ -337,9 +337,9 @@ public class BarrelControl : MonoBehaviour
         }
     }
 
-    public float MousePosMagnitudeMultiplier(Vector2 mousePos)
+    public float MousePosMagnitudeMultiplier(Vector2 dir)
     {
-        return Mathf.Clamp01((mousePos - barrelRig.position).magnitude / (1.0f / GameManager.instance.SaveMan.jumpSensibility));
+        return Mathf.Clamp01(dir.magnitude / (1.0f / GameManager.instance.SaveMan.jumpSensibility));
     }
 
     public void SetTouchedGround(bool tF)
@@ -367,6 +367,7 @@ public class BarrelControl : MonoBehaviour
         jumpChargeT = 0.0f;
         orgRotation = transform.rotation;
         GameManager.instance.GameCon.isControlLocked = true;
+        GameManager.instance.GameCon.DisplayGuildingArrow(false);
         GameManager.instance.GameCon.BarrelCameraState(true, CameraState.Menu);
         BarrelRig.velocity = Vector2.zero;
         BarrelRig.angularVelocity = 0.0f;
@@ -433,6 +434,7 @@ public class BarrelControl : MonoBehaviour
         BarrelRig.angularVelocity = 0.0f;
         barrelAnmt.speed = 0.0f;
         GameManager.instance.GameCon.isControlLocked = false;
+        GameManager.instance.GameCon.DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
         GameManager.instance.GameCon.BarrelCameraState(false, CameraState.Menu);
         GameManager.instance.GameCon.SetSwampDecorationActive(true);
     }

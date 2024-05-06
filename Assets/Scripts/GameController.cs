@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private BarrelControl barrelControl;
     [SerializeField]
+    private BarrelJump barrelJump;
+    [SerializeField]
     private BarrelCutSceneBehaviour barrelCSBehave;
     [SerializeField]
     private SpriteRenderer arrowRend;
@@ -119,6 +121,7 @@ public class GameController : MonoBehaviour
         else
         {
             LoadingPlayerProgress();
+            DisplayGuildingArrow(false);
             barrelControl.Invoke(nameof(barrelControl.BarrelGainControl), GameManager.instance.GameScriptObj.BarrelFallGainControlTime);
             BarrelCameraState(false, CameraState.CutScene);
         }
@@ -181,13 +184,29 @@ public class GameController : MonoBehaviour
     public void BarrelJump(Vector2 dir)
     {
         if (isControlLocked) { return; }
-        barrelControl.BarrelJump(dir);
+        barrelControl.BarrelJump(dir - barrelControl.BarrelRig.position);
+        barrelJump.SetArrowRotationAndSscale(dir);
     }
 
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
     {
         if (isControlLocked) { return; }
-        barrelControl.BarrelRoll(prePos, nowPos);
+        barrelControl.BarrelRoll(prePos - barrelControl.BarrelRig.position , nowPos - barrelControl.BarrelRig.position);
+        barrelJump.SetArrowRotationAndSscale(nowPos - barrelControl.BarrelRig.position);
+    }
+
+    public void BarrelRollGamePad(Vector2 preDir, Vector2 nowDir)
+    {
+        if (isControlLocked) { return; }
+        barrelControl.BarrelRoll(preDir, nowDir);
+        barrelJump.SetArrowRotationAndSscale(nowDir);
+    }
+
+    public void BarrelJumpGamePad(Vector2 dir)
+    {
+        if (isControlLocked) { return; }
+        barrelControl.BarrelJump(dir);
+        barrelJump.SetArrowRotationAndSscale(dir);
     }
 
     public Vector3 GetBarrelPosition()
@@ -236,9 +255,9 @@ public class GameController : MonoBehaviour
         arrowRend.enabled = tf;
     }
 
-    public void DisplayJumpDust(int jumpLevel)
+    public void DisplayJumpDust(int jumpLevel, Vector2 dir)
     {
-        jumpDustBehaves[jumpDustIndex].DisplayJumpDust(barrelControl, GameManager.instance.InputMan.MouseWorldPos(), jumpLevel);
+        jumpDustBehaves[jumpDustIndex].DisplayJumpDust(barrelControl, dir, jumpLevel);
         jumpDustIndex = (jumpDustIndex + 1) % jumpDustBehaves.Length;
     }
 

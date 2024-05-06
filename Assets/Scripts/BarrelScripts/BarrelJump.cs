@@ -14,10 +14,13 @@ public class BarrelJump : MonoBehaviour
     [SerializeField]
     private Sprite[] arrowSprites;
 
+    private Vector2 arrowDir = Vector2.zero;
+
     private void Update()
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, BarrelControl.ToRoundAngle(GameManager.instance.InputMan.MouseWorldPos() - (Vector2)transform.position));
-        arrowParentTrans.localScale = new Vector2(barrelCon.MousePosMagnitudeMultiplier(GameManager.instance.InputMan.MouseWorldPos()), 1.0f);
+        if (arrowDir == Vector2.zero) { return; }
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, BarrelControl.ToRoundAngle(arrowDir));
+        //arrowParentTrans.localScale = new Vector2(barrelCon.MousePosMagnitudeMultiplier(GameManager.instance.InputMan.MouseWorldPos() - barrelCon.BarrelRig.position), 1.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,5 +44,11 @@ public class BarrelJump : MonoBehaviour
                 arrowRend.sprite = arrowSprites[1];
             }
         }
+    }
+
+    public void SetArrowRotationAndSscale(Vector2 dir)
+    {
+        arrowDir = dir;
+        arrowParentTrans.localScale = new Vector2(barrelCon.MousePosMagnitudeMultiplier(dir), 1.0f);
     }
 }
