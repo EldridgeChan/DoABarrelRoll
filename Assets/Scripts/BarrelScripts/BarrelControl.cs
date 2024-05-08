@@ -48,6 +48,7 @@ public class BarrelControl : MonoBehaviour
     private float jumpChargeT = 0.0f;
     private float pastAngularVelocity = 0.0f;
     private int pastRotateDir = 0;
+    private float gravityLerpT = 0.0f;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
     private float mockAngularVelocity = 0.0f;
@@ -62,7 +63,9 @@ public class BarrelControl : MonoBehaviour
     [HideInInspector]
     public int SnowCount = 0;
     [HideInInspector]
-    public Vector2 GravityDirection = Vector2.down;
+    public int BottonTouch = 0;
+    [HideInInspector]
+    public Vector2 gravityDirection = Vector2.down;
     [HideInInspector]
     public bool InSnowLock = false;
 
@@ -79,7 +82,6 @@ public class BarrelControl : MonoBehaviour
     {
         GroundCollisionStay(collision);
         SwampCollisionStay(collision);
-        SnowCollisionStay(collision);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -152,6 +154,7 @@ public class BarrelControl : MonoBehaviour
     private void BarrelUpdate()
     {
         if (GameManager.instance.GameCon.isControlLocked) { return; }
+        BarrelGravityLerpTUpdate();
         barrelRend.flipX = barrelRig.velocity.x < 0;
         barrelRig.angularVelocity = (barrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity), -GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelMaxAngularVelocity);
         barrelAnmt.speed = Mathf.Abs(barrelRig.angularVelocity) / GameManager.instance.GameScriptObj.BarrelRollAnimateSpeedDivisor;
@@ -162,8 +165,34 @@ public class BarrelControl : MonoBehaviour
     private void BarrelRestraint()
     {
         if (BarrelRig.bodyType != RigidbodyType2D.Dynamic) { return; }
-        BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * Time.fixedDeltaTime * GravityDirection;
+        BarrelRig.velocity -= Physics2D.gravity.y * (inWater ? GameManager.instance.GameScriptObj.waterFloatingGravityScale : GameManager.instance.GameScriptObj.waterOffDefaultGravityScale) * BarrelGravityMultiplier() * Time.fixedDeltaTime * gravityDirection;
         barrelRig.velocity = new Vector2(Mathf.Clamp(BarrelRig.velocity.x, -GameManager.instance.GameScriptObj.BarrelMaxXVelocity, GameManager.instance.GameScriptObj.BarrelMaxXVelocity), Mathf.Clamp(barrelRig.velocity.y, GameManager.instance.GameScriptObj.BarrelMinYVelocity, float.MaxValue));
+    }
+
+    private float BarrelGravityMultiplier()
+    {
+        return 1.0f + gravityLerpT * GameManager.instance.GameScriptObj.BarrelFallAccerateMaxMultiplier;
+    }
+
+    private bool IsBarrelGravityIncrease()
+    {
+        if (inWater || SnowCount > 0 || SwampCount > 0 || barrelRig.velocity.y >= 0.0f || BottonTouch > 0 )
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void BarrelGravityLerpTUpdate()
+    {
+        if (IsBarrelGravityIncrease())
+        {
+            gravityLerpT = Mathf.Clamp01(gravityLerpT + (Time.fixedDeltaTime / GameManager.instance.GameScriptObj.BarrelFallAccerateTMaxTime));
+        }
+        else
+        {
+            gravityLerpT = 0.0f;
+        }
     }
 
     public void IntoWater(bool tf)
@@ -290,6 +319,7 @@ public class BarrelControl : MonoBehaviour
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, dir, 1.5f);
         if (!IsJumpHitGround(hit)) { return; }
 
+        gravityLerpT = 0.0f;
         jumpSoundPlayer.PlaySoundManual();
         barrelRig.AddForce(GameManager.instance.GameScriptObj.BarrelFullJumpForce * MousePosMagnitudeMultiplier(dir) * -(dir).normalized);
         jumpChargeT = 1.0f;
@@ -461,7 +491,7 @@ public class BarrelControl : MonoBehaviour
     private void SwampCollisionStay(Collision2D collision)
     {
         if (!collision.transform.CompareTag("Swamp")) { return; }
-        GravityDirection = (collision.GetContact(collision.contactCount <= 1 ? 0 : pastRotateDir * RotateDir(ToRoundAngle(collision.GetContact(0).point - barrelRig.position), ToRoundAngle(collision.GetContact(1).point - barrelRig.position)) < 0 ? 1 : 0).point - BarrelRig.position).normalized;
+        gravityDirection = (collision.GetContact(collision.contactCount <= 1 ? 0 : pastRotateDir * RotateDir(ToRoundAngle(collision.GetContact(0).point - barrelRig.position), ToRoundAngle(collision.GetContact(1).point - barrelRig.position)) < 0 ? 1 : 0).point - BarrelRig.position).normalized;
     }
 
     private void BarrelSwampUpdate()
@@ -469,13 +499,6 @@ public class BarrelControl : MonoBehaviour
         if (SwampCount <= 0) { return; }
         barrelRig.angularVelocity = (BarrelRig.angularVelocity < 0 ? -1.0f : 1.0f) * Mathf.Clamp(Mathf.Abs(barrelRig.angularVelocity) - GameManager.instance.GameScriptObj.BarrelSwampAVDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue);
         BarrelRig.angularVelocity = Mathf.Clamp(BarrelRig.angularVelocity, -GameManager.instance.GameScriptObj.BarrelSwampMaxAngularVelocity, GameManager.instance.GameScriptObj.BarrelSwampMaxAngularVelocity);
-    }
-
-    private void SnowCollisionStay(Collision2D collision)
-    {
-        if (SnowCount <= 0 || !InSnowLock || !collision.transform.CompareTag("Ground")) { return; }
-        //GravityDirection = (collision.GetContact(0).point - BarrelRig.position).normalized;
-        //BarrelRig.velocity = Mathf.Clamp(BarrelRig.velocity.magnitude - GameManager.instance.GameScriptObj.BarrelSnowVelocityDeceleration * Time.fixedDeltaTime, 0.0f, float.MaxValue) * BarrelRig.velocity.normalized;
     }
 
     public void SnowCollisionStay()
@@ -494,7 +517,7 @@ public class BarrelControl : MonoBehaviour
     {
         if (!InSnowLock) { return; }
         GameManager.instance.GameCon.DeactivateSnowParticle();
-        GravityDirection = Vector2.down;
+        gravityDirection = Vector2.down;
         InSnowLock = false;
         BarrelRig.angularVelocity = mockAngularVelocity;
         mockAngularVelocity = 0.0f;
@@ -521,7 +544,7 @@ public class BarrelControl : MonoBehaviour
         }
         else if (SwampCount > 0)
         {
-            blizzardAcceleration *= (Vector2.Angle(Vector2.right * dir, GravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : GameManager.instance.GameScriptObj.BlizzardSwampWallAccelerationOffset);
+            blizzardAcceleration *= (Vector2.Angle(Vector2.right * dir, gravityDirection) < (180.0f - GameManager.instance.GameScriptObj.BlizzardSwampAngleBuffer) ? GameManager.instance.GameScriptObj.BlizzardSwampAccelerationOffset : GameManager.instance.GameScriptObj.BlizzardSwampWallAccelerationOffset);
         }
         BarrelRig.velocity += blizzardAcceleration;
     }
@@ -547,8 +570,9 @@ public class BarrelControl : MonoBehaviour
         GroundCount = 0;
         touchingGroundNum = 0;
         SnowCount = 0;
+        BottonTouch = 0;
         InSnowLock = false;
         inWaterFlow = false;
-        GravityDirection = Vector2.down;
+        gravityDirection = Vector2.down;
     }
 }

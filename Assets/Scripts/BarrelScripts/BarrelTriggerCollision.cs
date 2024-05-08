@@ -25,7 +25,7 @@ public class BarrelTriggerCollision : MonoBehaviour
                 GameManager.instance.GameCon.ActivateSwampParticle(collision.ClosestPoint(barrelCon.transform.position));
                 barrelCon.IntoMud();
                 barrelCon.BarrelRig.velocity = Vector2.ClampMagnitude(barrelCon.BarrelRig.velocity, GameManager.instance.GameScriptObj.BarrelSwampMaxVeclocityMagnitude);
-                barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
+                barrelCon.gravityDirection = (collision.ClosestPoint(barrelCon.BarrelRig.position) - barrelCon.BarrelRig.position).normalized;
             }
             barrelCon.SwampCount++;
         }
@@ -45,7 +45,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         {
             GameManager.instance.GameCon.ActivateSnowParticle(collision.ClosestPoint(barrelCon.transform.position));
             barrelCon.SnowCollisionStay();
-            barrelCon.GravityDirection = (collision.ClosestPoint(barrelCon.transform.position) - (Vector2)barrelCon.transform.position).normalized;
+            barrelCon.gravityDirection = (collision.ClosestPoint(barrelCon.transform.position) - (Vector2)barrelCon.transform.position).normalized;
         }
     }
 
@@ -61,7 +61,7 @@ public class BarrelTriggerCollision : MonoBehaviour
         }
         if (collision.isTrigger && collision.CompareTag("Swamp"))
         {
-            barrelCon.GravityDirection = Vector2.down;
+            barrelCon.gravityDirection = Vector2.down;
             barrelCon.SwampCount = Mathf.Clamp(barrelCon.SwampCount - 1, 0, int.MaxValue);
         }
         if (collision.CompareTag("Snow"))
@@ -71,7 +71,7 @@ public class BarrelTriggerCollision : MonoBehaviour
             {
                 GameManager.instance.GameCon.DeactivateSnowParticle();
                 barrelCon.InSnowLock = false;
-                barrelCon.GravityDirection = Vector2.down;
+                barrelCon.gravityDirection = Vector2.down;
             }
         }
     }

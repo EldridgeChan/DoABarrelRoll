@@ -25,10 +25,12 @@ MonoBehaviour:
   BarrelMaxAngularVelocity: 2000
   BarrelMaxXVelocity: 35
   BarrelMinYVelocity: -45
+  BarrelFallAccerateTMaxTime: 0.5
+  BarrelFallAccerateMaxMultiplier: 2
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
   BarrelSwampMaxVeclocityMagnitude: 2
-  BarrelSnowVelocityDeceleration: 50
+  BarrelSnowVelocityDeceleration: 60
   BarrelInSnowLockCoolDown: 0.1
   BarrelSnowMockAVMultiplier: 1
   BarrelSnowMockAVAnmtSpeedMultiplier: 0.0001

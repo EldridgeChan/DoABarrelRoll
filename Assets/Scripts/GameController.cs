@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
     {
         if (isControlLocked) { return; }
         barrelControl.BarrelJump(dir - barrelControl.BarrelRig.position);
-        barrelJump.SetArrowRotationAndSscale(dir);
+        barrelJump.SetArrowRotationAndSscale(dir - barrelControl.BarrelRig.position);
     }
 
     public void BarrelRoll(Vector2 prePos, Vector2 nowPos)
@@ -327,7 +327,7 @@ public class GameController : MonoBehaviour
     public void EndLevelCutScene()
     {
         barrelCSBehave.enabled = true;
-        barrelControl.GravityDirection = Vector2.down;
+        barrelControl.gravityDirection = Vector2.down;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
         StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.End0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.End0, (int)SpeechScript.End4), endPirateShip.transform);
