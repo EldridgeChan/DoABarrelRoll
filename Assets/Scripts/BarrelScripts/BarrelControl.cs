@@ -339,7 +339,7 @@ public class BarrelControl : MonoBehaviour
 
     public float MousePosMagnitudeMultiplier(Vector2 dir)
     {
-        return Mathf.Clamp01(dir.magnitude / (1.0f / GameManager.instance.SaveMan.jumpSensibility));
+        return Mathf.Clamp01(dir.magnitude * GameManager.instance.SaveMan.jumpSensibility);
     }
 
     public void SetTouchedGround(bool tF)

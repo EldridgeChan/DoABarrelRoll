@@ -79,6 +79,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private BlizzardImageController blizzardImageCon;
     public BlizzardImageController BlizzardImageCon { get { return blizzardImageCon; } }
+    [SerializeField]
+    private ControlIntruction[] intructions;
 
     [Header("NPCs")]
     [SerializeField]
@@ -124,6 +126,7 @@ public class GameController : MonoBehaviour
             DisplayGuildingArrow(false);
             barrelControl.Invoke(nameof(barrelControl.BarrelGainControl), GameManager.instance.GameScriptObj.BarrelFallGainControlTime);
             BarrelCameraState(false, CameraState.CutScene);
+            UpdateIntructionInputDevice(InputScheme.KeyMouse);
         }
     }
 
@@ -199,14 +202,14 @@ public class GameController : MonoBehaviour
     {
         if (isControlLocked) { return; }
         barrelControl.BarrelRoll(preDir, nowDir);
-        barrelJump.SetArrowRotationAndSscale(nowDir);
+        barrelJump.SetArrowRotationAndSscale(nowDir / GameManager.instance.SaveMan.jumpSensibility);
     }
 
     public void BarrelJumpGamePad(Vector2 dir)
     {
         if (isControlLocked) { return; }
-        barrelControl.BarrelJump(dir);
-        barrelJump.SetArrowRotationAndSscale(dir);
+        barrelControl.BarrelJump(dir / GameManager.instance.SaveMan.jumpSensibility);
+        barrelJump.SetArrowRotationAndSscale(dir / GameManager.instance.SaveMan.jumpSensibility);
     }
 
     public Vector3 GetBarrelPosition()
@@ -524,6 +527,14 @@ public class GameController : MonoBehaviour
     public void SetGlitchLandDark(bool tf)
     {
         glitchTilemapParentAnmt.SetBool("InGlitch", tf);
+    }
+
+    public void UpdateIntructionInputDevice(InputScheme device)
+    {
+        for (int i = 0; i < intructions.Length; i++)
+        {
+            intructions[i].SetIntructionInputDevice(device);
+        }
     }
 
     //Snowing

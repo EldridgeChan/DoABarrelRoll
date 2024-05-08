@@ -33,7 +33,8 @@ public enum EmojiType
 public enum CameraState
 {
     Menu,
-    CutScene
+    CutScene,
+    Gameplay
 }
 
 public enum Language
@@ -110,6 +111,12 @@ public enum EndingType
     NoFuckGiven,
     LiveToDie,
     StrangledByFinishLine
+}
+
+public enum InputScheme
+{
+    KeyMouse,
+    GamePad
 }
 
 public enum AchievementType

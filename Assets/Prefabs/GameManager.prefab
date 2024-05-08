@@ -3921,7 +3921,7 @@ MonoBehaviour:
     m_ActionName: Menu/Menu[/DualSenseGamepadHID/select,/DualSenseGamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: ControllerScheme
-  m_DefaultActionMap: Menu
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &3146133709997472839

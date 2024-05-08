@@ -12,7 +12,7 @@ public class PromptLanguage : MonoBehaviour
     [SerializeField]
     private string[] languageTexts;
 
-    void Start()
+    private void Start()
     {
         if (!promptTxt)
         {
@@ -23,7 +23,7 @@ public class PromptLanguage : MonoBehaviour
         GameManager.instance.AddLangListener(this);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         GameManager.instance.RemoveLangListener(this);
     }
