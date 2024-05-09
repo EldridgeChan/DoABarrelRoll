@@ -23,10 +23,13 @@ MonoBehaviour:
   BarrelJumpFullChargeTime: 0.35
   BarrelFullJumpForce: 800
   BarrelMaxAngularVelocity: 2000
-  BarrelMaxXVelocity: 35
-  BarrelMinYVelocity: -45
+  BarrelMaxXVelocity: 40
+  BarrelMinYVelocity: -40
   BarrelFallAccerateTMaxTime: 0.5
   BarrelFallAccerateMaxMultiplier: 2
+  BarrelStuckRaycastDistance: 0.5
+  BarrelRecordStuckDistance: 0.45
+  BarrelStuckTranslateDistance: 0.1
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
   BarrelSwampMaxVeclocityMagnitude: 2

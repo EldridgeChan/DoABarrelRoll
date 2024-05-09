@@ -46,7 +46,7 @@ MonoBehaviour:
       bubbleText: "\u53EB\u4F60\u597D\u597D\u505A\u5C31\u597D\u597D\u505A"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u7121\u7DE3\u7121\u6545\u7684\u5728\u62B1\u6028\u751A\u9EBC"
-    - position: {x: -0.5, y: -0.56}
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "\u6211\u771F\u7684\u662F\u53D7\u5920\u4E86"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u6211\u7684\u8239\u4E0D\u9700\u8981\u4F60"
@@ -64,7 +64,7 @@ MonoBehaviour:
       bubbleText: "\u500B\u9CE9\u500B\u90FD\u4FC2\u5481\u35CE\u5566"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u4EF2\u6028.. \u60F3\u4F5C\u53CD\u5440?"
-    - position: {x: -0.5, y: -0.56}
+    - position: {x: 0.5, y: -0.55}
       bubbleText: "\u5F97\u5587"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u6211\u96BB\u8239\u5514\u9700\u8981\u4F60"

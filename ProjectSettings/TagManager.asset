@@ -65,14 +65,14 @@ TagManager:
   - name: TriggerTilemap
     uniqueID: 3370666559
     locked: 0
+  - name: Decorative
+    uniqueID: 2191795739
+    locked: 0
   - name: Emoji
     uniqueID: 2967914419
     locked: 0
   - name: PirateShip
     uniqueID: 120645553
-    locked: 0
-  - name: Decorative
-    uniqueID: 2191795739
     locked: 0
   - name: SnowFlake
     uniqueID: 404427779

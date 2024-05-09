@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7102027729866415790}
   - component: {fileID: 3617558390162137735}
   - component: {fileID: 8542101625698441338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597626952974881247}
   - component: {fileID: 4199373937188752475}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayerID: -1327052877
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 156983194, guid: 9dee2fb533bb3154ab900220d15c5f1b, type: 3}
+  m_Sprite: {fileID: 876855402, guid: 9dee2fb533bb3154ab900220d15c5f1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 4768444506779859958}
   - component: {fileID: 4332034160279419846}
   - component: {fileID: 8907671461977619057}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,8 +527,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.15
-      minScalar: 0.05
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2930,7 +2930,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3087,7 +3087,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.15
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -3096,7 +3096,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -1
+      scalar: -0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5037,7 +5037,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 404427779
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5081,7 +5081,7 @@ GameObject:
   - component: {fileID: 5355075113710433645}
   - component: {fileID: 5378714572909965100}
   - component: {fileID: 8399715911676198114}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Snow Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5255,7 +5255,7 @@ GameObject:
   - component: {fileID: 6229781150176956618}
   - component: {fileID: 2327123679804578680}
   - component: {fileID: 4429494137081152953}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Emoji
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5399,7 +5399,7 @@ MonoBehaviour:
   - audioClips:
     - {fileID: 8300000, guid: 924892ba2b8d6734485f4e491dfc776c, type: 3}
   - audioClips:
-    - {fileID: 8300000, guid: 4c47a7757610a1542984a714d2777a12, type: 3}
+    - {fileID: 8300000, guid: 733efd60725d85749b99b708f06aebae, type: 3}
 --- !u!114 &2327123679804578680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5527,7 +5527,7 @@ GameObject:
   - component: {fileID: 7267921036886592269}
   - component: {fileID: 5462577975184329680}
   - component: {fileID: 7386707587656705525}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarrelSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5747,7 +5747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016104947159700426}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArrowParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5784,7 +5784,7 @@ GameObject:
   - component: {fileID: 6414372164518267338}
   - component: {fileID: 3636883488579012702}
   - component: {fileID: 9193201893264621142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Touch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6019,7 +6019,8 @@ GameObject:
   - component: {fileID: 7180179372183228858}
   - component: {fileID: 2279647267229677172}
   - component: {fileID: 645845007505356689}
-  m_Layer: 0
+  - component: {fileID: 3709045021629132417}
+  m_Layer: 2
   m_Name: Barrel
   m_TagString: Barrel
   m_Icon: {fileID: 0}
@@ -6175,6 +6176,7 @@ MonoBehaviour:
   barrelRig: {fileID: 1610591480183115621}
   barrelAnmt: {fileID: 7267921036886592269}
   barrelParentAnmt: {fileID: 8736934911706192607}
+  barrelCutsceneAnmt: {fileID: 3709045021629132417}
   barrelRend: {fileID: 2430813341518179276}
   emojiBehave: {fileID: 763801508154174345}
   barrelErrorTextAnmt: {fileID: 8542101625698441338}
@@ -6191,7 +6193,8 @@ MonoBehaviour:
   GroundCount: 0
   SwampCount: 0
   SnowCount: 0
-  GravityDirection: {x: 0, y: -1}
+  BottonTouch: 0
+  gravityDirection: {x: 0, y: -1}
   InSnowLock: 0
 --- !u!114 &7180179372183228858
 MonoBehaviour:
@@ -6323,6 +6326,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3709045021629132417
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634619514104101560}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 773da3ea393c87f4cb7b89e95f76f3bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7440037750297519263
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,7 +6361,7 @@ GameObject:
   - component: {fileID: 8675669022651422573}
   - component: {fileID: 1258369873282667382}
   - component: {fileID: 3002230209098984558}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarrelTriggerCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6561,7 +6585,7 @@ GameObject:
   - component: {fileID: 3725456404029906137}
   - component: {fileID: 8304378239357499154}
   - component: {fileID: 3868270988174329664}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StandErrorCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6663,7 +6687,10 @@ GameObject:
   - component: {fileID: 8736934911706192607}
   - component: {fileID: 8683682580762229434}
   - component: {fileID: 5321846569274418913}
-  m_Layer: 0
+  - component: {fileID: 5644068454448370883}
+  - component: {fileID: 7604184004694020103}
+  - component: {fileID: 1652754583948630427}
+  m_Layer: 2
   m_Name: BarrelParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6823,3 +6850,78 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &5644068454448370883
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938442346281932357}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &7604184004694020103
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938442346281932357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  m_Size: {x: 0.01, y: 0.8}
+  m_Direction: 0
+--- !u!114 &1652754583948630427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938442346281932357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2e563d100eae94fbe47a700f638882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelCon: {fileID: 4780690525314475911}

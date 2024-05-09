@@ -51,6 +51,7 @@ public class BarrelControl : MonoBehaviour
     private float gravityLerpT = 0.0f;
     private Vector2 pastVelocity = Vector2.zero;
     private Quaternion orgRotation = Quaternion.identity;
+    private Vector2 velocityMemory = Vector2.zero;
     private float mockAngularVelocity = 0.0f;
     public float MockAngularVelocity { get { return mockAngularVelocity; } }
 
@@ -559,6 +560,24 @@ public class BarrelControl : MonoBehaviour
     public void BarrelReset()
     {
         transform.rotation = Quaternion.identity;
+    }
+
+    public void RecordBarrelVelocity()
+    {
+        velocityMemory = BarrelRig.velocity;
+    }
+
+    public void WallStuckTranslate()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(BarrelRig.position + -velocityMemory.normalized * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance, velocityMemory, 2.0f * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (!hits[i].collider.isTrigger && hits[i].collider.CompareTag("Ground"))
+            {
+                BarrelRig.position += (2.0f * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance - hits[i].distance) * -velocityMemory.normalized;
+                return;
+            }
+        }
     }
 
     public void TeleportReset()

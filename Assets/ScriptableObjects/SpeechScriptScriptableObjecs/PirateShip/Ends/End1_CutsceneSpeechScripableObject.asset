@@ -42,7 +42,7 @@ MonoBehaviour:
     bubbleSpeeches:
     - position: {x: -0.8, y: -0.57}
       bubbleText: "\u90A3\u500B\u53DB\u5F92\u53C8\u56DE\u4F86\u4E86"
-    - position: {x: 0.5, y: -0.55}
+    - position: {x: -0.6, y: -0.53}
       bubbleText: "\u9019\u9EBC\u5FEB\u7684\u55CE?"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u5F88\u5FEB\u5414"
@@ -60,9 +60,9 @@ MonoBehaviour:
     bubbleSpeeches:
     - position: {x: -0.8, y: -0.57}
       bubbleText: "\u5582.. \u4F62\u53C8\u8FD4\u569F\u5587"
-    - position: {x: 0.5, y: -0.55}
+    - position: {x: -0.4, y: -0.53}
       bubbleText: "\u5481\u5FEB!?"
-    - position: {x: 0.5, y: -0.55}
+    - position: {x: -0.6, y: -0.56}
       bubbleText: "\u592A\u5FEB\u5587\u561B"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u7747\u569F\u4F60\u771F\u4FC2\u597D\u64C5\u9577\u788C\u8FD4\u569F\u558E"

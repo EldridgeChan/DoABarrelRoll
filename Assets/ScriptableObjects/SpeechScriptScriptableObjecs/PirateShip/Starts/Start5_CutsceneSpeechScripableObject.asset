@@ -46,11 +46,11 @@ MonoBehaviour:
       bubbleText: "\u8239\u54E1\u5011\u5C07\u8FCE\u4F86\u65B0\u7684\u540C\u4F34"
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u6211\u5011\u61C9\u8A72\u597D\u597D\u7684\u6176\u795D\u4E00\u4E0B"
-    - position: {x: 0.5, y: -0.55}
+    - position: {x: -0.5, y: -0.53}
       bubbleText: "(\u62CD\u624B)"
-    - position: {x: -0.6, y: -0.53}
-      bubbleText: "\u7B49\u7B49 \u4F60\u8981\u53BB\u54EA\u88CF??"
     - position: {x: 0.5, y: -0.55}
+      bubbleText: "\u7B49\u7B49 \u4F60\u8981\u53BB\u54EA\u88CF??"
+    - position: {x: 1.7, y: -0.7}
       bubbleText: "\u8ACB\u554F\u6211\u770B\u8D77\u4F86"
     - position: {x: 1.7, y: -0.7}
       bubbleText: "\u6709\u90A3\u9EBC\u60F3\u6210\u70BA\u8239\u54E1\u55CE?"

@@ -41,6 +41,19 @@ public class BarrelTriggerCollision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision.isTrigger && collision.CompareTag("Ground"))
+        {
+            float stuckDistance = Vector2.Distance(collision.ClosestPoint(barrelCon.transform.position), barrelCon.transform.position);
+            if (stuckDistance > GameManager.instance.GameScriptObj.BarrelRecordStuckDistance)
+            {
+                barrelCon.RecordBarrelVelocity();
+            }
+            else if (stuckDistance < GameManager.instance.GameScriptObj.BarrelStuckTranslateDistance)
+            {
+                barrelCon.WallStuckTranslate();
+            }
+        }
+
         if (barrelCon.InSnowLock && !collision.isTrigger && collision.CompareTag("Ground"))
         {
             GameManager.instance.GameCon.ActivateSnowParticle(collision.ClosestPoint(barrelCon.transform.position));
