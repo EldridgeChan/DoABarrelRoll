@@ -93,18 +93,18 @@ public class NPCBehaviour : MonoBehaviour
         emojiOrigin = (Vector2)transform.position + GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset;
         if (npcIndicator == LevelArea.Beach)
         {
-            transform.position = GameManager.instance.SaveMan.endCounter != 3 ? GameManager.instance.GameScriptObj.NPCOldManOriginalPosition : GameManager.instance.GameScriptObj.NPCOldManMovedPosition;
-            transform.position = new Vector2((GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1) * transform.position.x, transform.position.y);
-            emojiOrigin = (Vector2)transform.position + (GameManager.instance.SaveMan.endCounter == 3 ? Vector2.zero : GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset);
-            npcBarrelRend.sprite = GameManager.instance.SaveMan.endCounter == 3 ? GameManager.instance.GameScriptObj.NPCOldManRollSprite : GameManager.instance.GameScriptObj.NPCOldManStandSprite;
+            transform.position = GameManager.instance.SaveMan.ProgressSave.endCounter != 3 ? GameManager.instance.GameScriptObj.NPCOldManOriginalPosition : GameManager.instance.GameScriptObj.NPCOldManMovedPosition;
+            transform.position = new Vector2((GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1 : 1) * transform.position.x, transform.position.y);
+            emojiOrigin = (Vector2)transform.position + (GameManager.instance.SaveMan.ProgressSave.endCounter == 3 ? Vector2.zero : GameManager.instance.GameScriptObj.NPCEmojiOriginalPositionOffset);
+            npcBarrelRend.sprite = GameManager.instance.SaveMan.ProgressSave.endCounter == 3 ? GameManager.instance.GameScriptObj.NPCOldManRollSprite : GameManager.instance.GameScriptObj.NPCOldManStandSprite;
         }
         else if (npcIndicator == LevelArea.Jungle)
         {
-            gameObject.SetActive(GameManager.instance.SaveMan.endCounter < 3);
+            gameObject.SetActive(GameManager.instance.SaveMan.ProgressSave.endCounter < 3);
         }
         else if (npcIndicator == LevelArea.GlitchLand)
         {
-            gameObject.SetActive(GameManager.instance.SaveMan.endCounter < 2);
+            gameObject.SetActive(GameManager.instance.SaveMan.ProgressSave.endCounter < 2);
         }
     }
 
@@ -117,7 +117,9 @@ public class NPCBehaviour : MonoBehaviour
 
     private void FreeEmojiBehaviour()
     {
-        mockVelocity = mockVelocity + GameManager.instance.GameScriptObj.NPCCentripetalForce * Time.deltaTime * ((Vector2)((Vector3)emojiOrigin - NPCEmojiTrans.position)).normalized;
+        mockVelocity += GameManager.instance.GameScriptObj.NPCCentripetalForce
+                       * Time.deltaTime
+                       * ((Vector2)((Vector3)emojiOrigin - NPCEmojiTrans.position)).normalized;
         Vector2 localExpectedPos = (mockPosition + mockVelocity * Time.deltaTime) - emojiOrigin;
         mockPosition = (localExpectedPos.magnitude > GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset ? GameManager.instance.GameScriptObj.NPCEmojiMaxPositionOffset * localExpectedPos.normalized : localExpectedPos) + emojiOrigin;
         NPCEmojiTrans.position = mockPosition;
@@ -136,7 +138,7 @@ public class NPCBehaviour : MonoBehaviour
 
         if (talkCounter <= 0)
         {
-            if (devilAnmt && npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter == 1)
+            if (devilAnmt && npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.ProgressSave.endCounter == 1)
             {
                 //animation fade away
                 if (SteamManager.Initialized)
@@ -147,32 +149,32 @@ public class NPCBehaviour : MonoBehaviour
                 isTalking = true;
                 return;
             }
-            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.endCounter == 4 && SteamManager.Initialized)
+            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.ProgressSave.endCounter == 4 && SteamManager.Initialized)
             {
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDOLD + "");
             }
-            if (npcIndicator == LevelArea.Jungle && GameManager.instance.SaveMan.endCounter == 2 && SteamManager.Initialized)
+            if (npcIndicator == LevelArea.Jungle && GameManager.instance.SaveMan.ProgressSave.endCounter == 2 && SteamManager.Initialized)
             {
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_ENDCLOWN + "");
             }
 
-            GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter, (int)firstEncounterSpeech, (int)firstIdleSpeech - 1), transform, false);
+            GameManager.instance.GameCon.StartCutScene((SpeechScript)Mathf.Clamp((int)firstEncounterSpeech + GameManager.instance.SaveMan.ProgressSave.endCounter, (int)firstEncounterSpeech, (int)firstIdleSpeech - 1), transform, false);
             talkCounter++;
         }
         else if (idleTimer >= GameManager.instance.GameScriptObj.NPCSpeakIdleTime)
         {
-            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.endCounter < 3 || npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.endCounter < 1)
+            if (npcIndicator == LevelArea.Beach && GameManager.instance.SaveMan.ProgressSave.endCounter < 3 || npcIndicator == LevelArea.GlitchLand && GameManager.instance.SaveMan.ProgressSave.endCounter < 1)
             {
                 //Stand Lock
                 GameManager.instance.GameCon.EndingCutSceneStand();
             }
 
-            bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter >= (int)newEncounterSpeech;
+            bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.ProgressSave.endCounter >= (int)newEncounterSpeech;
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Random.Range((int)(isNew ? newIdleSpeech : firstIdleSpeech), (int)(isNew ? firstTauntSpeech : newIdleSpeech)), transform, false);
         }
         else if (GameManager.instance.GameCon.barrelHighestY - transform.position.y > GameManager.instance.GameScriptObj.NPCTauntHightThershold)
         {
-            bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.endCounter >= (int)newEncounterSpeech;
+            bool isNew = (int)firstEncounterSpeech + GameManager.instance.SaveMan.ProgressSave.endCounter >= (int)newEncounterSpeech;
             GameManager.instance.GameCon.StartCutScene((SpeechScript)Random.Range((int)(isNew ? newTauntSpeech : firstTauntSpeech), (int)(isNew ? npcEndSpeech : newTauntSpeech)), transform, false);
         }
     }
@@ -185,7 +187,7 @@ public class NPCBehaviour : MonoBehaviour
         mockVelocity = Vector2.zero;
     }
 
-    public void resetNPC()
+    public void ResetNPC()
     {
         talkCounter = 0;
         NPCsCheckInit();

@@ -75,7 +75,7 @@ public class TextBubbleBehaviour : MonoBehaviour
         bubbleImg.enabled = true;
         CancelInvoke();
         textIndex++;
-        if (textIndex >= speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches.Length)
+        if (textIndex >= speechScript.AllSpeech[(int)GameManager.instance.SaveMan.SettingSave.selectedLanguage].bubbleSpeeches.Length)
         {
             ExitSpeechBubble();
             if (speechScript == GameManager.instance.SpeechScripObj[(int)SpeechScript.Start5])
@@ -117,8 +117,8 @@ public class TextBubbleBehaviour : MonoBehaviour
     public void ResetBubbleSpeech()
     {
         charIndex = 0;
-        bubbleTrans.localPosition = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].position;
-        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.TrimEnd();
+        bubbleTrans.localPosition = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.SettingSave.selectedLanguage].bubbleSpeeches[textIndex].position;
+        currFullText = speechScript.AllSpeech[(int)GameManager.instance.SaveMan.SettingSave.selectedLanguage].bubbleSpeeches[textIndex].bubbleText.TrimEnd();
         SetBubbleSize();
         bubbleImg.sprite = isShip ? GameManager.instance.GameScriptObj.ShipNormalBubbleSprite : GameManager.instance.GameScriptObj.OldManNormalBubbleSprite;
     }

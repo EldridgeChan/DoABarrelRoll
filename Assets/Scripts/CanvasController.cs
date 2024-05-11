@@ -24,7 +24,7 @@ public class CanvasController : MonoBehaviour
         GameManager.instance.UIMan.CanCon = this;
         if (continueButtonGameObj)
         {
-            continueButtonGameObj.SetActive(GameManager.instance.SaveMan.playerSaveArea != LevelArea.MainMenu);
+            continueButtonGameObj.SetActive(GameManager.instance.SaveMan.ProgressSave.playerSaveArea != LevelArea.MainMenu);
         }
     }
 

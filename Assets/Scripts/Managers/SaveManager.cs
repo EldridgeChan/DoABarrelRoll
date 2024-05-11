@@ -1,60 +1,129 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
+    private string dirPath = "";
+    public string DirPath { 
+        get
+        {
+            if (dirPath.Length <= 0)
+            {
+                dirPath = Application.persistentDataPath;
+            }
+            return dirPath;
+        } 
+    }
+
     //Setting Fields
-    public int windowSizeIndex = 3;
-    public FullScreenMode screenMode = FullScreenMode.Windowed;
-    public Language selectedLanguage = Language.English;
-    public float jumpSensibility = 0.25f;
-    public float rollSensibility = 1.0f;
-    public float masterVolume = 1.0f;
-    public float musicVolume = 1.0f;
-    public bool mirroredTilemap = false;
-    public bool showJumpGuide = false;
-    public bool skipEnding = false;
+    private SettingSavefile settingSave;
+    public SettingSavefile SettingSave { get { return settingSave; } }
 
     //Game Save Fields
-    public GameVersion gameVersion = GameVersion.None;
-    public Vector2 playerSavePosition = Vector2.zero;
-    public LevelArea playerSaveArea = LevelArea.MainMenu;
-    public bool[] playerSaveAreaActive = new bool[4] {false, false, false, false};
-    public float playerSaveTimer = 0.0f;
-    public int endCounter = 0;
-    public bool watchedEnding = false;
+    private ProgressSavefile progressSave;
+    public ProgressSavefile ProgressSave { get { return progressSave; } }
 
+    public class SettingSavefile 
+    {
+        public int windowSizeIndex = 3;
+        public FullScreenMode screenMode = FullScreenMode.Windowed;
+        public Language selectedLanguage = Language.English;
+        public float jumpSensibility = 0.25f;
+        public float rollSensibility = 1.0f;
+        public float masterVolume = 0.5f;
+        public float musicVolume = 1.0f;
+        public bool mirroredTilemap = false;
+        public bool showJumpGuide = true;
+        public bool skipEnding = false;
+    }
 
+    public class ProgressSavefile
+    {
+        public ProgressSavefile(GameVersion gameVersion)
+        {
+            this.gameVersion = gameVersion;
+        }
+
+        public GameVersion gameVersion = GameVersion.None;
+        public Vector2 playerSavePosition = Vector2.zero;
+        public LevelArea playerSaveArea = LevelArea.MainMenu;
+        public bool[] playerSaveAreaActive = new bool[4] { false, false, false, false };
+        public float playerSaveTimer = 0.0f;
+        public int endCounter = 0;
+        public bool watchedEnding = false;
+
+        public void ResetProgress()
+        {
+            playerSavePosition = Vector2.zero;
+            playerSaveArea = LevelArea.MainMenu;
+            playerSaveAreaActive = new bool[4] { false, false, false, false };
+            playerSaveTimer = 0.0f;
+        }
+
+        public void UpdateProgress(Vector2 pos, LevelArea area, bool[] activeAreas, float timer)
+        {
+            playerSavePosition = pos;
+            playerSaveArea = area;
+            playerSaveAreaActive = activeAreas;
+            playerSaveTimer = timer;
+        }
+
+        public void FinishGame()
+        {
+            endCounter++;
+            ResetProgress();
+        }
+
+        public void ResetEndCounter()
+        {
+            endCounter = 0;
+        }
+
+        public void TrueEnding()
+        {
+            watchedEnding = true;
+        }
+    }
 
     public void SaveSetting()
     {
-        PlayerPrefs.SetInt(nameof(windowSizeIndex), windowSizeIndex);
-        PlayerPrefs.SetInt(nameof(screenMode), (int)screenMode);
-        PlayerPrefs.SetInt(nameof(selectedLanguage), (int)selectedLanguage);
-        PlayerPrefs.SetFloat(nameof(jumpSensibility), jumpSensibility);
-        PlayerPrefs.SetFloat(nameof(rollSensibility), rollSensibility);
-        PlayerPrefs.SetFloat(nameof(masterVolume), masterVolume);
-        PlayerPrefs.SetFloat(nameof(musicVolume), musicVolume);
-        PlayerPrefs.SetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0);
-        PlayerPrefs.SetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0);
-        PlayerPrefs.SetInt(nameof(skipEnding), skipEnding ? 1 : 0);
-        PlayerPrefs.Save();
+        string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.SettingFileName);
+
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+            string dataToStore = JsonUtility.ToJson(settingSave);
+            using FileStream stream = new (filePath, FileMode.Create);
+            using StreamWriter writer = new (stream);
+            writer.Write(dataToStore);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("ERROR occured when trying to save setting to file: " + filePath + "\n" + ex);
+        }
     }
 
     public void SavePlayerProgress()
     {
-        gameVersion = (GameVersion)GameVersionConverter();
-        PlayerPrefs.SetInt(nameof(gameVersion), (int)gameVersion);
-        PlayerPrefs.SetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x);
-        PlayerPrefs.SetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y);
-        PlayerPrefs.SetInt(nameof(playerSaveArea), (int)playerSaveArea);
-        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "0", playerSaveAreaActive[0] ? 1 : -1);
-        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "1", playerSaveAreaActive[1] ? 1 : -1);
-        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "2", playerSaveAreaActive[2] ? 1 : -1);
-        PlayerPrefs.SetInt(nameof(playerSaveAreaActive) + "3", playerSaveAreaActive[3] ? 1 : -1);
-        PlayerPrefs.SetFloat(nameof(playerSaveTimer), playerSaveTimer);
-        PlayerPrefs.Save();
+        ProgressSave.gameVersion = (GameVersion)GameVersionConverter();
+
+        string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.ProgressFileName);
+
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+            string dataToStore = JsonUtility.ToJson(progressSave);
+            using FileStream stream = new (filePath, FileMode.Create);
+            using StreamWriter writer = new (stream);
+            writer.Write(dataToStore);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("ERROR occured when trying to save setting to file: " + filePath + "\n" + ex);
+        }
     }
 
     private int GameVersionConverter()
@@ -77,74 +146,89 @@ public class SaveManager : MonoBehaviour
 
     public void LoadSetting()
     {
-        windowSizeIndex = PlayerPrefs.GetInt(nameof(windowSizeIndex), windowSizeIndex);
-        screenMode = (FullScreenMode)PlayerPrefs.GetInt(nameof(screenMode), (int)screenMode);
-        selectedLanguage = (Language)PlayerPrefs.GetInt(nameof(selectedLanguage), (int)selectedLanguage);
-        jumpSensibility = PlayerPrefs.GetFloat(nameof(jumpSensibility), jumpSensibility);
-        rollSensibility = PlayerPrefs.GetFloat(nameof(rollSensibility), rollSensibility);
-        masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), masterVolume);
-        musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), musicVolume);
-        mirroredTilemap = PlayerPrefs.GetInt(nameof(mirroredTilemap), mirroredTilemap ? 1 : 0) > 0;
-        showJumpGuide = PlayerPrefs.GetInt(nameof(showJumpGuide), showJumpGuide ? 1 : 0) > 0;
-        endCounter = PlayerPrefs.GetInt(nameof(endCounter), endCounter);
-        skipEnding = PlayerPrefs.GetInt(nameof(skipEnding), skipEnding ? 1 : 0) > 0;
-        watchedEnding = PlayerPrefs.GetInt(nameof(watchedEnding), watchedEnding ? 1 : 0) > 0;
+        string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.SettingFileName);
+
+        if (File.Exists(filePath))
+        {
+            try
+            {
+                string dataToLoad = "";
+                using (FileStream stream = new(filePath, FileMode.Open))
+                {
+                    using StreamReader reader = new(stream);
+                    dataToLoad = reader.ReadToEnd();
+                }
+                settingSave = JsonUtility.FromJson<SettingSavefile>(dataToLoad);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("ERROR occured when trying to load Setting data from file: " + filePath + "\n" + ex);
+            }
+        }
+        else
+        {
+            settingSave = new SettingSavefile();
+        }
     }
 
     public void LoadPlayerProgress()
     {
-        if (GameVersionConverter() < 1) { return; }
-        gameVersion = (GameVersion)PlayerPrefs.GetInt(nameof(gameVersion), -1);
-        if ((int)gameVersion < 1) { return; }
-        playerSavePosition = new Vector2(PlayerPrefs.GetFloat(nameof(playerSavePosition) + "X", playerSavePosition.x), PlayerPrefs.GetFloat(nameof(playerSavePosition) + "Y", playerSavePosition.y));
-        playerSaveArea = (LevelArea)PlayerPrefs.GetInt(nameof(playerSaveArea), (int)playerSaveArea);
-        playerSaveAreaActive[0] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "0", playerSaveAreaActive[0] ? 1 : -1) > 0;
-        playerSaveAreaActive[1] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "1", playerSaveAreaActive[1] ? 1 : -1) > 0;
-        playerSaveAreaActive[2] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "2", playerSaveAreaActive[2] ? 1 : -1) > 0;
-        playerSaveAreaActive[3] = PlayerPrefs.GetInt(nameof(playerSaveAreaActive) + "3", playerSaveAreaActive[3] ? 1 : -1) > 0;
-        playerSaveTimer = PlayerPrefs.GetFloat(nameof(playerSaveTimer), playerSaveTimer);
+        string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.ProgressFileName);
+
+        if (File.Exists(filePath))
+        {
+            try
+            {
+                string dataToLoad = "";
+                using (FileStream stream = new(filePath, FileMode.Open))
+                {
+                    using StreamReader reader = new(stream);
+                    dataToLoad = reader.ReadToEnd();
+                }
+                progressSave = JsonUtility.FromJson<ProgressSavefile>(dataToLoad);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("ERROR occured when trying to load Setting data from file: " + filePath + "\n" + ex);
+            }
+        }
+        else
+        {
+            progressSave = new ProgressSavefile((GameVersion)GameVersionConverter());
+        }
     }
 
     public void ResetPlayerProgress()
     {
-        gameVersion = GameVersion.None;
-        playerSavePosition = Vector2.zero;
-        playerSaveArea = LevelArea.MainMenu;
-        playerSaveAreaActive = new bool[4] { false, false, false, false };
-        playerSaveTimer = 0.0f;
+        progressSave.ResetProgress();
     }
 
     public void TrueEnding()
     {
-        if (watchedEnding) { return; }
+        if (ProgressSave.watchedEnding) { return; }
         GameManager.instance.UIMan.ActivateSkipEndToggle();
-        watchedEnding = true;
-        skipEnding = true;
-        PlayerPrefs.SetInt(nameof(watchedEnding), watchedEnding ? 1 : 0);
-        PlayerPrefs.SetInt(nameof(skipEnding), skipEnding ? 1 : 0);
-        PlayerPrefs.Save();
+        ProgressSave.TrueEnding();
+        SettingSave.skipEnding = true;
+        SavePlayerProgress();
+        SaveSetting();
     }
 
     public void FinishGame()
     {
-        endCounter++;
-        PlayerPrefs.SetInt(nameof(endCounter), endCounter);
-        ResetPlayerProgress();
+        progressSave.FinishGame();
         SavePlayerProgress();
     }
 
     public void ResetEndCounter()
     {
-        endCounter = 0;
-        PlayerPrefs.SetInt(nameof(endCounter), endCounter);
-        PlayerPrefs.Save();
+        progressSave.ResetEndCounter();
+        SavePlayerProgress();
     }
 
     public void InitFromSave()
     {
-        Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[windowSizeIndex].y, screenMode);
-        //set language
-        AudioListener.volume = masterVolume;
-        GameManager.instance.AudioMan.SetBGMVolume(musicVolume);
+        Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[SettingSave.windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[SettingSave.windowSizeIndex].y, SettingSave.screenMode);
+        AudioListener.volume = SettingSave.masterVolume;
+        GameManager.instance.AudioMan.SetBGMVolume(SettingSave.musicVolume);
     }
 }

@@ -42,7 +42,7 @@ public class EmojiBehaviour : MonoBehaviour
         {
             Vector2 emojiStandOrigin = barrelRig.position + Vector2.up * GameManager.instance.GameScriptObj.BarrelStandYOffset;
             Vector2 mouseVector = GameManager.instance.InputMan.MouseWorldPos() - emojiStandOrigin;
-            transform.position = Vector2.Lerp(emojiStandOrigin, emojiStandOrigin + mouseVector.normalized * GameManager.instance.GameScriptObj.BarrelEmojiMaxOffsetDistance, Mathf.Clamp(mouseVector.magnitude, 0.0f, (1.0f / GameManager.instance.SaveMan.jumpSensibility)) / (1.0f / GameManager.instance.SaveMan.jumpSensibility));
+            transform.position = Vector2.Lerp(emojiStandOrigin, emojiStandOrigin + mouseVector.normalized * GameManager.instance.GameScriptObj.BarrelEmojiMaxOffsetDistance, Mathf.Clamp(mouseVector.magnitude, 0.0f, (1.0f / GameManager.instance.SaveMan.SettingSave.jumpSensibility)) / (1.0f / GameManager.instance.SaveMan.SettingSave.jumpSensibility));
         }
     }
 

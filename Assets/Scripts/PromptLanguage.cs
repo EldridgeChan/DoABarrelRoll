@@ -30,14 +30,14 @@ public class PromptLanguage : MonoBehaviour
 
     public void SetLanguageText()
     {
-        promptTxt.text = languageTexts[(int)GameManager.instance.SaveMan.selectedLanguage];
-        if (GameManager.instance.SaveMan.selectedLanguage == Language.English)
+        promptTxt.text = languageTexts[(int)GameManager.instance.SaveMan.SettingSave.selectedLanguage];
+        if (GameManager.instance.SaveMan.SettingSave.selectedLanguage == Language.English)
         {
             promptTxt.font = isTitleFont ? GameManager.instance.GameScriptObj.TitleENFont : GameManager.instance.GameScriptObj.LanguageFonts[0];
         }
         else
         {
-            promptTxt.font = GameManager.instance.GameScriptObj.LanguageFonts[(int)GameManager.instance.SaveMan.selectedLanguage];
+            promptTxt.font = GameManager.instance.GameScriptObj.LanguageFonts[(int)GameManager.instance.SaveMan.SettingSave.selectedLanguage];
         }
     }
 

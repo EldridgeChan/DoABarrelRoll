@@ -19,7 +19,7 @@ public class BarrelCutSceneBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         lerpT = Mathf.Clamp01(lerpT + Time.fixedDeltaTime / GameManager.instance.GameScriptObj.BarrelEndLerpAngularVelocityTime);
-        barrelRig.angularVelocity = Mathf.Lerp(oriAngularVelocity, (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelEndTargetAngularVelocity, lerpT);
+        barrelRig.angularVelocity = Mathf.Lerp(oriAngularVelocity, (GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelEndTargetAngularVelocity, lerpT);
 
         if (CheckBarrelEndPosition())
         {
@@ -32,7 +32,7 @@ public class BarrelCutSceneBehaviour : MonoBehaviour
 
     private bool CheckBarrelEndPosition()
     {
-        if (GameManager.instance.SaveMan.mirroredTilemap)
+        if (GameManager.instance.SaveMan.SettingSave.mirroredTilemap)
         {
             return transform.position.x <= GameManager.instance.GameCon.EndPirateShip.transform.position.x;
         }

@@ -113,10 +113,10 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.GameCon = this;
-        MirrorWorld(GameManager.instance.SaveMan.mirroredTilemap);
-        DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
+        MirrorWorld(GameManager.instance.SaveMan.SettingSave.mirroredTilemap);
+        DisplayGuildingArrow(GameManager.instance.SaveMan.SettingSave.showJumpGuide);
         backgroundAnmt.speed = 1.0f / GameManager.instance.GameScriptObj.BackgroundTransitionPeriod;
-        if (GameManager.instance.SaveMan.playerSaveArea == LevelArea.MainMenu)
+        if (GameManager.instance.SaveMan.ProgressSave.playerSaveArea == LevelArea.MainMenu)
         {
             StartStartGameCutScene();
         }
@@ -202,14 +202,14 @@ public class GameController : MonoBehaviour
     {
         if (isControlLocked) { return; }
         barrelControl.BarrelRoll(preDir, nowDir);
-        barrelJump.SetArrowRotationAndSscale(nowDir / GameManager.instance.SaveMan.jumpSensibility);
+        barrelJump.SetArrowRotationAndSscale(nowDir / GameManager.instance.SaveMan.SettingSave.jumpSensibility);
     }
 
     public void BarrelJumpGamePad(Vector2 dir)
     {
         if (isControlLocked) { return; }
-        barrelControl.BarrelJump(dir / GameManager.instance.SaveMan.jumpSensibility);
-        barrelJump.SetArrowRotationAndSscale(dir / GameManager.instance.SaveMan.jumpSensibility);
+        barrelControl.BarrelJump(dir / GameManager.instance.SaveMan.SettingSave.jumpSensibility);
+        barrelJump.SetArrowRotationAndSscale(dir / GameManager.instance.SaveMan.SettingSave.jumpSensibility);
     }
 
     public Vector3 GetBarrelPosition()
@@ -306,9 +306,9 @@ public class GameController : MonoBehaviour
 
     private void StartStartGameCutScene()
     {
-        if (GameManager.instance.SaveMan.endCounter >= 5)
+        if (GameManager.instance.SaveMan.ProgressSave.endCounter >= 5)
         {
-            if (GameManager.instance.SaveMan.skipEnding)
+            if (GameManager.instance.SaveMan.SettingSave.skipEnding)
             {
                 GameManager.instance.SaveMan.ResetEndCounter();
             }
@@ -316,12 +316,12 @@ public class GameController : MonoBehaviour
             {
                 // --> No Fuck Given Animation
                 StartPirateShip.disableCollider();
-                barrelControl.BarrelCutsceneAnmt.SetInteger("Direction", GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1);
+                barrelControl.BarrelCutsceneAnmt.SetInteger("Direction", GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1 : 1);
                 barrelControl.BarrelCutsceneAnmt.enabled = true;
             }
         }
 
-        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
+        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.Start0 + GameManager.instance.SaveMan.ProgressSave.endCounter, (int)SpeechScript.Start0, (int)SpeechScript.Start5), startPirateShip.transform);
     }
 
     public void EndLevelCutScene()
@@ -330,7 +330,7 @@ public class GameController : MonoBehaviour
         barrelControl.gravityDirection = Vector2.down;
         isControlLocked = true;
         GameManager.instance.UIMan.CanCon.SetEndTimer(gameTimer);
-        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.End0 + GameManager.instance.SaveMan.endCounter, (int)SpeechScript.End0, (int)SpeechScript.End4), endPirateShip.transform);
+        StartCutScene((SpeechScript)Mathf.Clamp((int)SpeechScript.End0 + GameManager.instance.SaveMan.ProgressSave.endCounter, (int)SpeechScript.End0, (int)SpeechScript.End4), endPirateShip.transform);
     }
 
     public void SkipSpeech()
@@ -367,7 +367,7 @@ public class GameController : MonoBehaviour
         }
         else if (currCutScene < SpeechScript.Old0)
         {
-            if (GameManager.instance.SaveMan.endCounter == 1 && SteamManager.Initialized)
+            if (GameManager.instance.SaveMan.ProgressSave.endCounter == 1 && SteamManager.Initialized)
             {
                 SteamManager.UnlockAchievement(AchievementType.ACHIEVEMENT_FIRSTFINISH + "");
             }
@@ -409,7 +409,7 @@ public class GameController : MonoBehaviour
 
         BarrelCameraState(false, CameraState.CutScene);
         kickAdoScr.Play();
-        barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
+        barrelControl.BarrelRig.AddForce((GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.BarrelKickForce * Vector2.right, ForceMode2D.Impulse);
     }
 
     public void StartNewGame()
@@ -475,7 +475,7 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < NPCBehaves.Length; i++)
         {
-            NPCBehaves[i].resetNPC();
+            NPCBehaves[i].ResetNPC();
         }
     }
 
@@ -627,24 +627,21 @@ public class GameController : MonoBehaviour
     //Player Progress
     public void SavingPlayerProgress()
     {
-        GameManager.instance.SaveMan.playerSavePosition = new Vector2(barrelControl.transform.position.x * (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f), barrelControl.transform.position.y);
-        GameManager.instance.SaveMan.playerSaveArea = CurrentArea;
-        GameManager.instance.SaveMan.playerSaveAreaActive = new bool[4] { TilemapParents[0].activeSelf, TilemapParents[1].activeSelf, TilemapParents[2].activeSelf, TilemapParents[3].activeSelf };
-        GameManager.instance.SaveMan.playerSaveTimer = gameTimer;
+        GameManager.instance.SaveMan.ProgressSave.UpdateProgress(new Vector2(barrelControl.transform.position.x * (GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1.0f : 1.0f), barrelControl.transform.position.y), CurrentArea, new bool[4] { TilemapParents[0].activeSelf, TilemapParents[1].activeSelf, TilemapParents[2].activeSelf, TilemapParents[3].activeSelf }, gameTimer);
     }
 
     public void LoadingPlayerProgress()
     {
-        barrelControl.transform.position = new Vector2(GameManager.instance.SaveMan.playerSavePosition.x * (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f), GameManager.instance.SaveMan.playerSavePosition.y);
-        CurrentArea = GameManager.instance.SaveMan.playerSaveArea;
+        barrelControl.transform.position = new Vector2(GameManager.instance.SaveMan.ProgressSave.playerSavePosition.x * (GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1.0f : 1.0f), GameManager.instance.SaveMan.ProgressSave.playerSavePosition.y);
+        CurrentArea = GameManager.instance.SaveMan.ProgressSave.playerSaveArea;
         GameManager.instance.AudioMan.BGMTransition(GameManager.instance.GameScriptObj.MusicClips[(int)CurrentArea]);
         BackgroundTransition((int)CurrentArea);
         LevelSoundTransition(CurrentArea);
-        TilemapParents[0].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[0]);
-        TilemapParents[1].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[1]);
-        TilemapParents[2].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[2]);
-        TilemapParents[3].SetActive(GameManager.instance.SaveMan.playerSaveAreaActive[3]);
-        gameTimer = GameManager.instance.SaveMan.playerSaveTimer;
+        TilemapParents[0].SetActive(GameManager.instance.SaveMan.ProgressSave.playerSaveAreaActive[0]);
+        TilemapParents[1].SetActive(GameManager.instance.SaveMan.ProgressSave.playerSaveAreaActive[1]);
+        TilemapParents[2].SetActive(GameManager.instance.SaveMan.ProgressSave.playerSaveAreaActive[2]);
+        TilemapParents[3].SetActive(GameManager.instance.SaveMan.ProgressSave.playerSaveAreaActive[3]);
+        gameTimer = GameManager.instance.SaveMan.ProgressSave.playerSaveTimer;
     }
 
     //Setting

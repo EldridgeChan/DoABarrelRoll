@@ -78,41 +78,41 @@ public class UIManager : MonoBehaviour
     public void SetWindowMode(int index)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.screenMode = (FullScreenMode)index;  
-        SetWindowResolution(GameManager.instance.SaveMan.windowSizeIndex);
+        GameManager.instance.SaveMan.SettingSave.screenMode = (FullScreenMode)index;  
+        SetWindowResolution(GameManager.instance.SaveMan.SettingSave.windowSizeIndex);
     }
 
     public void SetWindowResolution(int index)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.windowSizeIndex = index;
-        Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.screenMode);
+        GameManager.instance.SaveMan.SettingSave.windowSizeIndex = index;
+        Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[index].x, (int)GameManager.instance.GameScriptObj.WindowResolution[index].y, GameManager.instance.SaveMan.SettingSave.screenMode);
     }
 
     public void SetLanguage(int index)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.selectedLanguage = (Language)index;
+        GameManager.instance.SaveMan.SettingSave.selectedLanguage = (Language)index;
         GameManager.instance.UpdateLangListeners();
     }
     public void SetJumpSensibility(float sensibility)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.jumpSensibility = sensibility;
+        GameManager.instance.SaveMan.SettingSave.jumpSensibility = sensibility;
         jumpSensibilityTxt.text = sensibility.ToString("0.00");
     }
 
     public void SetRollSensibility(float sensibility)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.rollSensibility = sensibility;
+        GameManager.instance.SaveMan.SettingSave.rollSensibility = sensibility;
         rollSensibilityTxt.text = sensibility.ToString("0.00");
     }
 
     public void SetMasterVolume(float volume)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.masterVolume = volume;
+        GameManager.instance.SaveMan.SettingSave.masterVolume = volume;
         AudioListener.volume = volume;
         masterVolumeTxt.text = "" + (int)(volume * 100.0f);
     }
@@ -120,7 +120,7 @@ public class UIManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.musicVolume = volume;
+        GameManager.instance.SaveMan.SettingSave.musicVolume = volume;
         GameManager.instance.AudioMan.SetBGMVolume(volume);
         musicVolumeTxt.text = "" + (int)(volume * 100.0f);
     }
@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
     public void OnFlipMapToggle(bool tf)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.mirroredTilemap = tf;
+        GameManager.instance.SaveMan.SettingSave.mirroredTilemap = tf;
     }
 
     public void SetSettingInteractable(bool tf)
@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour
     public void OnShowGuideToggle(bool tf)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.showJumpGuide = tf;
+        GameManager.instance.SaveMan.SettingSave.showJumpGuide = tf;
         if (GameManager.instance.GameCon)
         {
             GameManager.instance.GameCon.DisplayGuildingArrow(tf);
@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour
     public void OnSkipEndToggle(bool tf)
     {
         GameManager.instance.AudioMan.PlayClickSound();
-        GameManager.instance.SaveMan.skipEnding = tf;
+        GameManager.instance.SaveMan.SettingSave.skipEnding = tf;
     }
 
     public void ActivateSkipEndToggle()
@@ -161,20 +161,20 @@ public class UIManager : MonoBehaviour
 
     public void InitSettingOptions()
     {
-        windowModeDD.value = (int)GameManager.instance.SaveMan.screenMode;
-        resolutionDD.value = GameManager.instance.SaveMan.windowSizeIndex;
-        languageDD.value = (int)GameManager.instance.SaveMan.selectedLanguage;
-        jumpSensibilitySlid.value = GameManager.instance.SaveMan.jumpSensibility;
-        jumpSensibilityTxt.text = GameManager.instance.SaveMan.jumpSensibility.ToString("0.00");
-        rollSensibilitySlid.value = GameManager.instance.SaveMan.rollSensibility;
-        rollSensibilityTxt.text = GameManager.instance.SaveMan.rollSensibility.ToString("0.00");
-        masterVolumeSlid.value = GameManager.instance.SaveMan.masterVolume;
-        masterVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.masterVolume * 100.0f);
-        musicVolumeSlid.value = GameManager.instance.SaveMan.musicVolume;
-        musicVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.musicVolume * 100.0f);
-        flipMapTog.isOn = GameManager.instance.SaveMan.mirroredTilemap;
-        jumpGuideTog.isOn = GameManager.instance.SaveMan.showJumpGuide;
-        skipEndTog.isOn = GameManager.instance.SaveMan.skipEnding;
-        skipEndTogObj.SetActive(GameManager.instance.SaveMan.watchedEnding);
+        windowModeDD.value = (int)GameManager.instance.SaveMan.SettingSave.screenMode;
+        resolutionDD.value = GameManager.instance.SaveMan.SettingSave.windowSizeIndex;
+        languageDD.value = (int)GameManager.instance.SaveMan.SettingSave.selectedLanguage;
+        jumpSensibilitySlid.value = GameManager.instance.SaveMan.SettingSave.jumpSensibility;
+        jumpSensibilityTxt.text = GameManager.instance.SaveMan.SettingSave.jumpSensibility.ToString("0.00");
+        rollSensibilitySlid.value = GameManager.instance.SaveMan.SettingSave.rollSensibility;
+        rollSensibilityTxt.text = GameManager.instance.SaveMan.SettingSave.rollSensibility.ToString("0.00");
+        masterVolumeSlid.value = GameManager.instance.SaveMan.SettingSave.masterVolume;
+        masterVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.SettingSave.masterVolume * 100.0f);
+        musicVolumeSlid.value = GameManager.instance.SaveMan.SettingSave.musicVolume;
+        musicVolumeTxt.text = "" + (int)(GameManager.instance.SaveMan.SettingSave.musicVolume * 100.0f);
+        flipMapTog.isOn = GameManager.instance.SaveMan.SettingSave.mirroredTilemap;
+        jumpGuideTog.isOn = GameManager.instance.SaveMan.SettingSave.showJumpGuide;
+        skipEndTog.isOn = GameManager.instance.SaveMan.SettingSave.skipEnding;
+        skipEndTogObj.SetActive(GameManager.instance.SaveMan.ProgressSave.watchedEnding);
     }
 }

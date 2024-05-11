@@ -224,7 +224,7 @@ public class BarrelControl : MonoBehaviour
     private void WaterCurrent()
     {
         if (!inWaterFlow) { return; }
-        BarrelRig.velocity += (GameManager.instance.SaveMan.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.waterCurrentAcceleration * Time.fixedDeltaTime * Vector2.right;
+        BarrelRig.velocity += (GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1.0f : 1.0f) * GameManager.instance.GameScriptObj.waterCurrentAcceleration * Time.fixedDeltaTime * Vector2.right;
     }
 
     private void BarrelEmojiTypeUpdate()
@@ -296,11 +296,11 @@ public class BarrelControl : MonoBehaviour
         pastRotateDir = RotateDir(ToRoundAngle(preDir), ToRoundAngle(nowDir));
         if (!InSnowLock)
         {
-            barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * GameManager.instance.SaveMan.rollSensibility * Mathf.Deg2Rad * barrelRig.inertia);
+            barrelRig.AddTorque(pastRotateDir * magnitude * (BarrelRig.angularVelocity * pastRotateDir > 0.0f ? GameManager.instance.GameScriptObj.BarrelRollAcceleration : GameManager.instance.GameScriptObj.BarrelRollDeceleration) * GameManager.instance.SaveMan.SettingSave.rollSensibility * Mathf.Deg2Rad * barrelRig.inertia);
         }
         else
         {
-            mockAngularVelocity += pastRotateDir * magnitude * GameManager.instance.GameScriptObj.BarrelSnowMockAVMultiplier * GameManager.instance.SaveMan.rollSensibility;
+            mockAngularVelocity += pastRotateDir * magnitude * GameManager.instance.GameScriptObj.BarrelSnowMockAVMultiplier * GameManager.instance.SaveMan.SettingSave.rollSensibility;
         }
     }
 
@@ -370,7 +370,7 @@ public class BarrelControl : MonoBehaviour
 
     public float MousePosMagnitudeMultiplier(Vector2 dir)
     {
-        return Mathf.Clamp01(dir.magnitude * GameManager.instance.SaveMan.jumpSensibility);
+        return Mathf.Clamp01(dir.magnitude * GameManager.instance.SaveMan.SettingSave.jumpSensibility);
     }
 
     public void SetTouchedGround(bool tF)
@@ -465,7 +465,7 @@ public class BarrelControl : MonoBehaviour
         BarrelRig.angularVelocity = 0.0f;
         barrelAnmt.speed = 0.0f;
         GameManager.instance.GameCon.isControlLocked = false;
-        GameManager.instance.GameCon.DisplayGuildingArrow(GameManager.instance.SaveMan.showJumpGuide);
+        GameManager.instance.GameCon.DisplayGuildingArrow(GameManager.instance.SaveMan.SettingSave.showJumpGuide);
         GameManager.instance.GameCon.BarrelCameraState(false, CameraState.Menu);
         GameManager.instance.GameCon.SetSwampDecorationActive(true);
     }

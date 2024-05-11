@@ -33,6 +33,6 @@ public class BackgroundSpeed : MonoBehaviour
                 Debug.Log("ERROR: Unreconized layerNum. Did you forgot to set the layernum on " + gameObject.name + "?");
                 break;
         }
-        layerScrollAnmt.SetInteger("Dir", GameManager.instance.SaveMan.mirroredTilemap ? -1 : 1);
+        layerScrollAnmt.SetInteger("Dir", GameManager.instance.SaveMan.SettingSave.mirroredTilemap ? -1 : 1);
     }
 }

@@ -182,4 +182,8 @@ public class GameScriptableObject : ScriptableObject
     [Header("Language Setting")]
     public TMPro.TMP_FontAsset[] LanguageFonts;
     public TMPro.TMP_FontAsset TitleENFont;
+
+    [Header("Savefile Setting")]
+    public string SettingFileName = "SettingData.game";
+    public string ProgressFileName = "ProgressData.game";
 }
