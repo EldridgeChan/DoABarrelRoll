@@ -74,9 +74,10 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
 
         languageListeners = new List<PromptLanguage>();
-        saveMan.LoadSetting();
+        SaveMan.ConvertNewSave();
+        SaveMan.LoadSetting();
         SaveMan.LoadPlayerProgress();
-        saveMan.InitFromSave();
+        SaveMan.InitFromSave();
         uiMan.InitSettingOptions();
     }
 

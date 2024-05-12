@@ -146,6 +146,7 @@ public class SaveManager : MonoBehaviour
 
     public void LoadSetting()
     {
+        if (settingSave != null) { return; }
         string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.SettingFileName);
 
         if (File.Exists(filePath))
@@ -173,6 +174,7 @@ public class SaveManager : MonoBehaviour
 
     public void LoadPlayerProgress()
     {
+        if (progressSave != null) { return; }
         string filePath = Path.Combine(DirPath, GameManager.instance.GameScriptObj.ProgressFileName);
 
         if (File.Exists(filePath))
@@ -230,5 +232,39 @@ public class SaveManager : MonoBehaviour
         Screen.SetResolution((int)GameManager.instance.GameScriptObj.WindowResolution[SettingSave.windowSizeIndex].x, (int)GameManager.instance.GameScriptObj.WindowResolution[SettingSave.windowSizeIndex].y, SettingSave.screenMode);
         AudioListener.volume = SettingSave.masterVolume;
         GameManager.instance.AudioMan.SetBGMVolume(SettingSave.musicVolume);
+    }
+
+    public void ConvertNewSave()
+    {
+        if (PlayerPrefs.HasKey("windowSizeIndex"))
+        {
+            settingSave = new SettingSavefile();
+            settingSave.windowSizeIndex = PlayerPrefs.GetInt("windowSizeIndex", 3);
+            settingSave.screenMode = (FullScreenMode)PlayerPrefs.GetInt("screenMode", (int)FullScreenMode.Windowed);
+            settingSave.selectedLanguage = (Language)PlayerPrefs.GetInt("selectedLanguage", (int)Language.English);
+            settingSave.jumpSensibility = PlayerPrefs.GetFloat("jumpSensibility", 0.25f);
+            settingSave.rollSensibility = PlayerPrefs.GetFloat("rollSensibility", 1.0f);
+            settingSave.masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.5f);
+            settingSave.musicVolume = PlayerPrefs.GetFloat("musicVolume", 1.0f);
+            settingSave.mirroredTilemap = PlayerPrefs.GetInt("mirroredTilemap", 0) > 0;
+            settingSave.showJumpGuide = PlayerPrefs.GetInt("showJumpGuide", 1) > 0;
+            settingSave.skipEnding = PlayerPrefs.GetInt("skipEnding", 0) > 0;
+            SaveSetting();
+        }
+        if (PlayerPrefs.HasKey("playerSaveArea") || PlayerPrefs.HasKey("endCounter") || PlayerPrefs.HasKey("watchedEnding"))
+        {
+            progressSave = new ProgressSavefile((GameVersion)GameVersionConverter());
+            ProgressSave.playerSavePosition = new Vector2(PlayerPrefs.GetFloat("playerSavePositionX", 0.0f), PlayerPrefs.GetFloat("playerSavePositionY", 0.0f));
+            ProgressSave.playerSaveArea = (LevelArea)PlayerPrefs.GetInt("playerSaveArea", (int)LevelArea.MainMenu);
+            ProgressSave.playerSaveAreaActive[0] = PlayerPrefs.GetInt("playerSaveAreaActive0", 0) > 0;
+            ProgressSave.playerSaveAreaActive[1] = PlayerPrefs.GetInt("playerSaveAreaActive1", 0) > 0;
+            ProgressSave.playerSaveAreaActive[2] = PlayerPrefs.GetInt("playerSaveAreaActive2", 0) > 0;
+            ProgressSave.playerSaveAreaActive[3] = PlayerPrefs.GetInt("playerSaveAreaActive3", 0) > 0;
+            ProgressSave.playerSaveTimer = PlayerPrefs.GetFloat("playerSaveTimer", 0.0f);
+            ProgressSave.endCounter = PlayerPrefs.GetInt("endCounter", 0);
+            ProgressSave.watchedEnding = PlayerPrefs.GetInt("watchedEnding", 0) > 0;
+            SavePlayerProgress();
+        }
+        PlayerPrefs.DeleteAll();
     }
 }
