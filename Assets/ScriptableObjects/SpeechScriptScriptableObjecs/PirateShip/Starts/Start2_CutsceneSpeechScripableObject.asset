@@ -69,4 +69,4 @@ MonoBehaviour:
     - position: {x: 0.5, y: -0.55}
       bubbleText: "\u76E1\u529B\u53BB\u53D6\u6085\u6211\u54CB"
     - position: {x: 0.5, y: -0.55}
-      bubbleText: "\u597D\u5FEB\u73ED0\u975A\u5C31\u6703\u63A5\u53D7\u4F60"
+      bubbleText: "\u597D\u5FEB\u73ED\U000210C1\u5C31\u6703\u63A5\u53D7\u4F60"
