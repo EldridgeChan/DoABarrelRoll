@@ -198,7 +198,15 @@ public class EmojiTypeController : MonoBehaviour
 
         emojiPlayer.StopRepeat();
 
-        int emojiIndex = Random.Range(0, 3);
+        int emojiIndex;
+        if (GameManager.instance.GameCon.CurrentArea == LevelArea.SnowMountain)
+        {
+            emojiIndex = 3;
+        }
+        else
+        {
+            emojiIndex = Random.Range(0, GameManager.instance.GameCon.CurrentArea < LevelArea.GlitchLand ? 3 : 4);
+        }
         switch (emojiIndex)
         {
             case 0:
@@ -209,6 +217,9 @@ public class EmojiTypeController : MonoBehaviour
                 break;
             case 2:
                 SetEmojiSprite(EmojiType.Huh);
+                break;
+            case 3:
+                SetEmojiSprite(EmojiType.Cold);
                 break;
             default:
                 Debug.Log("ERROR: Undefined Emoji Type For Normal");

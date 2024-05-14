@@ -26,14 +26,14 @@ MonoBehaviour:
   BarrelMaxXVelocity: 40
   BarrelMinYVelocity: -40
   BarrelFallAccerateTMaxTime: 0.5
-  BarrelFallAccerateMaxMultiplier: 2
+  BarrelFallAccerateMaxMultiplier: 1.9
   BarrelStuckRaycastDistance: 0.5
   BarrelRecordStuckDistance: 0.45
   BarrelStuckTranslateDistance: 0.1
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
   BarrelSwampMaxVeclocityMagnitude: 2
-  BarrelSnowVelocityDeceleration: 60
+  BarrelSnowVelocityDeceleration: 80
   BarrelInSnowLockCoolDown: 0.1
   BarrelSnowMockAVMultiplier: 1
   BarrelSnowMockAVAnmtSpeedMultiplier: 0.0001
@@ -188,3 +188,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd8039633a105b8429144ccc6a08aff5, type: 2}
   - {fileID: 11400000, guid: dd8039633a105b8429144ccc6a08aff5, type: 2}
   TitleENFont: {fileID: 11400000, guid: 9361bf6de9266974b897d50181174531, type: 2}
+  SettingFileName: SettingData.game
+  ProgressFileName: ProgressData.game

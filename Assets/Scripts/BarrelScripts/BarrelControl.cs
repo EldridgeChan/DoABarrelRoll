@@ -569,6 +569,8 @@ public class BarrelControl : MonoBehaviour
 
     public void WallStuckTranslate()
     {
+        //Reverse Velocity Raycast
+        if (velocityMemory.y > 0) { return; }
         RaycastHit2D[] hits = Physics2D.RaycastAll(BarrelRig.position + -velocityMemory.normalized * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance, velocityMemory, 2.0f * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance);
         for (int i = 0; i < hits.Length; i++)
         {
