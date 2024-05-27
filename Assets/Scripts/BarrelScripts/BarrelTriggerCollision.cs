@@ -7,6 +7,8 @@ public class BarrelTriggerCollision : MonoBehaviour
     [SerializeField]
     private BarrelControl barrelCon;
 
+    private int stuckCount = 0;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.isTrigger && collision.CompareTag("Ground"))
@@ -47,10 +49,15 @@ public class BarrelTriggerCollision : MonoBehaviour
             if (stuckDistance > GameManager.instance.GameScriptObj.BarrelRecordStuckDistance)
             {
                 barrelCon.RecordBarrelVelocity();
+                stuckCount = 0;
             }
             else if (stuckDistance < GameManager.instance.GameScriptObj.BarrelStuckTranslateDistance)
             {
-                barrelCon.WallStuckTranslate();
+                if (stuckCount > 0)
+                {
+                    barrelCon.WallStuckTranslate();
+                }
+                stuckCount++;
             }
         }
 

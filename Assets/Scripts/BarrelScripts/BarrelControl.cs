@@ -576,7 +576,7 @@ public class BarrelControl : MonoBehaviour
         {
             if (!hits[i].collider.isTrigger && hits[i].collider.CompareTag("Ground"))
             {
-                BarrelRig.position += (2.0f * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance - hits[i].distance) * -velocityMemory.normalized;
+                barrelRig.position += (2.0f * GameManager.instance.GameScriptObj.BarrelStuckRaycastDistance - hits[i].distance) * -velocityMemory.normalized;
                 return;
             }
         }

@@ -29,7 +29,7 @@ MonoBehaviour:
   BarrelFallAccerateMaxMultiplier: 1.9
   BarrelStuckRaycastDistance: 0.5
   BarrelRecordStuckDistance: 0.45
-  BarrelStuckTranslateDistance: 0.1
+  BarrelStuckTranslateDistance: 0.01
   BarrelSwampAVDeceleration: 600
   BarrelSwampMaxAngularVelocity: 250
   BarrelSwampMaxVeclocityMagnitude: 2

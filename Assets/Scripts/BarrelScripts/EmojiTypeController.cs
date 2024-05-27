@@ -198,15 +198,7 @@ public class EmojiTypeController : MonoBehaviour
 
         emojiPlayer.StopRepeat();
 
-        int emojiIndex;
-        if (GameManager.instance.GameCon.CurrentArea == LevelArea.SnowMountain)
-        {
-            emojiIndex = 3;
-        }
-        else
-        {
-            emojiIndex = Random.Range(0, GameManager.instance.GameCon.CurrentArea < LevelArea.GlitchLand ? 3 : 4);
-        }
+        int emojiIndex = Random.Range(0, GameManager.instance.GameCon.CurrentArea < LevelArea.SnowMountain ? 3 : 4);
         switch (emojiIndex)
         {
             case 0:
