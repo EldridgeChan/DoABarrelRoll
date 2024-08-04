@@ -40,7 +40,7 @@ MonoBehaviour:
   BarrelSnowMockAVRotationMultiplier: 0.1
   BarrelSnowMockAVDeleration: 500
   BarrelSnowAVTranferRate: 0.5
-  BarrelEmojiMaxOffsetDistance: 0.18
+  BarrelEmojiMaxOffsetDistance: 0.2
   BarrelEmojiInertiaEffectivnessAVThreshold: 3000
   BarrelEmojiInertiaMinEffectivness: 0.1
   EmojiTypes:
@@ -67,7 +67,7 @@ MonoBehaviour:
   BarrelEmojiCentripetalForce: 0.5
   BarrelEmojiMaxVelocity: 1
   BarrelEmojiCounterForceEffectiveness: 0.1
-  BarrelEmojiInertiaEffectiveness: 2
+  BarrelEmojiInertiaEffectiveness: 3
   BarrelEmojiGravity: 0.5
   BarrelEmojiCentrifugalMaxAV: 300
   BarrelEmojiMaxCentrifugalForce: 1
